@@ -5,9 +5,9 @@ import random
 from corpus_toolkit import corpus_tools as ct
 
 # FlexPy-specific classes
-from FlexPyUtil import get_single_child
-from RtDict import RtDict
-from Text import Text
+from flexpy.FlexPyUtil import get_single_child
+from flexpy.RtDict import RtDict
+from flexpy.Text import Text
 
 
 def get_elements_by_owner_guid(rt_dict, owner_guid):
