@@ -19,9 +19,9 @@ setup(
     url="https://github.com/Kuhron/flexpy",
     author="Wesley Kuhron Jones",
     author_email="wesleykuhronjones@gmail.com",
-    license="MIT",
+    license="GPLv3",
     classifiers=[
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
     ],
