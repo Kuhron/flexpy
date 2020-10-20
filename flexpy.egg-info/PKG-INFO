@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: flexpy
+Version: 0.0.0
+Summary: Python API for SIL FieldWorks Language Explorer (FLEx)
+Home-page: https://github.com/Kuhron/flexpy
+Author: Wesley Kuhron Jones
+Author-email: wesleykuhronjones@gmail.com
+License: MIT
+Description: # flexpy
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown

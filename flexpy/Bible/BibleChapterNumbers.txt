@@ -1,0 +1,27 @@
+Matthew,MAT,28
+Mark,MRK,16
+Luke,LUK,24
+John,JHN,21
+Acts,ACT,28
+Romans,ROM,16
+1 Corinthians,1CO,16
+2 Corinthians,2CO,13
+Galatians,GAL,6
+Ephesians,EPH,6
+Philippians,PHP,4
+Colossians,COL,4
+1 Thessalonians,1TH,5
+2 Thessalonians,2TH,3
+1 Timothy,1TI,6
+2 Timothy,2TI,4
+Titus,TIT,3
+Philemon,PHM,1
+Hebrews,HEB,13
+James,JAS,5
+1 Peter,1PE,5
+2 Peter,2PE,3
+1 John,1JN,5
+2 John,2JN,1
+3 John,3JN,1
+Jude,JUD,1
+Revelation,REV,22

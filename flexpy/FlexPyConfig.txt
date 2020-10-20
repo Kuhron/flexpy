@@ -1,0 +1,22 @@
+project_dir = /home/wesley/.local/share/fieldworks/Projects/
+# project_dir = /home/wesley/Desktop/Learning/Language & Linguistics/Languages/Kra-Dai/  # not using this anymore post-organization
+# project_dir = /home/wesley/Desktop/Learning/Language & Linguistics/Languages/Papuan/TNG/Madang/Rai Coast/  # not using this anymore post-organization
+# project_dir = /home/wesley/Desktop/Learning/Language & Linguistics/Languages/Papuan/TNG/Madang/Sogeram/  # not using this anymore post-organization
+
+# project_name = Acoma
+# project_name = Aisi Mabɨŋ
+# project_name = Aisi Magɨ
+# project_name = Bara
+# project_name = Bere
+project_name = Bongu
+# project_name = Gants
+# project_name = Isan
+# project_name = Kursav
+# project_name = Manat
+# project_name = Mand
+# project_name = Sa
+# project_name = Sirva
+# project_name = Soq
+# project_name = Yangulam
+# project_name = dnw-flex
+# project_name = test
