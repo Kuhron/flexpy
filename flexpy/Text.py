@@ -1,4 +1,4 @@
-from FlexPyUtil import get_single_child
+from flexpy.FlexPyUtil import get_single_child
 
 class Text:
     def __init__(self, guid, rt, rt_dict):
