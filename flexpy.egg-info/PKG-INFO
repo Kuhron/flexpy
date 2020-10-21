@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: flexpy
-Version: 0.0.0
+Version: 0.0.1
 Summary: Python API for SIL FieldWorks Language Explorer (FLEx)
 Home-page: https://github.com/Kuhron/flexpy
 Author: Wesley Kuhron Jones
