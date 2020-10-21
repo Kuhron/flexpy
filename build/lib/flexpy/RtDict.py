@@ -1,5 +1,7 @@
 from xml.etree import ElementTree as ET
 
+from flexpy.Text import Text
+
 
 class RtDict:
     def __init__(
@@ -61,7 +63,16 @@ class RtDict:
                 print("Warning: key {} is neither a class name nor a guid".format(index))
                 return None
 
-    def get_by_owner_guid(self, index):
-        return self.by_owner_guid.get(index, [])
+    def get_by_owner_guid(self, guid):
+        return self.by_owner_guid.get(guid, [])
+
+    def get_texts(self):
+        text_elements = self["Text"]
+        texts = []
+        for guid, rt in text_elements.items():
+            text = Text(guid, rt, self)
+            texts.append(text)
+        # print("there are {} texts with contents".format(sum(x.has_contents() for x in texts)))
+        return texts
 
 

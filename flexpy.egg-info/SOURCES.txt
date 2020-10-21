@@ -1,6 +1,8 @@
 MANIFEST.in
 README.md
 setup.py
+flexpy/Corpus.py
+flexpy/CorpusAnalysis.py
 flexpy/FixFlexText.py
 flexpy/FlexFlashcards.py
 flexpy/FlexPy.py
