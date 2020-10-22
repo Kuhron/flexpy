@@ -24,27 +24,39 @@ class RtDict:
     def from_root(root):
         # all <rt> elements in the XML
         # the dictionary is keyed by "class" attribute (e.g. "LexEntry") and then by FLEX's identifier for each object
-        rts = root.findall("rt")
+        all_children = list(root)
+        children_tags = set(x.tag for x in all_children)
+        assert children_tags == {"rt"}, "unhandled tag types in element tree: {}, expected only \"rt\"".format(sorted(children_tags))
+        rts = all_children
+        # rts = root.findall("rt")
+
         by_class_and_guid = {}
         by_guid = {}
         by_owner_guid = {}
+        all_rt_attrib_keys = set()
+        all_rt_classes = set()
         for rt in rts:
-            class_name = rt.attrib["class"]
+            all_rt_attrib_keys |= set(rt.attrib.keys())
+            class_name = rt.attrib["class"]  # rts should all have a class
+            all_rt_classes.add(class_name)
             if class_name not in by_class_and_guid:
                 by_class_and_guid[class_name] = {}
-            guid = rt.attrib["guid"]
+            guid = rt.attrib["guid"]  # rts should all have a guid
             by_class_and_guid[class_name][guid] = rt
             by_guid[guid] = rt
 
             try:
-                owner_guid = rt.attrib["ownerguid"]
+                owner_guid = rt.attrib["ownerguid"]  # only some have owners
                 if owner_guid not in by_owner_guid:
                     by_owner_guid[owner_guid] = []
                 by_owner_guid[owner_guid].append(rt)
-                # print("{} is owned by {}".format(guid, owner_guid))
             except KeyError:
                 # has no owner
                 pass
+        expected_all_rt_attrib_keys = {"class", "guid", "ownerguid"}
+        assert all_rt_attrib_keys == expected_all_rt_attrib_keys, "rt elements have attributes {}, expected {}".format(all_rt_attrib_keys, expected_all_rt_attrib_keys)
+        print("all rt classes: {}".format(sorted(all_rt_classes)))
+
 
         return RtDict(
             by_class_and_guid=by_class_and_guid,
