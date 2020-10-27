@@ -1,3 +1,4 @@
+from flexpy.Lexicon import Lexicon
 from flexpy.RtDict import RtDict
 from flexpy.Text import Text
 
@@ -9,17 +10,20 @@ class Corpus:
     def __init__(self, project_dir, project_name):
         self.project_dir = project_dir
         self.project_name = project_name
+        self.rt_dict = self.get_rt_dict()
         self.texts = self.get_texts()
         self.contents = self.get_contents()
+        self.lexicon = self.get_lexicon()
 
-    def get_texts(self):
+    def get_rt_dict(self):
         flex_dir = self.project_dir + "{}/".format(self.project_name)
         fp = flex_dir + "{}.fwdata".format(self.project_name)
         # print("getting corpus from FLEx project {} at {}".format(self.project_name, fp))
         rt_dict = RtDict.from_fwdata_file(fp)
-    
-        texts = rt_dict.get_texts()
-        return texts
+        return rt_dict
+
+    def get_texts(self):
+        return self.rt_dict.get_texts()
 
     def get_contents(self):
         contents_lst = []
@@ -38,3 +42,7 @@ class Corpus:
         for s in self.contents:
             result += tokenize_single_text(s)
         return result
+
+    def get_lexicon(self):
+        lex_entries = self.rt_dict["LexEntry"]
+        return Lexicon(lex_entries, self.rt_dict)
