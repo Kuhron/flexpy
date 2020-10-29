@@ -1,3 +1,5 @@
+# replicating structure of <rt class="LexEntry">
+
 from flexpy.FlexPyUtil import get_single_child
 
 
