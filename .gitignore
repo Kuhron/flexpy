@@ -1,6 +1,11 @@
 *__pycache__/
 *.swp
 
+# build/dist stuff
+build/
+dist/
+flexpy.egg-info/
+
 # Scraped Bible files
 flexpy/Bible/texts
 
