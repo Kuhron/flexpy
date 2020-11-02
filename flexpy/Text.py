@@ -21,7 +21,7 @@ class Text:
         if abbreviation is None:
             self.validity = False
             if self.rt.find("Contents") is not None:
-                raise Exception("Text found with contents but no name, in rt element: {}, guid {}".format(self.rt, self.rt.attrib["guid"]))
+                pass #raise Exception("Text found with contents but no name, in rt element: {}, guid {}".format(self.rt, self.rt.attrib["guid"]))
             return None
         else:
             auni = get_single_child(abbreviation, "AUni")

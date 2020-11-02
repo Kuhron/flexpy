@@ -2,4 +2,4 @@
 
 
 class Segment:
-    
+    raise NotImplementedError

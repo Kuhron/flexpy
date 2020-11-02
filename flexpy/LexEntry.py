@@ -20,7 +20,11 @@ class LexEntry:
         objsur = get_single_child(lexeme_form_el, "objsur")
         mo_stem_allomorph_el = self.rt_dict[objsur.attrib["guid"]]
         form_el = get_single_child(mo_stem_allomorph_el, "Form")
-        form_text = get_single_child(form_el, "AUni").text
+        # form_text = get_single_child(form_el, "AUni").text
+        form_text_pieces = form_el.findall("AUni")
+        form_text = ""
+        for ftp in form_text_pieces:
+            form_text += ftp.text
         self.lexeme_form = form_text
 
         self.parts_of_speech = []
