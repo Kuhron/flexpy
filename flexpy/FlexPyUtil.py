@@ -159,3 +159,84 @@ def write_freq_dict_to_file(d, fp):
             f.write("\n" + this_str)
 
 
+def get_pretty_concordance_formatting(conc_list):
+    lefts  = [" ".join(x[0]) for x in conc_list]
+    targets = [x[1] for x in conc_list]
+    rights = [" ".join(x[2]) for x in conc_list]
+    max_len_left  = max(len(x) for x in lefts)
+    max_len_target = max(len(x) for x in targets)
+    max_len_right = max(len(x) for x in rights)
+    left_size = max(max_len_left + 1, len("left_context") + 1)
+    target_size = max(max_len_target + 1, len("node_word") + 1)
+    # don't need to add spaces to the right of the rightmost stuff
+    return {
+        "lefts": lefts,
+        "targets": targets,
+        "rights": rights,
+        "left_size": left_size,
+        "target_size": target_size,
+    }
+
+
+def print_concordance_pretty(conc_list):
+    formatting = get_pretty_concordance_formatting(conc_list)
+    left_size = formatting["left_size"]
+    target_size = formatting["target_size"]
+    lefts = formatting["lefts"]
+    targets = formatting["targets"]
+    rights = formatting["rights"]
+
+    header = "left_context".rjust(left_size) + " | " + "node_word".ljust(target_size) + "| " + "right_context"
+    print(header)
+    for left, target, right in zip(lefts, targets, rights):
+        line = left.rjust(left_size) + " | " + target.ljust(target_size) + "| " + right
+        print(line)
+
+
+def write_concordance_pretty(fp, conc_list):
+    formatting = get_pretty_concordance_formatting(conc_list)
+    left_size = formatting["left_size"]
+    target_size = formatting["target_size"]
+    lefts = formatting["lefts"]
+    targets = formatting["targets"]
+    rights = formatting["rights"]
+    with open(fp, "w") as f:
+        header = "left_context".rjust(left_size) + " | " + "node_word".ljust(target_size) + "| " + "right_context"
+        f.write(header)
+        for left, target, right in zip(lefts, targets, rights):
+            line = left.rjust(left_size) + " | " + target.ljust(target_size) + "| " + right
+            f.write("\n" + line)
+
+
+def sort_concordance_list(conc_list, sorting_indices):
+    # sorting indices in order of priority
+    # each index is number of words away from the token (can be negative for words before the token, and can be zero for the token)
+    # assign a tuple of sort values to each item in the list
+    d = {}
+    for line in conc_list:
+        left_words_lst, target, right_words_lst = line
+        # go through the sorting indices to construct the tuple
+        sort_vals = []
+        for s_i in sorting_indices:
+            # get the thing at this index in this line
+            if s_i == 0:
+                sort_val = target
+            elif s_i > 0:
+                try:
+                    sort_val = right_words_lst[s_i-1]  # 1 corresponds to first word, index 0 of right list
+                except IndexError:
+                    sort_val = ""
+            elif s_i < 0:
+                try:
+                    sort_val = left_words_lst[s_i]  # -1 corresponds to last word, index -1 of left lst
+                except IndexError:
+                    sort_val = ""
+            else:
+                raise ValueError("invalid sort index {}".format(s_i))
+            sort_vals.append(sort_val)
+        sort_vals_tup = tuple(sort_vals)
+        d[sort_vals_tup] = line
+
+    sorted_kvs = sorted(d.items())
+    sorted_lines = [kv[1] for kv in sorted_kvs]
+    return sorted_lines
