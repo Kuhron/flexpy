@@ -1,22 +1,31 @@
 from flexpy.FlexPyUtil import get_single_child
+from flexpy.TextParagraph import TextParagraph
+
+
 
 class Text:
     def __init__(self, guid, rt, rt_dict):
+        self.validity = True  # some texts in FLEx are just empty (invalid), not sure why they exist
         self.guid = guid
         self.rt = rt
         self.rt_dict = rt_dict
         self.name = self.get_name()
         self.contents = self.get_contents()
 
+    def is_valid(self):
+        assert type(self.validity) is bool
+        return self.validity
 
     def get_name(self):
-        try:
-            abbreviation = get_single_child(self.rt, "Abbreviation")
+        abbreviation = get_single_child(self.rt, "Abbreviation")
+        if abbreviation is None:
+            self.validity = False
+            if self.rt.find("Contents") is not None:
+                pass #raise Exception("Text found with contents but no name, in rt element: {}, guid {}".format(self.rt, self.rt.attrib["guid"]))
+            return None
+        else:
             auni = get_single_child(abbreviation, "AUni")
             return auni.text
-        except:
-            return None
-
 
     def get_contents(self):
         # contents_element = self.rt.findall("Contents")
@@ -39,16 +48,9 @@ class Text:
                     continue
                 for objsur in objsurs:
                     st_text_para_guid = objsur.attrib["guid"]
-                    st_text_paragraph = self.rt_dict[st_text_para_guid]
-                    contents = get_single_child(st_text_paragraph, "Contents")
-                    if contents is None:
-                        continue
-                    str_element = get_single_child(contents, "Str")
-                    # there may be multiple run elements (because of Flex's writing system thing), just concat them
-                    run_elements = str_element.findall("Run")
-                    run_text = "".join(x.text for x in run_elements)
-                    run_texts.append(run_text)
-                    # contents_str += run_text
+                    st_text_para_el = self.rt_dict[st_text_para_guid]
+                    text_paragraph = TextParagraph(st_text_para_el, self.rt_dict)
+                    run_texts += text_paragraph.run_texts
         return run_texts
 
     def has_contents(self):
