@@ -90,6 +90,9 @@ class RtDict:
     def get_by_owner_guid(self, guid):
         return self.by_owner_guid.get(guid, [])
 
+    def get_all_rts(self):
+        return self.by_guid.values()
+
     def get_texts(self):
         text_elements = self["Text"]
         texts = []

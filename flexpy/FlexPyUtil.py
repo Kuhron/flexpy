@@ -1,3 +1,6 @@
+import re
+
+
 # global constants used in multiple places
 PUNCTUATION_CHARS = [".", "?", "!", ",", "'", "\"", ";", ":", "-"]
 WHITESPACE_CHARS = ["\n", "\t"]
@@ -243,3 +246,8 @@ def sort_concordance_list(conc_list, sorting_indices):
     sorted_kvs = sorted(d.items())
     sorted_lines = [kv[1] for kv in sorted_kvs]
     return sorted_lines
+
+
+def camel_case_to_snake_case(s):
+    # https://stackoverflow.com/questions/1175208/elegant-python-function-to-convert-camelcase-to-snake-case
+    return re.sub('((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z]))', r'_\1', s).lower()
