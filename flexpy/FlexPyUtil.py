@@ -159,10 +159,10 @@ def write_freq_dict_to_file(d, fp):
             f.write("\n" + this_str)
 
 
-def get_pretty_concordance_formatting(conc_list):
-    lefts  = [" ".join(x[0]) for x in conc_list]
+def get_pretty_concordance_formatting(conc_list, max_words_left, max_words_right):
+    lefts  = [" ".join(x[0][-max_words_left:]) for x in conc_list]
     targets = [x[1] for x in conc_list]
-    rights = [" ".join(x[2]) for x in conc_list]
+    rights = [" ".join(x[2][:max_words_right]) for x in conc_list]
     max_len_left  = max(len(x) for x in lefts)
     max_len_target = max(len(x) for x in targets)
     max_len_right = max(len(x) for x in rights)
@@ -178,8 +178,11 @@ def get_pretty_concordance_formatting(conc_list):
     }
 
 
-def print_concordance_pretty(conc_list):
-    formatting = get_pretty_concordance_formatting(conc_list)
+def print_concordance_pretty(conc_list, max_words_left, max_words_right):
+    if len(conc_list) == 0:
+        print("(no concordance found)")
+        return
+    formatting = get_pretty_concordance_formatting(conc_list, max_words_left, max_words_right)
     left_size = formatting["left_size"]
     target_size = formatting["target_size"]
     lefts = formatting["lefts"]
@@ -193,8 +196,8 @@ def print_concordance_pretty(conc_list):
         print(line)
 
 
-def write_concordance_pretty(fp, conc_list):
-    formatting = get_pretty_concordance_formatting(conc_list)
+def write_concordance_pretty(fp, conc_list, max_words_left, max_words_right):
+    formatting = get_pretty_concordance_formatting(conc_list, max_words_left, max_words_right)
     left_size = formatting["left_size"]
     target_size = formatting["target_size"]
     lefts = formatting["lefts"]

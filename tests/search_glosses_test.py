@@ -13,12 +13,12 @@ words = bongu_corpus.search_lexicon_glosses(regex)
 print("searched for words containing gloss regex {}".format(regex))
 print("Results: {}".format(words))
 
-print("searching in word glosses of texts")
+# print("searching in word glosses of texts")
 # TODO
-words2 = bongu_corpus.search_word_glosses(regex)
-print("Results: {}".format(words2))
+# words2 = bongu_corpus.search_word_glosses(regex)
+# print("Results: {}".format(words2))
 
-print("searching in free translations of texts")
+# print("searching in free translations of texts")
 # TODO
-lines = bongu_corpus.search_free_translations(regex)
-print("Results: {}".format(lines))
+# lines = bongu_corpus.search_free_translations(regex)
+# print("Results: {}".format(lines))

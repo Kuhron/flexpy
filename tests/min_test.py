@@ -41,11 +41,12 @@ def perform_min_analysis(texts):
     print("\n---- ngrams containing words of interest at end ----")
     ct.head(freqs_of_interest_ending, hits=10)
 
-    # show collocations of most frequent words
-    n_most_frequent_words = 5
-    collocation_words_tups = get_top_n_dict_items(freq, n_most_frequent_words)
+    # show collocations of most frequent words or words of interest
+    # n_most_frequent_words = 5
+    # collocation_words_tups = get_top_n_dict_items(freq, n_most_frequent_words)
     metrics = ["MI", "T", "freq", "right", "left"]
-    for word, _ in collocation_words_tups:
+    # for word, _ in collocation_words_tups:
+    for word in words_of_interest:
         for metric in metrics:
             collocates = ct.collocator(get_new_tokenized(), word, stat=metric)
             print("----\nCollocations for {} using stat={}:".format(word, metric))

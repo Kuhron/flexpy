@@ -91,7 +91,7 @@ class Corpus:
         # sorting indices is a list of indices on which to sort; the indices are number of words away from the token (so zero is the token, -1 is the word before, etc.) and in order of priority
         texts = self.get_tokenized_contents()
         lines_containing_token = [x for x in texts if token in x]
-        sample = random.sample(lines_containing_token, sample_size)
+        sample = random.sample(lines_containing_token, min(sample_size, len(lines_containing_token)))
         conc_list = []  # left, target, right for each token
         for line in sample:
             # if it's in there more than once, choose a random one
@@ -106,4 +106,4 @@ class Corpus:
         # sorting
         if sorting_indices is not None:
             conc_list = sort_concordance_list(conc_list, sorting_indices)
-        print_concordance_pretty(conc_list)
+        print_concordance_pretty(conc_list, max_words_left=5, max_words_right=5)
