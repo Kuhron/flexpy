@@ -20,6 +20,31 @@ def get_single_child(element, child_tag):
     raise Exception(error_str)
 
 
+def get_child_object(el, child_tag, rt_dict):
+    child_el = get_single_child(el, child_tag)
+    child_class = get_tag_class(child_el)
+    # initialize it
+    rt = child_el
+    return child_class(rt, rt_dict)
+
+
+def get_tag_class_name(el):
+    if el.tag == "rt":
+        class_name = "Rt{}".format(el.attrib["class"])
+    elif el.tag == "objsur":
+        raise Exception("shouldn't be getting tag class for object surrogates")
+    else:
+        class_name = el.tag
+    return class_name
+
+
+def get_tag_class(el):
+    class_name = get_tag_class_name(el)
+    import_flexpy_tags = __import__("flexpy").tags
+    class_object = getattr(getattr(import_flexpy_tags, class_name), class_name)
+    return class_object
+
+
 def get_element_info_str(element):
     s = ""
 

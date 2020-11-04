@@ -87,6 +87,15 @@ class RtDict:
                 print("Warning: key {} is neither a class name nor a guid".format(index))
                 return None
 
+    def keys(self):
+        return self.by_guid.keys()
+
+    def values(self):
+        return self.by_guid.values()
+
+    def items(self):
+        return self.by_guid.items()
+
     def get_by_owner_guid(self, guid):
         return self.by_owner_guid.get(guid, [])
 
@@ -102,6 +111,14 @@ class RtDict:
         # print("there are {} texts with contents".format(sum(x.has_contents() for x in texts)))
         return texts
 
+    def create_dependency_dict(self):
+        return xml_tag_map.create_dependency_dict(self.root, self.by_guid)
+
     def print_dependency_dict(self):
         xml_tag_map.print_dependency_dict(self.root, self.by_guid)
 
+    def create_tag_class_files(self, dependency_dict):
+        for class_name, sub_d in self.by_class_and_guid.items():
+            # get an element with this class attrib
+            el = list(sub_d.values())[0]
+            xml_tag_map.create_tag_class_file(el, dependency_dict)

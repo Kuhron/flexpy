@@ -1,0 +1,31 @@
+from flexpy.Rt import Rt
+from flexpy.FlexPyUtil import get_child_object
+
+class RtCmAnnotationDefn(Rt):
+    def __init__(self, rt, rt_dict):
+        super().__init__(rt, rt_dict)
+        self.Abbreviation = get_child_object(self.rt, "Abbreviation", self.rt_dict)
+        self.AllowsComment = get_child_object(self.rt, "AllowsComment", self.rt_dict)
+        self.AllowsFeatureStructure = get_child_object(self.rt, "AllowsFeatureStructure", self.rt_dict)
+        self.AllowsInstanceOf = get_child_object(self.rt, "AllowsInstanceOf", self.rt_dict)
+        self.BackColor = get_child_object(self.rt, "BackColor", self.rt_dict)
+        self.CanCreateOrphan = get_child_object(self.rt, "CanCreateOrphan", self.rt_dict)
+        self.CopyCutPastable = get_child_object(self.rt, "CopyCutPastable", self.rt_dict)
+        self.DateCreated = get_child_object(self.rt, "DateCreated", self.rt_dict)
+        self.DateModified = get_child_object(self.rt, "DateModified", self.rt_dict)
+        self.Description = get_child_object(self.rt, "Description", self.rt_dict)
+        self.Discussion = get_child_object(self.rt, "Discussion", self.rt_dict)
+        self.ForeColor = get_child_object(self.rt, "ForeColor", self.rt_dict)
+        self.Hidden = get_child_object(self.rt, "Hidden", self.rt_dict)
+        self.InstanceOfSignature = get_child_object(self.rt, "InstanceOfSignature", self.rt_dict)
+        self.IsProtected = get_child_object(self.rt, "IsProtected", self.rt_dict)
+        self.MaxDupOccur = get_child_object(self.rt, "MaxDupOccur", self.rt_dict)
+        self.Multi = get_child_object(self.rt, "Multi", self.rt_dict)
+        self.Name = get_child_object(self.rt, "Name", self.rt_dict)
+        self.PromptUser = get_child_object(self.rt, "PromptUser", self.rt_dict)
+        self.Severity = get_child_object(self.rt, "Severity", self.rt_dict)
+        self.SortSpec = get_child_object(self.rt, "SortSpec", self.rt_dict)
+        self.UnderColor = get_child_object(self.rt, "UnderColor", self.rt_dict)
+        self.UnderStyle = get_child_object(self.rt, "UnderStyle", self.rt_dict)
+        self.UserCanCreate = get_child_object(self.rt, "UserCanCreate", self.rt_dict)
+        self.ZeroWidth = get_child_object(self.rt, "ZeroWidth", self.rt_dict)

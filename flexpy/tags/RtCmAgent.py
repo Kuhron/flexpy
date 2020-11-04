@@ -1,15 +1,12 @@
-from flexpy.tags.Rt import Rt
-from flexpy.FlexPyUtil import camel_case_to_snake_case
+from flexpy.Rt import Rt
+from flexpy.FlexPyUtil import get_child_object
 
-
-class CmAgent(Rt):
-    def __init__(self, el, rt_dict):
-        super().__init__(el, rt_dict)
-        self.populate_child_variables()
-
-    def populate_child_variables(self):
-        for child_el in self.rt:
-            tag = child_el.tag
-            attr_name = camel_case_to_snake_case(tag)
-            print(tag, attr_name)
-            input()
+class RtCmAgent(Rt):
+    def __init__(self, rt, rt_dict):
+        super().__init__(rt, rt_dict)
+        self.Approves = get_child_object(self.rt, "Approves", self.rt_dict)
+        self.Disapproves = get_child_object(self.rt, "Disapproves", self.rt_dict)
+        self.Human = get_child_object(self.rt, "Human", self.rt_dict)
+        self.Name = get_child_object(self.rt, "Name", self.rt_dict)
+        self.Notes = get_child_object(self.rt, "Notes", self.rt_dict)
+        self.Version = get_child_object(self.rt, "Version", self.rt_dict)
