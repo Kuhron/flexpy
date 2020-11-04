@@ -1,6 +1,7 @@
 import random
 
 from flexpy.Corpus import Corpus
+from flexpy.FlexPyUtil import get_python_object_from_element
 import flexpy.XMLTagMap as xml_tag_map
 
 
@@ -18,8 +19,14 @@ print("class definition for {}".format(random_rt.attrib["class"]))
 print(xml_tag_map.create_class_definition(random_rt, dependency_dict))
 # xml_tag_map.create_tag_class_file(random_rt, dependency_dict)
 
+# create the tag classes
 bongu_corpus.rt_dict.create_tag_class_files(dependency_dict)
 
+# test instantiating a tag class from an element
+el = list(bongu_corpus.rt_dict["CmAnnotationDefn"].values())[0]
+obj = get_python_object_from_element(el, bongu_corpus.rt_dict)
+print(obj)
+print(obj.__dict__)
 
 
 print("success")

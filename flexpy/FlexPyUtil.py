@@ -22,10 +22,14 @@ def get_single_child(element, child_tag):
 
 def get_child_object(el, child_tag, rt_dict):
     child_el = get_single_child(el, child_tag)
-    child_class = get_tag_class(child_el)
+    return get_python_object_from_element(child_el, rt_dict)
+
+
+def get_python_object_from_element(el, rt_dict):
+    class_object = get_tag_class(el)
     # initialize it
-    rt = child_el
-    return child_class(rt, rt_dict)
+    rt = el
+    return class_object(rt, rt_dict)
 
 
 def get_tag_class_name(el):
