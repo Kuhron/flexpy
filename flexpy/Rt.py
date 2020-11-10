@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+
 from flexpy.TagDict import TagDict
 
 
@@ -9,7 +10,13 @@ class Rt:
         assert type(tag_dict) is TagDict
         self.rt = el
         self.tag_dict = tag_dict
+        self.class_name = el.attrib["class"]
         self.guid = el.attrib.get("guid")
         self.ownerguid = el.attrib.get("ownerguid")
-        self.owner = tag_dict.get(self.ownerguid)
+        self.owner_el = tag_dict.get(self.ownerguid)
 
+        # causes max recursion
+        # self.owner = get_python_object_from_element(self.owner_el, tag_dict) if self.owner_el is not None else None
+
+    def __repr__(self):
+        return "<rt class={} guid={}>".format(self.class_name, self.guid)

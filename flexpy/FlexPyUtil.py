@@ -47,22 +47,20 @@ def get_child_object(el, child_tag, tag_dict, class_name=None):
             else:
                 matches = False
             if matches:
-                matching_referent_els.append(referent)
+                referent_object = tag_dict.get_python_object_from_element(referent)
+                matching_referent_els.append(referent_object)
         return matching_referent_els
+    elif child_tag in ["AUni", "AStr", "Run"]:
+        # there can be many of these for different writing systems
+        # create a dict from writing system to AUni tag
+        children_els = el.findall(child_tag)
+        return [tag_dict.get_python_object_from_element(child_el) for child_el in children_els]
     else:
-        # if it's not objsur, there should only be one of each child type
+        # there should only be one of each child type
         child_el = get_single_child(el, child_tag)
         if child_el is None:
             return None
-        return get_python_object_from_element(child_el, tag_dict)
-
-
-def get_python_object_from_element(el, tag_dict):
-    assert type(el) is ET.Element, "invalid element: {}".format(el)
-    class_object = get_tag_class(el)
-    # initialize it
-    rt = el
-    return class_object(rt, tag_dict)
+        return tag_dict.get_python_object_from_element(child_el)
 
 
 def get_tag_class_name(el):

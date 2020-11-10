@@ -6,6 +6,7 @@ class RtScripture(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.BookAnnotations = get_child_object(self.el, "BookAnnotations", self.tag_dict)
         self.Bridge = get_child_object(self.el, "Bridge", self.tag_dict)
         self.ChapterVerseSepr = get_child_object(self.el, "ChapterVerseSepr", self.tag_dict)

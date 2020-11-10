@@ -6,6 +6,7 @@ class RtCmAgent(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.Approves = get_child_object(self.el, "Approves", self.tag_dict)
         self.Disapproves = get_child_object(self.el, "Disapproves", self.tag_dict)
         self.Human = get_child_object(self.el, "Human", self.tag_dict)

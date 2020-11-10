@@ -6,6 +6,7 @@ class RtCmAnnotationDefn(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.Abbreviation = get_child_object(self.el, "Abbreviation", self.tag_dict)
         self.AllowsComment = get_child_object(self.el, "AllowsComment", self.tag_dict)
         self.AllowsFeatureStructure = get_child_object(self.el, "AllowsFeatureStructure", self.tag_dict)

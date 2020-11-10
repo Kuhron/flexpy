@@ -6,4 +6,5 @@ class RtCmMediaContainer(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.MediaURIs = get_child_object(self.el, "MediaURIs", self.tag_dict)

@@ -96,6 +96,7 @@ def create_tag_class_definition(el, dependency_dict):
         init_header += " "*8 + "super().__init__(el, tag_dict)\n"
     init_header += " "*8 + "self.el = el\n"
     init_header += " "*8 + "self.tag_dict = tag_dict\n"
+    init_header += " "*8 + "self.text = self.el.text\n"
 
     init_vars_str = ""
     if el.tag == "rt":

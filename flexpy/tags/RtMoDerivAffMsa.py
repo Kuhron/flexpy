@@ -6,5 +6,6 @@ class RtMoDerivAffMsa(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.FromPartOfSpeech = get_child_object(self.el, "FromPartOfSpeech", self.tag_dict)
         self.ToPartOfSpeech = get_child_object(self.el, "ToPartOfSpeech", self.tag_dict)

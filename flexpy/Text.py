@@ -1,6 +1,7 @@
 from flexpy.FlexPyUtil import get_single_child
 from flexpy.TextParagraph import TextParagraph
 from flexpy.tags.RtStText import RtStText
+from flexpy.tags.RtStTxtPara import RtStTxtPara
 
 
 
@@ -37,21 +38,35 @@ class Text:
         return st_texts
 
     def create_paragraphs(self):
-        paragraphs = []
+        text_paragraphs = []
         for st_text in self.st_texts:
             paragraphs_el = st_text.Paragraphs
-            rt_st_text_para_els = paragraphs_el.RtStTxtPara
-            paragraphs.append(rt_st_text_para_els)
-        return paragraphs
+            rt_st_txt_paras = paragraphs_el.RtStTxtPara
+            for rt_st_txt_para in rt_st_txt_paras:
+                text_paragraph = TextParagraph(rt_st_txt_para, self.tag_dict)
+                text_paragraphs.append(text_paragraph)
+        return text_paragraphs
 
     def create_contents(self):
         # ignores StTexts, treats as flat list of paragraphs
         run_texts = []
-        for rt_st_text_para_els in self.paragraphs:
-            for rt_st_text_para_el in rt_st_text_para_els:
-                text_paragraph = TextParagraph(rt_st_text_para_el, self.tag_dict)
-                run_texts += text_paragraph.run_texts
+        for text_paragraph in self.paragraphs:
+            run_texts += text_paragraph.run_texts
         return run_texts
+    
+    def create_contents_objects(self):
+        result = []
+        for text_paragraph in self.paragraphs:
+            segments = text_paragraph.segments
+            print(segments)
+            raise NotImplementedError
+            # analyses = segments.Analyses
+            # print(analyses)
+            # gloss_text = analyses.WfiGloss.Form.AUni.text
+             #print(gloss_text)
+        print("contents objects result for {} is:\n{}".format(self, result))
+        return result
+
 
     def has_contents(self):
         return self.contents is not None

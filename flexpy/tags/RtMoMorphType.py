@@ -6,6 +6,7 @@ class RtMoMorphType(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.Abbreviation = get_child_object(self.el, "Abbreviation", self.tag_dict)
         self.BackColor = get_child_object(self.el, "BackColor", self.tag_dict)
         self.DateCreated = get_child_object(self.el, "DateCreated", self.tag_dict)

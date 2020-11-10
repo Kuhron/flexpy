@@ -4,5 +4,6 @@ class BasedOn:
     def __init__(self, el, tag_dict):
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.RtStStyle = get_child_object(self.el, "rt", self.tag_dict, class_name="StStyle")
         self.RtStText = get_child_object(self.el, "rt", self.tag_dict, class_name="StText")

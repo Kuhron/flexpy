@@ -6,6 +6,7 @@ class RtCmFilter(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.App = get_child_object(self.el, "App", self.tag_dict)
         self.ClassId = get_child_object(self.el, "ClassId", self.tag_dict)
         self.ColumnInfo = get_child_object(self.el, "ColumnInfo", self.tag_dict)

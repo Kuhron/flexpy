@@ -6,6 +6,7 @@ class RtSegment(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.Analyses = get_child_object(self.el, "Analyses", self.tag_dict)
         self.BeginOffset = get_child_object(self.el, "BeginOffset", self.tag_dict)
         self.BeginTimeOffset = get_child_object(self.el, "BeginTimeOffset", self.tag_dict)

@@ -6,5 +6,6 @@ class RtCmResource(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.Name = get_child_object(self.el, "Name", self.tag_dict)
         self.Version = get_child_object(self.el, "Version", self.tag_dict)

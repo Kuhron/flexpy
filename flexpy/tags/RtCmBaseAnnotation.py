@@ -6,6 +6,7 @@ class RtCmBaseAnnotation(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.AnnotationType = get_child_object(self.el, "AnnotationType", self.tag_dict)
         self.BeginObject = get_child_object(self.el, "BeginObject", self.tag_dict)
         self.BeginOffset = get_child_object(self.el, "BeginOffset", self.tag_dict)

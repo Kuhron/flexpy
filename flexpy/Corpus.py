@@ -50,16 +50,21 @@ class Corpus:
                 for line in text.contents:
                     f.write(line + "\n")
 
-    def get_contents(self):
+    def get_contents(self, texts_to_omit=None):
         # e.g. ["Hello, world.", "My name is Wesley."]
+        if texts_to_omit is None and hasattr(self, "contents"):
+            return self.contents
         contents_lst = []
         for text in self.texts:
+            if texts_to_omit is not None and text.name in texts_to_omit:
+                continue
             contents = text.contents
             contents_lst += contents
         return contents_lst
 
-    def get_tokenized_contents(self):
+    def get_tokenized_contents(self, texts_to_omit=None):
         # e.g. [["hello", "world"], ["my", "name", "is", "wesley"]]
+        contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
         for s in self.contents:
             result.append(tokenize_single_text(s))
@@ -68,9 +73,19 @@ class Corpus:
     def get_tokenized_contents_flat(self):
         # treats the whole corpus as a single text
         # e.g. ["hello", "world", "my", "name", "is", "wesley"]
+        contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
-        for s in self.contents:
+        for s in contents:
             result += tokenize_single_text(s)
+        return result
+    
+    def get_tokenized_contents_objects(self, texts_to_omit=None):
+        result = []
+        for text in self.texts:
+            if texts_to_omit is not None and text.name in texts_to_omit:
+                print("text {} is omitted".format(text.name))
+                continue
+            result.append(text.create_contents_objects())
         return result
 
     def get_lexicon(self):

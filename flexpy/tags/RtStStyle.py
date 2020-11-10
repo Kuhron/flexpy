@@ -6,6 +6,7 @@ class RtStStyle(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.BasedOn = get_child_object(self.el, "BasedOn", self.tag_dict)
         self.Context = get_child_object(self.el, "Context", self.tag_dict)
         self.Function = get_child_object(self.el, "Function", self.tag_dict)

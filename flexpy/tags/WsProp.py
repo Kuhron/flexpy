@@ -4,6 +4,7 @@ class WsProp:
     def __init__(self, el, tag_dict):
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.fontFamily = self.el.attrib.get("fontFamily")
         self.fontsize = self.el.attrib.get("fontsize")
         self.fontsizeUnit = self.el.attrib.get("fontsizeUnit")

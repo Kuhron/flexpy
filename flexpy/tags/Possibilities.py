@@ -4,6 +4,7 @@ class Possibilities:
     def __init__(self, el, tag_dict):
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.RtCmAnnotationDefn = get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnnotationDefn")
         self.RtCmAnthroItem = get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnthroItem")
         self.RtCmPerson = get_child_object(self.el, "rt", self.tag_dict, class_name="CmPerson")

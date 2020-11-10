@@ -6,4 +6,5 @@ class RtMoInflAffMsa(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.PartOfSpeech = get_child_object(self.el, "PartOfSpeech", self.tag_dict)

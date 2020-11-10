@@ -6,6 +6,7 @@ class RtPhPhonData(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.NaturalClasses = get_child_object(self.el, "NaturalClasses", self.tag_dict)
         self.PhonRuleFeats = get_child_object(self.el, "PhonRuleFeats", self.tag_dict)
         self.PhonemeSets = get_child_object(self.el, "PhonemeSets", self.tag_dict)

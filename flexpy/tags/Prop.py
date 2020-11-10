@@ -4,6 +4,7 @@ class Prop:
     def __init__(self, el, tag_dict):
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.align = self.el.attrib.get("align")
         self.bold = self.el.attrib.get("bold")
         self.bulNumScheme = self.el.attrib.get("bulNumScheme")

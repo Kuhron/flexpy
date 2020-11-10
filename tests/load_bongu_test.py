@@ -1,7 +1,6 @@
 import random
 
 from flexpy.Corpus import Corpus
-from flexpy.FlexPyUtil import get_python_object_from_element
 import flexpy.XMLTagMap as xml_tag_map
 
 
@@ -20,7 +19,7 @@ print(xml_tag_map.create_tag_class_definition(random_rt, dependency_dict))
 # test instantiating a tag class from an element
 el = list(bongu_corpus.tag_dict["RtCmAnnotationDefn"].values())[0]
 print("\n-- attempting object instantiation from element {}".format(el))
-obj = get_python_object_from_element(el, bongu_corpus.tag_dict)
+obj = bongu_corpus.tag_dict.get_python_object_from_element(el)
 print(obj)
 print(obj.__dict__)
 

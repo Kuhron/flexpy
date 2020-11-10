@@ -6,6 +6,7 @@ class RtLexEntryRef(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.ComplexEntryTypes = get_child_object(self.el, "ComplexEntryTypes", self.tag_dict)
         self.ComponentLexemes = get_child_object(self.el, "ComponentLexemes", self.tag_dict)
         self.HideMinorEntry = get_child_object(self.el, "HideMinorEntry", self.tag_dict)

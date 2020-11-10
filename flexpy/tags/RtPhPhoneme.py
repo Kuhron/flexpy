@@ -6,6 +6,7 @@ class RtPhPhoneme(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.Codes = get_child_object(self.el, "Codes", self.tag_dict)
         self.Description = get_child_object(self.el, "Description", self.tag_dict)
         self.Name = get_child_object(self.el, "Name", self.tag_dict)

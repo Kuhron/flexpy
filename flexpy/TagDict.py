@@ -1,5 +1,6 @@
 from xml.etree import ElementTree as ET
 
+from flexpy.FlexPyUtil import get_tag_class
 import flexpy.XMLTagMap as xml_tag_map
 
 
@@ -11,12 +12,14 @@ class TagDict:
             by_guid=None, 
             by_owner_guid=None,
             root=None,
+            object_by_element=None,
     ):
         self.by_tag = by_tag if by_tag is not None else {}
         self.by_tag_and_guid = by_tag_and_guid if by_tag_and_guid is not None else {}
         self.by_guid = by_guid if by_guid is not None else {}
         self.by_owner_guid = by_owner_guid if by_owner_guid is not None else {}
         self.root = root if root is not None else None
+        self.object_by_element = object_by_element if object_by_element is not None else {}
         self.dependency_dict = self.create_dependency_dict()
 
     @staticmethod
@@ -134,8 +137,34 @@ class TagDict:
     def get_all_rts(self):
         return self.by_guid.values()
 
+    def get_all_elements(self):
+        elements = []
+        for tag, lst in self.by_tag.items():
+            elements += lst
+        return elements
+
     def create_dependency_dict(self):
         return xml_tag_map.create_dependency_dict(self.root, self.by_guid)
 
     def print_dependency_dict(self):
         xml_tag_map.print_dependency_dict(self.root, self.by_guid)
+
+    def get_python_object_from_element(self, el):
+        assert type(el) is ET.Element, "invalid element: {}".format(el)
+        try:
+            # fetch already-created object
+            return self.object_by_element[el]
+        except KeyError:
+            # create new object
+            # print("creating new python object for {}".format(el))
+            class_object = get_tag_class(el)
+            # initialize it
+            return class_object(el, tag_dict=self)
+
+    def fill_out_objects(self):
+        # this will try to do all of them, and can encounter recursion errors
+        for el in self.get_all_elements():
+            python_object = self.get_python_object_from_element(el)
+            self.object_by_element[el] = python_object
+            print("successfully filled out object for element {}".format(el))
+        print("done filling out elements")

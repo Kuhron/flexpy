@@ -6,6 +6,7 @@ class RtLexDb(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.ComplexEntryTypes = get_child_object(self.el, "ComplexEntryTypes", self.tag_dict)
         self.DateCreated = get_child_object(self.el, "DateCreated", self.tag_dict)
         self.DateModified = get_child_object(self.el, "DateModified", self.tag_dict)

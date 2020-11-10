@@ -6,6 +6,7 @@ class RtWfiWordform(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.Analyses = get_child_object(self.el, "Analyses", self.tag_dict)
         self.Checksum = get_child_object(self.el, "Checksum", self.tag_dict)
         self.Form = get_child_object(self.el, "Form", self.tag_dict)

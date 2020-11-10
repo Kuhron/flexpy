@@ -6,6 +6,7 @@ class RtScrBookRef(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.BookAbbrev = get_child_object(self.el, "BookAbbrev", self.tag_dict)
         self.BookName = get_child_object(self.el, "BookName", self.tag_dict)
         self.BookNameAlt = get_child_object(self.el, "BookNameAlt", self.tag_dict)

@@ -6,6 +6,7 @@ class RtLexSense(Rt):
         super().__init__(el, tag_dict)
         self.el = el
         self.tag_dict = tag_dict
+        self.text = self.el.text
         self.Definition = get_child_object(self.el, "Definition", self.tag_dict)
         self.Gloss = get_child_object(self.el, "Gloss", self.tag_dict)
         self.MorphoSyntaxAnalysis = get_child_object(self.el, "MorphoSyntaxAnalysis", self.tag_dict)
