@@ -1,10 +1,13 @@
-# replicating structure of <rt class="StTxtPara">
-
+import xml.etree.ElementTree as ET
 from flexpy.FlexPyUtil import get_single_child
+from flexpy.TagDict import TagDict
 
 
 class TextParagraph:
     def __init__(self, rt, tag_dict):
+        assert type(rt) is ET.Element, "invalid element: {}".format(rt)
+        assert rt.tag == "rt", "invalid element tag: {}".format(rt.tag)
+        assert type(tag_dict) is TagDict
         self.rt = rt
         self.tag_dict = tag_dict
         self.populate_child_variables()

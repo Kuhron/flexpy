@@ -3,4 +3,5 @@ from flexpy.FlexPyUtil import get_child_object
 class PromptUser:
     def __init__(self, el, tag_dict):
         self.el = el
-        self.val = self.el.attrib.get(val)
+        self.tag_dict = tag_dict
+        self.val = self.el.attrib.get("val")

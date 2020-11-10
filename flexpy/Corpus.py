@@ -26,7 +26,7 @@ class Corpus:
         return TagDict.from_project_dir_and_name(self.project_dir, self.project_name)
 
     def get_texts(self):
-        text_elements = self.tag_dict["Text"]
+        text_elements = self.tag_dict["RtText"]
         texts = []
         for guid, rt in text_elements.items():
             text = Text(guid, rt, self.tag_dict)
@@ -54,7 +54,7 @@ class Corpus:
         # e.g. ["Hello, world.", "My name is Wesley."]
         contents_lst = []
         for text in self.texts:
-            contents = text.get_contents()
+            contents = text.contents
             contents_lst += contents
         return contents_lst
 
@@ -74,7 +74,7 @@ class Corpus:
         return result
 
     def get_lexicon(self):
-        lex_entries = self.tag_dict["LexEntry"]
+        lex_entries = self.tag_dict["RtLexEntry"]
         return Lexicon(lex_entries, self.tag_dict)
 
     def search_lexicon_glosses(self, regex):

@@ -5,8 +5,7 @@ class RtLangProject(Rt):
     def __init__(self, el, tag_dict):
         super().__init__(el, tag_dict)
         self.el = el
-        self.class = self.el.attrib.get(class)
-        self.guid = self.el.attrib.get(guid)
+        self.tag_dict = tag_dict
         self.AffixCategories = get_child_object(self.el, "AffixCategories", self.tag_dict)
         self.AnalysisWss = get_child_object(self.el, "AnalysisWss", self.tag_dict)
         self.AnalyzingAgents = get_child_object(self.el, "AnalyzingAgents", self.tag_dict)

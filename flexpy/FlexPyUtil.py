@@ -1,4 +1,5 @@
 import re
+import xml.etree.ElementTree as ET
 
 
 # global constants used in multiple places
@@ -8,6 +9,7 @@ WHITESPACE_CHARS = ["\n", "\t"]
 
 
 def get_single_child(element, child_tag):
+    assert type(element) is ET.Element, "invalid element: {}".format(element)
     children = element.findall(child_tag)
     if len(children) == 1:
         return children[0]
@@ -21,6 +23,7 @@ def get_single_child(element, child_tag):
 
 
 def get_child_object(el, child_tag, tag_dict, class_name=None):
+    assert type(el) is ET.Element, "invalid element: {}".format(el)
     if class_name is not None:
         assert child_tag == "rt", "can't pass class_name for anything other than rt child"
     if child_tag == "rt":
@@ -49,10 +52,13 @@ def get_child_object(el, child_tag, tag_dict, class_name=None):
     else:
         # if it's not objsur, there should only be one of each child type
         child_el = get_single_child(el, child_tag)
+        if child_el is None:
+            return None
         return get_python_object_from_element(child_el, tag_dict)
 
 
 def get_python_object_from_element(el, tag_dict):
+    assert type(el) is ET.Element, "invalid element: {}".format(el)
     class_object = get_tag_class(el)
     # initialize it
     rt = el
@@ -71,9 +77,9 @@ def get_tag_class_name(el):
 
 def get_tag_class(el):
     class_name = get_tag_class_name(el)
-    print("getting tag class with name {} from element {}".format(class_name, el))
-    import_flexpy_tags = __import__("flexpy").tags
-    class_object = getattr(getattr(import_flexpy_tags, class_name), class_name)
+    # see https://docs.python.org/3/library/functions.html#__import__
+    from_x = "flexpy.tags." + class_name
+    class_object = getattr(__import__(from_x, fromlist=[class_name]), class_name)
     return class_object
 
 

@@ -39,22 +39,17 @@ class Text:
     def create_paragraphs(self):
         paragraphs = []
         for st_text in self.st_texts:
-            these_paragraphs = st_text.paragraphs
-            paragraphs += these_paragraphs
-            print("these_pars:", these_paragraphs)
+            paragraphs_el = st_text.Paragraphs
+            rt_st_text_para_els = paragraphs_el.RtStTxtPara
+            paragraphs.append(rt_st_text_para_els)
         return paragraphs
 
     def create_contents(self):
         # ignores StTexts, treats as flat list of paragraphs
         run_texts = []
-        for paragraph in self.paragraphs:
-            objsurs = paragraph.findall("objsur")
-            if objsurs is None:
-                continue
-            for objsur in objsurs:
-                st_text_para_guid = objsur.attrib["guid"]
-                st_text_para_el = self.tag_dict[st_text_para_guid]
-                text_paragraph = TextParagraph(st_text_para_el, self.tag_dict)
+        for rt_st_text_para_els in self.paragraphs:
+            for rt_st_text_para_el in rt_st_text_para_els:
+                text_paragraph = TextParagraph(rt_st_text_para_el, self.tag_dict)
                 run_texts += text_paragraph.run_texts
         return run_texts
 

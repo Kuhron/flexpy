@@ -95,10 +95,15 @@ def create_tag_class_definition(el, dependency_dict):
     if el.tag == "rt":
         init_header += " "*8 + "super().__init__(el, tag_dict)\n"
     init_header += " "*8 + "self.el = el\n"
+    init_header += " "*8 + "self.tag_dict = tag_dict\n"
 
     init_vars_str = ""
-    for attrib_key in dependency_dict[long_class_name]["attributes"]:
-        init_vars_str += " "*8 + "self.{0} = self.el.attrib.get({0})\n".format(attrib_key)
+    if el.tag == "rt":
+        # don't add the attribs because the Rt object will have them
+        pass
+    else:
+        for attrib_key in dependency_dict[long_class_name]["attributes"]:
+            init_vars_str += " "*8 + "self.{0} = self.el.attrib.get(\"{0}\")\n".format(attrib_key)
 
     for child_tag_short, child_tag_long, child_class_name in dependency_dict[long_class_name]["children"]:
         init_var_line = " "*8 + "self.{0} = get_child_object(self.el, \"{1}\", self.tag_dict".format(child_tag_long, child_tag_short)

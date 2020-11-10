@@ -5,8 +5,7 @@ class RtText(Rt):
     def __init__(self, el, tag_dict):
         super().__init__(el, tag_dict)
         self.el = el
-        self.class = self.el.attrib.get(class)
-        self.guid = self.el.attrib.get(guid)
+        self.tag_dict = tag_dict
         self.Abbreviation = get_child_object(self.el, "Abbreviation", self.tag_dict)
         self.Contents = get_child_object(self.el, "Contents", self.tag_dict)
         self.DateCreated = get_child_object(self.el, "DateCreated", self.tag_dict)
