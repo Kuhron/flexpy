@@ -312,3 +312,26 @@ def sort_concordance_list(conc_list, sorting_indices):
 def camel_case_to_snake_case(s):
     # https://stackoverflow.com/questions/1175208/elegant-python-function-to-convert-camelcase-to-snake-case
     return re.sub('((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z]))', r'_\1', s).lower()
+
+
+def get_strs_from_form(form):
+    assert form.__class__.__name__ == "Form", type(form)  # avoid circular import type checking
+
+    # AStr has a Run child tag with the text
+    astrs = form.AStr
+    if astrs is not None:
+        for astr in astrs:
+            astrs = [run.text for run in astr.Run]
+
+    # AUni has text in tag
+    aunis = form.AUni
+    if aunis is not None:
+        aunis = [auni.text for auni in aunis]
+
+    # Str has a Run child tag with the text
+    strs = form.Str
+    if strs is not None:
+        for s in strs:
+            strs = [run.text for run in s.Run]
+    
+    return {"AStr": astrs, "AUni": aunis, "Str": strs}

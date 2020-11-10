@@ -18,5 +18,8 @@ class Rt:
         # causes max recursion
         # self.owner = get_python_object_from_element(self.owner_el, tag_dict) if self.owner_el is not None else None
 
+    def get_owner(self):
+        return self.tag_dict.get_python_object_from_element(self.owner_el)
+
     def __repr__(self):
         return "<rt class={} guid={}>".format(self.class_name, self.guid)

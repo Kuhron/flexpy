@@ -35,17 +35,16 @@ class TextParagraph:
         rt_segments = self.rt_st_txt_para.Segments.RtSegment  # should be list because of objsurs
         for rt_segment in rt_segments:
             assert type(rt_segment) is RtSegment, type(rt_segment)
-            print("rt segment: {}".format(rt_segment))
+            # print("rt segment: {}".format(rt_segment))
             analyses = rt_segment.Analyses
-        print(analyses)
-        print(analyses.RtPunctuationForm)
-        print(analyses.RtWfiAnalysis)
-        print(analyses.RtWfiGloss)
-        print(analyses.RtWfiWordform)
-        gloss_owner_els = [x.owner_el for x in analyses.RtWfiGloss]
-        print(gloss_owner_els)
-        gloss_owners = [self.tag_dict.get_python_object_from_element(el) for el in gloss_owner_els]
-        print(gloss_owners)
-        wordforms = [WordForm(wfi_analysis, self.tag_dict) for wfi_analysis in gloss_owners]
+        # print(analyses)
+        # print(analyses.RtPunctuationForm)
+        # print(analyses.RtWfiAnalysis)
+        # print(analyses.RtWfiGloss)
+        # print(analyses.RtWfiWordform)
+        gloss_owners = [x.get_owner() for x in analyses.RtWfiGloss]
+        print("gloss owners:", gloss_owners)
+        analysis_owners = [wfi_analysis.get_owner() for wfi_analysis in gloss_owners]
+        wordforms = [WordForm(wfi_wordform, self.tag_dict) for wfi_wordform in analysis_owners]
         print(wordforms)
         input("^")
