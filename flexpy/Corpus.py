@@ -2,7 +2,7 @@ import os
 import random
 
 from flexpy.Lexicon import Lexicon
-from flexpy.RtDict import RtDict
+from flexpy.TagDict import TagDict
 from flexpy.Text import Text
 
 from flexpy.FlexPyUtil import (
@@ -17,20 +17,16 @@ class Corpus:
     def __init__(self, project_dir, project_name):
         self.project_dir = project_dir
         self.project_name = project_name
-        self.rt_dict = self.get_rt_dict()
+        self.tag_dict = self.get_tag_dict()
         self.texts = self.get_texts()
         self.contents = self.get_contents()
         self.lexicon = self.get_lexicon()
 
-    def get_rt_dict(self):
-        flex_dir = self.project_dir + "{}/".format(self.project_name)
-        fp = flex_dir + "{}.fwdata".format(self.project_name)
-        # print("getting corpus from FLEx project {} at {}".format(self.project_name, fp))
-        rt_dict = RtDict.from_fwdata_file(fp)
-        return rt_dict
+    def get_tag_dict(self):
+        return TagDict.from_project_dir_and_name(self.project_dir, self.project_name)
 
     def get_texts(self):
-        return self.rt_dict.get_texts()
+        return self.tag_dict.get_texts()
 
     def get_valid_texts(self):
         return [x for x in self.get_texts() if x.is_valid()]
@@ -72,8 +68,8 @@ class Corpus:
         return result
 
     def get_lexicon(self):
-        lex_entries = self.rt_dict["LexEntry"]
-        return Lexicon(lex_entries, self.rt_dict)
+        lex_entries = self.tag_dict["LexEntry"]
+        return Lexicon(lex_entries, self.tag_dict)
 
     def search_lexicon_glosses(self, regex):
         return self.lexicon.search_glosses(regex)

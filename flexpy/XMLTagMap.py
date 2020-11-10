@@ -78,12 +78,12 @@ def create_rt_class_definition(el, dependency_dict):
     import_header += "from flexpy.FlexPyUtil import get_child_object\n"
     import_header += "\n"
     class_header = "class {}(Rt):\n".format(long_class_name)
-    init_header = "    def __init__(self, rt, rt_dict):\n"
-    init_header += " "*8 + "super().__init__(rt, rt_dict)\n"
+    init_header = "    def __init__(self, rt, tag_dict):\n"
+    init_header += " "*8 + "super().__init__(rt, tag_dict)\n"
     init_vars_str = ""
     for child_el in el:
         child_tag = child_el.tag
-        init_var_line = " "*8 + "self.{0} = get_child_object(self.rt, \"{0}\", self.rt_dict)".format(child_tag)
+        init_var_line = " "*8 + "self.{0} = get_child_object(self.rt, \"{0}\", self.tag_dict)".format(child_tag)
         init_vars_str += init_var_line + "\n"
 
     full_str = import_header + class_header + init_header + init_vars_str

@@ -20,16 +20,16 @@ def get_single_child(element, child_tag):
     raise Exception(error_str)
 
 
-def get_child_object(el, child_tag, rt_dict):
+def get_child_object(el, child_tag, tag_dict):
     child_el = get_single_child(el, child_tag)
-    return get_python_object_from_element(child_el, rt_dict)
+    return get_python_object_from_element(child_el, tag_dict)
 
 
-def get_python_object_from_element(el, rt_dict):
+def get_python_object_from_element(el, tag_dict):
     class_object = get_tag_class(el)
     # initialize it
     rt = el
-    return class_object(rt, rt_dict)
+    return class_object(rt, tag_dict)
 
 
 def get_tag_class_name(el):
@@ -44,6 +44,7 @@ def get_tag_class_name(el):
 
 def get_tag_class(el):
     class_name = get_tag_class_name(el)
+    print("getting tag class with name {} from element {}".format(class_name, el))
     import_flexpy_tags = __import__("flexpy").tags
     class_object = getattr(getattr(import_flexpy_tags, class_name), class_name)
     return class_object
@@ -280,3 +281,16 @@ def sort_concordance_list(conc_list, sorting_indices):
 def camel_case_to_snake_case(s):
     # https://stackoverflow.com/questions/1175208/elegant-python-function-to-convert-camelcase-to-snake-case
     return re.sub('((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z]))', r'_\1', s).lower()
+
+
+def create_tag_class_files(tag_dict):
+    dependency_dict = tag_dict.dependency_dict
+    print("dep dict keys:")
+    print(sorted(dependency_dict.keys()))
+    input("a")
+
+
+    for class_name, sub_d in tag_dict.by_class_and_guid.items():
+        # get an element with this class attrib
+        el = list(sub_d.values())[0]
+        xml_tag_map.create_tag_class_file(el, dependency_dict)

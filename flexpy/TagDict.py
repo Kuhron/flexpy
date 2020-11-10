@@ -4,7 +4,7 @@ from flexpy.Text import Text
 import flexpy.XMLTagMap as xml_tag_map
 
 
-class RtDict:
+class TagDict:
     def __init__(
             self, 
             by_class_and_guid=None, 
@@ -16,12 +16,20 @@ class RtDict:
         self.by_guid = by_guid if by_guid is not None else {}
         self.by_owner_guid = by_owner_guid if by_owner_guid is not None else {}
         self.root = root if root is not None else None
+        self.dependency_dict = self.create_dependency_dict()
+
+    @staticmethod
+    def from_project_dir_and_name(project_dir, project_name):
+        flex_dir = project_dir + "{}/".format(project_name)
+        fp = flex_dir + "{}.fwdata".format(project_name)
+        # print("getting TagDict from FLEx project {} at {}".format(project_name, fp))
+        return TagDict.from_fwdata_file(fp)
 
     @staticmethod
     def from_fwdata_file(fp):
         tree = ET.parse(fp)
         root = tree.getroot()
-        return RtDict.from_root(root)
+        return TagDict.from_root(root)
 
     @staticmethod
     def from_root(root):
@@ -69,7 +77,7 @@ class RtDict:
         assert all_rt_attrib_keys == expected_all_rt_attrib_keys, "rt elements have attributes {}, expected {}".format(all_rt_attrib_keys, expected_all_rt_attrib_keys)
         # print("all rt classes: {}".format(sorted(all_rt_classes)))
 
-        return RtDict(
+        return TagDict(
             by_class_and_guid=by_class_and_guid,
             by_guid=by_guid,
             by_owner_guid=by_owner_guid,
@@ -84,8 +92,17 @@ class RtDict:
                 # try giving the class-specific dict
                 return self.by_class_and_guid[index]
             except KeyError:
-                print("Warning: key {} is neither a class name nor a guid".format(index))
-                return None
+                pass  # don't want "another exception was raised while handling"
+
+        # if got here, we had both KeyErrors occur
+        # do actually want to raise in this case
+        raise KeyError("key {} is neither a class name nor a guid".format(index))
+    
+    def get(self, index, backup_value=None):
+        try:
+            return self[index]
+        except KeyError:
+            return backup_value
 
     def keys(self):
         return self.by_guid.keys()
@@ -116,9 +133,3 @@ class RtDict:
 
     def print_dependency_dict(self):
         xml_tag_map.print_dependency_dict(self.root, self.by_guid)
-
-    def create_tag_class_files(self, dependency_dict):
-        for class_name, sub_d in self.by_class_and_guid.items():
-            # get an element with this class attrib
-            el = list(sub_d.values())[0]
-            xml_tag_map.create_tag_class_file(el, dependency_dict)

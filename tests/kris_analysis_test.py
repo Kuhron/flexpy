@@ -3,7 +3,7 @@ from corpus_toolkit import corpus_tools as ct
 
 # FlexPy-specific classes
 from flexpy.Corpus import Corpus
-from flexpy.RtDict import RtDict
+from flexpy.TagDict import TagDict
 from flexpy.Text import Text
 
 import flexpy.CorpusAnalysis as corp

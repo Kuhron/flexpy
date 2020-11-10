@@ -10,7 +10,7 @@ bongu_corpus = Corpus(project_dir, project_name)
 
 print("testing camel case function on all rt classes in the database")
 conversions = {}
-for rt in bongu_corpus.rt_dict.get_all_rts():
+for rt in bongu_corpus.tag_dict.get_all_rts():
     tag = rt.attrib["class"]
     new_tag = camel_case_to_snake_case(tag)
     if tag in conversions:

@@ -4,9 +4,9 @@ from flexpy.FlexPyUtil import get_single_child
 
 
 class TextParagraph:
-    def __init__(self, rt, rt_dict):
+    def __init__(self, rt, tag_dict):
         self.rt = rt
-        self.rt_dict = rt_dict
+        self.tag_dict = tag_dict
         self.populate_child_variables()
 
     def populate_child_variables(self):
@@ -26,5 +26,5 @@ class TextParagraph:
         if segments_el is not None:
             objsurs = segments_el.findall("objsur")
             for objsur in objsurs:
-                segment_el = self.rt_dict[objsur.attrib["guid"]]
+                segment_el = self.tag_dict[objsur.attrib["guid"]]
 

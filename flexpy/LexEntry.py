@@ -5,9 +5,9 @@ from flexpy.FlexPyUtil import get_single_child
 
 
 class LexEntry:
-    def __init__(self, rt, rt_dict):
+    def __init__(self, rt, tag_dict):
         self.rt = rt
-        self.rt_dict = rt_dict
+        self.tag_dict = tag_dict
         self.populate_child_variables()
 
     def populate_child_variables(self):
@@ -18,7 +18,7 @@ class LexEntry:
 
         lexeme_form_el = get_single_child(self.rt, "LexemeForm")
         objsur = get_single_child(lexeme_form_el, "objsur")
-        mo_stem_allomorph_el = self.rt_dict[objsur.attrib["guid"]]
+        mo_stem_allomorph_el = self.tag_dict[objsur.attrib["guid"]]
         form_el = get_single_child(mo_stem_allomorph_el, "Form")
         # form_text = get_single_child(form_el, "AUni").text
         form_text_pieces = form_el.findall("AUni")
@@ -32,11 +32,11 @@ class LexEntry:
         if morpho_syntax_analyses_el is not None:
             objsurs = morpho_syntax_analyses_el.findall("objsur")
             for objsur in objsurs:
-                mo_stem_msa_el = self.rt_dict[objsur.attrib["guid"]]
+                mo_stem_msa_el = self.tag_dict[objsur.attrib["guid"]]
                 part_of_speech_el = get_single_child(mo_stem_msa_el, "PartOfSpeech")
                 if part_of_speech_el is not None:
                     objsur = get_single_child(part_of_speech_el, "objsur")
-                    part_of_speech_rt = self.rt_dict[objsur.attrib["guid"]]
+                    part_of_speech_rt = self.tag_dict[objsur.attrib["guid"]]
                     catalog_source_id = get_single_child(part_of_speech_rt, "CatalogSourceId")
                     if catalog_source_id is not None:
                         uni = get_single_child(catalog_source_id, "Uni")
@@ -49,7 +49,7 @@ class LexEntry:
             objsurs = senses_el.findall("objsur")
             for objsur in objsurs:
                 lex_sense_guid = objsur.attrib["guid"]
-                lex_sense = self.rt_dict[lex_sense_guid]
+                lex_sense = self.tag_dict[lex_sense_guid]
                 gloss_el = get_single_child(lex_sense, "Gloss")
                 if gloss_el is None:
                     print("Warning: {} has no gloss".format(self))

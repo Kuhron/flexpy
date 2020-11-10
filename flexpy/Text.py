@@ -1,22 +1,25 @@
 from flexpy.FlexPyUtil import get_single_child
 from flexpy.TextParagraph import TextParagraph
+from flexpy.tags.RtStText import RtStText
 
 
 
 class Text:
-    def __init__(self, guid, rt, rt_dict):
+    def __init__(self, guid, rt, tag_dict):
         self.validity = True  # some texts in FLEx are just empty (invalid), not sure why they exist
         self.guid = guid
         self.rt = rt
-        self.rt_dict = rt_dict
-        self.name = self.get_name()
-        self.contents = self.get_contents()
+        self.tag_dict = tag_dict
+        self.name = self.create_name()
+        self.st_texts = self.create_st_texts()
+        self.paragraphs = self.create_paragraphs()
+        self.contents = self.create_contents()
 
     def is_valid(self):
         assert type(self.validity) is bool
         return self.validity
 
-    def get_name(self):
+    def create_name(self):
         abbreviation = get_single_child(self.rt, "Abbreviation")
         if abbreviation is None:
             self.validity = False
@@ -27,30 +30,32 @@ class Text:
             auni = get_single_child(abbreviation, "AUni")
             return auni.text
 
-    def get_contents(self):
-        # contents_element = self.rt.findall("Contents")
-        # print("got contents element: {}".format(contents_element))
+    def create_st_texts(self):
+        elements_owned_by_text = self.tag_dict.get_by_owner_guid(self.guid)
+        st_text_els = [x for x in elements_owned_by_text if x.attrib["class"] == "StText"]
+        st_texts = [RtStText(el, self.tag_dict) for el in st_text_els]
+        return st_texts
 
+    def create_paragraphs(self):
+        paragraphs = []
+        for st_text in self.st_texts:
+            these_paragraphs = st_text.paragraphs
+            paragraphs += these_paragraphs
+            print("these_pars:", these_paragraphs)
+        return paragraphs
+
+    def create_contents(self):
+        # ignores StTexts, treats as flat list of paragraphs
         run_texts = []
-        # contents_str = ""
-        elements_owned_by_text = self.rt_dict.get_by_owner_guid(self.guid)
-        # print("elements owned by {} are:\n{}".format(self.guid, elements_owned_by_text))
-        st_texts = [x for x in elements_owned_by_text if x.attrib["class"] == "StText"]
-        # print("got StTexts: {}".format(st_texts))
-        for st_text in st_texts:
-            # print("this StText: {}".format(st_text))
-            paragraphs = st_text.findall("Paragraphs")
-            # print("paragraphs: {}".format(paragraphs))
-            for paragraph in paragraphs:
-                objsurs = paragraph.findall("objsur")
-                if objsurs is None:
-                    # print("Warning: paragraph {} has no objsurs".format(paragraph))
-                    continue
-                for objsur in objsurs:
-                    st_text_para_guid = objsur.attrib["guid"]
-                    st_text_para_el = self.rt_dict[st_text_para_guid]
-                    text_paragraph = TextParagraph(st_text_para_el, self.rt_dict)
-                    run_texts += text_paragraph.run_texts
+        for paragraph in self.paragraphs:
+            objsurs = paragraph.findall("objsur")
+            if objsurs is None:
+                continue
+            for objsur in objsurs:
+                st_text_para_guid = objsur.attrib["guid"]
+                st_text_para_el = self.tag_dict[st_text_para_guid]
+                text_paragraph = TextParagraph(st_text_para_el, self.tag_dict)
+                run_texts += text_paragraph.run_texts
         return run_texts
 
     def has_contents(self):
