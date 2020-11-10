@@ -26,7 +26,13 @@ class Corpus:
         return TagDict.from_project_dir_and_name(self.project_dir, self.project_name)
 
     def get_texts(self):
-        return self.tag_dict.get_texts()
+        text_elements = self.tag_dict["Text"]
+        texts = []
+        for guid, rt in text_elements.items():
+            text = Text(guid, rt, self.tag_dict)
+            texts.append(text)
+        # print("there are {} texts with contents".format(sum(x.has_contents() for x in texts)))
+        return texts
 
     def get_valid_texts(self):
         return [x for x in self.get_texts() if x.is_valid()]

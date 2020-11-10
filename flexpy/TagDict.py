@@ -1,18 +1,19 @@
 from xml.etree import ElementTree as ET
 
-from flexpy.Text import Text
 import flexpy.XMLTagMap as xml_tag_map
 
 
 class TagDict:
     def __init__(
             self, 
-            by_class_and_guid=None, 
+            by_tag=None, 
+            by_tag_and_guid=None, 
             by_guid=None, 
             by_owner_guid=None,
             root=None,
     ):
-        self.by_class_and_guid = by_class_and_guid if by_class_and_guid is not None else {}
+        self.by_tag = by_tag if by_tag is not None else {}
+        self.by_tag_and_guid = by_tag_and_guid if by_tag_and_guid is not None else {}
         self.by_guid = by_guid if by_guid is not None else {}
         self.by_owner_guid = by_owner_guid if by_owner_guid is not None else {}
         self.root = root if root is not None else None
@@ -33,52 +34,66 @@ class TagDict:
 
     @staticmethod
     def from_root(root):
-        # all <rt> elements in the XML
+        # all elements in the XML
         # the dictionary is keyed by "class" attribute (e.g. "LexEntry") and then by FLEX's identifier for each object
-        all_children = list(root)
-        children_tags = set(x.tag for x in all_children)
+        rts = list(root)
+        children_tags = set(x.tag for x in rts)
         assert children_tags == {"rt"}, "unhandled tag types in element tree: {}, expected only \"rt\"".format(sorted(children_tags))
-        rts = all_children
-        # rts = root.findall("rt")
 
-        by_class_and_guid = {}
+        all_elements = xml_tag_map.get_all_children_recursive(root)
+
+        by_tag = {}
+        by_tag_and_guid = {}
         by_guid = {}
         by_owner_guid = {}
         all_rt_attrib_keys = set()
-        # all_rt_classes = set()
-        for rt in rts:
-            all_rt_attrib_keys |= set(rt.attrib.keys())
-            class_name = rt.attrib["class"]  # rts should all have a class
-            # all_rt_classes.add(class_name)
-            if class_name not in by_class_and_guid:
-                by_class_and_guid[class_name] = {}
-            guid = rt.attrib["guid"]  # rts should all have a guid
-            by_class_and_guid[class_name][guid] = rt
-            by_guid[guid] = rt
+        for el in all_elements:
+            tag_key = xml_tag_map.get_tag_key_from_element(el, by_guid)
+            if el.tag == "rt":
+                all_rt_attrib_keys |= set(el.attrib.keys())
+                guid = el.attrib["guid"]  # rts should all have a guid
 
-            try:
-                owner_guid = rt.attrib["ownerguid"]  # only some have owners
-                if owner_guid not in by_owner_guid:
-                    by_owner_guid[owner_guid] = []
-                by_owner_guid[owner_guid].append(rt)
-            except KeyError:
-                # has no owner
+                if tag_key not in by_tag:
+                    by_tag[tag_key] = []
+                by_tag[tag_key].append(el)
+
+                if tag_key not in by_tag_and_guid:
+                    by_tag_and_guid[tag_key] = {}
+                assert guid not in by_tag_and_guid[tag_key], "guid {} already present for tag {} in TagDict".format(guid, tag_key)
+                by_tag_and_guid[tag_key][guid] = el
+
+                assert guid not in by_guid, "guid {} already present in TagDict".format(guid)
+                by_guid[guid] = el
+
+                try:
+                    owner_guid = el.attrib["ownerguid"]  # only some have owners
+                    if owner_guid not in by_owner_guid:
+                        by_owner_guid[owner_guid] = []
+                    by_owner_guid[owner_guid].append(el)
+                except KeyError:
+                    # has no owner
+                    pass
+
+            elif el.tag == "objsur":
+                # only a surrogate for some rt element present elsewhere, ignore it
+                # these only exist to show ownership/reference relationships
                 pass
 
-            # tried moving this to XMLTagMap.py
-            # rt_children = list(rt)
-            # rt_children_tags = set(x.tag for x in rt_children)
-            # tag_child_dict_key = "rt.{}".format(class_name)
-            # if tag_child_dict_key not in tag_child_dict:
-            #     tag_child_dict[tag_child_dict_key] = set()
-            # tag_child_dict[tag_child_dict_key] |= rt_children_tags
+            else:
+                # only rts should have guid and ownerguid
+                assert "guid" not in el.attrib, "element has a guid but shouldn't: {}, guid={}".format(el, el.attrib["guid"])
+                assert "ownerguid" not in el.attrib, "element has an ownerguid but shouldn't: {}, ownerguid={}".format(el, el.attrib["ownerguid"])
+
+                if tag_key not in by_tag:
+                    by_tag[tag_key] = []
+                by_tag[tag_key].append(el)
 
         expected_all_rt_attrib_keys = {"class", "guid", "ownerguid"}
         assert all_rt_attrib_keys == expected_all_rt_attrib_keys, "rt elements have attributes {}, expected {}".format(all_rt_attrib_keys, expected_all_rt_attrib_keys)
-        # print("all rt classes: {}".format(sorted(all_rt_classes)))
 
         return TagDict(
-            by_class_and_guid=by_class_and_guid,
+            by_tag=by_tag,
+            by_tag_and_guid=by_tag_and_guid,
             by_guid=by_guid,
             by_owner_guid=by_owner_guid,
             root=root,  # store for later use e.g. printing dependencies of elements
@@ -90,7 +105,7 @@ class TagDict:
         except KeyError:
             try:
                 # try giving the class-specific dict
-                return self.by_class_and_guid[index]
+                return self.by_tag_and_guid[index]
             except KeyError:
                 pass  # don't want "another exception was raised while handling"
 
@@ -118,15 +133,6 @@ class TagDict:
 
     def get_all_rts(self):
         return self.by_guid.values()
-
-    def get_texts(self):
-        text_elements = self["Text"]
-        texts = []
-        for guid, rt in text_elements.items():
-            text = Text(guid, rt, self)
-            texts.append(text)
-        # print("there are {} texts with contents".format(sum(x.has_contents() for x in texts)))
-        return texts
 
     def create_dependency_dict(self):
         return xml_tag_map.create_dependency_dict(self.root, self.by_guid)

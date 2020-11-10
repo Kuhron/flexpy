@@ -11,13 +11,11 @@ project_name = "Bongu"
 bongu_corpus = Corpus(project_dir, project_name)
 contents = bongu_corpus.get_tokenized_contents()
 
-print("dependencies in the XML:")
 dependency_dict = bongu_corpus.tag_dict.create_dependency_dict()
-bongu_corpus.tag_dict.print_dependency_dict()
 
 random_rt = random.choice(list(bongu_corpus.tag_dict.values()))
 print("class definition for {}".format(random_rt.attrib["class"]))
-print(xml_tag_map.create_class_definition(random_rt, dependency_dict))
+print(xml_tag_map.create_tag_class_definition(random_rt, dependency_dict))
 
 # test instantiating a tag class from an element
 el = list(bongu_corpus.tag_dict["CmAnnotationDefn"].values())[0]

@@ -2,11 +2,15 @@ from flexpy.Rt import Rt
 from flexpy.FlexPyUtil import get_child_object
 
 class RtCmAgent(Rt):
-    def __init__(self, rt, tag_dict):
-        super().__init__(rt, tag_dict)
-        self.Approves = get_child_object(self.rt, "Approves", self.tag_dict)
-        self.Disapproves = get_child_object(self.rt, "Disapproves", self.tag_dict)
-        self.Human = get_child_object(self.rt, "Human", self.tag_dict)
-        self.Name = get_child_object(self.rt, "Name", self.tag_dict)
-        self.Notes = get_child_object(self.rt, "Notes", self.tag_dict)
-        self.Version = get_child_object(self.rt, "Version", self.tag_dict)
+    def __init__(self, el, tag_dict):
+        super().__init__(el, tag_dict)
+        self.el = el
+        self.class = self.el.attrib.get(class)
+        self.guid = self.el.attrib.get(guid)
+        self.ownerguid = self.el.attrib.get(ownerguid)
+        self.Approves = get_child_object(self.el, "Approves", self.tag_dict)
+        self.Disapproves = get_child_object(self.el, "Disapproves", self.tag_dict)
+        self.Human = get_child_object(self.el, "Human", self.tag_dict)
+        self.Name = get_child_object(self.el, "Name", self.tag_dict)
+        self.Notes = get_child_object(self.el, "Notes", self.tag_dict)
+        self.Version = get_child_object(self.el, "Version", self.tag_dict)

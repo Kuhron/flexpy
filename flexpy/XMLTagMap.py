@@ -37,13 +37,6 @@ def print_dependency_dict(root, by_guid):
             print("  <child> {}".format(child_tag))
 
 
-def create_class_definition(el, dependency_dict):
-    if el.tag == "rt":
-        return create_rt_class_definition(el, dependency_dict)
-    else:
-        raise NotImplementedException(el.tag)
-
-
 def create_tag_class_file(el, dependency_dict):
     this_dir_path = os.path.dirname(os.path.realpath(__file__))  # flexpy dir within flexpy repo
     tag_class_files_location = os.path.join(this_dir_path, "tags/")
@@ -53,37 +46,65 @@ def create_tag_class_file(el, dependency_dict):
     if os.path.exists(tag_class_fp):
         print("can't overwrite tag class; skipping; please delete manually if you want to rewrite: {}".format(tag_class_fp))
     else:
-        class_definition_code = create_class_definition(el, dependency_dict)
+        class_definition_code = create_tag_class_definition(el, dependency_dict)
+        # print("\nTODO after debugging, uncomment code")
+        # print("would write to fp: {}".format(tag_class_fp))
+        # print("code:")
+        # print(class_definition_code)
+        # input("\n--- press enter to continue ---\n")
         with open(tag_class_fp, "w") as f:
             f.write(class_definition_code)
 
 
-def create_rt_class_definition(el, dependency_dict):
-    assert el.tag == "rt"
-    text_ignores = ["\n"]  # most or all of the rts seem to have text of "\n", which can just be ignored
-    text_warnings = []
-    if el.text is not None:
-        warn_str = "rt {} with guid={} has text {}".format(el, el.attrib["guid"], repr(el.text))
-        if el.text in text_ignores:
-            pass
-        elif el.text in text_warnings:
-            # don't crash for these known cases
-            print(warn_str)
-        else:
-            raise Exception(warn_str)
+def create_tag_class_files(tag_dict):
+    dependency_dict = tag_dict.dependency_dict
+    for class_name, el_lst in tag_dict.by_tag.items():
+        # get an element with this tag key
+        el = el_lst[0]
+        create_tag_class_file(el, dependency_dict)
+
+
+def create_tag_class_definition(el, dependency_dict):
+    if el.tag == "rt":
+        text_ignores = ["\n"]  # most or all of the rts seem to have text of "\n", which can just be ignored
+        text_warnings = []  # if see text in this list, warn the user
+        if el.text is not None:
+            warn_str = "element {} with guid={} has text {}".format(el, el.attrib.get("guid"), repr(el.text))
+            if el.text in text_ignores:
+                pass
+            elif el.text in text_warnings:
+                # don't crash for these known cases
+                print(warn_str)
+            else:
+                raise Exception(warn_str)
 
     long_class_name = get_tag_class_name(el)
-    
-    import_header = "from flexpy.Rt import Rt\n"
+
+    import_header = ""
+    if el.tag == "rt":
+        import_header += "from flexpy.Rt import Rt\n"
     import_header += "from flexpy.FlexPyUtil import get_child_object\n"
     import_header += "\n"
-    class_header = "class {}(Rt):\n".format(long_class_name)
-    init_header = "    def __init__(self, rt, tag_dict):\n"
-    init_header += " "*8 + "super().__init__(rt, tag_dict)\n"
+
+    if el.tag == "rt":
+        class_header = "class {}(Rt):\n".format(long_class_name)
+    else:
+        class_header = "class {}:\n".format(long_class_name)
+
+    init_header = "    def __init__(self, el, tag_dict):\n"
+    if el.tag == "rt":
+        init_header += " "*8 + "super().__init__(el, tag_dict)\n"
+    init_header += " "*8 + "self.el = el\n"
+
     init_vars_str = ""
-    for child_el in el:
-        child_tag = child_el.tag
-        init_var_line = " "*8 + "self.{0} = get_child_object(self.rt, \"{0}\", self.tag_dict)".format(child_tag)
+    for attrib_key in dependency_dict[long_class_name]["attributes"]:
+        init_vars_str += " "*8 + "self.{0} = self.el.attrib.get({0})\n".format(attrib_key)
+
+    for child_tag_short, child_tag_long, child_class_name in dependency_dict[long_class_name]["children"]:
+        init_var_line = " "*8 + "self.{0} = get_child_object(self.el, \"{1}\", self.tag_dict".format(child_tag_long, child_tag_short)
+        if child_class_name is not None:
+            init_var_line += ", class_name=\"{0}\"".format(child_class_name)
+        init_var_line += ")"
         init_vars_str += init_var_line + "\n"
 
     full_str = import_header + class_header + init_header + init_vars_str
@@ -104,12 +125,40 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
     if el.tag == "objsur":
         # don't add these, they should only be shown as children
         return dependency_dict
+    
+    get_empty_sub_dict = lambda: {"parents": set(), "children": set(), "owners": set(), "attributes": set()}
     tag_key = get_tag_key_from_element(el, by_guid)
     if tag_key not in dependency_dict:
-        dependency_dict[tag_key] = {"parents": set(), "children": set(), "owners": set()}
+        dependency_dict[tag_key] = get_empty_sub_dict()
+    
     child_elements = list(el)  # this is how etree gets them, just uses __iter__
-    child_tags = {get_tag_key_from_element(x, by_guid) for x in child_elements}
+    child_tags = set()
+    for child_el in child_elements:
+        if child_el.tag == "rt":
+            child_tag_short = "rt"
+            child_class_name = child_el.attrib["class"]
+            child_tag_long = get_tag_key_from_element(child_el, by_guid)
+        elif child_el.tag == "objsur":
+            reference_guid = child_el.attrib["guid"]
+            referent = by_guid[reference_guid]
+            child_tag_short = referent.tag
+            if referent.tag == "rt":
+                child_class_name = referent.attrib["class"]
+            else:
+                child_class_name = None
+            child_tag_long = get_tag_key_from_element(child_el, by_guid)
+            child_tag_from_referent = get_tag_key_from_element(referent, by_guid)
+            assert child_tag_long == child_tag_from_referent, "objsur tag key creation mismatch: {} from objsur, {} from referent".format(child_tag_long, child_tag_from_referent)
+            
+        else:
+            child_tag_short = child_el.tag
+            child_tag_long = child_el.tag  # short and long tag names are the same
+            child_class_name = None
+        tup = (child_tag_short, child_tag_long, child_class_name)
+        child_tags.add(tup)
+
     dependency_dict[tag_key]["children"] |= child_tags
+    dependency_dict[tag_key]["attributes"] |= set(el.attrib.keys())
 
     # this way misses the fact that the objsur is under a tag telling what relationship it has (e.g. "Meanings")
     if "ownerguid" in el.attrib:
@@ -118,10 +167,10 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
         dependency_dict[tag_key]["owners"] |= {owner_element_tag_key}
 
     # add the parent dependencies, where this element is those children's parent
-    for child_tag in child_tags:
-        if child_tag not in dependency_dict:
-            dependency_dict[child_tag] = {"parents": set(), "children": set(), "owners": set()}
-        dependency_dict[child_tag]["parents"] |= {tag_key}
+    for child_tag_short, child_tag_long, child_class_name in child_tags:
+        if child_tag_long not in dependency_dict:
+            dependency_dict[child_tag_long] = get_empty_sub_dict()
+        dependency_dict[child_tag_long]["parents"] |= {tag_key}
 
     return dependency_dict
 
@@ -129,21 +178,22 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
 def get_tag_key_from_element(el, by_guid):
     # rt should indicate its class attribute
     if el.tag == "rt":
-        tag_key = "rt.{}".format(el.attrib["class"])
+        tag_key = "Rt{}".format(el.attrib["class"])
 
     # objsur should indicate its reference type (r=reference, o=ownership) and the type of the object referred to
     elif el.tag == "objsur":
-        ref_letter = el.attrib["t"]
-        if ref_letter == "r":
-            ref_type = "ref"
-        elif ref_letter == "o":
-            ref_type = "own"
-        else:
-            raise ValueError("unknown objsur reference type: {} in element {}".format(ref_letter, el))
+        # ref_letter = el.attrib["t"]
+        # if ref_letter == "r":
+        #     ref_type = "ref"
+        # elif ref_letter == "o":
+        #     ref_type = "own"
+        # else:
+        #     raise ValueError("unknown objsur reference type: {} in element {}".format(ref_letter, el))
 
         element_referred_to = by_guid[el.attrib["guid"]]
         obj_tag = get_tag_key_from_element(element_referred_to, by_guid)
-        tag_key = "{}.{}".format(ref_type, obj_tag)
+        # tag_key = "{}.{}".format(ref_type, obj_tag)
+        tag_key = obj_tag
 
     else:
         tag_key = el.tag

@@ -1,0 +1,7 @@
+from flexpy.FlexPyUtil import get_child_object
+
+class Name:
+    def __init__(self, el, tag_dict):
+        self.el = el
+        self.AUni = get_child_object(self.el, "AUni", self.tag_dict)
+        self.Uni = get_child_object(self.el, "Uni", self.tag_dict)

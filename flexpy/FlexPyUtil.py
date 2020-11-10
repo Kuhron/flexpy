@@ -20,9 +20,36 @@ def get_single_child(element, child_tag):
     raise Exception(error_str)
 
 
-def get_child_object(el, child_tag, tag_dict):
-    child_el = get_single_child(el, child_tag)
-    return get_python_object_from_element(child_el, tag_dict)
+def get_child_object(el, child_tag, tag_dict, class_name=None):
+    if class_name is not None:
+        assert child_tag == "rt", "can't pass class_name for anything other than rt child"
+    if child_tag == "rt":
+        assert class_name is not None, "can't omit class_name for rt child"
+
+    el_has_objsurs = el.find("objsur") is not None
+    if el_has_objsurs:
+        # shouldn't have anything else
+        assert all(child_el.tag == "objsur" for child_el in el), "el {} has objsurs as well as other child tags".format(el)
+        # we will then search for objsurs which meet the criteria
+        # we should return a list of these
+        matching_referent_els = []
+        for objsur in el:
+            reference_guid = objsur.attrib["guid"]
+            referent = tag_dict[reference_guid]
+            if referent.tag == child_tag:
+                if referent.tag == "rt":
+                    matches = referent.attrib["class"] == class_name
+                else:
+                    matches = True
+            else:
+                matches = False
+            if matches:
+                matching_referent_els.append(referent)
+        return matching_referent_els
+    else:
+        # if it's not objsur, there should only be one of each child type
+        child_el = get_single_child(el, child_tag)
+        return get_python_object_from_element(child_el, tag_dict)
 
 
 def get_python_object_from_element(el, tag_dict):
@@ -281,16 +308,3 @@ def sort_concordance_list(conc_list, sorting_indices):
 def camel_case_to_snake_case(s):
     # https://stackoverflow.com/questions/1175208/elegant-python-function-to-convert-camelcase-to-snake-case
     return re.sub('((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z]))', r'_\1', s).lower()
-
-
-def create_tag_class_files(tag_dict):
-    dependency_dict = tag_dict.dependency_dict
-    print("dep dict keys:")
-    print(sorted(dependency_dict.keys()))
-    input("a")
-
-
-    for class_name, sub_d in tag_dict.by_class_and_guid.items():
-        # get an element with this class attrib
-        el = list(sub_d.values())[0]
-        xml_tag_map.create_tag_class_file(el, dependency_dict)
