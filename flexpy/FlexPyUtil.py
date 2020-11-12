@@ -22,6 +22,17 @@ def get_single_child(element, child_tag):
     raise Exception(error_str)
 
 
+def get_ordered_child_objects(el, tag_dict):
+    # for objsurs only
+    assert type(el) is ET.Element, "invalid element: {}".format(el)
+    child_objects = []
+    for child_el in el:
+        if child_el.tag == "objsur":
+            child_object = tag_dict.get_python_object_from_element(child_el)
+            child_objects.append(child_object)
+    return child_objects
+
+
 def get_child_object(el, child_tag, tag_dict, class_name=None):
     assert type(el) is ET.Element, "invalid element: {}".format(el)
     if class_name is not None:
@@ -335,3 +346,21 @@ def get_strs_from_form(form):
             strs = [run.text for run in s.Run]
     
     return {"AStr": astrs, "AUni": aunis, "Str": strs}
+
+
+def get_single_str_from_form(form):
+    forms = []
+    forms_dict = get_strs_from_form(form)
+    has_astr = forms_dict["AStr"] is not None and forms_dict["AStr"] != []
+    has_auni = forms_dict["AUni"] is not None and forms_dict["AUni"] != []
+    has_str = forms_dict["Str"] is not None and forms_dict["Str"] != []
+    assert has_astr + has_auni + has_str == 1, "forms_dict has != 1 valid forms: {}".format(forms_dict)
+    for k, v in forms_dict.items():
+        if v is not None:
+            assert type(v) is list, type(v)
+            if len(v) > 0:
+                # not empty list, there is some form here
+                assert len(v) == 1, "more than 1 form: {}".format(v)
+                forms.append(v[0])
+    assert len(forms) == 1, forms
+    return forms[0]

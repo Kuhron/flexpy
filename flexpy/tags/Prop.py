@@ -1,4 +1,4 @@
-from flexpy.FlexPyUtil import get_child_object
+from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class Prop:
     def __init__(self, el, tag_dict):
@@ -28,4 +28,5 @@ class Prop:
         self.trailingIndent = self.el.attrib.get("trailingIndent")
         self.undercolor = self.el.attrib.get("undercolor")
         self.underline = self.el.attrib.get("underline")
+        self.child_objects = get_ordered_child_objects(el, tag_dict)
         self.WsStyles9999 = get_child_object(self.el, "WsStyles9999", self.tag_dict)

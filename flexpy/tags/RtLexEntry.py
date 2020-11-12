@@ -1,5 +1,5 @@
 from flexpy.Rt import Rt
-from flexpy.FlexPyUtil import get_child_object
+from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class RtLexEntry(Rt):
     def __init__(self, el, tag_dict):
@@ -7,6 +7,7 @@ class RtLexEntry(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
+        self.child_objects = get_ordered_child_objects(el, tag_dict)
         self.AlternateForms = get_child_object(self.el, "AlternateForms", self.tag_dict)
         self.Comment = get_child_object(self.el, "Comment", self.tag_dict)
         self.DateCreated = get_child_object(self.el, "DateCreated", self.tag_dict)

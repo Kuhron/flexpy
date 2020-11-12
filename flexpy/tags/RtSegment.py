@@ -1,5 +1,5 @@
 from flexpy.Rt import Rt
-from flexpy.FlexPyUtil import get_child_object
+from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class RtSegment(Rt):
     def __init__(self, el, tag_dict):
@@ -7,6 +7,7 @@ class RtSegment(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
+        self.child_objects = get_ordered_child_objects(el, tag_dict)
         self.Analyses = get_child_object(self.el, "Analyses", self.tag_dict)
         self.BeginOffset = get_child_object(self.el, "BeginOffset", self.tag_dict)
         self.BeginTimeOffset = get_child_object(self.el, "BeginTimeOffset", self.tag_dict)

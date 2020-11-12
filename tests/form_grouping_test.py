@@ -51,10 +51,10 @@ if __name__ == "__main__":
         print(text)
 
     texts_to_omit = [None, "None", "*Nouns", "*Ungram.", "*Random", "*Verbs"]
-    tokenized = corpus.get_tokenized_contents_objects(texts_to_omit=texts_to_omit)
+    # tokenized = corpus.get_tokenized_contents_objects(texts_to_omit=texts_to_omit)
 
     # test grouping functions
-    for grouping_function in [get_form_group_first2, get_form_group_last2, get_form_group_pos]:
-        new_tokenized = group_forms_in_tokenized(tokenized, grouping_function)
-        print("\n-- reporting pronoun collocations")
-        report_pronoun_collocations(new_tokenized)
+    # for grouping_function in [get_form_group_first2, get_form_group_last2, get_form_group_pos]:
+    #     new_tokenized = group_forms_in_tokenized(tokenized, grouping_function)
+    #     print("\n-- reporting pronoun collocations")
+    #     report_pronoun_collocations(new_tokenized)

@@ -1,5 +1,5 @@
 from flexpy.Rt import Rt
-from flexpy.FlexPyUtil import get_child_object
+from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class RtLangProject(Rt):
     def __init__(self, el, tag_dict):
@@ -7,6 +7,7 @@ class RtLangProject(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
+        self.child_objects = get_ordered_child_objects(el, tag_dict)
         self.AffixCategories = get_child_object(self.el, "AffixCategories", self.tag_dict)
         self.AnalysisWss = get_child_object(self.el, "AnalysisWss", self.tag_dict)
         self.AnalyzingAgents = get_child_object(self.el, "AnalyzingAgents", self.tag_dict)

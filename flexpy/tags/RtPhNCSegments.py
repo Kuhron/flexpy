@@ -1,5 +1,5 @@
 from flexpy.Rt import Rt
-from flexpy.FlexPyUtil import get_child_object
+from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class RtPhNCSegments(Rt):
     def __init__(self, el, tag_dict):
@@ -7,6 +7,7 @@ class RtPhNCSegments(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
+        self.child_objects = get_ordered_child_objects(el, tag_dict)
         self.Abbreviation = get_child_object(self.el, "Abbreviation", self.tag_dict)
         self.Description = get_child_object(self.el, "Description", self.tag_dict)
         self.Name = get_child_object(self.el, "Name", self.tag_dict)

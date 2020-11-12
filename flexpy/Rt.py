@@ -15,10 +15,11 @@ class Rt:
         self.ownerguid = el.attrib.get("ownerguid")
         self.owner_el = tag_dict.get(self.ownerguid)
 
-        # causes max recursion
+        # causes max recursion and/or memory leak
         # self.owner = get_python_object_from_element(self.owner_el, tag_dict) if self.owner_el is not None else None
 
     def get_owner(self):
+        # only construct this when asked, otherwise will take up too much memory
         return self.tag_dict.get_python_object_from_element(self.owner_el)
 
     def __repr__(self):

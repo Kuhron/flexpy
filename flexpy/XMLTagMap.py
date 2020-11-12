@@ -83,7 +83,7 @@ def create_tag_class_definition(el, dependency_dict):
     import_header = ""
     if el.tag == "rt":
         import_header += "from flexpy.Rt import Rt\n"
-    import_header += "from flexpy.FlexPyUtil import get_child_object\n"
+    import_header += "from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects\n"
     import_header += "\n"
 
     if el.tag == "rt":
@@ -106,6 +106,9 @@ def create_tag_class_definition(el, dependency_dict):
         for attrib_key in dependency_dict[long_class_name]["attributes"]:
             init_vars_str += " "*8 + "self.{0} = self.el.attrib.get(\"{0}\")\n".format(attrib_key)
 
+    # try changing child tags to functions
+
+    init_vars_str += " "*8 + "self.child_objects = get_ordered_child_objects(el, tag_dict)\n"
     for child_tag_short, child_tag_long, child_class_name in dependency_dict[long_class_name]["children"]:
         init_var_line = " "*8 + "self.{0} = get_child_object(self.el, \"{1}\", self.tag_dict".format(child_tag_long, child_tag_short)
         if child_class_name is not None:

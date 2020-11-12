@@ -151,6 +151,12 @@ class TagDict:
 
     def get_python_object_from_element(self, el):
         assert type(el) is ET.Element, "invalid element: {}".format(el)
+        if el.tag == "objsur":
+            # resolve to the referent
+            reference_guid = el.attrib["guid"]
+            referent = self[reference_guid]
+            assert referent.tag != "objsur", "objsur {} refers to another objsur {}".format(el, referent)
+            return self.get_python_object_from_element(referent)
         try:
             # fetch already-created object
             return self.object_by_element[el]

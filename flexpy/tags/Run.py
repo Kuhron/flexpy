@@ -1,4 +1,4 @@
-from flexpy.FlexPyUtil import get_child_object
+from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class Run:
     def __init__(self, el, tag_dict):
@@ -9,3 +9,4 @@ class Run:
         self.namedStyle = self.el.attrib.get("namedStyle")
         self.spellcheck = self.el.attrib.get("spellcheck")
         self.ws = self.el.attrib.get("ws")
+        self.child_objects = get_ordered_child_objects(el, tag_dict)
