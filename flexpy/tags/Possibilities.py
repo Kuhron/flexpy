@@ -1,0 +1,40 @@
+from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
+
+class Possibilities:
+    def __init__(self, el, tag_dict):
+        self.el = el
+        self.tag_dict = tag_dict
+        self.text = self.el.text
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def RtCmAnnotationDefn(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnnotationDefn")
+
+    def RtCmAnthroItem(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnthroItem")
+
+    def RtCmPerson(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmPerson")
+
+    def RtCmPossibility(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmPossibility")
+
+    def RtCmSemanticDomain(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmSemanticDomain")
+
+    def RtLexEntryInflType(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntryInflType")
+
+    def RtLexEntryType(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntryType")
+
+    def RtLexRefType(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="LexRefType")
+
+    def RtMoMorphType(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="MoMorphType")
+
+    def RtPartOfSpeech(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="PartOfSpeech")

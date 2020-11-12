@@ -6,15 +6,15 @@ from flexpy.LexEntry import LexEntry
 
 
 class Lexicon:
-    def __init__(self, lex_entry_els, rt_dict):
+    def __init__(self, lex_entry_els, tag_dict):
         self.lex_entry_els = lex_entry_els
-        self.rt_dict = rt_dict
+        self.tag_dict = tag_dict
         self.lex_entries = self.create_lex_entries()
 
     def create_lex_entries(self):
         res = []
         for guid, rt in self.lex_entry_els.items():
-            lex_entry = LexEntry(rt, self.rt_dict)
+            lex_entry = LexEntry(rt, self.tag_dict)
             res.append(lex_entry)
         return res
 

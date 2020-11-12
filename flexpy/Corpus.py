@@ -2,7 +2,7 @@ import os
 import random
 
 from flexpy.Lexicon import Lexicon
-from flexpy.RtDict import RtDict
+from flexpy.TagDict import TagDict
 from flexpy.Text import Text
 
 from flexpy.FlexPyUtil import (
@@ -17,20 +17,23 @@ class Corpus:
     def __init__(self, project_dir, project_name):
         self.project_dir = project_dir
         self.project_name = project_name
-        self.rt_dict = self.get_rt_dict()
+        self.tag_dict = self.get_tag_dict()
         self.texts = self.get_texts()
-        self.contents = self.get_contents()
         self.lexicon = self.get_lexicon()
 
-    def get_rt_dict(self):
-        flex_dir = self.project_dir + "{}/".format(self.project_name)
-        fp = flex_dir + "{}.fwdata".format(self.project_name)
-        # print("getting corpus from FLEx project {} at {}".format(self.project_name, fp))
-        rt_dict = RtDict.from_fwdata_file(fp)
-        return rt_dict
+    def get_tag_dict(self):
+        return TagDict.from_project_dir_and_name(self.project_dir, self.project_name)
 
     def get_texts(self):
-        return self.rt_dict.get_texts()
+        text_elements = self.tag_dict["RtText"]
+        texts = []
+        for guid, rt in text_elements.items():
+            # print("initing new text from rt {}".format(rt))
+            text = Text(guid, rt, self.tag_dict)
+            # print("finished initing text {}".format(text))
+            texts.append(text)
+        # print("there are {} texts with contents".format(sum(x.has_contents() for x in texts)))
+        return texts
 
     def get_valid_texts(self):
         return [x for x in self.get_texts() if x.is_valid()]
@@ -48,32 +51,65 @@ class Corpus:
                 for line in text.contents:
                     f.write(line + "\n")
 
-    def get_contents(self):
+    def get_contents(self, texts_to_omit=None):
         # e.g. ["Hello, world.", "My name is Wesley."]
+        if texts_to_omit is None and hasattr(self, "contents"):
+            return self.contents
         contents_lst = []
         for text in self.texts:
-            contents = text.get_contents()
-            contents_lst += contents
+            if texts_to_omit is not None and text.name in texts_to_omit:
+                continue
+            contents = text.contents
+            if contents is not None:
+                contents_lst += contents
         return contents_lst
 
-    def get_tokenized_contents(self):
+    def get_tokenized_contents(self, texts_to_omit=None):
         # e.g. [["hello", "world"], ["my", "name", "is", "wesley"]]
+        contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
-        for s in self.contents:
+        for s in contents:
             result.append(tokenize_single_text(s))
         return result
 
     def get_tokenized_contents_flat(self):
         # treats the whole corpus as a single text
         # e.g. ["hello", "world", "my", "name", "is", "wesley"]
+        contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
-        for s in self.contents:
+        for s in contents:
             result += tokenize_single_text(s)
         return result
+    
+    def get_tokenized_contents_objects(self, texts_to_omit=None):
+        result = []
+        for text in self.texts:
+            if texts_to_omit is not None and text.name in texts_to_omit:
+                print("text {} is omitted".format(text.name))
+                continue
+            result.append(text.create_contents_objects())
+        return result
+
+    def get_wordform_contents(self, texts_separated, paragraphs_separated, texts_to_omit=None):
+        assert type(texts_separated) is bool, texts_separated
+        assert type(paragraphs_separated) is bool, paragraphs_separated
+        contents = []
+        if texts_separated:
+            for text in self.texts:
+                if texts_to_omit is not None and text.name in texts_to_omit and text.is_valid():
+                    text_contents = text.get_wordform_contents(paragraphs_separated)
+                    contents.append(text_contents)
+        else:
+            print("Warning: getting corpus contents should probably have texts separated as True")
+            for text in self.texts:
+                if texts_to_omit is not None and text.name in texts_to_omit and text.is_valid():
+                    text_contents = text.get_wordform_contents(paragraphs_separated)
+                    contents += text_contents
+        return contents
 
     def get_lexicon(self):
-        lex_entries = self.rt_dict["LexEntry"]
-        return Lexicon(lex_entries, self.rt_dict)
+        lex_entries = self.tag_dict["RtLexEntry"]
+        return Lexicon(lex_entries, self.tag_dict)
 
     def search_lexicon_glosses(self, regex):
         return self.lexicon.search_glosses(regex)

@@ -3,7 +3,7 @@ from corpus_toolkit import corpus_tools as ct
 
 # FlexPy-specific classes
 from flexpy.Corpus import Corpus
-from flexpy.RtDict import RtDict
+from flexpy.TagDict import TagDict
 from flexpy.Text import Text
 from flexpy.FlexPyUtil import get_top_n_dict_items
 

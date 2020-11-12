@@ -1,9 +1,9 @@
 raise Exception("this is broken")
 
-def run_flashcards(project_name, rt_dict):
+def run_flashcards(project_name, tag_dict):
     raise Exception ("FIXME")
     # asks user random lexicon entries as a vocabulary quiz
-    lex_entries = rt_dict["LexEntry"]
+    lex_entries = tag_dict["LexEntry"]
     for lex in lex_entries.values():
         lexeme_form = get_single_child(lex, "LexemeForm")
         objsur = get_single_child(lexeme_form, "objsur")
@@ -21,7 +21,7 @@ def run_flashcards(project_name, rt_dict):
                 form_found = False
                 for fcl in form_classes:
                     try:
-                        lexeme_form_rt = rt_dict["MoStemAllomorph"][lexeme_form_guid]
+                        lexeme_form_rt = tag_dict["MoStemAllomorph"][lexeme_form_guid]
                         form = get_single_child(lexeme_form_rt, "Form")
                         auni = get_single_child(form, "AUni")
                         lexeme_form = auni.text
@@ -34,7 +34,7 @@ def run_flashcards(project_name, rt_dict):
                     input("press enter to move on to next rt tag")
                     continue
             
-                sense_rt = rt_dict["LexSense"][sense_guid]
+                sense_rt = tag_dict["LexSense"][sense_guid]
                 gloss = get_single_child(sense_rt, "Gloss")
                 auni = get_single_child(gloss, "AUni")
                 sense_text = auni.text

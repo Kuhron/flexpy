@@ -3,7 +3,7 @@ import random
 
 # FlexPy-specific classes
 from flexpy.FlexPyUtil import get_single_child
-from flexpy.RtDict import RtDict
+from flexpy.TagDict import TagDict
 from flexpy.Text import Text
 
 

@@ -1,3 +1,7 @@
+import re
+import xml.etree.ElementTree as ET
+
+
 # global constants used in multiple places
 PUNCTUATION_CHARS = [".", "?", "!", ",", "'", "\"", ";", ":", "-"]
 WHITESPACE_CHARS = ["\n", "\t"]
@@ -5,6 +9,7 @@ WHITESPACE_CHARS = ["\n", "\t"]
 
 
 def get_single_child(element, child_tag):
+    assert type(element) is ET.Element, "invalid element: {}".format(element)
     children = element.findall(child_tag)
     if len(children) == 1:
         return children[0]
@@ -15,6 +20,76 @@ def get_single_child(element, child_tag):
         error_str += get_element_info_str(child) + "\n"
     error_str += "in parent:\n{}".format(get_element_info_str(element))
     raise Exception(error_str)
+
+
+def get_ordered_child_objects(el, tag_dict):
+    # for objsurs only
+    assert type(el) is ET.Element, "invalid element: {}".format(el)
+    child_objects = []
+    for child_el in el:
+        if child_el.tag == "objsur":
+            child_object = tag_dict.get_python_object_from_element(child_el)
+            child_objects.append(child_object)
+    return child_objects
+
+
+def get_child_object(el, child_tag, tag_dict, class_name=None):
+    assert type(el) is ET.Element, "invalid element: {}".format(el)
+    if class_name is not None:
+        assert child_tag == "rt", "can't pass class_name for anything other than rt child"
+    if child_tag == "rt":
+        assert class_name is not None, "can't omit class_name for rt child"
+
+    el_has_objsurs = el.find("objsur") is not None
+    if el_has_objsurs:
+        # shouldn't have anything else
+        assert all(child_el.tag == "objsur" for child_el in el), "el {} has objsurs as well as other child tags".format(el)
+        # we will then search for objsurs which meet the criteria
+        # we should return a list of these
+        matching_referent_els = []
+        for objsur in el:
+            reference_guid = objsur.attrib["guid"]
+            referent = tag_dict[reference_guid]
+            if referent.tag == child_tag:
+                if referent.tag == "rt":
+                    matches = referent.attrib["class"] == class_name
+                else:
+                    matches = True
+            else:
+                matches = False
+            if matches:
+                referent_object = tag_dict.get_python_object_from_element(referent)
+                matching_referent_els.append(referent_object)
+        return matching_referent_els
+    elif child_tag in ["AUni", "AStr", "Run"]:
+        # there can be many of these for different writing systems
+        # create a dict from writing system to AUni tag
+        children_els = el.findall(child_tag)
+        return [tag_dict.get_python_object_from_element(child_el) for child_el in children_els]
+    else:
+        # there should only be one of each child type
+        child_el = get_single_child(el, child_tag)
+        if child_el is None:
+            return None
+        return tag_dict.get_python_object_from_element(child_el)
+
+
+def get_tag_class_name(el):
+    if el.tag == "rt":
+        class_name = "Rt{}".format(el.attrib["class"])
+    elif el.tag == "objsur":
+        raise Exception("shouldn't be getting tag class for object surrogates")
+    else:
+        class_name = el.tag
+    return class_name
+
+
+def get_tag_class(el):
+    class_name = get_tag_class_name(el)
+    # see https://docs.python.org/3/library/functions.html#__import__
+    from_x = "flexpy.tags." + class_name
+    class_object = getattr(__import__(from_x, fromlist=[class_name]), class_name)
+    return class_object
 
 
 def get_element_info_str(element):
@@ -243,3 +318,49 @@ def sort_concordance_list(conc_list, sorting_indices):
     sorted_kvs = sorted(d.items())
     sorted_lines = [kv[1] for kv in sorted_kvs]
     return sorted_lines
+
+
+def camel_case_to_snake_case(s):
+    # https://stackoverflow.com/questions/1175208/elegant-python-function-to-convert-camelcase-to-snake-case
+    return re.sub('((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z]))', r'_\1', s).lower()
+
+
+def get_strs_from_form(form):
+    assert form.__class__.__name__ == "Form", type(form)  # avoid circular import type checking
+
+    # AStr has a Run child tag with the text
+    astrs = form.AStr()
+    if astrs is not None:
+        for astr in astrs:
+            astrs = [run.text for run in astr.Run()]
+
+    # AUni has text in tag
+    aunis = form.AUni()
+    if aunis is not None:
+        aunis = [auni.text for auni in aunis]
+
+    # Str has a Run child tag with the text
+    strs = form.Str()
+    if strs is not None:
+        for s in strs:
+            strs = [run.text for run in s.Run()]
+    
+    return {"AStr": astrs, "AUni": aunis, "Str": strs}
+
+
+def get_single_str_from_form(form):
+    forms = []
+    forms_dict = get_strs_from_form(form)
+    has_astr = forms_dict["AStr"] is not None and forms_dict["AStr"] != []
+    has_auni = forms_dict["AUni"] is not None and forms_dict["AUni"] != []
+    has_str = forms_dict["Str"] is not None and forms_dict["Str"] != []
+    assert has_astr + has_auni + has_str == 1, "forms_dict has != 1 valid forms: {}".format(forms_dict)
+    for k, v in forms_dict.items():
+        if v is not None:
+            assert type(v) is list, type(v)
+            if len(v) > 0:
+                # not empty list, there is some form here
+                assert len(v) == 1, "more than 1 form: {}".format(v)
+                forms.append(v[0])
+    assert len(forms) == 1, forms
+    return forms[0]
