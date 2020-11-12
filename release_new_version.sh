@@ -12,6 +12,7 @@ python setup.py sdist bdist_wheel
 # # (if it already exists, rmvirtualenv it and make new one)
 # workon flexpy
 # # (it will already put you in virtualenv after you make it, but workon is how you enter an existing one)
+# cd  # get out of the flexpy dir or that module will be in python's vision and it will think you already got the new version from pip
 # python -m pip install --index-url https://test.pypi.org/simple/ flexpy
 # # now new flexpy should be installed in the venv so you can try it out
 # python  # test stuff

@@ -43,6 +43,10 @@ def create_tag_class_file(el, dependency_dict):
     class_name = get_tag_class_name(el)
     tag_class_filename = "{}.py".format(class_name)
     tag_class_fp = os.path.join(tag_class_files_location, tag_class_filename)
+    init_fp = os.path.join(tag_class_files_location, "__init__.py")
+    if not os.path.exists(init_fp):
+        with open(init_fp, "w") as f:
+            pass  # leave it blank
     if os.path.exists(tag_class_fp):
         print("can't overwrite tag class; skipping; please delete manually if you want to rewrite: {}".format(tag_class_fp))
     else:
