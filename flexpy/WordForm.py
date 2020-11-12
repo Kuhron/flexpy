@@ -17,9 +17,10 @@ class WordForm:
         self.morph_types = morph_types
         self.glosses = glosses
         self.poses = poses
+        self.text = self.get_text()
 
     def __repr__(self):
-        return "<WordForm \"{}\" = ({}) \"{}\">".format(self.forms, self.poses, self.glosses)
+        return "<WordForm \"{}\" ({}) = ({}) \"{}\">".format(self.forms, self.morph_types, self.poses, self.glosses)
 
     @staticmethod
     def from_rt_wfi_analysis(rt_wfi_analysis, tag_dict):
@@ -187,9 +188,29 @@ class WordForm:
         rt_lex_senses = sense.RtLexSense()
         for rt_lex_sense in rt_lex_senses:
             gloss = rt_lex_sense.Gloss()
+            if gloss is None:
+                continue
             aunis = gloss.AUni()
             for auni in aunis:
                 gloss_text = auni.text
                 glosses.append(gloss_text)
+        if len(glosses) == 0:
+            return None
         assert len(glosses) == 1, glosses
         return glosses[0]
+
+    def get_text(self):
+        # just join all the forms
+        if self.forms is None:
+            return ""
+        return "".join(x if x is not None else "" for x in self.forms)
+    
+    def get_root_pos(self):
+        root_indices = [i for i, x in enumerate(self.morph_types) if x == "root"]
+        root_poses = [self.poses[i] for i in root_indices]
+        unique_root_poses = list(set(root_poses))
+        if len(unique_root_poses) == 0:
+            return None
+        elif len(unique_root_poses) > 1:
+            raise Exception("word with more than one root part of speech: {}".format(self))
+        return unique_root_poses[0]

@@ -60,14 +60,15 @@ class Corpus:
             if texts_to_omit is not None and text.name in texts_to_omit:
                 continue
             contents = text.contents
-            contents_lst += contents
+            if contents is not None:
+                contents_lst += contents
         return contents_lst
 
     def get_tokenized_contents(self, texts_to_omit=None):
         # e.g. [["hello", "world"], ["my", "name", "is", "wesley"]]
         contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
-        for s in self.contents:
+        for s in contents:
             result.append(tokenize_single_text(s))
         return result
 
@@ -88,6 +89,23 @@ class Corpus:
                 continue
             result.append(text.create_contents_objects())
         return result
+
+    def get_wordform_contents(self, texts_separated, paragraphs_separated, texts_to_omit=None):
+        assert type(texts_separated) is bool, texts_separated
+        assert type(paragraphs_separated) is bool, paragraphs_separated
+        contents = []
+        if texts_separated:
+            for text in self.texts:
+                if texts_to_omit is not None and text.name in texts_to_omit and text.is_valid():
+                    text_contents = text.get_wordform_contents(paragraphs_separated)
+                    contents.append(text_contents)
+        else:
+            print("Warning: getting corpus contents should probably have texts separated as True")
+            for text in self.texts:
+                if texts_to_omit is not None and text.name in texts_to_omit and text.is_valid():
+                    text_contents = text.get_wordform_contents(paragraphs_separated)
+                    contents += text_contents
+        return contents
 
     def get_lexicon(self):
         lex_entries = self.tag_dict["RtLexEntry"]

@@ -61,6 +61,19 @@ class Text:
                 # print("done with RtStTxtPara {}".format(rt_st_txt_para_i))
         # print("- done creating paragraphs for text {}".format(self))
         return text_paragraphs
+    
+    def get_wordform_contents(self, paragraphs_separated):
+        assert type(paragraphs_separated) is bool, paragraphs_separated
+        if paragraphs_separated:
+            contents = []
+            for paragraph in self.paragraphs:
+                contents.append(paragraph.wordforms)
+            return contents
+        else:
+            contents = []
+            for paragraph in self.paragraphs:
+                contents += paragraph.wordforms
+            return contents
 
     def create_contents(self):
         # print("creating contents for text {}".format(self))
