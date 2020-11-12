@@ -7,8 +7,18 @@ class RtDsConstChart(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.BasedOn = get_child_object(self.el, "BasedOn", self.tag_dict)
-        self.DateCreated = get_child_object(self.el, "DateCreated", self.tag_dict)
-        self.DateModified = get_child_object(self.el, "DateModified", self.tag_dict)
-        self.Template = get_child_object(self.el, "Template", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def BasedOn(self):
+        return get_child_object(self.el, "BasedOn", self.tag_dict)
+
+    def DateCreated(self):
+        return get_child_object(self.el, "DateCreated", self.tag_dict)
+
+    def DateModified(self):
+        return get_child_object(self.el, "DateModified", self.tag_dict)
+
+    def Template(self):
+        return get_child_object(self.el, "Template", self.tag_dict)

@@ -7,16 +7,42 @@ class RtLexEntry(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.AlternateForms = get_child_object(self.el, "AlternateForms", self.tag_dict)
-        self.Comment = get_child_object(self.el, "Comment", self.tag_dict)
-        self.DateCreated = get_child_object(self.el, "DateCreated", self.tag_dict)
-        self.DateModified = get_child_object(self.el, "DateModified", self.tag_dict)
-        self.DoNotPublishIn = get_child_object(self.el, "DoNotPublishIn", self.tag_dict)
-        self.DoNotUseForParsing = get_child_object(self.el, "DoNotUseForParsing", self.tag_dict)
-        self.EntryRefs = get_child_object(self.el, "EntryRefs", self.tag_dict)
-        self.HomographNumber = get_child_object(self.el, "HomographNumber", self.tag_dict)
-        self.LexemeForm = get_child_object(self.el, "LexemeForm", self.tag_dict)
-        self.MorphoSyntaxAnalyses = get_child_object(self.el, "MorphoSyntaxAnalyses", self.tag_dict)
-        self.Pronunciations = get_child_object(self.el, "Pronunciations", self.tag_dict)
-        self.Senses = get_child_object(self.el, "Senses", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def AlternateForms(self):
+        return get_child_object(self.el, "AlternateForms", self.tag_dict)
+
+    def Comment(self):
+        return get_child_object(self.el, "Comment", self.tag_dict)
+
+    def DateCreated(self):
+        return get_child_object(self.el, "DateCreated", self.tag_dict)
+
+    def DateModified(self):
+        return get_child_object(self.el, "DateModified", self.tag_dict)
+
+    def DoNotPublishIn(self):
+        return get_child_object(self.el, "DoNotPublishIn", self.tag_dict)
+
+    def DoNotUseForParsing(self):
+        return get_child_object(self.el, "DoNotUseForParsing", self.tag_dict)
+
+    def EntryRefs(self):
+        return get_child_object(self.el, "EntryRefs", self.tag_dict)
+
+    def HomographNumber(self):
+        return get_child_object(self.el, "HomographNumber", self.tag_dict)
+
+    def LexemeForm(self):
+        return get_child_object(self.el, "LexemeForm", self.tag_dict)
+
+    def MorphoSyntaxAnalyses(self):
+        return get_child_object(self.el, "MorphoSyntaxAnalyses", self.tag_dict)
+
+    def Pronunciations(self):
+        return get_child_object(self.el, "Pronunciations", self.tag_dict)
+
+    def Senses(self):
+        return get_child_object(self.el, "Senses", self.tag_dict)

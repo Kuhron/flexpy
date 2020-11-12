@@ -7,7 +7,15 @@ class RtStText(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.DateModified = get_child_object(self.el, "DateModified", self.tag_dict)
-        self.Paragraphs = get_child_object(self.el, "Paragraphs", self.tag_dict)
-        self.RightToLeft = get_child_object(self.el, "RightToLeft", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def DateModified(self):
+        return get_child_object(self.el, "DateModified", self.tag_dict)
+
+    def Paragraphs(self):
+        return get_child_object(self.el, "Paragraphs", self.tag_dict)
+
+    def RightToLeft(self):
+        return get_child_object(self.el, "RightToLeft", self.tag_dict)

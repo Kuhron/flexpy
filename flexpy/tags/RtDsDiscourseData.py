@@ -7,7 +7,15 @@ class RtDsDiscourseData(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.ChartMarkers = get_child_object(self.el, "ChartMarkers", self.tag_dict)
-        self.Charts = get_child_object(self.el, "Charts", self.tag_dict)
-        self.ConstChartTempl = get_child_object(self.el, "ConstChartTempl", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def ChartMarkers(self):
+        return get_child_object(self.el, "ChartMarkers", self.tag_dict)
+
+    def Charts(self):
+        return get_child_object(self.el, "Charts", self.tag_dict)
+
+    def ConstChartTempl(self):
+        return get_child_object(self.el, "ConstChartTempl", self.tag_dict)

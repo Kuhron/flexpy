@@ -24,7 +24,7 @@ class WordForm:
     @staticmethod
     def from_rt_wfi_analysis(rt_wfi_analysis, tag_dict):
         assert type(rt_wfi_analysis) is RtWfiAnalysis, type(rt_wfi_analysis)
-        morph_bundles = rt_wfi_analysis.MorphBundles.RtWfiMorphBundle
+        morph_bundles = rt_wfi_analysis.MorphBundles().RtWfiMorphBundle()
         forms = WordForm.create_forms(morph_bundles)
         morph_types = WordForm.create_morph_types(morph_bundles)
         glosses = WordForm.create_glosses(morph_bundles)
@@ -33,7 +33,9 @@ class WordForm:
 
     @staticmethod
     def from_rt_wfi_gloss(rt_wfi_gloss, tag_dict):
-        form_obj = rt_wfi_gloss.Form
+        form_obj = rt_wfi_gloss.Form()
+        if form_obj is None:
+            return None
         gloss = get_single_str_from_form(form_obj)
         glosses = [gloss]
 
@@ -106,7 +108,7 @@ class WordForm:
 
     @staticmethod
     def get_form_from_morph_bundle(morph_bundle):
-        form = morph_bundle.Form
+        form = morph_bundle.Form()
         if form is None:
             return None
         return get_single_str_from_form(form)
@@ -114,22 +116,22 @@ class WordForm:
     @staticmethod
     def get_morph_type_from_morph_bundle(morph_bundle):
         morph_types = []
-        morph = morph_bundle.Morph
+        morph = morph_bundle.Morph()
         if morph is None:
             return None
-        rt_mo_affix_allomorph = morph.RtMoAffixAllomorph
-        rt_mo_stem_allomorph = morph.RtMoStemAllomorph
+        rt_mo_affix_allomorph = morph.RtMoAffixAllomorph()
+        rt_mo_stem_allomorph = morph.RtMoStemAllomorph()
         # print("Morph stuff:", rt_mo_affix_allomorph, rt_mo_stem_allomorph)
         for allomorph_lst in [rt_mo_affix_allomorph, rt_mo_stem_allomorph]:
             for allomorph in allomorph_lst:
                 # print("stuff in allomorph {}".format(allomorph))
-                form = allomorph.Form
+                form = allomorph.Form()
                 strs = get_strs_from_form(form)
                 # print("form strs: {}".format(strs))
-                morph_type = allomorph.MorphType
-                rt_mo_morph_types = morph_type.RtMoMorphType
+                morph_type = allomorph.MorphType()
+                rt_mo_morph_types = morph_type.RtMoMorphType()
                 for rt_mo_morph_type in rt_mo_morph_types:
-                    name_aunis = rt_mo_morph_type.Name.AUni
+                    name_aunis = rt_mo_morph_type.Name().AUni()
                     eng_aunis = [x for x in name_aunis if x.ws == "en"]
                     assert len(eng_aunis) == 1, eng_aunis
                     morph_type_name = eng_aunis[0].text
@@ -141,23 +143,23 @@ class WordForm:
     @staticmethod
     def get_pos_name_from_morph_bundle(morph_bundle):
         pos_names = []
-        msa = morph_bundle.Msa
+        msa = morph_bundle.Msa()
         if msa is None:
             return None
-        rt_mo_deriv_aff_msa = msa.RtMoDerivAffMsa
-        rt_mo_infl_aff_msa = msa.RtMoInflAffMsa
-        rt_mo_stem_msa = msa.RtMoStemMsa
-        rt_mo_unclassified_affix_msa = msa.RtMoUnclassifiedAffixMsa
+        rt_mo_deriv_aff_msa = msa.RtMoDerivAffMsa()
+        rt_mo_infl_aff_msa = msa.RtMoInflAffMsa()
+        rt_mo_stem_msa = msa.RtMoStemMsa()
+        rt_mo_unclassified_affix_msa = msa.RtMoUnclassifiedAffixMsa()
         # print("Msa stuff:", rt_mo_deriv_aff_msa, rt_mo_infl_aff_msa, rt_mo_stem_msa, rt_mo_unclassified_affix_msa)
         for sub_msa_lst in [rt_mo_deriv_aff_msa, rt_mo_infl_aff_msa, rt_mo_stem_msa, rt_mo_unclassified_affix_msa]:
             # print("parts of speech in {}".format(sub_msa_lst))
             for sub_msa in sub_msa_lst:
                 if sub_msa.__class__.__name__ == "RtMoDerivAffMsa":
-                    from_pos = sub_msa.FromPartOfSpeech
-                    to_pos = sub_msa.ToPartOfSpeech
+                    from_pos = sub_msa.FromPartOfSpeech()
+                    to_pos = sub_msa.ToPartOfSpeech()
                     poses = [from_pos, to_pos]
                 else:
-                    pos = sub_msa.PartOfSpeech
+                    pos = sub_msa.PartOfSpeech()
                     if pos is None:
                         pos_names.append(None)
                         continue
@@ -166,10 +168,10 @@ class WordForm:
                 for pos in poses:
                     if pos is None:
                         continue
-                    for rt_pos in pos.RtPartOfSpeech:
-                        catalog_source_id = rt_pos.CatalogSourceId  # where the full pos name is stored
+                    for rt_pos in pos.RtPartOfSpeech():
+                        catalog_source_id = rt_pos.CatalogSourceId()  # where the full pos name is stored
                         if catalog_source_id is not None:
-                            pos_name = catalog_source_id.Uni.text
+                            pos_name = catalog_source_id.Uni().text
                             these_pos_names.append(pos_name)
                 this_pos_name = ">".join(these_pos_names)  # for DerivationalAffix, e.g. Noun>Verb
                 pos_names.append(this_pos_name)
@@ -179,13 +181,13 @@ class WordForm:
     @staticmethod
     def get_gloss_from_morph_bundle(morph_bundle):
         glosses = []
-        sense = morph_bundle.Sense
+        sense = morph_bundle.Sense()
         if sense is None:
             return None
-        rt_lex_senses = sense.RtLexSense
+        rt_lex_senses = sense.RtLexSense()
         for rt_lex_sense in rt_lex_senses:
-            gloss = rt_lex_sense.Gloss
-            aunis = gloss.AUni
+            gloss = rt_lex_sense.Gloss()
+            aunis = gloss.AUni()
             for auni in aunis:
                 gloss_text = auni.text
                 glosses.append(gloss_text)

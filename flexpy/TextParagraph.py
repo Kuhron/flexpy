@@ -24,11 +24,11 @@ class TextParagraph:
 
     def create_run_texts(self):
         run_texts = []
-        contents = self.rt_st_txt_para.Contents
+        contents = self.rt_st_txt_para.Contents()
         if contents is not None:
-            str_obj = contents.Str
+            str_obj = contents.Str()
             # there may be multiple run elements (because of Flex's writing system thing), just concat them
-            run = str_obj.Run
+            run = str_obj.Run()
             if type(run) is list:
                 run_text = "".join(x.text for x in run)
             else:
@@ -42,17 +42,17 @@ class TextParagraph:
     def create_wordforms(self):
         # print("creating wordforms for {}".format(self))
         result = []
-        segments = self.rt_st_txt_para.Segments
+        segments = self.rt_st_txt_para.Segments()
         if segments is None:
             return []
-        rt_segments = segments.RtSegment  # should be list because of objsurs
+        rt_segments = segments.RtSegment()  # should be list because of objsurs
         wordforms = []
         for rt_segment_i, rt_segment in enumerate(rt_segments):
             # print("segment {}/{}".format(rt_segment_i, len(rt_segments)))
             assert type(rt_segment) is RtSegment, type(rt_segment)
-            analyses = rt_segment.Analyses
-            # print("Analyses has these child objects: {}".format(analyses.child_objects))
-            for child_obj in analyses.child_objects:
+            analyses = rt_segment.Analyses()
+            # print("Analyses has these child objects: {}".format(analyses.get_ordered_child_objects()))
+            for child_obj in analyses.get_ordered_child_objects():
                 if type(child_obj) is RtWfiAnalysis:
                     wordform = WordForm.from_rt_wfi_analysis(child_obj, self.tag_dict)
                 elif type(child_obj) is RtWfiGloss:
@@ -60,7 +60,9 @@ class TextParagraph:
                 else:
                     # print("not making wordform from child {}".format(child_obj))
                     continue  # don't append the wordform var from previous loop iteration
-                wordforms.append(wordform)
+
+                if wordform is not None:
+                    wordforms.append(wordform)
 
             # OLD stuff by might help showing how to get owner object for accessing other info
             # gloss_owners = [x.get_owner() for x in analyses.RtWfiGloss]

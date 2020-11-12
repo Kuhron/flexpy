@@ -5,14 +5,36 @@ class Possibilities:
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.RtCmAnnotationDefn = get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnnotationDefn")
-        self.RtCmAnthroItem = get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnthroItem")
-        self.RtCmPerson = get_child_object(self.el, "rt", self.tag_dict, class_name="CmPerson")
-        self.RtCmPossibility = get_child_object(self.el, "rt", self.tag_dict, class_name="CmPossibility")
-        self.RtCmSemanticDomain = get_child_object(self.el, "rt", self.tag_dict, class_name="CmSemanticDomain")
-        self.RtLexEntryInflType = get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntryInflType")
-        self.RtLexEntryType = get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntryType")
-        self.RtLexRefType = get_child_object(self.el, "rt", self.tag_dict, class_name="LexRefType")
-        self.RtMoMorphType = get_child_object(self.el, "rt", self.tag_dict, class_name="MoMorphType")
-        self.RtPartOfSpeech = get_child_object(self.el, "rt", self.tag_dict, class_name="PartOfSpeech")
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def RtCmAnnotationDefn(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnnotationDefn")
+
+    def RtCmAnthroItem(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnthroItem")
+
+    def RtCmPerson(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmPerson")
+
+    def RtCmPossibility(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmPossibility")
+
+    def RtCmSemanticDomain(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmSemanticDomain")
+
+    def RtLexEntryInflType(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntryInflType")
+
+    def RtLexEntryType(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntryType")
+
+    def RtLexRefType(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="LexRefType")
+
+    def RtMoMorphType(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="MoMorphType")
+
+    def RtPartOfSpeech(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="PartOfSpeech")

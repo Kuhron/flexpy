@@ -7,11 +7,27 @@ class RtLexEntryRef(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.ComplexEntryTypes = get_child_object(self.el, "ComplexEntryTypes", self.tag_dict)
-        self.ComponentLexemes = get_child_object(self.el, "ComponentLexemes", self.tag_dict)
-        self.HideMinorEntry = get_child_object(self.el, "HideMinorEntry", self.tag_dict)
-        self.PrimaryLexemes = get_child_object(self.el, "PrimaryLexemes", self.tag_dict)
-        self.RefType = get_child_object(self.el, "RefType", self.tag_dict)
-        self.ShowComplexFormsIn = get_child_object(self.el, "ShowComplexFormsIn", self.tag_dict)
-        self.VariantEntryTypes = get_child_object(self.el, "VariantEntryTypes", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def ComplexEntryTypes(self):
+        return get_child_object(self.el, "ComplexEntryTypes", self.tag_dict)
+
+    def ComponentLexemes(self):
+        return get_child_object(self.el, "ComponentLexemes", self.tag_dict)
+
+    def HideMinorEntry(self):
+        return get_child_object(self.el, "HideMinorEntry", self.tag_dict)
+
+    def PrimaryLexemes(self):
+        return get_child_object(self.el, "PrimaryLexemes", self.tag_dict)
+
+    def RefType(self):
+        return get_child_object(self.el, "RefType", self.tag_dict)
+
+    def ShowComplexFormsIn(self):
+        return get_child_object(self.el, "ShowComplexFormsIn", self.tag_dict)
+
+    def VariantEntryTypes(self):
+        return get_child_object(self.el, "VariantEntryTypes", self.tag_dict)

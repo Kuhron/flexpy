@@ -329,21 +329,21 @@ def get_strs_from_form(form):
     assert form.__class__.__name__ == "Form", type(form)  # avoid circular import type checking
 
     # AStr has a Run child tag with the text
-    astrs = form.AStr
+    astrs = form.AStr()
     if astrs is not None:
         for astr in astrs:
-            astrs = [run.text for run in astr.Run]
+            astrs = [run.text for run in astr.Run()]
 
     # AUni has text in tag
-    aunis = form.AUni
+    aunis = form.AUni()
     if aunis is not None:
         aunis = [auni.text for auni in aunis]
 
     # Str has a Run child tag with the text
-    strs = form.Str
+    strs = form.Str()
     if strs is not None:
         for s in strs:
-            strs = [run.text for run in s.Run]
+            strs = [run.text for run in s.Run()]
     
     return {"AStr": astrs, "AUni": aunis, "Str": strs}
 

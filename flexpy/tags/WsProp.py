@@ -9,4 +9,6 @@ class WsProp:
         self.fontsize = self.el.attrib.get("fontsize")
         self.fontsizeUnit = self.el.attrib.get("fontsizeUnit")
         self.ws = self.el.attrib.get("ws")
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)

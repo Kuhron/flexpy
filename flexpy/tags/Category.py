@@ -5,5 +5,9 @@ class Category:
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.RtPartOfSpeech = get_child_object(self.el, "rt", self.tag_dict, class_name="PartOfSpeech")
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def RtPartOfSpeech(self):
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="PartOfSpeech")

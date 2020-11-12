@@ -106,17 +106,21 @@ def create_tag_class_definition(el, dependency_dict):
         for attrib_key in dependency_dict[long_class_name]["attributes"]:
             init_vars_str += " "*8 + "self.{0} = self.el.attrib.get(\"{0}\")\n".format(attrib_key)
 
-    # try changing child tags to functions
+    getter_strs = [""]  # want blank lines between init and other methods
+    ordered_child_getter_str = " "*4 + "def get_ordered_child_objects(self):\n"
+    ordered_child_getter_str += " "*8 + "return get_ordered_child_objects(self.el, self.tag_dict)\n"
+    getter_strs.append(ordered_child_getter_str)
 
-    init_vars_str += " "*8 + "self.child_objects = get_ordered_child_objects(el, tag_dict)\n"
     for child_tag_short, child_tag_long, child_class_name in dependency_dict[long_class_name]["children"]:
-        init_var_line = " "*8 + "self.{0} = get_child_object(self.el, \"{1}\", self.tag_dict".format(child_tag_long, child_tag_short)
+        # init_var_line = " "*8 + "self.{0} = get_child_object(self.el, \"{1}\", self.tag_dict".format(child_tag_long, child_tag_short)
+        getter_str = " "*4 + "def {0}(self):\n".format(child_tag_long)
+        getter_str += " "*8 + "return get_child_object(self.el, \"{0}\", self.tag_dict".format(child_tag_short)
         if child_class_name is not None:
-            init_var_line += ", class_name=\"{0}\"".format(child_class_name)
-        init_var_line += ")"
-        init_vars_str += init_var_line + "\n"
+            getter_str += ", class_name=\"{0}\"".format(child_class_name)
+        getter_str += ")\n"
+        getter_strs.append(getter_str)
 
-    full_str = import_header + class_header + init_header + init_vars_str
+    full_str = import_header + class_header + init_header + init_vars_str + "\n".join(getter_strs)
     return full_str
 
 

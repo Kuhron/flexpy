@@ -7,8 +7,18 @@ class RtStTxtPara(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.Contents = get_child_object(self.el, "Contents", self.tag_dict)
-        self.ParseIsCurrent = get_child_object(self.el, "ParseIsCurrent", self.tag_dict)
-        self.Segments = get_child_object(self.el, "Segments", self.tag_dict)
-        self.StyleRules = get_child_object(self.el, "StyleRules", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def Contents(self):
+        return get_child_object(self.el, "Contents", self.tag_dict)
+
+    def ParseIsCurrent(self):
+        return get_child_object(self.el, "ParseIsCurrent", self.tag_dict)
+
+    def Segments(self):
+        return get_child_object(self.el, "Segments", self.tag_dict)
+
+    def StyleRules(self):
+        return get_child_object(self.el, "StyleRules", self.tag_dict)

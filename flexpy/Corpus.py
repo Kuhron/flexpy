@@ -19,7 +19,6 @@ class Corpus:
         self.project_name = project_name
         self.tag_dict = self.get_tag_dict()
         self.texts = self.get_texts()
-        print("done creating texts for Corpus")
         self.lexicon = self.get_lexicon()
 
     def get_tag_dict(self):
@@ -29,9 +28,9 @@ class Corpus:
         text_elements = self.tag_dict["RtText"]
         texts = []
         for guid, rt in text_elements.items():
-            print("initing new text from rt {}".format(rt))
+            # print("initing new text from rt {}".format(rt))
             text = Text(guid, rt, self.tag_dict)
-            print("finished initing text {}".format(text))
+            # print("finished initing text {}".format(text))
             texts.append(text)
         # print("there are {} texts with contents".format(sum(x.has_contents() for x in texts)))
         return texts

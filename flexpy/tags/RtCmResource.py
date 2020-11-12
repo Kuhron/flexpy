@@ -7,6 +7,12 @@ class RtCmResource(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.Name = get_child_object(self.el, "Name", self.tag_dict)
-        self.Version = get_child_object(self.el, "Version", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def Name(self):
+        return get_child_object(self.el, "Name", self.tag_dict)
+
+    def Version(self):
+        return get_child_object(self.el, "Version", self.tag_dict)

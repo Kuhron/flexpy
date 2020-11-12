@@ -35,43 +35,43 @@ class Text:
             return auni.text
 
     def create_st_texts(self):
-        contents = self.rt_text.Contents
+        contents = self.rt_text.Contents()
         if contents is None:
             return None
-        st_texts = contents.RtStText
+        st_texts = contents.RtStText()
         # elements_owned_by_text = self.tag_dict.get_by_owner_guid(self.guid)
         # st_text_els = [x for x in elements_owned_by_text if x.attrib["class"] == "StText"]
         # st_texts = [RtStText(el, self.tag_dict) for el in st_text_els]
         return st_texts
 
     def create_paragraphs(self):
-        print("creating paragraphs for text {}".format(self))
+        # print("creating paragraphs for text {}".format(self))
         text_paragraphs = []
         if self.st_texts is None:
-            print("- no paragraphs found")
+            # print("- no paragraphs found")
             return None
         for st_text_i, st_text in enumerate(self.st_texts):
-            print("StText {}/{}".format(st_text_i, len(self.st_texts)))
-            paragraphs_el = st_text.Paragraphs
-            rt_st_txt_paras = paragraphs_el.RtStTxtPara
+            # print("StText {}/{}".format(st_text_i, len(self.st_texts)))
+            paragraphs_el = st_text.Paragraphs()
+            rt_st_txt_paras = paragraphs_el.RtStTxtPara()
             for rt_st_txt_para_i, rt_st_txt_para in enumerate(rt_st_txt_paras):
-                print("RtStTxtPara {}/{}".format(rt_st_txt_para_i, len(rt_st_txt_paras)))
+                # print("RtStTxtPara {}/{}".format(rt_st_txt_para_i, len(rt_st_txt_paras)))
                 text_paragraph = TextParagraph(rt_st_txt_para, self.tag_dict)
                 text_paragraphs.append(text_paragraph)
-                print("done with RtStTxtPara {}".format(rt_st_txt_para_i))
-        print("- done creating paragraphs for text {}".format(self))
+                # print("done with RtStTxtPara {}".format(rt_st_txt_para_i))
+        # print("- done creating paragraphs for text {}".format(self))
         return text_paragraphs
 
     def create_contents(self):
-        print("creating contents for text {}".format(self))
+        # print("creating contents for text {}".format(self))
         # ignores StTexts, treats as flat list of paragraphs
         run_texts = []
         if self.paragraphs is None:
-            print("- no contents found")
+            # print("- no contents found")
             return None
         for text_paragraph in self.paragraphs:
             run_texts += text_paragraph.run_texts
-        print("- done creating contents for text {}".format(self))
+        # print("- done creating contents for text {}".format(self))
         return run_texts
     
     # def create_contents_objects(self):

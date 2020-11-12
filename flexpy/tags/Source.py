@@ -5,6 +5,12 @@ class Source:
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.AStr = get_child_object(self.el, "AStr", self.tag_dict)
-        self.Str = get_child_object(self.el, "Str", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def AStr(self):
+        return get_child_object(self.el, "AStr", self.tag_dict)
+
+    def Str(self):
+        return get_child_object(self.el, "Str", self.tag_dict)

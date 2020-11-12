@@ -7,17 +7,45 @@ class RtStStyle(Rt):
         self.el = el
         self.tag_dict = tag_dict
         self.text = self.el.text
-        self.child_objects = get_ordered_child_objects(el, tag_dict)
-        self.BasedOn = get_child_object(self.el, "BasedOn", self.tag_dict)
-        self.Context = get_child_object(self.el, "Context", self.tag_dict)
-        self.Function = get_child_object(self.el, "Function", self.tag_dict)
-        self.IsBuiltIn = get_child_object(self.el, "IsBuiltIn", self.tag_dict)
-        self.IsModified = get_child_object(self.el, "IsModified", self.tag_dict)
-        self.IsPublishedTextStyle = get_child_object(self.el, "IsPublishedTextStyle", self.tag_dict)
-        self.Name = get_child_object(self.el, "Name", self.tag_dict)
-        self.Next = get_child_object(self.el, "Next", self.tag_dict)
-        self.Rules = get_child_object(self.el, "Rules", self.tag_dict)
-        self.Structure = get_child_object(self.el, "Structure", self.tag_dict)
-        self.Type = get_child_object(self.el, "Type", self.tag_dict)
-        self.Usage = get_child_object(self.el, "Usage", self.tag_dict)
-        self.UserLevel = get_child_object(self.el, "UserLevel", self.tag_dict)
+
+    def get_ordered_child_objects(self):
+        return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def BasedOn(self):
+        return get_child_object(self.el, "BasedOn", self.tag_dict)
+
+    def Context(self):
+        return get_child_object(self.el, "Context", self.tag_dict)
+
+    def Function(self):
+        return get_child_object(self.el, "Function", self.tag_dict)
+
+    def IsBuiltIn(self):
+        return get_child_object(self.el, "IsBuiltIn", self.tag_dict)
+
+    def IsModified(self):
+        return get_child_object(self.el, "IsModified", self.tag_dict)
+
+    def IsPublishedTextStyle(self):
+        return get_child_object(self.el, "IsPublishedTextStyle", self.tag_dict)
+
+    def Name(self):
+        return get_child_object(self.el, "Name", self.tag_dict)
+
+    def Next(self):
+        return get_child_object(self.el, "Next", self.tag_dict)
+
+    def Rules(self):
+        return get_child_object(self.el, "Rules", self.tag_dict)
+
+    def Structure(self):
+        return get_child_object(self.el, "Structure", self.tag_dict)
+
+    def Type(self):
+        return get_child_object(self.el, "Type", self.tag_dict)
+
+    def Usage(self):
+        return get_child_object(self.el, "Usage", self.tag_dict)
+
+    def UserLevel(self):
+        return get_child_object(self.el, "UserLevel", self.tag_dict)
