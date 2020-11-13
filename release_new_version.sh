@@ -4,6 +4,8 @@ rm -r dist/
 rm -r flexpy.egg-info/
 python setup.py sdist bdist_wheel
 
+# # to test without having to change version number: install via pip directly from git branch (on remote)
+# python -m pip install git+https://github.com/kuhron/flexpy.git@main
 
 # # upload to testpypi
 # twine upload --repository testpypi dist/*
