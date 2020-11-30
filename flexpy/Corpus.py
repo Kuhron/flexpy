@@ -96,13 +96,13 @@ class Corpus:
         contents = []
         if texts_separated:
             for text in self.texts:
-                if texts_to_omit is not None and text.name in texts_to_omit and text.is_valid():
+                if texts_to_omit is not None and text.name not in texts_to_omit and text.is_valid():
                     text_contents = text.get_wordform_contents(paragraphs_separated)
                     contents.append(text_contents)
         else:
             print("Warning: getting corpus contents should probably have texts separated as True")
             for text in self.texts:
-                if texts_to_omit is not None and text.name in texts_to_omit and text.is_valid():
+                if texts_to_omit is not None and text.name not in texts_to_omit and text.is_valid():
                     text_contents = text.get_wordform_contents(paragraphs_separated)
                     contents += text_contents
         return contents
