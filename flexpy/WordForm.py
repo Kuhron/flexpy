@@ -18,6 +18,7 @@ class WordForm:
         self.glosses = glosses
         self.poses = poses
         self.text = self.get_text()
+        self.morphemes = self.get_morphemes()
 
     def __repr__(self):
         return "<WordForm \"{}\" ({}) = ({}) \"{}\">".format(self.forms, self.morph_types, self.poses, self.glosses)
@@ -214,3 +215,41 @@ class WordForm:
         elif len(unique_root_poses) > 1:
             raise Exception("word with more than one root part of speech: {}".format(self))
         return unique_root_poses[0]
+
+    def get_morphemes(self):
+        res = []
+        for form, morph_type, gloss, pos in zip(
+            self.forms, self.morph_types, self.glosses, self.poses,
+        ):
+            morph = WordFormMorpheme(form, morph_type, gloss, pos, self.tag_dict)
+            res.append(morph)
+        return res
+
+    def __eq__(self, other):
+        if type(other) is not WordForm:
+            return NotImplemented
+        return repr(self) == repr(other)
+    
+    def __hash__(self):
+        return hash(repr(self))
+
+
+class WordFormMorpheme:
+    def __init__(self, form, morph_type, gloss, pos, tag_dict):
+        assert type(tag_dict) is TagDict, type(tag_dict)
+        self.tag_dict = tag_dict
+        self.form = form
+        self.morph_type = morph_type
+        self.gloss = gloss
+        self.pos = pos
+
+    def __repr__(self):
+        return "<WordFormMorpheme \"{}\" ({}) = ({}) \"{}\">".format(self.form, self.morph_type, self.pos, self.gloss)
+
+    def __eq__(self, other):
+        if type(other) is not WordFormMorpheme:
+            return NotImplemented
+        return repr(self) == repr(other)
+    
+    def __hash__(self):
+        return hash(repr(self))

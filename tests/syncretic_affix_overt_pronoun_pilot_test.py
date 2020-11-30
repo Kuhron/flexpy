@@ -1,4 +1,5 @@
 import math
+import re
 
 # Kris's library
 from corpus_toolkit import corpus_tools as ct
@@ -9,13 +10,14 @@ from flexpy.Text import Text
 
 
 def get_form_group_last_morpheme(wordform):
-    morph_type = wordform.morph_types[-1]
-    form = wordform.forms[-1]
+    morph = wordform.morphemes[-1]
+    morph_type = morph.morph_type
+    form = morph.form
     if form is None:
         return "None"
     elif morph_type in [None, "None"]:
         return "None"
-    elif morph_type in ["root", "stem"]:
+    elif morph_type in ["root", "stem", "particle", "phrase"]:
         form_notation = form
     elif morph_type == "bound root":
         form_notation = "*" + form
@@ -28,7 +30,7 @@ def get_form_group_last_morpheme(wordform):
     elif morph_type == "proclitic":
         form_notation = form + "="
     else:
-        raise Exception("unknown morph type: {}".format(morph_type))
+        raise Exception("unknown morph type: {}, in wordform: {}".format(morph_type, wordform))
     gloss = wordform.glosses[-1]
     return "{} ({})".format(form_notation, gloss)
 
@@ -154,13 +156,52 @@ if __name__ == "__main__":
     print("non-syncretic affixes:")
     print(non_syncretic_affixes)
 
-
     # now go through the whole corpus, get any morphemes that match something in the affix list
-    for thing in wordform_contents:
-        print("I'm a thing in the wordform contents:", thing)
-        input("press enter to continue")
-    # affixes_matching_morpheme = lambda morpheme: [tup for tup in bongu_agreement_affixes_tuples if ]
+    all_wordforms = set()
+    for text in wordform_contents:
+        for wf in text:
+            all_wordforms.add(wf)
+    final_morphemes = set()
+    for wf in all_wordforms:
+        # final_morpheme = get_form_group_last_morpheme(wf)
+        final_morpheme = wf.morphemes[-1]
+        final_morphemes.add(final_morpheme)
+    print("all word-final morphemes in corpus")
+    final_morphemes = sorted(final_morphemes, key=repr)
+    for x in final_morphemes:
+        print(x)
+    # TODO need to be able to handle allomorphy! need to get the citation form of each morph when constructing WordForm, add self.citation_forms in addition to self.forms
 
+    affix_matches_morpheme = lambda tup, morph: tup[0] == morph.form and morph.gloss is not None and re.match(tup[1], morph.gloss)
+    affixes_matching_morpheme = lambda morph: [tup for tup in bongu_agreement_affixes_tuples if affix_matches_morpheme(tup, morph)]
+    print("finding affixes matching each word-final morpheme")
+    target_affix_morphemes = []
+    for morph in final_morphemes:
+        matches = affixes_matching_morpheme(morph)
+        if len(matches) == 0:
+            continue
+        assert len(matches) == 1, "more than one match for morph {}: {}".format(morph, matches)
+        print(morph, matches)
+        target_affix_morpheme_dict = {
+            "morph": morph,
+            "tup": matches[0],
+            "is_syncretic_for_person": is_syncretic_for_person(matches[0]),
+            "is_syncretic_for_number": is_syncretic_for_number(matches[0]),
+            "is_syncretic": is_syncretic(matches[0]),
+        }
+        target_affix_morphemes.append(target_affix_morpheme_dict)
+    print("all target affix morphemes:")
+    for x in target_affix_morphemes:
+        print(x)
+
+    # now that we have the affixes we're interested in, for each of them, find where the pronouns occur
+    for target_affix_morpheme_dict in target_affix_morphemes:
+        for n in range(1, 11):
+            left_span = n
+            right_span = 1
+            # get collocations, see what pronouns come up
+            # restrict collocates to pronouns only if possible
+            raise # TODO
 
     raise
     # target_grouping_function = ?
