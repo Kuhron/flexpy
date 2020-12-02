@@ -69,16 +69,16 @@ class Corpus:
         contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
         for s in contents:
-            result.append(tokenize_single_text(s))
+            result.append(tokenize_single_text(s))  # tokenize_single_text returns list e.g. ["hello", "world"]
         return result
 
-    def get_tokenized_contents_flat(self):
+    def get_tokenized_contents_flat(self, texts_to_omit=None):
         # treats the whole corpus as a single text
         # e.g. ["hello", "world", "my", "name", "is", "wesley"]
         contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
         for s in contents:
-            result += tokenize_single_text(s)
+            result += tokenize_single_text(s)  # tokenize_single_text returns list e.g. ["hello", "world"]
         return result
     
     def get_tokenized_contents_objects(self, texts_to_omit=None):
