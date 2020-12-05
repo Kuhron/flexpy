@@ -11,69 +11,20 @@ from flexpy.CorpusAnalysis import collocator_separating_target_and_collocate_ter
 from flexpy.Text import Text
 from flexpy.WordForm import WordForm, WordFormMorpheme
 
-
-def get_form_group_last_morpheme(wordform):
-    morph = wordform.morphemes[-1]
-    morph_type = morph.morph_type
-    form = morph.form
-    if form is None:
-        return "None"
-    elif morph_type in [None, "None"]:
-        return "None"
-    elif morph_type in ["root", "stem", "particle", "phrase"]:
-        form_notation = form
-    elif morph_type == "bound root":
-        form_notation = "*" + form
-    elif morph_type == "suffix":
-        form_notation = "-" + form
-    elif morph_type == "prefix":
-        form_notation = form + "-"
-    elif morph_type == "enclitic":
-        form_notation = "=" + form
-    elif morph_type == "proclitic":
-        form_notation = form + "="
-    else:
-        raise Exception("unknown morph type: {}, in wordform: {}".format(morph_type, wordform))
-    gloss = wordform.glosses[-1]
-    return "{} ({})".format(form_notation, gloss)
+from flexpy.language_data.BonguData import bongu_agreement_affixes
 
 
-def get_form_group_last_morpheme_form(wordform):
-    return wordform.forms[-1]
+# TODO try distance cutoff, don't count pronouns that are too far away
+# TODO try exponential decay for distance, making a collocation weighted by closeness in time
 
-
-def get_form_group_last_morpheme_gloss(wordform):
-    return wordform.glosses[-1]
-
-
-def group_wordforms(tokenized, grouping_function):
-    new_tokenized = []
-    for text in tokenized:
-        new_text = group_wordforms_in_text(text, grouping_function)
-        new_tokenized.append(new_text)
-    return new_tokenized
-
-
-def group_wordforms_in_text(text, grouping_function):
-    new_text = []
-    for token in text:
-        new_token = grouping_function(token)
-        new_text.append(new_token)
-    return new_text
-
-
-def report_pronoun_collocations(corpus_in_target_terms, corpus_in_collocate_terms):
-    words_of_interest = ["aji", "ni", "andu"]
-    metrics = ["MI", "T"]
-    for word in words_of_interest:
-        for metric in metrics:
-            collocates = collocator_separating_target_and_collocate_terms(
-                corpus_in_target_terms,
-                corpus_in_collocate_terms,
-                word, left=4, right=4, stat=metric, cutoff=5, ignore=[]
-            )
-            print("----\nCollocations for {} using stat={}:".format(word, metric))
-            ct.head(collocates, hits=10)
+# affix allomorphy organization in FLEx XML
+# RtMoAffixAllomorph (e.g. -yesen) has ownerguid for RtLexEntry
+# RtLexEntry has LexemeForm, objsur to RtMoAffixAllomorph
+# e.g. RtMoAffixAllomorph -esen (citation form) ea365d7a-a0bc-450e-b9e5-e6c61804bcd9
+# - owned by RtLexEntry a89632fa-140c-409d-9b33-26dddcc8a4db
+# RtLexEntry also has AlternateForms, objsur to RtMoAffixAllomorph
+# e.g. the LexEntry for -esen has AlternateForms 4e896046-03f7-4e6f-9ba3-c1dc96f0d5b2
+# - this is the RtMoAffixAllomorph for -yesen
 
 
 if __name__ == "__main__":
@@ -88,71 +39,8 @@ if __name__ == "__main__":
         texts_to_omit=texts_to_omit,
     )
 
-    bongu_agreement_affixes_tuples = [
-        ("aim", r"2s\.fpst"),
-        ("ain", r"3s\.fpst"),
-        ("am", r"2s\.ifut"),
-        ("an", r"3s\.ifut"),
-        # ("aq", r"irr.*"),  # could agree with anything, so can't distinguish agree from disagree
-        ("balan", r"23ns.*"),
-        ("ban", r"23ns.*"),
-        ("beb", r"23ns.*"),
-        ("beben", r"23ns.*"),
-        ("ber", r"23ns.*"),
-        ("beren", r"23ns.*"),
-        ("berlan", r"23d.*"),
-        ("bes", r"23ns.*"),
-        ("besen", r"23ns.*"),
-        ("beslan", r"23d.*"),
-        ("buleren", r"23d.*"),
-        # "-bun" is not well understood
-        ("bus", r"3ns.*"),
-        ("busen", r"3ns.*"),
-        ("busun", r"3ns.*"),
-        ("e", r"2s\.imp"),
-        ("eben", r"23ns.*"),
-        ("eblan", r"23d.*"),
-        ("em", r"2s.*"),
-        ("emen", r"1s\.fpst"),  # don't use character class like r"[12]" because then it will think it's syncretic for person (has substr "12")
-        ("emen", r"2s\.fut\?"),  # just treat this as a separate suffix from -emen 1s.fpst
-        ("emun", r"1ns.*"),
-        ("en", r"3s.*"),
-        ("eqen", r"3s\.prs\?"),
-        ("eren", r"3s.*"),
-        ("es", r"3s\.r\.ss"),  # this one is not syncretic
-        # ("es", r"irr.*"),  # this one IS syncretic, for all person and numbers  # can't distinguish agreeing from disagreeing pronouns
-        ("esen", r"3s.*"),
-        # -esen as different-subject marker is not well understood
-        ("ib", r"2ns\.imp"),
-        # -im not understood
-        ("man", r"1s.*"),
-        ("mem", r"1s.*"),
-        ("memen", r"1s.*"),
-        ("memes", r"12s.*"),
-        ("meq", r"2s.*"),
-        ("meqen", r"2s.*"),
-        ("mere", r"2s.*"),
-        ("meren", r"12s.*"),
-        ("mes", r"12s.*"),
-        ("mesen", r"12s.*"),
-        ("mulan", r"1d\.rpst"),
-        ("mum", r"1ns.*"),
-        ("mun", r"1ns.*"),
-        ("mur", r"1ns.*"),
-        ("muren", r"1ns.*"),
-        ("mus", r"1ns.*"),
-        ("musen", r"1ns.*"),
-    ]
-
-    has_person_feature = lambda tup: any(x in tup[1] for x in ["1", "2", "3"])
-    is_syncretic_for_person = lambda tup: any(x in tup[1] for x in ["12", "23"]) or not has_person_feature(tup)
-    is_syncretic_for_number = lambda tup: "ns" in tup[1] or not has_person_feature(tup)  # e.g. irr.ss has no person or number feature, is syncretic to the max
-    is_syncretic = lambda tup: is_syncretic_for_person(tup) or is_syncretic_for_number(tup)
-
-    syncretic_affixes_for_person_tuples = [tup for tup in bongu_agreement_affixes_tuples if is_syncretic_for_person(tup)]
-    syncretic_affixes_for_number_tuples = [tup for tup in bongu_agreement_affixes_tuples if is_syncretic_for_number(tup)]
-    syncretic_affixes = [tup for tup in bongu_agreement_affixes_tuples if is_syncretic(tup)]
-    non_syncretic_affixes = [tup for tup in bongu_agreement_affixes_tuples if not is_syncretic(tup)]
+    syncretic_affixes = [a for a in bongu_agreement_affixes if a.is_syncretic()]
+    non_syncretic_affixes = [a for a in bongu_agreement_affixes if not a.is_syncretic()]
 
     print("\n-- syncretic affixes:")
     for x in syncretic_affixes:
@@ -178,7 +66,7 @@ if __name__ == "__main__":
     # TODO need to be able to handle allomorphy! need to get the citation form of each morph when constructing WordForm, add self.citation_forms in addition to self.forms
 
     affix_matches_morpheme = lambda tup, morph: tup[0] == morph.form and morph.gloss is not None and re.match(tup[1], morph.gloss)
-    affixes_matching_morpheme = lambda morph: [tup for tup in bongu_agreement_affixes_tuples if affix_matches_morpheme(tup, morph)]
+    affixes_matching_morpheme = lambda morph: [tup for tup in bongu_agreement_affixes if affix_matches_morpheme(tup, morph)]
     # print("\n-- finding affixes matching each word-final morpheme")
     target_affix_morphemes = {}
     for morph in final_morphemes:
@@ -350,12 +238,3 @@ if __name__ == "__main__":
         # plt.title("all syncretic={}".format(syncretism_bool))
         # plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/all_syncretism_{}.png".format(syncretism_bool))
         # plt.gcf().clear()
-
-
-    # old, don't use this time
-    # target_grouping_function = ?
-    # collocate_grouping_function = get_form_group_last_morpheme
-    # corpus_in_target_terms = group_wordforms(wordform_contents, target_grouping_function)
-    # corpus_in_collocate_terms = group_wordforms(wordform_contents, grouping_function)
-    # print("\n-- reporting pronoun collocations")
-    # report_pronoun_collocations(corpus_in_target_terms, corpus_in_collocate_terms)
