@@ -17,15 +17,6 @@ from flexpy.language_data.BonguData import bongu_agreement_affixes
 # TODO try distance cutoff, don't count pronouns that are too far away
 # TODO try exponential decay for distance, making a collocation weighted by closeness in time
 
-# affix allomorphy organization in FLEx XML
-# RtMoAffixAllomorph (e.g. -yesen) has ownerguid for RtLexEntry
-# RtLexEntry has LexemeForm, objsur to RtMoAffixAllomorph
-# e.g. RtMoAffixAllomorph -esen (citation form) ea365d7a-a0bc-450e-b9e5-e6c61804bcd9
-# - owned by RtLexEntry a89632fa-140c-409d-9b33-26dddcc8a4db
-# RtLexEntry also has AlternateForms, objsur to RtMoAffixAllomorph
-# e.g. the LexEntry for -esen has AlternateForms 4e896046-03f7-4e6f-9ba3-c1dc96f0d5b2
-# - this is the RtMoAffixAllomorph for -yesen
-
 
 if __name__ == "__main__":
     project_name = "Bongu"
@@ -65,19 +56,17 @@ if __name__ == "__main__":
         pass # print(x)
     # TODO need to be able to handle allomorphy! need to get the citation form of each morph when constructing WordForm, add self.citation_forms in addition to self.forms
 
-    affix_matches_morpheme = lambda tup, morph: tup[0] == morph.form and morph.gloss is not None and re.match(tup[1], morph.gloss)
-    affixes_matching_morpheme = lambda morph: [tup for tup in bongu_agreement_affixes if affix_matches_morpheme(tup, morph)]
     # print("\n-- finding affixes matching each word-final morpheme")
     target_affix_morphemes = {}
     for morph in final_morphemes:
-        matches = affixes_matching_morpheme(morph)
+        matches = [a for a in bongu_agreement_affixes if a.matches_morpheme(morph)]
         if len(matches) == 0:
             continue
         assert len(matches) == 1, "more than one match for morph {}: {}".format(morph, matches)
         # print(morph, matches)
         target_affix_morpheme_dict = {
             "morph": morph,
-            "tup": matches[0],
+            "affix": matches[0],
             "is_syncretic_for_person": is_syncretic_for_person(matches[0]),
             "is_syncretic_for_number": is_syncretic_for_number(matches[0]),
             "is_syncretic": is_syncretic(matches[0]),

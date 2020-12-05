@@ -1,3 +1,6 @@
+from flexpy.AffixSelector import AffixSelector
+
+
 bongu_agreement_affixes = [
     AffixSelector("aim", r"2s\.fpst"),
     AffixSelector("ain", r"3s\.fpst"),
