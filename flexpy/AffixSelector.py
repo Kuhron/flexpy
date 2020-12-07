@@ -1,9 +1,9 @@
 import re
 
+print("Warning: AffixSelector class is specific to Bongu language at the moment")
 
 class AffixSelector:
     def __init__(self, form_str, gloss_regex):
-        print("Warning: AffixSelector class is specific to Bongu language at the moment")
         self.form_str = form_str
         self.gloss_regex = gloss_regex
 
@@ -20,5 +20,5 @@ class AffixSelector:
         return self.is_syncretic_for_person() or self.is_syncretic_for_number()
 
     def matches_morpheme(self, morph):
-        return self.form_str == morph.form and morph.gloss is not None and re.match(self.gloss_regex, morph.gloss)
+        return self.form_str == morph.citation_form and morph.gloss is not None and re.match(self.gloss_regex, morph.gloss)
 

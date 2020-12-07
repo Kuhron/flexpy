@@ -1,3 +1,5 @@
+import re
+
 # from flexpy.Morpheme import Morpheme
 from flexpy.TagDict import TagDict
 # from flexpy.WordAnalysis import WordAnalysis
@@ -284,6 +286,23 @@ class WordForm:
             morph = WordFormMorpheme(form, citation_form, morph_type, gloss, pos, self.tag_dict)
             res.append(morph)
         return res
+    
+    def contains_pos(self, pos):
+        return any(morph.pos == pos for morph in self.morphemes)
+
+    def get_morphemes_by_pos(self, pos, gloss_regex=None, max_results=None):
+        morphemes_of_pos = [m for m in self.morphemes if m.pos == pos]
+        if gloss_regex is not None:
+            morphemes_of_pos = [m for m in morphemes_of_pos if re.match(gloss_regex, m.gloss)]
+        if max_results is not None:
+            if len(morphemes_of_pos) > max_results:
+                raise Exception("got too many results for pos {} and regex {}: {}".format(pos, gloss_regex))
+        return morphemes_of_pos
+
+    def get_subgloss_by_pos(self, pos):
+        # returns only the components of the gloss that are from morphemes with this part of speech
+        morphemes_of_pos = [m for m in self.morphemes if m.pos == pos]
+        return "-".join(m.gloss for m in morphemes_of_pos)
 
     def __eq__(self, other):
         if type(other) is not WordForm:

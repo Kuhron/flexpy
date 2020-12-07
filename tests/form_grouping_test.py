@@ -6,6 +6,8 @@ from corpus_toolkit import corpus_tools as ct
 from flexpy.Corpus import Corpus
 from flexpy.CorpusAnalysis import collocator_separating_target_and_collocate_terms
 from flexpy.FormGrouping import (
+    group_wordforms,
+    group_wordforms_in_text,
     get_form_group_last_morpheme,
     get_form_group_last_morpheme_form,
     get_form_group_last_morpheme_gloss,
@@ -13,21 +15,6 @@ from flexpy.FormGrouping import (
 )
 from flexpy.Text import Text
 
-
-def group_wordforms(tokenized, grouping_function):
-    new_tokenized = []
-    for text in tokenized:
-        new_text = group_wordforms_in_text(text, grouping_function)
-        new_tokenized.append(new_text)
-    return new_tokenized
-
-
-def group_wordforms_in_text(text, grouping_function):
-    new_text = []
-    for token in text:
-        new_token = grouping_function(token)
-        new_text.append(new_token)
-    return new_text
 
 
 def report_pronoun_collocations(corpus_in_target_terms, corpus_in_collocate_terms):

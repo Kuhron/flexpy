@@ -1,6 +1,23 @@
 from flexpy.WordForm import WordForm, WordFormMorpheme
 
 
+
+def group_wordforms(tokenized, grouping_function):
+    new_tokenized = []
+    for text in tokenized:
+        new_text = group_wordforms_in_text(text, grouping_function)
+        new_tokenized.append(new_text)
+    return new_tokenized
+
+
+def group_wordforms_in_text(text, grouping_function):
+    new_text = []
+    for token in text:
+        new_token = grouping_function(token)
+        new_text.append(new_token)
+    return new_text
+
+
 def get_form_group_last_morpheme(wordform):
     assert type(wordform) is WordForm, wordform
     morph = wordform.morphemes[-1]
