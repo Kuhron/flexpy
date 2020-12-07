@@ -418,6 +418,7 @@ if __name__ == "__main__":
                     # ct.head(collocates, hits=10)
             
             # now, for this suffix, show plot of how the metrics change with span
+            plt.subplot(2, 1, 1)
             plt.plot(spans, mi_agree_series, c="b", label="MI agree")
             plt.plot(spans, mi_disagree_series, c="r", label="MI disagree")
             plt.plot(spans, t_agree_series, c="g", label="T agree")
@@ -433,8 +434,26 @@ if __name__ == "__main__":
             plt.title("{} ({}), syncretic={}, syn_person={}, syn_number={}".format(
                 target, morph_form, is_syncretic, is_syncretic_for_person, is_syncretic_for_number,
             ))
-            plt.xlabel("span")
-            plt.show()
+            plt.ylabel("metric value")
+            plt.xlim(min(spans)-0.5, max(spans)+0.5)  # force the x-axis to show all spans even if some have nan
+
+            plt.subplot(2, 1, 2)
+            # show how the differences in the metrics (agree-disagree) evolve with span
+            mi_diff_series = [x-y for x, y in zip(mi_agree_series, mi_disagree_series)]
+            t_diff_series = [x-y for x, y in zip(t_agree_series, t_disagree_series)]
+            plt.plot(spans, mi_diff_series, c="b", label="MI diff")
+            plt.plot(spans, t_diff_series, c="g", label="T diff")
+            # again, scatter in case of nans breaking the lines apart
+            plt.scatter(spans, mi_diff_series, c="k")
+            plt.scatter(spans, t_diff_series, c="k")
+            plt.legend()
+            plt.xlabel("span")  # speaks for both subplots without wasting space (same x axis)
+            plt.ylabel("agree - disagree")
+            plt.xlim(min(spans)-0.5, max(spans)+0.5)  # force the x-axis to show all spans even if some have nan
+
+            plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/{}_span_trajectory.png".format(target.replace("/","|")))
+            plt.gcf().clear()
+            # plt.show()
     
     def get_form_group_agree_disagree_with_affix(wf, affix):
         assert type(wf) is WordForm
