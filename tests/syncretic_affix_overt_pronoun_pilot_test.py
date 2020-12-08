@@ -120,7 +120,7 @@ def get_target_affix_morpheme_collection(morphemes, affixes, verbose=False):
     return target_affix_morpheme_collection
 
 
-def get_nearest_pronoun_offset_positions(target_affix_morpheme_collection, wordform_contents):
+def get_nearest_pronoun_offset_positions(target_affix_morpheme_collection, wordform_contents, restrict_to_agree=True):
     # TODO: clean this up (without breaking it) if have time
 
     # restrict collocates to pronouns only
@@ -148,6 +148,9 @@ def get_nearest_pronoun_offset_positions(target_affix_morpheme_collection, wordf
                             if len(pronoun_morphs) == 0:
                                 continue  # don't count this one, it was a spurious pronoun
                             pronoun_morph = pronoun_morphs[0]
+                            if restrict_to_agree and (not pronoun_and_suffix_agree(pronoun_morph, agreement_morpheme)):
+                                # if we are only looking at agreeing pronouns, don't let a disagreeing one stop us; ignore it
+                                continue
                             offset_position = -1 * (left_j + 1)  # left_j=0 is first element left of target, thus offset is -1
                             if offset_position not in offset_positions[agreement_morpheme]:
                                 offset_positions[agreement_morpheme][offset_position] = []
@@ -160,6 +163,9 @@ def get_nearest_pronoun_offset_positions(target_affix_morpheme_collection, wordf
                             if len(pronoun_morphs) == 0:
                                 continue  # don't count this one, it was a spurious pronoun
                             pronoun_morph = pronoun_morphs[0]
+                            if restrict_to_agree and (not pronoun_and_suffix_agree(pronoun_morph, agreement_morpheme)):
+                                # if we are only looking at agreeing pronouns, don't let a disagreeing one stop us; ignore it
+                                continue
                             offset_position = 1 + right_j  # right_j=0 is first element right, so offset is +1
                             if offset_position not in offset_positions[agreement_morpheme]:
                                 offset_positions[agreement_morpheme][offset_position] = []
@@ -268,7 +274,7 @@ def plot_agree_disagree_counts_by_syncretism(target_affix_morpheme_collection, a
         plt.gcf().clear()
 
 
-def report_affix_collocations(target_affix_morpheme_collection, wordform_contents):
+def report_affix_collocations(target_affix_morpheme_collection, wordform_contents, make_plots):
     affix_morphemes = target_affix_morpheme_collection.get_morphemes()
     metrics = ["MI", "T"]
     for affix_morpheme in affix_morphemes:
@@ -322,55 +328,56 @@ def report_affix_collocations(target_affix_morpheme_collection, wordform_content
                 print("delta-metric = {}; ratio-metric = {}".format(delta, ratio))
                 # ct.head(collocates, hits=10)
 
-        # now, for this suffix, show plot of how the metrics change with span
-        plt.subplot(2, 1, 1)
-        plt.plot(spans, mi_agree_series, c="b", label="MI agree")
-        plt.plot(spans, mi_disagree_series, c="r", label="MI disagree")
-        plt.plot(spans, t_agree_series, c="g", label="T agree")
-        plt.plot(spans, t_disagree_series, c="m", label="T disagree")
+        if make_plots:
+            # now, for this suffix, show plot of how the metrics change with span
+            plt.subplot(2, 1, 1)
+            plt.plot(spans, mi_agree_series, c="b", label="MI agree")
+            plt.plot(spans, mi_disagree_series, c="r", label="MI disagree")
+            plt.plot(spans, t_agree_series, c="g", label="T agree")
+            plt.plot(spans, t_disagree_series, c="m", label="T disagree")
 
-        # also do scatter points since lines won't show up if there are nans next to a point
-        plt.scatter(spans, mi_agree_series, c="k")
-        plt.scatter(spans, mi_disagree_series, c="k")
-        plt.scatter(spans, t_agree_series, c="k")
-        plt.scatter(spans, t_disagree_series, c="k")
+            # also do scatter points since lines won't show up if there are nans next to a point
+            plt.scatter(spans, mi_agree_series, c="k")
+            plt.scatter(spans, mi_disagree_series, c="k")
+            plt.scatter(spans, t_agree_series, c="k")
+            plt.scatter(spans, t_disagree_series, c="k")
 
-        plt.legend()
-        plt.title("{} ({}), syncretic={}, syn_person={}, syn_number={}".format(
-            target, morph_form, is_syncretic, is_syncretic_for_person, is_syncretic_for_number,
-        ))
-        plt.ylabel("metric value")
-        plt.xlim(min(spans)-0.5, max(spans)+0.5)  # force the x-axis to show all spans even if some have nan
+            plt.legend()
+            plt.title("{} ({}), syncretic={}, syn_person={}, syn_number={}".format(
+                target, morph_form, is_syncretic, is_syncretic_for_person, is_syncretic_for_number,
+            ))
+            plt.ylabel("metric value")
+            plt.xlim(min(spans)-0.5, max(spans)+0.5)  # force the x-axis to show all spans even if some have nan
 
-        plt.subplot(2, 1, 2)
-        # show how the differences in the metrics (agree-disagree) evolve with span
-        mi_diff_series = [x-y for x, y in zip(mi_agree_series, mi_disagree_series)]
-        t_diff_series = [x-y for x, y in zip(t_agree_series, t_disagree_series)]
-        plt.plot(spans, mi_diff_series, c="b", label="MI diff")
-        plt.plot(spans, t_diff_series, c="g", label="T diff")
-        # again, scatter in case of nans breaking the lines apart
-        plt.scatter(spans, mi_diff_series, c="k")
-        plt.scatter(spans, t_diff_series, c="k")
-        plt.legend()
-        plt.xlabel("span")  # speaks for both subplots without wasting space (same x axis)
-        plt.ylabel("agree - disagree")
-        plt.xlim(min(spans)-0.5, max(spans)+0.5)  # force the x-axis to show all spans even if some have nan
+            plt.subplot(2, 1, 2)
+            # show how the differences in the metrics (agree-disagree) evolve with span
+            mi_diff_series = [x-y for x, y in zip(mi_agree_series, mi_disagree_series)]
+            t_diff_series = [x-y for x, y in zip(t_agree_series, t_disagree_series)]
+            plt.plot(spans, mi_diff_series, c="b", label="MI diff")
+            plt.plot(spans, t_diff_series, c="g", label="T diff")
+            # again, scatter in case of nans breaking the lines apart
+            plt.scatter(spans, mi_diff_series, c="k")
+            plt.scatter(spans, t_diff_series, c="k")
+            plt.legend()
+            plt.xlabel("span")  # speaks for both subplots without wasting space (same x axis)
+            plt.ylabel("agree - disagree")
+            plt.xlim(min(spans)-0.5, max(spans)+0.5)  # force the x-axis to show all spans even if some have nan
 
-        plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/{}_span_trajectory.png".format(target.replace("/","|")))
-        plt.gcf().clear()
-        # plt.show()
+            plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/{}_span_trajectory.png".format(target.replace("/","|")))
+            plt.gcf().clear()
+            # plt.show()
 
-        # TODO: make similar plots of the metrics and diffs by span for all syncretic and all non-syncretic
-        # essentially the form-grouping changes in a "sliding" way
-        # which form-grouping is used for the collocates depends on what the target is
-        # e.g. if the target is 23ns suffix, then the collocates need to be stated as agree/disagree with that
-        # but then once you've moved on to a different suffix, the agree/disagree values should be changed
-        # this way, can calculate aggregate agree/disagree association strengths for all syncretic at once
-        # alternatively/additionally, can collect raw occurrence numbers 
-        # - (the counts that go into the calculation of the metrics) 
-        # - and just return those instead of the whole metric, 
-        # - and then calculate the metric for the whole set of syncretic suffixes 
-        # - by aggregating those numbers somehow
+            # TODO: make similar plots of the metrics and diffs by span for all syncretic and all non-syncretic
+            # essentially the form-grouping changes in a "sliding" way
+            # which form-grouping is used for the collocates depends on what the target is
+            # e.g. if the target is 23ns suffix, then the collocates need to be stated as agree/disagree with that
+            # but then once you've moved on to a different suffix, the agree/disagree values should be changed
+            # this way, can calculate aggregate agree/disagree association strengths for all syncretic at once
+            # alternatively/additionally, can collect raw occurrence numbers 
+            # - (the counts that go into the calculation of the metrics) 
+            # - and just return those instead of the whole metric, 
+            # - and then calculate the metric for the whole set of syncretic suffixes 
+            # - by aggregating those numbers somehow
 
 
 def get_form_group_agree_disagree_with_affix(wf, affix):
@@ -449,8 +456,9 @@ if __name__ == "__main__":
         paragraphs_separated=False,
         texts_to_omit=texts_to_omit,
     )
+    print(wordform_contents)
+    input("a")
     verbose = True
-    make_plots = False
 
     syncretic_affixes, non_syncretic_affixes = get_syncretic_and_non_syncretic_affixes(bongu_agreement_affixes, verbose=verbose)
 
@@ -458,20 +466,31 @@ if __name__ == "__main__":
     final_morphemes = get_all_final_morphemes_in_corpus(wordform_contents, verbose=verbose)
     if verbose:
         print("\n-- finding affixes matching each word-final morpheme")
-    target_affix_morpheme_collection = get_target_affix_morpheme_collection(final_morphemes, bongu_agreement_affixes, verbose=verbose)
+    target_affix_morpheme_collection = get_target_affix_morpheme_collection(
+        final_morphemes, bongu_agreement_affixes, verbose=verbose
+    )
 
     # now that we have the affixes we're interested in, for each of them, find where the pronouns occur
-    offset_positions = get_nearest_pronoun_offset_positions(target_affix_morpheme_collection, wordform_contents)
+    offset_positions = get_nearest_pronoun_offset_positions(
+        target_affix_morpheme_collection, wordform_contents, restrict_to_agree=True
+    )
 
     # finished, look at the resulting offset positions and morphemes
     # print("offset positions:", offset_positions)
     # digest the info more easily, look just at the glosses of the morphs
-    agree_disagree_counts = get_agree_disagree_counts(target_affix_morpheme_collection, offset_positions, verbose=verbose)
-    if make_plots:
-        plot_agree_disagree_counts_by_morpheme(target_affix_morpheme_collection, agree_disagree_counts)
-        plot_agree_disagree_counts_by_syncretism(target_affix_morpheme_collection, agree_disagree_counts)
+    agree_disagree_counts = get_agree_disagree_counts(
+        target_affix_morpheme_collection, offset_positions, verbose=verbose
+    )
+    plot_agree_disagree_counts_by_morpheme(
+        target_affix_morpheme_collection, agree_disagree_counts,
+    )
+    plot_agree_disagree_counts_by_syncretism(
+        target_affix_morpheme_collection, agree_disagree_counts,
+    )
 
     print("\n-- reporting affix collocations")
-    report_affix_collocations(target_affix_morpheme_collection, wordform_contents)
+    report_affix_collocations(
+        target_affix_morpheme_collection, wordform_contents, make_plots=False
+    )
     # measure difference in collocation with agreeing/disagreeing for each suffix, over a variety of spans
     # graph the change in this more-agreeing-pronouns metric as you change span
