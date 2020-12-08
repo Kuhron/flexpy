@@ -457,7 +457,9 @@ if __name__ == "__main__":
         texts_to_omit=texts_to_omit,
     )
     print(wordform_contents)
+    print("TODO get periods in here! tell sentences apart")
     input("a")
+    
     verbose = True
 
     syncretic_affixes, non_syncretic_affixes = get_syncretic_and_non_syncretic_affixes(bongu_agreement_affixes, verbose=verbose)
