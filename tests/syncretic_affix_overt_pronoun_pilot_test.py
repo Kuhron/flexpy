@@ -205,8 +205,14 @@ def plot_agree_disagree_counts_by_morpheme(target_affix_morpheme_collection, agr
         # plot stacked bar by offset
         suffix_morph = target_affix_morpheme.morph
         suffix_gloss = suffix_morph.gloss
-        min_offset = min(agree_disagree_counts[suffix_morph].keys())
-        max_offset = max(agree_disagree_counts[suffix_morph].keys())
+        recorded_offsets = agree_disagree_counts[suffix_morph].keys()
+        if len(recorded_offsets) == 0:
+            # will just be empty plot
+            min_offset = 0
+            max_offset = 1
+        else:
+            min_offset = min(recorded_offsets)
+            max_offset = max(recorded_offsets)
         xs = list(range(min_offset, max_offset+1))
         agree_counts = [agree_disagree_counts[suffix_morph][offset][1] if offset in agree_disagree_counts[suffix_morph] else 0 for offset in xs]
         disagree_counts = [agree_disagree_counts[suffix_morph][offset][0] if offset in agree_disagree_counts[suffix_morph] else 0 for offset in xs]
@@ -224,7 +230,8 @@ def plot_agree_disagree_counts_by_morpheme(target_affix_morpheme_collection, agr
         width = 0.5
 
         p1 = plt.bar(xs, agree_counts, width, color="blue", label="{} {}".format(AGREE_STR, agree_num_text))
-        p2 = plt.bar(xs, disagree_counts, width, bottom=agree_counts, color="red", label="{} {}".format(DISAGREE_STR, disagree_num_text))
+        if len(disagree_offsets) > 0:
+            p2 = plt.bar(xs, disagree_counts, width, bottom=agree_counts, color="red", label="{} {}".format(DISAGREE_STR, disagree_num_text))
         plt.legend()
         syncretism_bool = target_affix_morpheme_collection[suffix_morph].is_syncretic()
         plt.title("{} syncretic={}".format(suffix_gloss, syncretism_bool))
@@ -267,7 +274,8 @@ def plot_agree_disagree_counts_by_syncretism(target_affix_morpheme_collection, a
         width = 0.5
 
         p1 = plt.bar(xs, agree_counts, width, color="blue", label="{} {}".format(AGREE_STR, agree_num_text))
-        p2 = plt.bar(xs, disagree_counts, width, bottom=agree_counts, color="red", label="{} {}".format(DISAGREE_STR, disagree_num_text))
+        if len(disagree_offsets) > 0:
+            p2 = plt.bar(xs, disagree_counts, width, bottom=agree_counts, color="red", label="{} {}".format(DISAGREE_STR, disagree_num_text))
         plt.legend()
         plt.title("all syncretic={}".format(syncretism_bool))
         plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/all_syncretism_{}.png".format(syncretism_bool))
@@ -448,51 +456,61 @@ def get_suffix_finality(suffix_morph):
 if __name__ == "__main__":
     project_name = "Bongu"
     project_dir = "/home/wesley/.local/share/fieldworks/Projects/"
-    corpus = Corpus(project_dir, project_name)
+    include_punctuation = True
+    corpus = Corpus(project_dir, project_name, include_punctuation)
 
+    texts_to_include = None  # pass as None to get all non-omitted texts
+    # texts_to_include = ["Help"]  # test stuff with a single shorter text
     texts_to_omit = [None, "None", "*Nouns", "*Ungram.", "*Random", "*Verbs"]
     wordform_contents = corpus.get_wordform_contents(
         texts_separated=True,
+        sentences_separated=True,
         paragraphs_separated=False,
+        texts_to_include=texts_to_include,
         texts_to_omit=texts_to_omit,
     )
-    print(wordform_contents)
-    print("TODO get periods in here! tell sentences apart")
-    input("a")
+    # print(wordform_contents)
+    sentences = []
+    for text in wordform_contents:
+        for sentence in text:
+            sentences.append(sentence)
+    # now we have each sentence as a separate item in a list, no longer arranged hierarchically by text
     
     verbose = True
 
-    syncretic_affixes, non_syncretic_affixes = get_syncretic_and_non_syncretic_affixes(bongu_agreement_affixes, verbose=verbose)
+    syncretic_affixes, non_syncretic_affixes = get_syncretic_and_non_syncretic_affixes(
+        bongu_agreement_affixes, verbose=verbose,
+    )
 
     # now go through the whole corpus, get any morphemes that match something in the affix list
-    final_morphemes = get_all_final_morphemes_in_corpus(wordform_contents, verbose=verbose)
+    final_morphemes = get_all_final_morphemes_in_corpus(sentences, verbose=verbose)
     if verbose:
         print("\n-- finding affixes matching each word-final morpheme")
     target_affix_morpheme_collection = get_target_affix_morpheme_collection(
-        final_morphemes, bongu_agreement_affixes, verbose=verbose
+        final_morphemes, bongu_agreement_affixes, verbose=verbose,
     )
 
     # now that we have the affixes we're interested in, for each of them, find where the pronouns occur
     offset_positions = get_nearest_pronoun_offset_positions(
-        target_affix_morpheme_collection, wordform_contents, restrict_to_agree=True
+        target_affix_morpheme_collection, sentences, restrict_to_agree=True,
     )
 
     # finished, look at the resulting offset positions and morphemes
     # print("offset positions:", offset_positions)
     # digest the info more easily, look just at the glosses of the morphs
     agree_disagree_counts = get_agree_disagree_counts(
-        target_affix_morpheme_collection, offset_positions, verbose=verbose
+        target_affix_morpheme_collection, offset_positions, verbose=verbose,
     )
-    plot_agree_disagree_counts_by_morpheme(
-        target_affix_morpheme_collection, agree_disagree_counts,
-    )
-    plot_agree_disagree_counts_by_syncretism(
-        target_affix_morpheme_collection, agree_disagree_counts,
-    )
+    # plot_agree_disagree_counts_by_morpheme(
+    #     target_affix_morpheme_collection, agree_disagree_counts,
+    # )
+    # plot_agree_disagree_counts_by_syncretism(
+    #     target_affix_morpheme_collection, agree_disagree_counts,
+    # )
 
-    print("\n-- reporting affix collocations")
-    report_affix_collocations(
-        target_affix_morpheme_collection, wordform_contents, make_plots=False
-    )
+    # print("\n-- reporting affix collocations")
+    # report_affix_collocations(
+    #     target_affix_morpheme_collection, sentences, make_plots=False,
+    # )
     # measure difference in collocation with agreeing/disagreeing for each suffix, over a variety of spans
     # graph the change in this more-agreeing-pronouns metric as you change span

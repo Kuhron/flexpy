@@ -22,3 +22,5 @@ class AffixSelector:
     def matches_morpheme(self, morph):
         return self.form_str == morph.citation_form and morph.gloss is not None and re.match(self.gloss_regex, morph.gloss)
 
+    def __repr__(self):
+        return "<AffixSelector form_str=\"{}\" gloss_regex=\"{}\">".format(self.form_str, self.gloss_regex)
