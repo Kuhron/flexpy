@@ -7,7 +7,7 @@ bongu_agreement_affixes = [
     AffixSelector("am", r"2s\.ifut"),
     AffixSelector("an", r"3s\.ifut"),
     # AffixSelector("aq", r"irr.*"),  # could agree with anything, so can't distinguish agree from disagree
-    AffixSelector("balan", r"23ns.*"),
+    AffixSelector("balan", r"23d.*"),
     AffixSelector("ban", r"23ns.*"),
     AffixSelector("beb", r"23ns.*"),
     AffixSelector("beben", r"23ns.*"),

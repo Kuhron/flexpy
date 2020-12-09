@@ -325,7 +325,8 @@ class WordFormMorpheme:
 
     def __repr__(self):
         # since __eq__ and __hash__ depend on __repr__, use citation form so allomorphs are treated as equal
-        return "<WordFormMorpheme \"{}\" ({}) = ({}) \"{}\">".format(self.citation_form, self.morph_type, self.pos, self.gloss)
+        # removed pos from this for now since the inconsistency of labeling of affix POSes created multiple different morpheme objects that were really the same morpheme
+        return "<WordFormMorpheme \"{}\" ({}) = \"{}\">".format(self.citation_form, self.morph_type, self.gloss)
 
     def __eq__(self, other):
         if type(other) is not WordFormMorpheme:
