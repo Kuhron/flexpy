@@ -1,4 +1,4 @@
-from flexpy.FlexPyUtil import get_single_child
+from flexpy.FlexPyUtil import get_single_child, get_children
 from flexpy.PunctuationForm import PunctuationForm
 from flexpy.TextParagraph import TextParagraph
 from flexpy.WordForm import WordForm
@@ -35,8 +35,9 @@ class Text:
                 pass #raise Exception("Text found with contents but no name, in rt element: {}, guid {}".format(self.rt, self.rt.attrib["guid"]))
             return None
         else:
-            auni = get_single_child(abbreviation, "AUni")
-            return auni.text
+            aunis = get_children(abbreviation, "AUni")
+            non_none_aunis = [x for x in aunis if x.text is not None]
+            return ";".join(auni.text for auni in non_none_aunis)
 
     def create_st_texts(self):
         contents = self.rt_text.Contents()

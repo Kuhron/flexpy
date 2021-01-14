@@ -3,7 +3,9 @@ import re
 # from flexpy.Morpheme import Morpheme
 from flexpy.TagDict import TagDict
 # from flexpy.WordAnalysis import WordAnalysis
-from flexpy.FlexPyUtil import get_strs_from_form, get_single_str_from_form
+from flexpy.FlexPyUtil import (
+    get_strs_from_form, get_single_str_from_form, get_unique_strs_from_form_as_list,
+)
 
 from flexpy.tags.RtLexEntry import RtLexEntry
 from flexpy.tags.RtWfiAnalysis import RtWfiAnalysis
@@ -174,8 +176,17 @@ class WordForm:
             allomorph = affix_allomorph[0]
         else:
             raise Exception("LexEntry with neither stem nor affix citation: {}".format(lex_entry))
-        citation_form_str = get_single_str_from_form(allomorph.Form())
-        return citation_form_str
+
+        # sometimes get LexEntry with multiple forms for some reason, store them as list
+        forms = get_unique_strs_from_form_as_list(allomorph.Form())
+        if len(forms) == 1:
+            return forms[0]
+        else:
+            print("warning: LexEntry found with {} forms: {}".format(len(forms), forms))
+            assert all("," not in x for x in forms), "forms contain commas: {}".format(forms)
+            return forms
+        # citation_form_str = get_single_str_from_form(allomorph.Form(), allow_repeat=True)
+        # return citation_form_str
     
     @staticmethod
     def get_morph_type_from_morph_bundle(morph_bundle):

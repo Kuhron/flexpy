@@ -1,7 +1,7 @@
 # replicating structure of <rt class="LexEntry">
 
-from flexpy.FlexPyUtil import get_single_child
-
+from flexpy.FlexPyUtil import get_single_child, get_unique_strs_from_form_as_list
+from flexpy.tags.Form import Form
 
 
 class LexEntry:
@@ -20,12 +20,12 @@ class LexEntry:
         objsur = get_single_child(lexeme_form_el, "objsur")
         mo_stem_allomorph_el = self.tag_dict[objsur.attrib["guid"]]
         form_el = get_single_child(mo_stem_allomorph_el, "Form")
-        # form_text = get_single_child(form_el, "AUni").text
-        form_text_pieces = form_el.findall("AUni")
-        form_text = ""
-        for ftp in form_text_pieces:
-            form_text += ftp.text
-        self.lexeme_form = form_text
+        form_obj = Form(form_el, self.tag_dict)
+        forms = get_unique_strs_from_form_as_list(form_obj)
+        if len(forms) == 1:
+            self.lexeme_form = forms[0]
+        else:
+            self.lexeme_form = forms
 
         self.parts_of_speech = []
         morpho_syntax_analyses_el = get_single_child(self.rt, "MorphoSyntaxAnalyses")
@@ -64,3 +64,22 @@ class LexEntry:
             pos=self.parts_of_speech,
             gloss=self.glosses,
         )
+
+    def tsv_repr(self):
+        form = self.lexeme_form
+        if type(form) is str:
+            forms = [form]
+            if "awna" in form:
+                raise Exception(form)
+        else:
+            assert type(form) is list
+            forms = form
+            print("forms = {}".format(forms))
+        for form in forms:
+            assert "\t" not in form and "\n" not in form, repr(form)
+        form = ",".join(forms)
+        pos = ",".join(str(x) for x in self.parts_of_speech)
+        assert "\t" not in pos and "\n" not in pos
+        gloss = ",".join(str(x) for x in self.glosses)
+        assert "\t" not in gloss and "\n" not in gloss
+        return "{}\t{}\t{}".format(form,pos,gloss)
