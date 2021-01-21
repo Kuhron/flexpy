@@ -2,6 +2,8 @@
 
 Python API for working with SIL FieldWorks Language Explorer (FLEx) databases. Some web scraping of Papuan Bible translations is also in here. Better organization and more features to come.
 
+[Here](https://pypi.org/project/flexpy/) is the package's page on PyPI.
+
 Install with:
 
     pip install flexpy
