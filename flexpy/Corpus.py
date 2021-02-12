@@ -14,22 +14,26 @@ from flexpy.FlexPyUtil import (
 
 
 class Corpus:
-    def __init__(self, project_dir, project_name):
+    def __init__(self, project_dir, project_name, include_punctuation):
+        assert type(include_punctuation) is bool
         self.project_dir = project_dir
         self.project_name = project_name
+        self.include_punctuation = include_punctuation
         self.tag_dict = self.get_tag_dict()
-        self.texts = self.get_texts()
+        self.texts = self.get_texts(self.include_punctuation)
         self.lexicon = self.get_lexicon()
 
     def get_tag_dict(self):
         return TagDict.from_project_dir_and_name(self.project_dir, self.project_name)
 
-    def get_texts(self):
+    def get_texts(self, include_punctuation=None):
+        if include_punctuation is None:
+            include_punctuation = self.include_punctuation  # you can't have arg=self.arg in the signature bc self is not in scope there
         text_elements = self.tag_dict["RtText"]
         texts = []
         for guid, rt in text_elements.items():
             # print("initing new text from rt {}".format(rt))
-            text = Text(guid, rt, self.tag_dict)
+            text = Text(guid, rt, self.tag_dict, include_punctuation)
             # print("finished initing text {}".format(text))
             texts.append(text)
         # print("there are {} texts with contents".format(sum(x.has_contents() for x in texts)))
@@ -69,16 +73,16 @@ class Corpus:
         contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
         for s in contents:
-            result.append(tokenize_single_text(s))
+            result.append(tokenize_single_text(s))  # tokenize_single_text returns list e.g. ["hello", "world"]
         return result
 
-    def get_tokenized_contents_flat(self):
+    def get_tokenized_contents_flat(self, texts_to_omit=None):
         # treats the whole corpus as a single text
         # e.g. ["hello", "world", "my", "name", "is", "wesley"]
         contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
         for s in contents:
-            result += tokenize_single_text(s)
+            result += tokenize_single_text(s)  # tokenize_single_text returns list e.g. ["hello", "world"]
         return result
     
     def get_tokenized_contents_objects(self, texts_to_omit=None):
@@ -90,20 +94,32 @@ class Corpus:
             result.append(text.create_contents_objects())
         return result
 
-    def get_wordform_contents(self, texts_separated, paragraphs_separated, texts_to_omit=None):
+    def get_wordform_contents(self, texts_separated, paragraphs_separated, sentences_separated,
+            texts_to_include=None, texts_to_omit=None,
+        ):
         assert type(texts_separated) is bool, texts_separated
         assert type(paragraphs_separated) is bool, paragraphs_separated
+        assert type(sentences_separated) is bool, sentences_separated
+        if texts_to_include is not None and texts_to_omit is not None:
+            intersection = set(texts_to_include) & set(texts_to_omit)
+            assert intersection == set(), "these texts were listed as both include and omit: {}".format(sorted(intersection))
+        if sentences_separated:
+            assert self.include_punctuation, "cannot separate sentences in corpus which does not have punctuation included in texts; you must re-initialize the Corpus with include_punctuation=True"
+
         contents = []
-        if texts_separated:
-            for text in self.texts:
-                if texts_to_omit is not None and text.name not in texts_to_omit and text.is_valid():
-                    text_contents = text.get_wordform_contents(paragraphs_separated)
+        for text in self.texts:
+            valid = text.is_valid()
+            included = texts_to_include is None or text.name in texts_to_include
+            omitted = texts_to_omit is None or text.name in texts_to_omit
+            if valid and included and (not omitted):
+                text_contents = text.get_wordform_contents(
+                    paragraphs_separated=paragraphs_separated,
+                    sentences_separated=sentences_separated,
+                )
+                if texts_separated:
                     contents.append(text_contents)
-        else:
-            print("Warning: getting corpus contents should probably have texts separated as True")
-            for text in self.texts:
-                if texts_to_omit is not None and text.name not in texts_to_omit and text.is_valid():
-                    text_contents = text.get_wordform_contents(paragraphs_separated)
+                else:
+                    print("Warning: getting corpus contents should probably have texts separated as True")
                     contents += text_contents
         return contents
 

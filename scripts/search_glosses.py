@@ -3,7 +3,7 @@ from flexpy.Lexicon import Lexicon
 
 project_dir = "/home/wesley/.local/share/fieldworks/Projects/"
 project_name = "Bongu"
-bongu_corpus = Corpus(project_dir, project_name)
+bongu_corpus = Corpus(project_dir, project_name, include_punctuation=False)
 contents = bongu_corpus.get_tokenized_contents()
 
 regex = r"\b(eat|drink|kaikai|dring)"

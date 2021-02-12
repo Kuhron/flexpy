@@ -1,8 +1,10 @@
 import xml.etree.ElementTree as ET
 from flexpy.FlexPyUtil import get_single_child
+from flexpy.PunctuationForm import PunctuationForm
 from flexpy.TagDict import TagDict
 from flexpy.WordForm import WordForm
 
+from flexpy.tags.RtPunctuationForm import RtPunctuationForm
 from flexpy.tags.RtSegment import RtSegment
 from flexpy.tags.RtStTxtPara import RtStTxtPara
 from flexpy.tags.RtWfiAnalysis import RtWfiAnalysis
@@ -11,13 +13,15 @@ from flexpy.tags.RtWfiGloss import RtWfiGloss
 
 
 class TextParagraph:
-    def __init__(self, rt_st_txt_para, tag_dict):
+    def __init__(self, rt_st_txt_para, tag_dict, include_punctuation):
         assert type(rt_st_txt_para) is RtStTxtPara, type(rt_st_txt_para)
         assert type(tag_dict) is TagDict
+        assert type(include_punctuation) is bool
         self.rt_st_txt_para = rt_st_txt_para
         self.tag_dict = tag_dict
+        self.include_punctuation = include_punctuation
         self.run_texts = self.create_run_texts()
-        self.wordforms = self.create_wordforms()
+        self.wordforms = self.create_wordforms(include_punctuation=self.include_punctuation)
     
     def __repr__(self):
         return "<TextParagraph \"{}\" from rt {}>".format(self.get_raw_text(), self.rt_st_txt_para)
@@ -39,7 +43,7 @@ class TextParagraph:
     def get_raw_text(self):
         return " ".join(self.run_texts)
     
-    def create_wordforms(self):
+    def create_wordforms(self, include_punctuation):
         # print("creating wordforms for {}".format(self))
         result = []
         segments = self.rt_st_txt_para.Segments()
@@ -57,6 +61,9 @@ class TextParagraph:
                     wordform = WordForm.from_rt_wfi_analysis(child_obj, self.tag_dict)
                 elif type(child_obj) is RtWfiGloss:
                     wordform = WordForm.from_rt_wfi_gloss(child_obj, self.tag_dict)
+                elif include_punctuation and type(child_obj) is RtPunctuationForm:
+                    wordform = PunctuationForm.from_rt_punctuation_form(child_obj, self.tag_dict)
+                    # varname "wordform" misleading in this case, but keeping just so it is appended like usual
                 else:
                     # print("not making wordform from child {}".format(child_obj))
                     continue  # don't append the wordform var from previous loop iteration

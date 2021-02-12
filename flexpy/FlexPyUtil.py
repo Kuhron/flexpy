@@ -22,6 +22,10 @@ def get_single_child(element, child_tag):
     raise Exception(error_str)
 
 
+def get_children(element, child_tag):
+    return element.findall(child_tag)
+
+
 def get_ordered_child_objects(el, tag_dict):
     # for objsurs only
     assert type(el) is ET.Element, "invalid element: {}".format(el)
@@ -348,19 +352,42 @@ def get_strs_from_form(form):
     return {"AStr": astrs, "AUni": aunis, "Str": strs}
 
 
-def get_single_str_from_form(form):
-    forms = []
+def get_strs_from_form_as_list(form):
     forms_dict = get_strs_from_form(form)
     has_astr = forms_dict["AStr"] is not None and forms_dict["AStr"] != []
     has_auni = forms_dict["AUni"] is not None and forms_dict["AUni"] != []
     has_str = forms_dict["Str"] is not None and forms_dict["Str"] != []
-    assert has_astr + has_auni + has_str == 1, "forms_dict has != 1 valid forms: {}".format(forms_dict)
+    n_forms = has_astr + has_auni + has_str
+    if n_forms == 0:
+        print("warning: no valid strings found in form {}".format(form))
+        return []
+    # assert n_forms == 1, "forms_dict has != 1 valid forms: {}".format(forms_dict)
+    forms = []
     for k, v in forms_dict.items():
         if v is not None:
             assert type(v) is list, type(v)
             if len(v) > 0:
                 # not empty list, there is some form here
-                assert len(v) == 1, "more than 1 form: {}".format(v)
-                forms.append(v[0])
-    assert len(forms) == 1, forms
+                forms += v
+    return forms
+
+
+def get_unique_strs_from_form_as_list(form):
+    forms = get_strs_from_form_as_list(form)
+    return list(set(forms))
+
+
+def get_single_str_from_form(form, allow_repeat=True):
+    # allow_repeat: if multiple strs are there but they're all the same, allow it
+    all_forms = get_strs_from_form_as_list(form)
+
+    if len(all_forms) == 0:
+        return None
+
+    if allow_repeat:
+        forms = list(set(all_forms))
+        assert len(forms) == 1, "more than 1 form even when allowing repeat: {}".format(forms)
+    else:
+        assert len(all_forms) == 1, "more than 1 form: {}".format(all_forms)
+        forms = all_forms
     return forms[0]

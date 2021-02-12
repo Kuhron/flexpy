@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 # Kris's library
 from corpus_toolkit import corpus_tools as ct
@@ -38,7 +39,8 @@ def collocator_separating_target_and_collocate_terms(
         corpus_in_target_terms,
         corpus_in_collocate_terms,
         target, left=4, right=4, stat="MI", cutoff=5, ignore=None,
-        ): #returns a dictionary of collocation values
+        ): 
+    # returns a dictionary of collocation values
     # "in target terms" means the items in the corpus are converted
     # - in such a way that certain targets are treated the same
     # - e.g. you want to see which words correlate most with any verb
@@ -120,7 +122,13 @@ def collocator_separating_target_and_collocate_terms(
                 mi_score = math.log2(observed/expected)
                 stat_dict[x] = mi_score
             elif stat == "T":
-                t_score = math.log2((observed - expected)/math.sqrt(expected))
+                try:
+                    t_score = math.log2((observed - expected)/math.sqrt(expected))
+                except ValueError:
+                    # domain of log is strictly positive
+                    better_error_str = "domain error with observed = {}, expected = {}, diff = {}; returning t-score of NaN".format(observed, expected, observed-expected)
+                    print(better_error_str)
+                    t_score = np.nan
                 stat_dict[x] = t_score
             elif stat == "freq":
                 stat_dict[x] = collocate_freq[x]
