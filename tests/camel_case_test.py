@@ -6,7 +6,7 @@ from flexpy.FlexPyUtil import camel_case_to_snake_case
 
 project_dir = "/home/wesley/.local/share/fieldworks/Projects/"
 project_name = "Bongu"
-bongu_corpus = Corpus(project_dir, project_name)
+bongu_corpus = Corpus(project_dir, project_name, include_punctuation=False)
 
 print("testing camel case function on all rt classes in the database")
 conversions = {}

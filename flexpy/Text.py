@@ -71,7 +71,7 @@ class Text:
     def get_wordform_contents(self, paragraphs_separated, sentences_separated):
         assert type(paragraphs_separated) is bool, paragraphs_separated
         assert type(sentences_separated) is bool, sentences_separated
-        assert paragraphs_separated ^ sentences_separated, "cannot have both paragraphs and sentences separated"
+        assert not(paragraphs_separated) or not(sentences_separated), "cannot have both paragraphs and sentences separated"
         if paragraphs_separated:
             contents = []
             for paragraph in self.paragraphs:

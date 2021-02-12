@@ -34,12 +34,13 @@ def report_pronoun_collocations(corpus_in_target_terms, corpus_in_collocate_term
 if __name__ == "__main__":
     project_name = "Bongu"
     project_dir = "/home/wesley/.local/share/fieldworks/Projects/"
-    corpus = Corpus(project_dir, project_name)
+    corpus = Corpus(project_dir, project_name, include_punctuation=False)
 
     texts_to_omit = [None, "None", "*Nouns", "*Ungram.", "*Random", "*Verbs"]
     wordform_contents = corpus.get_wordform_contents(
         texts_separated=True,
         paragraphs_separated=False,
+        sentences_separated=False,
         texts_to_omit=texts_to_omit,
     )
 

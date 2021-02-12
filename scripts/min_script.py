@@ -57,7 +57,7 @@ def perform_min_analysis(texts):
 if __name__ == "__main__":
     project_name = "Isan"
     project_dir = "/home/wesley/.local/share/fieldworks/Projects/"
-    corpus = Corpus(project_dir, project_name)
+    corpus = Corpus(project_dir, project_name, include_punctuation=False)
     contents = corpus.get_contents()
 
     print("corpus size: {}".format(corp.get_corpus_size_words(contents)))

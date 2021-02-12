@@ -7,7 +7,7 @@ import flexpy.XMLTagMap as xml_tag_map
 project_dir = "/home/wesley/.local/share/fieldworks/Projects/"
 project_name = "Bongu"
 
-bongu_corpus = Corpus(project_dir, project_name)
+bongu_corpus = Corpus(project_dir, project_name, include_punctuation=False)
 contents = bongu_corpus.get_tokenized_contents()
 
 dependency_dict = bongu_corpus.tag_dict.dependency_dict

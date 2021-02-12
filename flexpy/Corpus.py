@@ -26,7 +26,9 @@ class Corpus:
     def get_tag_dict(self):
         return TagDict.from_project_dir_and_name(self.project_dir, self.project_name)
 
-    def get_texts(self, include_punctuation):
+    def get_texts(self, include_punctuation=None):
+        if include_punctuation is None:
+            include_punctuation = self.include_punctuation  # you can't have arg=self.arg in the signature bc self is not in scope there
         text_elements = self.tag_dict["RtText"]
         texts = []
         for guid, rt in text_elements.items():

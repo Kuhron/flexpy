@@ -242,7 +242,7 @@ def plot_agree_disagree_counts_by_morpheme(target_affix_morpheme_collection, agr
         plt.legend()
         syncretism_bool = target_affix_morpheme_collection[suffix_morph].is_syncretic()
         plt.title("{} syncretic={}".format(suffix_gloss, syncretism_bool))
-        plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/{}_syncretic_{}.png".format(suffix_gloss.replace("/","|"), syncretism_bool))
+        plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/final/images/{}_syncretic_{}.png".format(suffix_gloss.replace("/","|"), syncretism_bool))
         plt.gcf().clear()
 
 
@@ -285,7 +285,7 @@ def plot_agree_disagree_counts_by_syncretism(target_affix_morpheme_collection, a
             p2 = plt.bar(xs, disagree_counts, width, bottom=agree_counts, color="red", label="{} {}".format(DISAGREE_STR, disagree_num_text))
         plt.legend()
         plt.title("all syncretic={}".format(syncretism_bool))
-        plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/all_syncretism_{}.png".format(syncretism_bool))
+        plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/final/images/all_syncretism_{}.png".format(syncretism_bool))
         plt.gcf().clear()
 
 
@@ -403,7 +403,7 @@ def report_affix_collocations(target_affix_morpheme_collection, wordform_content
                 plt.ylabel("agree - disagree")
                 plt.xlim(min(spans)-0.5, max(spans)+0.5)  # force the x-axis to show all spans even if some have nan
 
-            plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/{}_span_trajectory.png".format(target.replace("/","|")))
+            plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/final/images/{}_span_trajectory.png".format(target.replace("/","|")))
             plt.gcf().clear()
             # plt.show()
 
@@ -473,7 +473,7 @@ def report_affix_collocations(target_affix_morpheme_collection, wordform_content
             # don't plt.title this one
             plt.ylabel("T")
             plt.xlim(min(spans)-0.5, max(spans)+0.5)  # force the x-axis to show all spans even if some have nan
-            plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/all_trajectory.png")
+            plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/final/images/all_trajectory.png")
             # don't clear the figure
 
 
@@ -540,7 +540,7 @@ def plot_distribution_of_sentence_lengths(sentences):
     counts_series = [counts.get(x, 0) for x in xs]
     plt.bar(xs, counts_series, width, color="blue")
     plt.title("sentence length (words) without punctuation")
-    plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/images/sentence_lengths.png")
+    plt.savefig("/home/wesley/Desktop/UOregon Work/CorpusLinguistics/final/images/sentence_lengths.png")
 
 
 def get_form_group_agree_disagree_with_affix(wf, affix, restrict_to_agree):
