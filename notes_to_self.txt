@@ -9,5 +9,5 @@ http://python-notes.curiousefficiency.org/en/latest/python_concepts/import_traps
 
 About setting up ReadTheDocs/Sphinx:
 https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html
-
-
+This post argues for RST and Sphinx as better than Markdown for writing docs in the long term: https://www.zverovich.net/2016/06/16/rst-vs-markdown.html
+RST cheat sheet: https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
