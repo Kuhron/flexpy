@@ -9,6 +9,8 @@ from flexpy.tags.RtStTxtPara import RtStTxtPara
 
 
 class Text:
+    """Contains the information about a single text in the FLEx database.
+    """
     def __init__(self, guid, rt, tag_dict, include_punctuation):
         assert type(include_punctuation) is bool
         self.validity = True  # some texts in FLEx are just empty (invalid), not sure why they exist

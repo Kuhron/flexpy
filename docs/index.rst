@@ -6,9 +6,6 @@
 Welcome to FlexPy's documentation!
 ==================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
 
 FlexPy is a Python API for extracting data from SIL's FieldWorks Language Explorer (FLEx).
 It can be used to make corpus analysis easier without having to export any data from FLEx itself.
@@ -28,6 +25,15 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   Corpus
+   Lexicon
+   TagDict
+   Text
+   WordForm
 
 Links
 =====

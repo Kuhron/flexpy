@@ -15,6 +15,9 @@ from flexpy.tags.RtWfiMorphBundle import RtWfiMorphBundle
 
 
 class WordForm:
+    """Contains the information about a single word, which may be from a text, 
+        or an item in the lexicon.
+    """
     def __init__(self, forms, citation_forms, morph_types, glosses, poses, tag_dict):
         assert type(tag_dict) is TagDict, type(tag_dict)
         self.tag_dict = tag_dict

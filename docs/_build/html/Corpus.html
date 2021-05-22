@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corpus &#8212; FlexPy 0.0.5 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lexicon" href="Lexicon.html" />
+    <link rel="prev" title="Welcome to FlexPy’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-flexpy.Corpus">
+<span id="corpus"></span><h1>Corpus<a class="headerlink" href="#module-flexpy.Corpus" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="flexpy.Corpus.Corpus">
+<em class="property">class </em><code class="sig-prename descclassname">flexpy.Corpus.</code><code class="sig-name descname">Corpus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_dir</span></em>, <em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">include_punctuation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class that contains the lexicon and texts from the FLEx database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> (<em>str</em>) – the directory where the FLEx project’s directory is found</p></li>
+<li><p><strong>project_name</strong> (<em>str</em>) – the project name (a folder with this name should be inside project_dir)</p></li>
+<li><p><strong>include_punctuation</strong> (<em>bool</em>) – whether punctuation tokens should be included</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="flexpy.Corpus.Corpus.get_lexicon">
+<code class="sig-name descname">get_lexicon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus.get_lexicon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">flexpy.Lexicon.Lexicon</span></code> object containing the lexeme entries in this corpus</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpy.Corpus.Corpus.get_tag_dict">
+<code class="sig-name descname">get_tag_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus.get_tag_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a <a class="reference internal" href="TagDict.html#flexpy.TagDict.TagDict" title="flexpy.TagDict.TagDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">flexpy.TagDict.TagDict</span></code></a> object for this project</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpy.Corpus.Corpus.get_texts">
+<code class="sig-name descname">get_texts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">include_punctuation</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus.get_texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the texts for this project as a list of <a class="reference internal" href="Text.html#flexpy.Text.Text" title="flexpy.Text.Text"><code class="xref py py-class docutils literal notranslate"><span class="pre">flexpy.Text.Text</span></code></a> objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>include_punctuation</strong> – whether the texts should contain punctuation tokens 
+(defaults to self.include_punctuation)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpy.Corpus.Corpus.get_tokenized_contents">
+<code class="sig-name descname">get_tokenized_contents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts_to_omit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus.get_tokenized_contents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the texts, each of which is a list of string tokens.</p>
+<p>e.g. [[“hello”, “world”], [“my”, “name”, “is”, “wesley”]]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpy.Corpus.Corpus.get_tokenized_contents_flat">
+<code class="sig-name descname">get_tokenized_contents_flat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts_to_omit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus.get_tokenized_contents_flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the texts’ contents, treating the whole corpus as a single text.</p>
+<p>e.g. [“hello”, “world”, “my”, “name”, “is”, “wesley”]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpy.Corpus.Corpus.get_valid_texts">
+<code class="sig-name descname">get_valid_texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus.get_valid_texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the texts which are valid (e.g. non-empty)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpy.Corpus.Corpus.search_lexicon_glosses">
+<code class="sig-name descname">search_lexicon_glosses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">regex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus.search_lexicon_glosses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches the glosses of the corpus’s lexicon by regex</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpy.Corpus.Corpus.write_texts_to_file">
+<code class="sig-name descname">write_texts_to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.Corpus.Corpus.write_texts_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes each text to a separate .txt file in <cite>output_dir</cite></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">FlexPy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lexicon.html">Lexicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TagDict.html">TagDict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WordForm.html">WordForm</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to FlexPy’s documentation!</a></li>
+      <li>Next: <a href="Lexicon.html" title="next chapter">Lexicon</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Wesley Kuhron Jones.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Corpus.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

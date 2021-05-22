@@ -12,8 +12,16 @@ from flexpy.FlexPyUtil import (
 )
 
 
-
 class Corpus:
+    """A class that contains the lexicon and texts from the FLEx database.
+
+    :param project_dir: the directory where the FLEx project's directory is found
+    :type project_dir: str
+    :param project_name: the project name (a folder with this name should be inside project_dir)
+    :type project_name: str
+    :param include_punctuation: whether punctuation tokens should be included
+    :type include_punctuation: bool
+    """
     def __init__(self, project_dir, project_name, include_punctuation):
         assert type(include_punctuation) is bool
         self.project_dir = project_dir
@@ -24,9 +32,17 @@ class Corpus:
         self.lexicon = self.get_lexicon()
 
     def get_tag_dict(self):
+        """Gets a :class:`flexpy.TagDict.TagDict` object for this project
+        """
         return TagDict.from_project_dir_and_name(self.project_dir, self.project_name)
 
     def get_texts(self, include_punctuation=None):
+        """Gets the texts for this project as a list of :class:`flexpy.Text.Text` objects
+
+        :param include_punctuation: 
+            whether the texts should contain punctuation tokens 
+            (defaults to self.include_punctuation)
+        """
         if include_punctuation is None:
             include_punctuation = self.include_punctuation  # you can't have arg=self.arg in the signature bc self is not in scope there
         text_elements = self.tag_dict["RtText"]
@@ -40,9 +56,13 @@ class Corpus:
         return texts
 
     def get_valid_texts(self):
+        """Gets the texts which are valid (e.g. non-empty)
+        """
         return [x for x in self.get_texts() if x.is_valid()]
 
     def write_texts_to_file(self, output_dir):
+        """Writes each text to a separate .txt file in `output_dir`
+        """
         if not os.path.exists(output_dir):
             os.mkdir(output_dir)
         texts = self.get_valid_texts()
@@ -69,7 +89,10 @@ class Corpus:
         return contents_lst
 
     def get_tokenized_contents(self, texts_to_omit=None):
-        # e.g. [["hello", "world"], ["my", "name", "is", "wesley"]]
+        """Returns a list of the texts, each of which is a list of string tokens.
+        
+        e.g. [["hello", "world"], ["my", "name", "is", "wesley"]]
+        """
         contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
         for s in contents:
@@ -77,8 +100,10 @@ class Corpus:
         return result
 
     def get_tokenized_contents_flat(self, texts_to_omit=None):
-        # treats the whole corpus as a single text
-        # e.g. ["hello", "world", "my", "name", "is", "wesley"]
+        """Returns the texts' contents, treating the whole corpus as a single text.
+        
+        e.g. ["hello", "world", "my", "name", "is", "wesley"]
+        """
         contents = self.get_contents(texts_to_omit=texts_to_omit)
         result = []
         for s in contents:
@@ -124,10 +149,14 @@ class Corpus:
         return contents
 
     def get_lexicon(self):
+        """Returns a :class:`flexpy.Lexicon.Lexicon` object containing the lexeme entries in this corpus
+        """
         lex_entries = self.tag_dict["RtLexEntry"]
         return Lexicon(lex_entries, self.tag_dict)
 
     def search_lexicon_glosses(self, regex):
+        """Searches the glosses of the corpus's lexicon by regex
+        """
         return self.lexicon.search_glosses(regex)
 
     def search_word_glosses(self, regex):

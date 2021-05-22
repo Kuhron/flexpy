@@ -6,6 +6,13 @@ from flexpy.LexEntry import LexEntry
 
 
 class Lexicon:
+    """Contains the information in the FLEx database's lexicon.
+
+    :param lex_entry_els:
+    :type lex_entry_els: list(xml.etree.ElementTree.Element)
+    :param tag_dict:
+    :type tag_dict: :class:`flexpy.TagDict.TagDict`
+    """
     def __init__(self, lex_entry_els, tag_dict):
         self.lex_entry_els = lex_entry_els
         self.tag_dict = tag_dict
@@ -19,6 +26,8 @@ class Lexicon:
         return res
 
     def search_glosses(self, regex):
+        """Searches the lexicon's glosses for a regex
+        """
         results = []
 
         for lex_entry in self.lex_entries:
