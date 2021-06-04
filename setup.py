@@ -1,7 +1,7 @@
 # made with help of https://realpython.com/pypi-publish-python-package/#a-small-python-package
 
 import pathlib
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
@@ -25,7 +25,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
     ],
-    packages=["flexpy"],
+    packages=find_packages(),
     include_package_data=True,
     # install_requires=["feedparser", "html2text"],
     # entry_points={
