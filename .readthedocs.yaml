@@ -9,4 +9,5 @@ sphinx:
 python:
   version: 3.8
   install:
-    - requirements: requirements.txt
+    # give RTD a DIFFERENT requirements file than the users, since users don't care about having Sphinx/Jinja/etc. for using flexpy
+    - requirements: rtd_requirements.txt
