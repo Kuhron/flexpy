@@ -4,8 +4,10 @@
 import os
 from flexpy.FlexPyUtil import get_tag_class_name
 
+from xml.etree import ElementTree as ET
 
-def create_dependency_dict(root, by_guid):
+
+def create_dependency_dict_from_single_root(root, by_guid):
     # special types are <rt> and <objsur> (object surrogate), else just refer to it as its tag
 
     dependency_dict = {}
@@ -21,8 +23,15 @@ def create_dependency_dict(root, by_guid):
     return dependency_dict
 
 
-def print_dependency_dict(root, by_guid):
-    d = create_dependency_dict(root, by_guid)
+def create_dependency_dict_from_multiple_roots(roots, by_guid):
+    d = {}
+    for root in roots:
+        d.update(create_dependency_dict_from_single_root(root, by_guid))
+        # what is the chance of guid collision among different projects? hopefully low
+    return d
+
+
+def print_dependency_dict(d):
     keys = sorted(d.keys())
     for k in keys:
         owners = d[k]["owners"]
@@ -139,6 +148,7 @@ def get_all_children_recursive(el):
 
 
 def add_element_to_dependency_dict(el, dependency_dict, by_guid):
+    assert type(el) is ET.Element, el
     if el.tag == "objsur":
         # don't add these, they should only be shown as children
         return dependency_dict
@@ -157,14 +167,30 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
             child_tag_long = get_tag_key_from_element(child_el, by_guid)
         elif child_el.tag == "objsur":
             reference_guid = child_el.attrib["guid"]
-            referent = by_guid[reference_guid]
-            child_tag_short = referent.tag
-            if referent.tag == "rt":
+            referents = by_guid[reference_guid]
+
+            child_tag_short = None
+            for referent in referents:
+                this_child_tag_short = referent.tag
+                if child_tag_short is None:
+                    child_tag_short = this_child_tag_short
+                else:
+                    assert this_child_tag_short == child_tag_short, f"mismatch in child_tag_short: {this_child_tag_short} vs {child_tag_short}"
+
+            if child_tag_short == "rt":
                 child_class_name = referent.attrib["class"]
             else:
                 child_class_name = None
             child_tag_long = get_tag_key_from_element(child_el, by_guid)
-            child_tag_from_referent = get_tag_key_from_element(referent, by_guid)
+            
+            child_tag_from_referent = None
+            for referent in referents:
+                this_child_tag_from_referent = get_tag_key_from_element(referent, by_guid)
+                if child_tag_from_referent is None:
+                    child_tag_from_referent = this_child_tag_from_referent
+                else:
+                    assert this_child_tag_from_referent == child_tag_from_referent, f"mismatch in child_tag_from_referent: {this_child_tag_from_referent} vs {child_tag_from_referent}"
+                    
             assert child_tag_long == child_tag_from_referent, "objsur tag key creation mismatch: {} from objsur, {} from referent".format(child_tag_long, child_tag_from_referent)
             
         else:
@@ -179,8 +205,14 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
 
     # this way misses the fact that the objsur is under a tag telling what relationship it has (e.g. "Meanings")
     if "ownerguid" in el.attrib:
-        owner_element = by_guid[el.attrib["ownerguid"]]
-        owner_element_tag_key = get_tag_key_from_element(owner_element, by_guid)
+        owner_elements = by_guid[el.attrib["ownerguid"]]
+        owner_element_tag_key = None
+        for owner_element in owner_elements:
+            this_owner_element_tag_key = get_tag_key_from_element(owner_element, by_guid)
+            if owner_element_tag_key is None:
+                owner_element_tag_key = this_owner_element_tag_key
+            else:
+                assert this_owner_element_tag_key == owner_element_tag_key, f"mismatch in owner_element_tag_key: {this_owner_element_tag_key} vs {owner_element_tag_key}"
         dependency_dict[tag_key]["owners"] |= {owner_element_tag_key}
 
     # add the parent dependencies, where this element is those children's parent
@@ -194,6 +226,7 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
 
 def get_tag_key_from_element(el, by_guid):
     # rt should indicate its class attribute
+    assert type(el) is ET.Element, el
     if el.tag == "rt":
         tag_key = "Rt{}".format(el.attrib["class"])
 
@@ -207,8 +240,14 @@ def get_tag_key_from_element(el, by_guid):
         # else:
         #     raise ValueError("unknown objsur reference type: {} in element {}".format(ref_letter, el))
 
-        element_referred_to = by_guid[el.attrib["guid"]]
-        obj_tag = get_tag_key_from_element(element_referred_to, by_guid)
+        elements_referred_to = by_guid[el.attrib["guid"]]
+        obj_tag = None
+        for element_referred_to in elements_referred_to:
+            this_obj_tag = get_tag_key_from_element(element_referred_to, by_guid)
+            if obj_tag is None:
+                obj_tag = this_obj_tag
+            else:
+                assert obj_tag == this_obj_tag, f"mismatched obj_tags: {this_obj_tag} vs {obj_tag}"
         # tag_key = "{}.{}".format(ref_type, obj_tag)
         tag_key = obj_tag
 

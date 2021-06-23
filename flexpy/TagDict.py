@@ -1,6 +1,8 @@
+import os
+
 from xml.etree import ElementTree as ET
 
-from flexpy.FlexPyUtil import get_tag_class
+from flexpy.FlexPyUtil import get_tag_class, get_element_info_str
 import flexpy.XMLTagMap as xml_tag_map
 
 
@@ -14,14 +16,14 @@ class TagDict:
             by_tag_and_guid=None, 
             by_guid=None, 
             by_owner_guid=None,
-            root=None,
+            roots=None,
             object_by_element=None,
     ):
         self.by_tag = by_tag if by_tag is not None else {}
         self.by_tag_and_guid = by_tag_and_guid if by_tag_and_guid is not None else {}
         self.by_guid = by_guid if by_guid is not None else {}
         self.by_owner_guid = by_owner_guid if by_owner_guid is not None else {}
-        self.root = root if root is not None else None
+        self.roots = roots if roots is not None else []
         self.object_by_element = object_by_element if object_by_element is not None else {}
         self.dependency_dict = self.create_dependency_dict()
 
@@ -33,39 +35,87 @@ class TagDict:
         :param project_name: the FLEx project's name (there should be a folder in `project_dir`
             which is named this)
         """
-        flex_dir = project_dir + "{}/".format(project_name)
-        fp = flex_dir + "{}.fwdata".format(project_name)
+        flex_dir = os.path.join(project_dir, f"{project_name}")
+        fp = os.path.join(flex_dir, f"{project_name}.fwdata")
         # print("getting TagDict from FLEx project {} at {}".format(project_name, fp))
         return TagDict.from_fwdata_file(fp)
+
+    @staticmethod
+    def from_all_projects_in_dir(project_dir):
+        """Creates a TagDict which includes all tags found in any project in the `project_dir`.
+
+        :param project_dir: the directory where the FLEx projects are found.
+            This function assumes every subdirectory is a FLEx project.
+            To avoid this, use `TagDict.from_project_dir_and_name()` for each desired
+            subdirectory.
+        """
+        subdirs = [f.name for f in os.scandir(project_dir) if f.is_dir()]
+        print(subdirs)
+        flex_dirs = [os.path.join(project_dir, f"{subdir}") for subdir in subdirs]
+        fps = [os.path.join(flex_dir, f"{subdir}.fwdata") for flex_dir, subdir in zip(flex_dirs, subdirs)]
+        return TagDict.from_fwdata_files(fps)
 
     @staticmethod
     def from_fwdata_file(fp):
         """Creates a TagDict directly from a filepath to FLEx data (.fwdata)
         """
-        tree = ET.parse(fp)
-        root = tree.getroot()
-        return TagDict.from_root(root)
+        assert type(fp) is str
+        return TagDict.from_fwdata_files([fp])
+
+    @staticmethod
+    def from_fwdata_files(fps):
+        """Creates a TagDict directly from a list of filepaths to FLEx data (.fwdata)
+        """
+        assert type(fps) is list
+        roots = []
+        for fp in fps:
+            tree = ET.parse(fp)
+            root = tree.getroot()
+            assert "fp" not in root.attrib
+            root.attrib["fp"] = fp
+            roots.append(root)
+        return TagDict.from_roots(roots)
 
     @staticmethod
     def from_root(root):
+        """Creates a TagDict directly from an xml.etree root object
+        """
+        return TagDict.from_roots([root])
+
+    @staticmethod
+    def from_roots(roots):
+        """Creates a TagDict directly from a list of xml.etree root objects
+        """
         # all elements in the XML
         # the dictionary is keyed by "class" attribute (e.g. "LexEntry") and then by FLEX's identifier for each object
-        rts = list(root)
-        children_tags = set(x.tag for x in rts)
-        assert children_tags == {"rt"}, "unhandled tag types in element tree: {}, expected only \"rt\"".format(sorted(children_tags))
+        print("creating TagDict from roots")
 
-        all_elements = xml_tag_map.get_all_children_recursive(root)
+        all_elements = []
+        for root in roots:
+            children_of_this_root = list(root)
+            children_tags = set(x.tag for x in children_of_this_root)
+            assert children_tags == {"rt"}, "unhandled tag types in element tree: {}, expected only \"rt\"".format(sorted(children_tags))
+            all_elements_under_this_root = xml_tag_map.get_all_children_recursive(root)
+            for el in all_elements_under_this_root:
+                if "fp" in el.attrib:
+                    assert el.attrib["fp"] == root.attrib["fp"]
+                else:
+                    el.attrib["fp"] = root.attrib["fp"]
+            all_elements += all_elements_under_this_root
 
         by_tag = {}
         by_tag_and_guid = {}
         by_guid = {}
         by_owner_guid = {}
         all_rt_attrib_keys = set()
+        tags_allowing_duplicate_guids = ["CmSemanticDomain", "CmAnthroItem"]  # things that FLEx puts in all projects
         for el in all_elements:
+            assert type(el) is ET.Element, el
             tag_key = xml_tag_map.get_tag_key_from_element(el, by_guid)
             if el.tag == "rt":
                 all_rt_attrib_keys |= set(el.attrib.keys())
                 guid = el.attrib["guid"]  # rts should all have a guid
+                guid_collision_allowed = False
 
                 if tag_key not in by_tag:
                     by_tag[tag_key] = []
@@ -73,11 +123,58 @@ class TagDict:
 
                 if tag_key not in by_tag_and_guid:
                     by_tag_and_guid[tag_key] = {}
-                assert guid not in by_tag_and_guid[tag_key], "guid {} already present for tag {} in TagDict".format(guid, tag_key)
-                by_tag_and_guid[tag_key][guid] = el
 
-                assert guid not in by_guid, "guid {} already present in TagDict".format(guid)
-                by_guid[guid] = el
+                if guid not in by_tag_and_guid[tag_key]:
+                    by_tag_and_guid[tag_key][guid] = []
+                    # allow multiple elements with same tag and guid, e.g. duplicate default elements from multiple FLEx projects
+                if False: #guid in by_tag_and_guid[tag_key]:
+                    # some elements are seemingly used in all projects, e.g. SIL semantic domains
+                    # # print("Warning: guid {} already present for tag {} in TagDict".format(guid, tag_key))
+                    # acceptable = False
+                    # old_el = by_tag_and_guid[tag_key][guid]
+                    # info_of_old_el = get_element_info_str(old_el)
+                    # info_of_new_el = get_element_info_str(el)
+
+                    # if tag_key in tags_allowing_duplicate_guids:
+                    #     if old_el.attrib == el.attrib and old_el.text == el.text:
+                    #         acceptable = True
+                    #     # NO ELSE, only overwrite False to True, not vice versa (we want any of a set of conditions)
+                    # else:
+                    #     if info_of_old_el == info_of_new_el:  # == on Elements doesn't work, I think it just checks reference
+                    #         # print(f"Warning: assuming these elements are equivalent:\n{info_of_old_el}\n{info_of_new_el}")
+                    #         acceptable = True
+
+                    # if acceptable:
+                    #     guid_collision_allowed = True
+                    #     # print(f"guid collision allowed for {guid}")
+                    #     # by_tag_and_guid[tag_key][guid] = el  # don't need to add it again
+                    # else:
+                    #     error_str = "guid collision with different elements in by_tag_and_guid:\n"
+                    #     error_str += info_of_old_el + "\n"
+                    #     error_str += info_of_new_el + "\n"
+                    #     raise RuntimeError(error_str)
+                    pass
+                else:
+                    by_tag_and_guid[tag_key][guid].append(el)
+
+                if guid not in by_guid:
+                    by_guid[guid] = []
+                if False: #guid in by_guid and not guid_collision_allowed:
+                    # # print("Warning: guid {} already present in TagDict".format(guid))
+                    # old_el = by_guid[guid]
+                    # info_of_old_el = get_element_info_str(old_el)
+                    # info_of_new_el = get_element_info_str(el)
+                    # if info_of_old_el == info_of_new_el:
+                    #     pass
+                    #     # print(f"Warning: assuming these elements are equivalent:\n{info_of_old_el}\n{info_of_new_el}")
+                    # else:
+                    #     error_str = "guid collision with different elements in by_guid:\n"
+                    #     error_str += info_of_old_el + "\n"
+                    #     error_str += info_of_new_el + "\n"
+                    #     raise RuntimeError(error_str)
+                    pass
+                else:
+                    by_guid[guid].append(el)
 
                 try:
                     owner_guid = el.attrib["ownerguid"]  # only some have owners
@@ -102,7 +199,7 @@ class TagDict:
                     by_tag[tag_key] = []
                 by_tag[tag_key].append(el)
 
-        expected_all_rt_attrib_keys = {"class", "guid", "ownerguid"}
+        expected_all_rt_attrib_keys = {"class", "guid", "ownerguid", "fp"}  # I added fp myself, telling which project it came from
         assert all_rt_attrib_keys == expected_all_rt_attrib_keys, "rt elements have attributes {}, expected {}".format(all_rt_attrib_keys, expected_all_rt_attrib_keys)
 
         return TagDict(
@@ -110,7 +207,7 @@ class TagDict:
             by_tag_and_guid=by_tag_and_guid,
             by_guid=by_guid,
             by_owner_guid=by_owner_guid,
-            root=root,  # store for later use e.g. printing dependencies of elements
+            roots=roots,  # store for later use e.g. printing dependencies of elements
         )
 
     def __getitem__(self, index):
@@ -155,10 +252,11 @@ class TagDict:
         return elements
 
     def create_dependency_dict(self):
-        return xml_tag_map.create_dependency_dict(self.root, self.by_guid)
+        return xml_tag_map.create_dependency_dict_from_multiple_roots(self.roots, self.by_guid)
 
     def print_dependency_dict(self):
-        xml_tag_map.print_dependency_dict(self.root, self.by_guid)
+        d = self.create_dependency_dict()
+        xml_tag_map.print_dependency_dict(d)
 
     def get_python_object_from_element(self, el):
         assert type(el) is ET.Element, "invalid element: {}".format(el)

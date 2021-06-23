@@ -3,10 +3,11 @@ from flexpy.XMLTagMap import create_tag_class_files
 
 
 project_dir = "/home/wesley/.local/share/fieldworks/Projects/"
-project_name = "Bongu"
+# project_name = "Bongu"
 
 # create the tag classes
-tag_dict = TagDict.from_project_dir_and_name(project_dir, project_name)
+# tag_dict = TagDict.from_project_dir_and_name(project_dir, project_name)
+tag_dict = TagDict.from_all_projects_in_dir(project_dir)
 
 print("\n-- dependencies in the XML:")
 tag_dict.print_dependency_dict()
