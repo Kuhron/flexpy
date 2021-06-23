@@ -1,5 +1,4 @@
 import re
-import pandas as pd
 
 from flexpy.Corpus import Corpus
 from flexpy.Text import Text
@@ -60,5 +59,5 @@ if __name__ == "__main__":
         assert len(token) == 2, token
         c, v = token
         counts_by_c_then_v[c][v] += count
-    df = pd.DataFrame(counts_by_c_then_v)
-    print(df)
+    
+    print(counts_by_c_then_v)

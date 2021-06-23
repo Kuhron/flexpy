@@ -1,7 +1,7 @@
 import math
 
 # Kris's library
-from corpus_toolkit import corpus_tools as ct
+# from corpus_toolkit import corpus_tools as ct
 
 from flexpy.Corpus import Corpus
 from flexpy.CorpusAnalysis import collocator_separating_target_and_collocate_terms

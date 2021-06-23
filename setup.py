@@ -25,7 +25,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
     ],
-    packages=find_packages(),
+    packages=find_packages(),  # https://stackoverflow.com/questions/43253701/python-packaging-subdirectories-not-installed
     include_package_data=True,
     # install_requires=["feedparser", "html2text"],
     # entry_points={

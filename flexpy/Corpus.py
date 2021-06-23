@@ -60,6 +60,8 @@ class Corpus:
         """
         return [x for x in self.get_texts() if x.is_valid()]
 
+    # TODO add exporting to CONLLU, other useful formats.
+
     def write_texts_to_file(self, output_dir):
         """Writes each text to a separate .txt file in `output_dir`
         """
@@ -69,7 +71,8 @@ class Corpus:
         text_names = [text.name for text in texts]
         assert len(set(text_names)) == len(text_names), "repeat text names found: {}".format(text_names)
         for text in texts:
-            filename = "{}.txt".format(text.name)
+            text_name = text.name.replace("/","_").replace(" ","_")  # prevent filename problems
+            filename = "{}.txt".format(text_name)
             output_fp = os.path.join(output_dir, filename)
             with open(output_fp, "w") as f:
                 for line in text.contents:
