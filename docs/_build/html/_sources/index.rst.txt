@@ -31,6 +31,7 @@ Indices and tables
 
    Corpus
    Lexicon
+   tags
    TagDict
    Text
    WordForm
