@@ -127,54 +127,11 @@ class TagDict:
                 if guid not in by_tag_and_guid[tag_key]:
                     by_tag_and_guid[tag_key][guid] = []
                     # allow multiple elements with same tag and guid, e.g. duplicate default elements from multiple FLEx projects
-                if False: #guid in by_tag_and_guid[tag_key]:
-                    # some elements are seemingly used in all projects, e.g. SIL semantic domains
-                    # # print("Warning: guid {} already present for tag {} in TagDict".format(guid, tag_key))
-                    # acceptable = False
-                    # old_el = by_tag_and_guid[tag_key][guid]
-                    # info_of_old_el = get_element_info_str(old_el)
-                    # info_of_new_el = get_element_info_str(el)
-
-                    # if tag_key in tags_allowing_duplicate_guids:
-                    #     if old_el.attrib == el.attrib and old_el.text == el.text:
-                    #         acceptable = True
-                    #     # NO ELSE, only overwrite False to True, not vice versa (we want any of a set of conditions)
-                    # else:
-                    #     if info_of_old_el == info_of_new_el:  # == on Elements doesn't work, I think it just checks reference
-                    #         # print(f"Warning: assuming these elements are equivalent:\n{info_of_old_el}\n{info_of_new_el}")
-                    #         acceptable = True
-
-                    # if acceptable:
-                    #     guid_collision_allowed = True
-                    #     # print(f"guid collision allowed for {guid}")
-                    #     # by_tag_and_guid[tag_key][guid] = el  # don't need to add it again
-                    # else:
-                    #     error_str = "guid collision with different elements in by_tag_and_guid:\n"
-                    #     error_str += info_of_old_el + "\n"
-                    #     error_str += info_of_new_el + "\n"
-                    #     raise RuntimeError(error_str)
-                    pass
-                else:
-                    by_tag_and_guid[tag_key][guid].append(el)
+                by_tag_and_guid[tag_key][guid].append(el)
 
                 if guid not in by_guid:
                     by_guid[guid] = []
-                if False: #guid in by_guid and not guid_collision_allowed:
-                    # # print("Warning: guid {} already present in TagDict".format(guid))
-                    # old_el = by_guid[guid]
-                    # info_of_old_el = get_element_info_str(old_el)
-                    # info_of_new_el = get_element_info_str(el)
-                    # if info_of_old_el == info_of_new_el:
-                    #     pass
-                    #     # print(f"Warning: assuming these elements are equivalent:\n{info_of_old_el}\n{info_of_new_el}")
-                    # else:
-                    #     error_str = "guid collision with different elements in by_guid:\n"
-                    #     error_str += info_of_old_el + "\n"
-                    #     error_str += info_of_new_el + "\n"
-                    #     raise RuntimeError(error_str)
-                    pass
-                else:
-                    by_guid[guid].append(el)
+                by_guid[guid].append(el)
 
                 try:
                     owner_guid = el.attrib["ownerguid"]  # only some have owners

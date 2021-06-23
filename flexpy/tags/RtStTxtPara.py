@@ -2,6 +2,10 @@ from flexpy.Rt import Rt
 from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class RtStTxtPara(Rt):
+    """A class for FLEx XML elements with the tag rt
+    :param el: the `xml.etree.ElementTree.Element object`
+    :param tag_dict: the `TagDict` object organizing the Elements in the FLEx project
+    """
     def __init__(self, el, tag_dict):
         super().__init__(el, tag_dict)
         self.el = el
@@ -9,16 +13,21 @@ class RtStTxtPara(Rt):
         self.text = self.el.text
 
     def get_ordered_child_objects(self):
+        """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
     def Contents(self):
+        """Gets the child objects which have short tag of `Contents`, long tag of `Contents`"""
         return get_child_object(self.el, "Contents", self.tag_dict)
 
     def ParseIsCurrent(self):
+        """Gets the child objects which have short tag of `ParseIsCurrent`, long tag of `ParseIsCurrent`"""
         return get_child_object(self.el, "ParseIsCurrent", self.tag_dict)
 
     def Segments(self):
+        """Gets the child objects which have short tag of `Segments`, long tag of `Segments`"""
         return get_child_object(self.el, "Segments", self.tag_dict)
 
     def StyleRules(self):
+        """Gets the child objects which have short tag of `StyleRules`, long tag of `StyleRules`"""
         return get_child_object(self.el, "StyleRules", self.tag_dict)

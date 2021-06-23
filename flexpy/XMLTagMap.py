@@ -104,6 +104,12 @@ def create_tag_class_definition(el, dependency_dict):
     else:
         class_header = "class {}:\n".format(long_class_name)
 
+    docstring_header = \
+        " "*4 + f"\"\"\"A class for FLEx XML elements with the tag {el.tag}\n" +\
+        " "*4 + ":param el: the `xml.etree.ElementTree.Element object`\n" +\
+        " "*4 + ":param tag_dict: the `TagDict` object organizing the Elements in the FLEx project\n" +\
+        " "*4 + "\"\"\"\n"
+
     init_header = "    def __init__(self, el, tag_dict):\n"
     if el.tag == "rt":
         init_header += " "*8 + "super().__init__(el, tag_dict)\n"
@@ -121,19 +127,24 @@ def create_tag_class_definition(el, dependency_dict):
 
     getter_strs = [""]  # want blank lines between init and other methods
     ordered_child_getter_str = " "*4 + "def get_ordered_child_objects(self):\n"
+    ordered_child_getter_str += " "*8 + "\"\"\"Gets the child objects of this element, in their order of appearance in the FLEx XML\"\"\"\n"
     ordered_child_getter_str += " "*8 + "return get_ordered_child_objects(self.el, self.tag_dict)\n"
     getter_strs.append(ordered_child_getter_str)
 
     for child_tag_short, child_tag_long, child_class_name in dependency_dict[long_class_name]["children"]:
         # init_var_line = " "*8 + "self.{0} = get_child_object(self.el, \"{1}\", self.tag_dict".format(child_tag_long, child_tag_short)
         getter_str = " "*4 + "def {0}(self):\n".format(child_tag_long)
+        getter_str += " "*8 + f"\"\"\"Gets the child objects which have short tag of `{child_tag_short}`, long tag of `{child_tag_long}`"
+        if child_class_name is not None:
+            getter_str += f", class name of `{child_class_name}`"
+        getter_str += "\"\"\"\n"
         getter_str += " "*8 + "return get_child_object(self.el, \"{0}\", self.tag_dict".format(child_tag_short)
         if child_class_name is not None:
             getter_str += ", class_name=\"{0}\"".format(child_class_name)
         getter_str += ")\n"
         getter_strs.append(getter_str)
 
-    full_str = import_header + class_header + init_header + init_vars_str + "\n".join(getter_strs)
+    full_str = import_header + class_header + docstring_header + init_header + init_vars_str + "\n".join(getter_strs)
     return full_str
 
 

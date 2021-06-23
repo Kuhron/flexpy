@@ -1,6 +1,10 @@
 from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class Prop:
+    """A class for FLEx XML elements with the tag Prop
+    :param el: the `xml.etree.ElementTree.Element object`
+    :param tag_dict: the `TagDict` object organizing the Elements in the FLEx project
+    """
     def __init__(self, el, tag_dict):
         self.el = el
         self.tag_dict = tag_dict
@@ -13,6 +17,7 @@ class Prop:
         self.fontsize = self.el.attrib.get("fontsize")
         self.fontsizeUnit = self.el.attrib.get("fontsizeUnit")
         self.forecolor = self.el.attrib.get("forecolor")
+        self.fp = self.el.attrib.get("fp")
         self.italic = self.el.attrib.get("italic")
         self.keepTogether = self.el.attrib.get("keepTogether")
         self.keepWithNext = self.el.attrib.get("keepWithNext")
@@ -30,7 +35,9 @@ class Prop:
         self.underline = self.el.attrib.get("underline")
 
     def get_ordered_child_objects(self):
+        """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
     def WsStyles9999(self):
+        """Gets the child objects which have short tag of `WsStyles9999`, long tag of `WsStyles9999`"""
         return get_child_object(self.el, "WsStyles9999", self.tag_dict)
