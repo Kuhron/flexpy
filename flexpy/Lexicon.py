@@ -20,9 +20,10 @@ class Lexicon:
 
     def create_lex_entries(self):
         res = []
-        for guid, rt in self.lex_entry_els.items():
-            lex_entry = LexEntry(rt, self.tag_dict)
-            res.append(lex_entry)
+        for guid, rts_with_guid in self.lex_entry_els.items():
+            for rt in rts_with_guid:
+                lex_entry = LexEntry(rt, self.tag_dict)
+                res.append(lex_entry)
         return res
 
     def search_glosses(self, regex):

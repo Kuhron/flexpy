@@ -1,3 +1,5 @@
+import xml.etree.ElementTree as ET
+
 from flexpy.FlexPyUtil import get_single_child, get_children
 from flexpy.PunctuationForm import PunctuationForm
 from flexpy.TextParagraph import TextParagraph
@@ -5,7 +7,6 @@ from flexpy.WordForm import WordForm
 from flexpy.tags.RtText import RtText
 from flexpy.tags.RtStText import RtStText
 from flexpy.tags.RtStTxtPara import RtStTxtPara
-
 
 
 class Text:
@@ -24,6 +25,7 @@ class Text:
         assert type(include_punctuation) is bool
         self.validity = True  # some texts in FLEx are just empty (invalid), not sure why they exist
         self.guid = guid
+        assert type(rt) is ET.Element, type(rt)
         assert rt.tag == "rt" and rt.attrib["class"] == "Text"
         self.rt = rt
         self.rt_text = RtText(rt, tag_dict)

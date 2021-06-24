@@ -12,12 +12,15 @@ contents = bongu_corpus.get_tokenized_contents()
 
 dependency_dict = bongu_corpus.tag_dict.dependency_dict
 
-random_rt = random.choice(list(bongu_corpus.tag_dict.values()))
+random_rt = random.choice(bongu_corpus.tag_dict.all_elements())
 print("\n-- class definition for {}".format(random_rt.attrib["class"]))
 print(xml_tag_map.create_tag_class_definition(random_rt, dependency_dict))
 
 # test instantiating a tag class from an element
-el = list(bongu_corpus.tag_dict["RtCmAnnotationDefn"].values())[0]
+dict_of_single_class = bongu_corpus.tag_dict["RtCmAnnotationDefn"]
+random_guid = random.choice(list(dict_of_single_class.keys()))
+els_with_guid = dict_of_single_class[random_guid]
+el = els_with_guid[0]
 print("\n-- attempting object instantiation from element {}".format(el))
 obj = bongu_corpus.tag_dict.get_python_object_from_element(el)
 print(obj)

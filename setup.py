@@ -12,7 +12,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="flexpy",
-    version="0.0.5",
+    version="0.0.7",
     description="Python API for SIL FieldWorks Language Explorer (FLEx)",
     long_description=README,
     long_description_content_type="text/markdown",

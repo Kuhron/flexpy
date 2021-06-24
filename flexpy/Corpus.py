@@ -47,11 +47,12 @@ class Corpus:
             include_punctuation = self.include_punctuation  # you can't have arg=self.arg in the signature bc self is not in scope there
         text_elements = self.tag_dict["RtText"]
         texts = []
-        for guid, rt in text_elements.items():
+        for guid, rt_list in text_elements.items():
             # print("initing new text from rt {}".format(rt))
-            text = Text(guid, rt, self.tag_dict, include_punctuation)
-            # print("finished initing text {}".format(text))
-            texts.append(text)
+            for rt in rt_list:
+                text = Text(guid, rt, self.tag_dict, include_punctuation)
+                # print("finished initing text {}".format(text))
+                texts.append(text)
         # print("there are {} texts with contents".format(sum(x.has_contents() for x in texts)))
         return texts
 

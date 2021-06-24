@@ -71,17 +71,18 @@ def get_child_object(el, child_tag, tag_dict, class_name=None):
         matching_referent_els = []
         for objsur in el:
             reference_guid = objsur.attrib["guid"]
-            referent = tag_dict[reference_guid]
-            if referent.tag == child_tag:
-                if referent.tag == "rt":
-                    matches = referent.attrib["class"] == class_name
+            referents = tag_dict[reference_guid]
+            for referent in referents:
+                if referent.tag == child_tag:
+                    if referent.tag == "rt":
+                        matches = referent.attrib["class"] == class_name
+                    else:
+                        matches = True
                 else:
-                    matches = True
-            else:
-                matches = False
-            if matches:
-                referent_object = tag_dict.get_python_object_from_element(referent)
-                matching_referent_els.append(referent_object)
+                    matches = False
+                if matches:
+                    referent_object = tag_dict.get_python_object_from_element(referent)
+                    matching_referent_els.append(referent_object)
         return matching_referent_els
     elif child_tag in ["AUni", "AStr", "Run"]:
         # there can be many of these for different writing systems

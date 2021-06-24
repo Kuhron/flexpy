@@ -2,7 +2,7 @@ echo "make sure you changed version number in setup.py"
 rm -r build/
 rm -r dist/
 rm -r flexpy.egg-info/
-python setup.py sdist bdist_wheel
+/usr/bin/python3.8 setup.py sdist bdist_wheel
 
 # # to test without having to change version number: install via pip directly from git branch (on remote)
 # python -m pip install git+https://github.com/kuhron/flexpy.git@main

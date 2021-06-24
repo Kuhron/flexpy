@@ -16,7 +16,8 @@ class Rt:
         self.class_name = el.attrib["class"]
         self.guid = el.attrib.get("guid")
         self.ownerguid = el.attrib.get("ownerguid")
-        self.owner_el = tag_dict.get(self.ownerguid)
+        self.owner_el = tag_dict.get_single_element_by_guid(self.ownerguid)
+        assert self.owner_el is None or type(self.owner_el) is ET.Element, self.owner_el
 
         # causes max recursion and/or memory leak
         # self.owner = get_python_object_from_element(self.owner_el, tag_dict) if self.owner_el is not None else None

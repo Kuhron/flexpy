@@ -186,6 +186,35 @@ class TagDict:
         except KeyError:
             return backup_value
 
+    def get_single_element_by_guid(self, guid):
+        referents = self.by_guid.get(guid)
+        if referents is None:
+            return None
+        elif len(referents) == 0:
+            return None
+        elif len(referents) > 1:
+            raise Exception(f"guid {guid} has more than one referent")
+        else:
+            referent, = referents
+            return referent
+
+    def get_single_element_by_tag_and_guid(self, tag_key, guid):
+        try:
+            dict_with_tag_key = self.by_tag_and_guid[tag_key]
+        except KeyError:
+            raise KeyError(f"TagDict has no tag key of '{tag_key}'")
+        
+        referents = self.by_tag_and_guid[tag_key].get(guid)
+        if referents is None:
+            return None
+        elif len(referents) == 0:
+            return None
+        elif len(referents) > 1:
+            raise Exception(f"guid {guid} has more than one referent")
+        else:
+            referent, = referents
+            return referent
+
     def keys(self):
         return self.by_guid.keys()
 
@@ -194,6 +223,12 @@ class TagDict:
 
     def items(self):
         return self.by_guid.items()
+
+    def all_elements(self):
+        res = []
+        for guid, els_with_guid in self.by_guid.items():
+            res += els_with_guid
+        return res
 
     def get_by_owner_guid(self, guid):
         return self.by_owner_guid.get(guid, [])
@@ -216,12 +251,19 @@ class TagDict:
 
     def get_python_object_from_element(self, el):
         assert type(el) is ET.Element, "invalid element: {}".format(el)
+        el_info = get_element_info_str(el)
         if el.tag == "objsur":
             # resolve to the referent
             reference_guid = el.attrib["guid"]
-            referent = self[reference_guid]
-            assert referent.tag != "objsur", "objsur {} refers to another objsur {}".format(el, referent)
-            return self.get_python_object_from_element(referent)
+            referents = self[reference_guid]
+            if len(referents) == 0:
+                raise RuntimeError(f"no element found from objsur referring to guid {reference_guid} in element\n{el_info}")
+            elif len(referents) > 1:
+                raise RuntimeError(f"multiple elements found from objsur referring to guid {reference_guid} in element\n{el_info}")
+            else:
+                referent, = referents
+                assert referent.tag != "objsur", "objsur {} refers to another objsur {}".format(el, referent)
+                return self.get_python_object_from_element(referent)
         try:
             # fetch already-created object
             return self.object_by_element[el]
