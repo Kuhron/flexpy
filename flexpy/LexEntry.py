@@ -5,6 +5,14 @@ from flexpy.tags.Form import Form
 
 
 class LexEntry:
+    """A FlexPy-specific class (i.e., not from FLEx's XML structure)
+    intended to make it easier to work with lexeme entries
+
+    :param rt: the XML element with this lexeme entry's information
+    :type rt: xml.etree.ElementTree.Element
+    :param tag_dict:
+    :type tag_dict: TagDict
+    """
     def __init__(self, rt, tag_dict):
         self.rt = rt
         self.tag_dict = tag_dict

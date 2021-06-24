@@ -13,6 +13,16 @@ from flexpy.tags.RtWfiGloss import RtWfiGloss
 
 
 class TextParagraph:
+    """A FlexPy-specific class for holding the information in a single "TextParagraph"
+    in FLEx. Texts are composed of a list of such paragraphs.
+
+    :param rt_st_txt_para: The `rt` element with class_name `StTxtPara` in FLEx
+    :type rt_st_txt_para: xml.etree.ElementTree.Element
+    :param tag_dict:
+    :type tag_dict: TagDict
+    :param include_punctuation:
+    :type include_punctuation: bool
+    """
     def __init__(self, rt_st_txt_para, tag_dict, include_punctuation):
         assert type(rt_st_txt_para) is RtStTxtPara, type(rt_st_txt_para)
         assert type(tag_dict) is TagDict

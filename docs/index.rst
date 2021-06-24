@@ -17,6 +17,18 @@ To install:
     python -m pip install flexpy
 
 
+Links
+=====
+The source code is available on `GitHub <https://github.com/Kuhron/flexpy/>`_.
+
+The package is available on `PyPI <https://pypi.org/project/flexpy/>`_.
+
+
+Example Scripts
+===============
+
+`This directory <https://github.com/Kuhron/flexpy/tree/main/scripts>`_ contains examples of scripts using the FlexPy API.
+
 
 Indices and tables
 ==================
@@ -25,22 +37,16 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+.. from https://www.sphinx-doc.org/en/master/man/sphinx-autogen.html
 
-   Corpus
-   Lexicon
-   tags
-   TagDict
-   Text
-   WordForm
+Modules
+=======
 
-Links
-=====
-The source code is available on `GitHub <https://github.com/Kuhron/flexpy/>`_.
+.. autosummary::
+    :toctree: modules
 
-The package is available on `PyPI <https://pypi.org/project/flexpy/>`_.
+    flexpy
+    flexpy.tags
 
 
 About the author

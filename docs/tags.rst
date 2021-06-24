@@ -1,9 +1,0 @@
-***********
-flexpy.tags
-***********
-
-.. automodule:: flexpy.tags
-   :members:
-   :undoc-members:
-
-

@@ -2,6 +2,11 @@ from flexpy.tags.RtPunctuationForm import RtPunctuationForm
 
 
 class PunctuationForm:
+    """A class analogous to `WordForm` that holds punctuation tokens.
+
+    :param text:
+    :type text: str
+    """
     def __init__(self, text):
         self.text = text
 

@@ -17,6 +17,19 @@ from flexpy.tags.RtWfiMorphBundle import RtWfiMorphBundle
 class WordForm:
     """Contains the information about a single word, which may be from a text, 
         or an item in the lexicon.
+
+    :param forms: the list of forms for each morpheme
+    :type forms: list<str>
+    :param citation_forms: the list of citation forms for each morpheme
+    :type citation_forms: list<str>
+    :param morph_types: the list of morph types for each morpheme
+    :type morph_types: list<str>
+    :param glosses: the list of glosses for each morpheme
+    :type glosses: list<str>
+    :param poses: the list of parts of speech for each morpheme
+    :type poses: list<str>
+    :param tag_dict:
+    :type tag_dict: TagDict
     """
     def __init__(self, forms, citation_forms, morph_types, glosses, poses, tag_dict):
         assert type(tag_dict) is TagDict, type(tag_dict)
@@ -328,6 +341,21 @@ class WordForm:
 
 
 class WordFormMorpheme:
+    """Contains information about a single morpheme within a WordForm.
+
+    :param form:
+    :type form: str
+    :param citation_form:
+    :type citation_form: str
+    :param morph_type:
+    :type morph_type: str
+    :param gloss:
+    :type gloss: str
+    :param pos: part of speech
+    :type pos: str
+    :param tag_dict:
+    :type tag_dict: TagDict
+    """
     def __init__(self, form, citation_form, morph_type, gloss, pos, tag_dict):
         assert type(tag_dict) is TagDict, type(tag_dict)
         self.tag_dict = tag_dict

@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>flexpy.FlexPyUtil module &#8212; FlexPy 0.0.5 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-flexpy.FlexPyUtil">
+<span id="flexpy-flexpyutil-module"></span><h1>flexpy.FlexPyUtil module<a class="headerlink" href="#module-flexpy.FlexPyUtil" title="Permalink to this headline">¶</a></h1>
+<p>A script containing various useful functions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.add_space_before_punctuation">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">add_space_before_punctuation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.add_space_before_punctuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>For tokenization of a text. Adds a single space on each side of every punctuation character.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.camel_case_to_snake_case">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">camel_case_to_snake_case</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.camel_case_to_snake_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a CamelCase string to snake_case.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.convert_whitespace_to_spaces">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">convert_whitespace_to_spaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.convert_whitespace_to_spaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces all whitespace characters in <cite>s</cite> with a single space.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.filter_split_token_list">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">filter_split_token_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.filter_split_token_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>For tokenization of a text. Takes a list of tokens and returns
+all non-empty and non-punctuation tokens.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_child_object">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_child_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">el</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_child_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a Python object, i.e., a class found in <cite>flexpy.tags</cite> specific to the
+tag of the child element.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_children">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_children</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all children, with a certain tag, of an XML element.
+Identical to <cite>element.findall()</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_corpus">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corpus_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_corpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a corpus (list of text strings) from a directory containing .txt files.
+Each .txt file is assumed to correspond to a single text in the corpus.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_element_info_str">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_element_info_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_element_info_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a readable string containing information about an XML element,
+including attributes and guid.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_frequency_dict_from_text_lst">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_frequency_dict_from_text_lst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">existing_d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_frequency_dict_from_text_lst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes an already-tokenized text, returns a dictionary of token frequencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text_lst</strong> – </p></li>
+<li><p><strong>existing_d</strong> – a token frequency dictionary to add to, if provided</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_frequency_dict_from_tokenized_corpus">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_frequency_dict_from_tokenized_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokenized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_frequency_dict_from_tokenized_corpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes an already-tokenized corpus (list of tokenized texts),
+returns a token frequency dictionary.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_lemma_dict">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_lemma_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lemma_dict_fp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_lemma_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a pickle object containing a lemmatization dictionary.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_ordered_child_objects">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_ordered_child_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">el</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_ordered_child_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>For <cite>objsur</cite> elements only. Gets ordered list of child elements as Python objects,
+i.e., classes found in <cite>flexpy.tags</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_pretty_concordance_formatting">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_pretty_concordance_formatting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conc_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_words_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_words_right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_pretty_concordance_formatting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a readable concordance format in preparation for printing or writing to file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conc_list</strong> – the list of concordance lines. Data structure must be a list of
+lists. Each first-level list corresponds to a concordance line.
+Within each first-level list, expect three elements: list of words on left side,
+target word, list of words on right side.</p></li>
+<li><p><strong>max_words_left</strong> (<em>int</em>) – maximum number of words to include on the left side of the target</p></li>
+<li><p><strong>max_words_right</strong> (<em>int</em>) – maximum number of words to include on the right side of the target</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_rid_of_unicode_problems">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_rid_of_unicode_problems</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_rid_of_unicode_problems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a <cite>bytes</cite> object, removes it with certain problem bytes removed.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_single_child">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_single_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_single_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the only child of an XML element with tag <cite>child_tag</cite>.
+If there is exactly one such child, returns it.
+If there are no such children, returns <cite>None</cite>.
+If there are more than one such child, throws an error.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_single_str_from_form">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_single_str_from_form</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_single_str_from_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the single string contained in a FLEx <cite>Form</cite> element.
+If there are no strings, returns <cite>None</cite>.
+If there are more than one, raises an error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> – the <cite>flexpy.tags.Form.Form</cite> object corresponding to the XML element</p></li>
+<li><p><strong>allow_repeat</strong> (<em>bool</em>) – (default <cite>True</cite>) Whether multiple occurrences of the same string (e.g.,
+if it shows up as both an <cite>AStr</cite> and an <cite>AUni</cite>) should be treated as a single string.
+If <cite>allow_repeat</cite> is <cite>False</cite> in a case where the same string appears more than once
+in the <cite>Form</cite> element, the function will raise an error.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_strs_from_form">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_strs_from_form</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_strs_from_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the strings from a FLEx <cite>Form</cite> element.
+Returns a dictionary of element type name to list of the text in such elements.</p>
+<p>For instance, a possible return value could be {“AStr”: [“asdf”, “aoeu”], “AUni”: [], “Str”: []},
+meaning that the FLEx <cite>Form</cite> element had two child elements of type <cite>AStr</cite>,
+containing the strings “asdf” and “aoeu”, and no child elements with other string-like types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>form</strong> (<a class="reference internal" href="flexpy.tags.Form.html#flexpy.tags.Form.Form" title="flexpy.tags.Form.Form"><em>flexpy.tags.Form.Form</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_strs_from_form_as_list">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_strs_from_form_as_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_strs_from_form_as_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the strings contained in a FLEx <cite>Form</cite> element as a list,
+NOT in order of appearance.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_tag_class">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_tag_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">el</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_tag_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the actual class, as a Python object, corresponding to an XML element in FLEx.
+This class object may then be instantiated. This is done in constructing a <cite>TagDict</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_tag_class_name">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_tag_class_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">el</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_tag_class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the class name for the Python object corresponding to an XML element type.</p>
+<p>&lt;rt class=”Xyz”&gt; will give “RtXyz”, corresponding to the class
+<cite>flexpy.tags.RtXyz.RtXyz</cite>.</p>
+<p>&lt;objsur&gt; elements have no such class; the referred object should be the element whose class is being created.</p>
+<p>All other tags have a class name identical to their tag; for instance, &lt;AUni&gt; elements
+correspond to the class <cite>flexpy.tags.AUni.AUni</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_top_n_dict_items">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_top_n_dict_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_top_n_dict_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the <cite>n</cite> keys in <cite>dct</cite> which have the highest values.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.get_unique_strs_from_form_as_list">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">get_unique_strs_from_form_as_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.get_unique_strs_from_form_as_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the unique strings contained in a FLEx <cite>Form</cite> element.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.lemmatize_corpus">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">lemmatize_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokenized_corpus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lemma_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.lemmatize_corpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lemmatizes an entire already-tokenized corpus (list of lists).
+See <cite>lemmatize_single_text()</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.lemmatize_single_text">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">lemmatize_single_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lemma_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.lemmatize_single_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lemmatizes an already-tokenized text according to <cite>lemma_dict</cite>,
+which should map from forms to their lemmas. If a form is not found,
+the lemma is assumed to be the form itself.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.parse_xml_with_namespaces">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">parse_xml_with_namespaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.parse_xml_with_namespaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal XML parsing using <cite>xml.etree.ElementTree</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.parse_xml_without_namespaces">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">parse_xml_without_namespaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.parse_xml_without_namespaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML parsing which strips out namespaces.
+See <a class="reference external" href="https://stackoverflow.com/questions/13412496/python-elementtree-module-how-to-ignore-the-namespace-of-xml-files-to-locate-ma">https://stackoverflow.com/questions/13412496/python-elementtree-module-how-to-ignore-the-namespace-of-xml-files-to-locate-ma</a></p>
+<p>This is included because some FLEx files have elements with attribute <cite>xml:space</cite>
+which indicates whether whitespace should be preserved, and this causes problems.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.print_concordance_pretty">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">print_concordance_pretty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conc_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_words_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_words_right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.print_concordance_pretty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a list of concordance lines in readable format. See <cite>get_pretty_concordance_formatting()</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.sort_concordance_list">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">sort_concordance_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conc_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sorting_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.sort_concordance_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts a concordance list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conc_list</strong> – a list of lists corresponding to concordance lines. 
+See <cite>get_pretty_concordance_formatting()</cite> for description of this format.</p></li>
+<li><p><strong>sorting_indices</strong> – a list of ints which correspond to
+the positions of words in a concordance line. 0 means the target word.
+Negative indices mean words to the left. Positive indices mean words to the right.
+Thus, <cite>sorting_indices</cite> of [-1, 1, 0] would sort first by the word to the left of the target,
+then by the word to the right of the target, then by the target itself.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.tokenize_corpus">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">tokenize_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corpus_str_lst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.tokenize_corpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tokenizes each of a list of strings. Each string is assumed to be an entire text.
+Returns a list of lists. First-level items are token lists for each text.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.tokenize_single_text">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">tokenize_single_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.tokenize_single_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tokenizes a single string which contains an entire text.
+Removes whitespace and punctuation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.write_concordance_pretty">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">write_concordance_pretty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conc_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_words_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_words_right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.write_concordance_pretty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a concordance list to file in readable format. See <cite>get_pretty_concordance_formatting()</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flexpy.FlexPyUtil.write_freq_dict_to_file">
+<span class="sig-prename descclassname"><span class="pre">flexpy.FlexPyUtil.</span></span><span class="sig-name descname"><span class="pre">write_freq_dict_to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpy.FlexPyUtil.write_freq_dict_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a token frequency dictionary to file.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">FlexPy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/flexpy.html">flexpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/flexpy.tags.html">flexpy.tags</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Wesley Kuhron Jones.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/flexpy.FlexPyUtil.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

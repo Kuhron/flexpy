@@ -2,4 +2,7 @@
 
 
 class Segment:
-    raise NotImplementedError
+    """Not implemented.
+    """
+    # raise NotImplementedError
+    pass

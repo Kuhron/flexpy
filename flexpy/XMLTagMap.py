@@ -1,8 +1,10 @@
-# intent here is to show the dependencies among the different element types in the FLEx data
+"""A script containing functions which make it possible to show the dependencies 
+among the different element types in the FLEx data.
+"""
 
 
 import os
-from flexpy.FlexPyUtil import get_tag_class_name
+from flexpy.FlexPyUtil import get_tag_class_name, get_element_info_str
 
 from xml.etree import ElementTree as ET
 
@@ -47,6 +49,8 @@ def print_dependency_dict(d):
 
 
 def create_tag_class_file(el, dependency_dict):
+    """Used to generate the files in `flexpy.tags`.
+    """
     this_dir_path = os.path.dirname(os.path.realpath(__file__))  # flexpy dir within flexpy repo
     tag_class_files_location = os.path.join(this_dir_path, "tags/")
     class_name = get_tag_class_name(el)
@@ -70,6 +74,8 @@ def create_tag_class_file(el, dependency_dict):
 
 
 def create_tag_class_files(tag_dict):
+    """Used to generate the files in `flexpy.tags`.
+    """
     dependency_dict = tag_dict.dependency_dict
     for class_name, el_lst in tag_dict.by_tag.items():
         # get an element with this tag key
@@ -78,6 +84,8 @@ def create_tag_class_files(tag_dict):
 
 
 def create_tag_class_definition(el, dependency_dict):
+    """Used to generate the files in `flexpy.tags`.
+    """
     if el.tag == "rt":
         text_ignores = ["\n"]  # most or all of the rts seem to have text of "\n", which can just be ignored
         text_warnings = []  # if see text in this list, warn the user
@@ -104,9 +112,10 @@ def create_tag_class_definition(el, dependency_dict):
     else:
         class_header = "class {}:\n".format(long_class_name)
 
+    # need params to be separated from preceding description by a blank line
     docstring_header = \
-        " "*4 + f"\"\"\"A class for FLEx XML elements with the tag {el.tag}\n" +\
-        " "*4 + ":param el: the `xml.etree.ElementTree.Element object`\n" +\
+        " "*4 + f"\"\"\"A class for FLEx XML elements with the tag {el.tag}\n\n" +\
+        " "*4 + ":param el: the `xml.etree.ElementTree.Element` object\n" +\
         " "*4 + ":param tag_dict: the `TagDict` object organizing the Elements in the FLEx project\n" +\
         " "*4 + "\"\"\"\n"
 
@@ -212,7 +221,16 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
         child_tags.add(tup)
 
     dependency_dict[tag_key]["children"] |= child_tags
-    dependency_dict[tag_key]["attributes"] |= set(el.attrib.keys())
+
+    # attribute names may have been expanded by ET.parse if they contained namespaces
+    # if we attempt to create self.{attrib_key} like this, we will get a SyntaxError
+    # so assert that no such attributes exist
+    # this can be ensured by using FlexPyUtil.parse_xml_without_namespaces()
+    attribute_names = set(el.attrib.keys())
+    if any("}" in x for x in attribute_names):
+        el_str = get_element_info_str(el)
+        raise Exception(f"tag_key {tag_key} has namespace URL in an attribute key:\n{el_str}")
+    dependency_dict[tag_key]["attributes"] |= attribute_names
 
     # this way misses the fact that the objsur is under a tag telling what relationship it has (e.g. "Meanings")
     if "ownerguid" in el.attrib:
@@ -236,6 +254,14 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
 
 
 def get_tag_key_from_element(el, by_guid):
+    """Used to get the tag_key (which is used to find elements in a `TagDict`)
+    for a given element.
+
+    :param el:
+    :type el: xml.etree.ElementTree.Element
+    :param by_guid: the dictionary of elements by their guid, used to find tags of parents of this element
+    :type by_guid: dict
+    """
     # rt should indicate its class attribute
     assert type(el) is ET.Element, el
     if el.tag == "rt":

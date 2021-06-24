@@ -4,6 +4,9 @@ from flexpy.TagDict import TagDict
 
 
 class Rt:
+    """A FlexPy-specific class mean to hold information about XML elements with the tag `rt`,
+    which have various class names assigned by FLEx.
+    """
     def __init__(self, el, tag_dict):
         assert type(el) is ET.Element, "invalid element: {}".format(el)
         assert el.tag == "rt", "invalid element tag: {}".format(el.tag)

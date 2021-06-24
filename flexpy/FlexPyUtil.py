@@ -1,4 +1,8 @@
+"""A script containing various useful functions.
+"""
+
 import re
+from io import StringIO
 import xml.etree.ElementTree as ET
 
 
@@ -9,6 +13,11 @@ WHITESPACE_CHARS = ["\n", "\t"]
 
 
 def get_single_child(element, child_tag):
+    """Gets the only child of an XML element with tag `child_tag`.
+    If there is exactly one such child, returns it.
+    If there are no such children, returns `None`.
+    If there are more than one such child, throws an error.
+    """
     assert type(element) is ET.Element, "invalid element: {}".format(element)
     children = element.findall(child_tag)
     if len(children) == 1:
@@ -23,10 +32,16 @@ def get_single_child(element, child_tag):
 
 
 def get_children(element, child_tag):
+    """Gets all children, with a certain tag, of an XML element.
+    Identical to `element.findall()`.
+    """
     return element.findall(child_tag)
 
 
 def get_ordered_child_objects(el, tag_dict):
+    """For `objsur` elements only. Gets ordered list of child elements as Python objects,
+    i.e., classes found in `flexpy.tags`.
+    """
     # for objsurs only
     assert type(el) is ET.Element, "invalid element: {}".format(el)
     child_objects = []
@@ -38,6 +53,9 @@ def get_ordered_child_objects(el, tag_dict):
 
 
 def get_child_object(el, child_tag, tag_dict, class_name=None):
+    """Gets a Python object, i.e., a class found in `flexpy.tags` specific to the
+    tag of the child element.
+    """
     assert type(el) is ET.Element, "invalid element: {}".format(el)
     if class_name is not None:
         assert child_tag == "rt", "can't pass class_name for anything other than rt child"
@@ -79,6 +97,16 @@ def get_child_object(el, child_tag, tag_dict, class_name=None):
 
 
 def get_tag_class_name(el):
+    """Gets the class name for the Python object corresponding to an XML element type.
+    
+    <rt class="Xyz"> will give "RtXyz", corresponding to the class
+    `flexpy.tags.RtXyz.RtXyz`.
+    
+    <objsur> elements have no such class; the referred object should be the element whose class is being created.
+
+    All other tags have a class name identical to their tag; for instance, <AUni> elements
+    correspond to the class `flexpy.tags.AUni.AUni`.
+    """
     if el.tag == "rt":
         class_name = "Rt{}".format(el.attrib["class"])
     elif el.tag == "objsur":
@@ -89,6 +117,9 @@ def get_tag_class_name(el):
 
 
 def get_tag_class(el):
+    """Gets the actual class, as a Python object, corresponding to an XML element in FLEx.
+    This class object may then be instantiated. This is done in constructing a `TagDict`.
+    """
     class_name = get_tag_class_name(el)
     # see https://docs.python.org/3/library/functions.html#__import__
     from_x = "flexpy.tags." + class_name
@@ -97,6 +128,9 @@ def get_tag_class(el):
 
 
 def get_element_info_str(element):
+    """Gets a readable string containing information about an XML element,
+    including attributes and guid.
+    """
     s = ""
 
     begin_tag_info = "<{} ".format(element.tag)
@@ -111,11 +145,15 @@ def get_element_info_str(element):
 
 
 def get_top_n_dict_items(dct, n):
+    """Gets the `n` keys in `dct` which have the highest values.
+    """
     return sorted(dct.items(), key=lambda kv: kv[1], reverse=True)[:n]
 
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def convert_whitespace_to_spaces(s):
+    """Replaces all whitespace characters in `s` with a single space.
+    """
     for c in WHITESPACE_CHARS:
         s = s.replace(c, " ")
     return s
@@ -123,6 +161,8 @@ def convert_whitespace_to_spaces(s):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def add_space_before_punctuation(s):
+    """For tokenization of a text. Adds a single space on each side of every punctuation character.
+    """
     for c in PUNCTUATION_CHARS:
         new = " " + c + " "  # doing it on both sides because I got some tokens with leading commas like ",very"
         s = s.replace(c, new)
@@ -131,12 +171,18 @@ def add_space_before_punctuation(s):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def filter_split_token_list(lst):
+    """For tokenization of a text. Takes a list of tokens and returns
+    all non-empty and non-punctuation tokens.
+    """
     ignore_strs = [""] + PUNCTUATION_CHARS
     return [x for x in lst if x not in ignore_strs]  # return the list except anything in ignore_strs
 
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def tokenize_single_text(text_str):
+    """Tokenizes a single string which contains an entire text.
+    Removes whitespace and punctuation.
+    """
     # pre-process by getting rid of case, replacing whitespace, and separating punctuation from preceding word
     text_str = text_str.lower()
     text_str = convert_whitespace_to_spaces(text_str)
@@ -150,6 +196,9 @@ def tokenize_single_text(text_str):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def tokenize_corpus(corpus_str_lst):
+    """Tokenizes each of a list of strings. Each string is assumed to be an entire text.
+    Returns a list of lists. First-level items are token lists for each text.
+    """
     # corpus_str_lst is a list of strings
     # tokenize each string (text) individually, map this over the corpus_str_lst
     return [tokenize_single_text(text_str) for text_str in corpus_str_lst]
@@ -157,6 +206,10 @@ def tokenize_corpus(corpus_str_lst):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def lemmatize_single_text(text_lst, lemma_dict):
+    """Lemmatizes an already-tokenized text according to `lemma_dict`,
+    which should map from forms to their lemmas. If a form is not found,
+    the lemma is assumed to be the form itself.
+    """
     # for each word in the text (which is a list of strings),
     # replace with the value in lemma_dict if the word is a key, else just use the word itself
     return [lemma_dict.get(word, word) for word in text_lst]
@@ -164,6 +217,9 @@ def lemmatize_single_text(text_lst, lemma_dict):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def lemmatize_corpus(tokenized_corpus, lemma_dict):
+    """Lemmatizes an entire already-tokenized corpus (list of lists).
+    See `lemmatize_single_text()`.
+    """
     # tokenized_corpus is a list of lists
     # each element in top-level list is a "tokenized text"
     # each tokenized text is a list of strings
@@ -173,6 +229,11 @@ def lemmatize_corpus(tokenized_corpus, lemma_dict):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def get_frequency_dict_from_text_lst(text_lst, existing_d=None):
+    """Takes an already-tokenized text, returns a dictionary of token frequencies.
+
+    :param text_lst:
+    :param existing_d: a token frequency dictionary to add to, if provided
+    """
     # can add to existing freq dict (useful for doing a whole corpus but one text at a time)
     # or if no existing dict is given, start from a blank dict
     # note that it is BAD practice to have a mutable default argument, e.g. def f(x, y={}), see https://stackoverflow.com/questions/1132941/least-astonishment-and-the-mutable-default-argument
@@ -185,7 +246,10 @@ def get_frequency_dict_from_text_lst(text_lst, existing_d=None):
 
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
-def get_frequency_dict_from_tokenized(tokenized):
+def get_frequency_dict_from_tokenized_corpus(tokenized):
+    """Takes an already-tokenized corpus (list of tokenized texts),
+    returns a token frequency dictionary.
+    """
     # whether it is lemmatized or not doesn't matter for the sake of the logic in this function
     # as the structure of lemmatized and non-lemmatized corpus is the same as long as it is tokenized
     frequency_dict = {}
@@ -196,6 +260,8 @@ def get_frequency_dict_from_tokenized(tokenized):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def get_rid_of_unicode_problems(byte_str):
+    """Takes a `bytes` object, removes it with certain problem bytes removed.
+    """
     assert type(byte_str) is bytes, "expected bytes, got {}".format(type(byte_str))
     problem_bytes = [b"\x81", b"\x82"]
     for b in problem_bytes:
@@ -205,6 +271,9 @@ def get_rid_of_unicode_problems(byte_str):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def get_corpus(corpus_dir):
+    """Gets a corpus (list of text strings) from a directory containing .txt files.
+    Each .txt file is assumed to correspond to a single text in the corpus.
+    """
     strs = []
     for fp in glob.glob(corpus_dir + "/*.txt"):
         with open(fp, "rb") as f:
@@ -220,12 +289,16 @@ def get_corpus(corpus_dir):
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def get_lemma_dict(lemma_dict_fp):
+    """Loads a pickle object containing a lemmatization dictionary.
+    """
     with open(lemma_dict_fp, "rb") as f:
         return pickle.load(f)
 
 
 # from Corpus Linguistics Homework 4, professor Kris Kyle
 def write_freq_dict_to_file(d, fp):
+    """Writes a token frequency dictionary to file.
+    """
     tups = sorted(d.items(), key=lambda kv: kv[1], reverse=True)  # my preferred syntax for getting dict keys by value in descending order
     header = "word\tfrequency"
     str_from_tup = lambda tup: "{}\t{}".format(*tup)  # quick helper function to get the formatted string from each key-value pair
@@ -239,6 +312,17 @@ def write_freq_dict_to_file(d, fp):
 
 
 def get_pretty_concordance_formatting(conc_list, max_words_left, max_words_right):
+    """Gets a readable concordance format in preparation for printing or writing to file.
+
+    :param conc_list: the list of concordance lines. Data structure must be a list of
+        lists. Each first-level list corresponds to a concordance line.
+        Within each first-level list, expect three elements: list of words on left side,
+        target word, list of words on right side.
+    :param max_words_left: maximum number of words to include on the left side of the target
+    :type max_words_left: int
+    :param max_words_right: maximum number of words to include on the right side of the target
+    :type max_words_right: int
+    """
     lefts  = [" ".join(x[0][-max_words_left:]) for x in conc_list]
     targets = [x[1] for x in conc_list]
     rights = [" ".join(x[2][:max_words_right]) for x in conc_list]
@@ -258,6 +342,8 @@ def get_pretty_concordance_formatting(conc_list, max_words_left, max_words_right
 
 
 def print_concordance_pretty(conc_list, max_words_left, max_words_right):
+    """Prints a list of concordance lines in readable format. See `get_pretty_concordance_formatting()`.
+    """
     if len(conc_list) == 0:
         print("(no concordance found)")
         return
@@ -276,6 +362,8 @@ def print_concordance_pretty(conc_list, max_words_left, max_words_right):
 
 
 def write_concordance_pretty(fp, conc_list, max_words_left, max_words_right):
+    """Writes a concordance list to file in readable format. See `get_pretty_concordance_formatting()`.
+    """
     formatting = get_pretty_concordance_formatting(conc_list, max_words_left, max_words_right)
     left_size = formatting["left_size"]
     target_size = formatting["target_size"]
@@ -291,6 +379,16 @@ def write_concordance_pretty(fp, conc_list, max_words_left, max_words_right):
 
 
 def sort_concordance_list(conc_list, sorting_indices):
+    """Sorts a concordance list.
+
+    :param conc_list: a list of lists corresponding to concordance lines. 
+        See `get_pretty_concordance_formatting()` for description of this format.
+    :param sorting_indices: a list of ints which correspond to
+        the positions of words in a concordance line. 0 means the target word.
+        Negative indices mean words to the left. Positive indices mean words to the right.
+        Thus, `sorting_indices` of [-1, 1, 0] would sort first by the word to the left of the target,
+        then by the word to the right of the target, then by the target itself.
+    """
     # sorting indices in order of priority
     # each index is number of words away from the token (can be negative for words before the token, and can be zero for the token)
     # assign a tuple of sort values to each item in the list
@@ -325,11 +423,23 @@ def sort_concordance_list(conc_list, sorting_indices):
 
 
 def camel_case_to_snake_case(s):
+    """Converts a CamelCase string to snake_case.
+    """
     # https://stackoverflow.com/questions/1175208/elegant-python-function-to-convert-camelcase-to-snake-case
     return re.sub('((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z]))', r'_\1', s).lower()
 
 
 def get_strs_from_form(form):
+    """Gets the strings from a FLEx `Form` element.
+    Returns a dictionary of element type name to list of the text in such elements.
+
+    For instance, a possible return value could be {"AStr": ["asdf", "aoeu"], "AUni": [], "Str": []},
+    meaning that the FLEx `Form` element had two child elements of type `AStr`,
+    containing the strings "asdf" and "aoeu", and no child elements with other string-like types.
+
+    :param form: 
+    :type form: flexpy.tags.Form.Form
+    """
     assert form.__class__.__name__ == "Form", type(form)  # avoid circular import type checking
 
     # AStr has a Run child tag with the text
@@ -353,6 +463,9 @@ def get_strs_from_form(form):
 
 
 def get_strs_from_form_as_list(form):
+    """Gets the strings contained in a FLEx `Form` element as a list,
+    NOT in order of appearance.
+    """
     forms_dict = get_strs_from_form(form)
     has_astr = forms_dict["AStr"] is not None and forms_dict["AStr"] != []
     has_auni = forms_dict["AUni"] is not None and forms_dict["AUni"] != []
@@ -373,11 +486,24 @@ def get_strs_from_form_as_list(form):
 
 
 def get_unique_strs_from_form_as_list(form):
+    """Gets the unique strings contained in a FLEx `Form` element.
+    """
     forms = get_strs_from_form_as_list(form)
     return list(set(forms))
 
 
 def get_single_str_from_form(form, allow_repeat=True):
+    """Gets the single string contained in a FLEx `Form` element.
+    If there are no strings, returns `None`.
+    If there are more than one, raises an error.
+    
+    :param form: the `flexpy.tags.Form.Form` object corresponding to the XML element
+    :param allow_repeat: (default `True`) Whether multiple occurrences of the same string (e.g.,
+        if it shows up as both an `AStr` and an `AUni`) should be treated as a single string.
+        If `allow_repeat` is `False` in a case where the same string appears more than once
+        in the `Form` element, the function will raise an error.
+    :type allow_repeat: bool
+    """
     # allow_repeat: if multiple strs are there but they're all the same, allow it
     all_forms = get_strs_from_form_as_list(form)
 
@@ -391,3 +517,34 @@ def get_single_str_from_form(form, allow_repeat=True):
         assert len(all_forms) == 1, "more than 1 form: {}".format(all_forms)
         forms = all_forms
     return forms[0]
+
+
+def parse_xml_with_namespaces(fp):
+    """Normal XML parsing using `xml.etree.ElementTree`.
+    """
+    tree = ET.parse(fp)
+    return tree.getroot()
+
+
+def parse_xml_without_namespaces(fp):
+    """XML parsing which strips out namespaces.
+    See https://stackoverflow.com/questions/13412496/python-elementtree-module-how-to-ignore-the-namespace-of-xml-files-to-locate-ma
+    
+    This is included because some FLEx files have elements with attribute `xml:space`
+    which indicates whether whitespace should be preserved, and this causes problems.
+    """
+    # As far as I am aware, removing the namespace from this `space` attribute will not
+    # cause issues other than potentially having duplicate attributes, so check for that.
+
+    # remove namespaces from tags
+    it = ET.iterparse(fp)
+    for _, el in it:
+        _, _, el.tag = el.tag.rpartition('}')  # strip namespace from tag
+        new_attrib = {}
+        for k, v in el.attrib.items():
+            _, _, new_k = k.rpartition('}')  # strip namespace from key in attribute dict
+            assert new_k not in new_attrib, f"duplication of key {new_k} after stripping namespace; original key {k}"
+            new_attrib[new_k] = v
+        el.attrib = new_attrib
+    root = it.root
+    return root

@@ -2,7 +2,7 @@ import os
 
 from xml.etree import ElementTree as ET
 
-from flexpy.FlexPyUtil import get_tag_class, get_element_info_str
+from flexpy.FlexPyUtil import get_tag_class, get_element_info_str, parse_xml_without_namespaces
 import flexpy.XMLTagMap as xml_tag_map
 
 
@@ -69,8 +69,7 @@ class TagDict:
         assert type(fps) is list
         roots = []
         for fp in fps:
-            tree = ET.parse(fp)
-            root = tree.getroot()
+            root = parse_xml_without_namespaces(fp)
             assert "fp" not in root.attrib
             root.attrib["fp"] = fp
             roots.append(root)

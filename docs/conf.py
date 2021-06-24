@@ -32,7 +32,9 @@ release = '0.0.5'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 # extensions = ['recommonmark']
-extensions = ['myst_parser', 'sphinx.ext.autodoc']
+extensions = ['myst_parser', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary']
+autodoc_default_flags = ['members', 'undoc-members']  # https://stackoverflow.com/questions/34557716/automatically-create-a-toctree-for-autodoc-classes-in-sphinx
+autosummary_generate = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

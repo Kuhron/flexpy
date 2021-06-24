@@ -10,6 +10,15 @@ from flexpy.tags.RtStTxtPara import RtStTxtPara
 
 class Text:
     """Contains the information about a single text in the FLEx database.
+    
+    :param guid: the guid of the text element
+    :type guid: str
+    :param rt: the XML element with tag `rt` containing this text
+    :type rt: xml.etree.ElementTree.Element
+    :param tag_dict: the `TagDict` object for this FLEx database
+    :type tag_dict: TagDict
+    :param include_punctuation: whether punctuation tokens should be included
+    :type include_punctuation: bool
     """
     def __init__(self, guid, rt, tag_dict, include_punctuation):
         assert type(include_punctuation) is bool

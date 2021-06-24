@@ -1,3 +1,7 @@
+"""A script containing helpful functions for measuring similarity/distance between words.
+Includes Levenshtein distance.
+"""
+
 # input_fp = "export-wordforms-2019-10-24.txt"
 # with open(input_fp) as f:
 #     lines = f.readlines()
@@ -16,6 +20,11 @@
 
 # copied from https://stackabuse.com/levenshtein-distance-and-text-similarity-in-python/
 def levenshtein(seq1, seq2):
+    """Takes two sequences and calculates the Levenshtein distance.
+
+    :param seq1:
+    :param seq2:
+    """
     size_x = len(seq1) + 1
     size_y = len(seq2) + 1
     # matrix = np.zeros ((size_x, size_y))
@@ -43,9 +52,17 @@ def levenshtein(seq1, seq2):
     return (matrix[size_x - 1][size_y - 1])
 
 
-def normalized_levenshtein(x, y):
-    d = levenshtein(x, y)
-    max_d = max(len(x), len(y))
+def normalized_levenshtein(seq1, seq2):
+    """Takes two sequences and calculates the Levenshtein distance,
+    normalized by dividing the raw distance by the maximum of the two lengths.
+
+    e.g. 'abc' vs 'abcd' has a Levenshtein distance of 1, and a normalized distance of 0.25.
+
+    :param seq1:
+    :param seq2:
+    """
+    d = levenshtein(seq1, seq2)
+    max_d = max(len(seq1), len(seq2))
     return d / max_d
 
 

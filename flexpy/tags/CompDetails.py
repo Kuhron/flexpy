@@ -2,6 +2,7 @@ from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
 class CompDetails:
     """A class for FLEx XML elements with the tag CompDetails
+
     :param el: the `xml.etree.ElementTree.Element object`
     :param tag_dict: the `TagDict` object organizing the Elements in the FLEx project
     """
