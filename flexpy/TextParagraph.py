@@ -65,6 +65,9 @@ class TextParagraph:
             # print("segment {}/{}".format(rt_segment_i, len(rt_segments)))
             assert type(rt_segment) is RtSegment, type(rt_segment)
             analyses = rt_segment.Analyses()
+            if analyses is None:
+                # print("analyses is None")
+                continue
             # print("Analyses has these child objects: {}".format(analyses.get_ordered_child_objects()))
             for child_obj in analyses.get_ordered_child_objects():
                 if type(child_obj) is RtWfiAnalysis:
