@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from flexpy.FlexPyUtil import get_single_child
+from flexpy.FlexPyUtil import get_single_child, get_str_from_AStrs
 from flexpy.PunctuationForm import PunctuationForm
 from flexpy.TagDict import TagDict
 from flexpy.WordForm import WordForm
@@ -32,6 +32,8 @@ class TextParagraph:
         self.include_punctuation = include_punctuation
         self.run_texts = self.create_run_texts()
         self.wordforms = self.create_wordforms(include_punctuation=self.include_punctuation)
+        self.raw_text = self.get_raw_text()
+        self.free_translation = self.get_free_translation()
     
     def __repr__(self):
         return "<TextParagraph \"{}\" from rt {}>".format(self.get_raw_text(), self.rt_st_txt_para)
@@ -51,7 +53,7 @@ class TextParagraph:
         return run_texts
     
     def get_raw_text(self):
-        return " ".join(self.run_texts)
+        return "".join(self.run_texts)
     
     def create_wordforms(self, include_punctuation):
         # print("creating wordforms for {}".format(self))
@@ -92,3 +94,17 @@ class TextParagraph:
         # input("check")
         # print("- done creating wordforms for {}".format(self))
         return wordforms
+
+    def get_free_translation(self):
+        segments = self.rt_st_txt_para.Segments()
+        if segments is None:
+            return None
+        rt_segments = segments.RtSegment()
+        s = ""
+        for rt_segment in rt_segments:
+            free_translation = rt_segment.FreeTranslation()
+            if free_translation is not None:
+                astrs = free_translation.AStr()
+                this_s = get_str_from_AStrs(astrs)
+                s += this_s
+        return s

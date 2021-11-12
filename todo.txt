@@ -1,0 +1,3 @@
+TODO:
+- flexpy thinks that variants don't have glosses; they should inherit it from their parent
+

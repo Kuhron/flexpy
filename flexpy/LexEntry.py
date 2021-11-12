@@ -31,12 +31,15 @@ class LexEntry:
         objsur = get_single_child(lexeme_form_el, "objsur")
         mo_stem_allomorph_el = self.tag_dict.get_single_element_by_guid(objsur.attrib["guid"])
         form_el = get_single_child(mo_stem_allomorph_el, "Form")
-        form_obj = Form(form_el, self.tag_dict)
-        forms = get_unique_strs_from_form_as_list(form_obj)
-        if len(forms) == 1:
-            self.lexeme_form = forms[0]
+        if form_el is not None:
+            form_obj = Form(form_el, self.tag_dict)
+            forms = get_unique_strs_from_form_as_list(form_obj)
+            if len(forms) == 1:
+                self.lexeme_form = forms[0]
+            else:
+                self.lexeme_form = forms
         else:
-            self.lexeme_form = forms
+            self.lexeme_form = None
 
         self.parts_of_speech = []
         morpho_syntax_analyses_el = get_single_child(self.rt, "MorphoSyntaxAnalyses")
@@ -63,11 +66,16 @@ class LexEntry:
                 lex_sense = self.tag_dict.get_single_element_by_guid(lex_sense_guid)
                 gloss_el = get_single_child(lex_sense, "Gloss")
                 if gloss_el is None:
-                    print("Warning: {} has no gloss".format(self))
                     continue
                 auni = get_single_child(gloss_el, "AUni")
                 gloss = auni.text
                 self.glosses.append(gloss)
+
+        # after processing all of this, NOW you do the warning about bad words
+        if self.lexeme_form is None:
+            print(f"Warning: {self} has no gloss")
+        if len(self.glosses) == 0:
+            print(f"Warning: {self} has no gloss")
 
     def __repr__(self):
         return "<LexEntry \"{form}\" {pos} = {gloss}>".format(

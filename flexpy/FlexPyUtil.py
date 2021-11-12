@@ -446,21 +446,77 @@ def get_strs_from_form(form):
     # AStr has a Run child tag with the text
     astrs = form.AStr()
     if astrs is not None:
-        for astr in astrs:
-            astrs = [run.text for run in astr.Run()]
+        astr_text = get_str_from_AStrs(astrs)
+    else:
+        astr_text = ""
 
     # AUni has text in tag
     aunis = form.AUni()
     if aunis is not None:
-        aunis = [auni.text for auni in aunis]
+        auni_text = get_str_from_AUnis(aunis)
+    else:
+        auni_text = ""
 
     # Str has a Run child tag with the text
-    strs = form.Str()
-    if strs is not None:
-        for s in strs:
-            strs = [run.text for run in s.Run()]
+    strtags = form.Str()
+    if strtags is not None:
+        strtag_text = get_str_from_Strs(strtags)
+    else:
+        strtag_text = ""
     
-    return {"AStr": astrs, "AUni": aunis, "Str": strs}
+    return {"AStr": astr_text, "AUni": auni_text, "Str": strtag_text}
+
+
+def get_str_from_AStr(astr):
+    strs = get_strs_from_AStr(astr)
+    return "".join(strs)
+
+
+def get_strs_from_AStr(astr):
+    assert astr.__class__.__name__ == "AStr", type(astr)
+    return [run.text for run in astr.Run()]
+
+
+def get_str_from_AStrs(astrs):
+    strs = [get_str_from_AStr(astr) for astr in astrs]
+    return "".join(strs)
+
+
+def get_strs_from_AStrs(astrs):
+    return [get_strs_from_AStr(astr) for astr in astrs]
+
+
+def get_str_from_AUni(auni):
+    assert auni.__class__.__name__ == "AUni", type(auni)
+    return auni.text
+
+# get plural strs from singular AUni should not be possible
+
+def get_str_from_AUnis(aunis):
+    strs = [get_str_from_AUni(auni) for auni in aunis]
+    return "".join(strs)
+
+
+def get_strs_from_AUnis(aunis):
+    return [get_strs_from_AUni(auni) for auni in aunis]
+
+
+def get_str_from_Str(strtag):
+    strs = get_strs_from_Str(strtag)
+    return "".join(strs)
+
+
+def get_strs_from_Str(strtag):
+    return [run.text for run in strtag.Run()]
+
+
+def get_str_from_Strs(strtags):
+    strs = [get_str_from_Str(strtag) for strtag in strtags]
+    return "".join(strs)
+
+
+def get_strs_from_Strs(strtags):
+    return [get_strs_from_Str(strtag) for strtag in strtags]
 
 
 def get_strs_from_form_as_list(form):
@@ -479,10 +535,9 @@ def get_strs_from_form_as_list(form):
     forms = []
     for k, v in forms_dict.items():
         if v is not None:
-            assert type(v) is list, type(v)
-            if len(v) > 0:
-                # not empty list, there is some form here
-                forms += v
+            assert type(v) is str, v
+            if v != "":
+                forms.append(v)
     return forms
 
 
