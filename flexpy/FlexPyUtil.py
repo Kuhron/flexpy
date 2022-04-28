@@ -5,6 +5,8 @@ import re
 from io import StringIO
 import xml.etree.ElementTree as ET
 
+from flexpy.ToneCharDict import TONE_CHAR_TO_TONE_LETTER, COMBINED_CHAR_TO_SEGMENT_ONLY, COMBINED_CHAR_TO_TONE_LETTER
+
 
 # global constants used in multiple places
 PUNCTUATION_CHARS = [".", "?", "!", ",", "'", "\"", ";", ":", "-"]
@@ -604,3 +606,54 @@ def parse_xml_without_namespaces(fp):
         el.attrib = new_attrib
     root = it.root
     return root
+
+
+def get_string_without_tone_diacritics(s):
+    new_s = ""
+    for c in s:
+        if c in TONE_CHAR_TO_TONE_LETTER:
+            pass
+        elif c in COMBINED_CHAR_TO_SEGMENT_ONLY:
+            new_s += COMBINED_CHAR_TO_SEGMENT_ONLY[c]
+        else:
+            new_s += c
+    return new_s
+
+
+def get_tone_letters_from_string(s, vowel_chars=None):
+    if vowel_chars is None:
+        vowel_chars = list("aoeui")
+    new_s = ""
+    previous_char_had_tone = False
+    for c in s:
+        char_has_tone = c in TONE_CHAR_TO_TONE_LETTER or c in COMBINED_CHAR_TO_TONE_LETTER
+        if char_has_tone:
+            if len(new_s) > 0 and not previous_char_had_tone:
+                new_s += "."  # syllable boundary
+
+            if c in TONE_CHAR_TO_TONE_LETTER:
+                tone_letter = TONE_CHAR_TO_TONE_LETTER[c]
+            elif c in COMBINED_CHAR_TO_TONE_LETTER:
+                tone_letter = COMBINED_CHAR_TO_TONE_LETTER[c]
+            else:
+                raise Exception(f"no tone letter found for char {c}")
+            new_s += tone_letter
+        else:
+            pass  # no tone letter to add
+
+        # now set previous_char_has_tone for next round
+        # but if this is a vowel between two combining tone marks, we don't want to think it was a syllable boundary
+        # so if last char had tone and this is a vowel, persist True
+        if previous_char_had_tone and c in vowel_chars:
+            pass  # don't reset it
+        else:
+            previous_char_had_tone = char_has_tone
+
+    # this is simpler than checking for long vowel during the conversion
+    for seq in ["LL", "MM", "HH"]:
+        while seq in new_s:
+            new_s = new_s.replace(seq, seq[0])
+
+    return new_s if len(new_s) > 0 else "NoTone"
+
+

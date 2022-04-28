@@ -2,6 +2,7 @@ import re
 
 from flexpy.FlexPyUtil import get_single_child
 from flexpy.LexEntry import LexEntry
+from flexpy.TagDict import TagDict
 
 
 
@@ -17,6 +18,16 @@ class Lexicon:
         self.lex_entry_els = lex_entry_els
         self.tag_dict = tag_dict
         self.lex_entries = self.create_lex_entries()
+
+    @staticmethod
+    def from_project_dir_and_name(project_dir, project_name):
+        tag_dict = TagDict.from_project_dir_and_name(project_dir, project_name)
+        return Lexicon.from_tag_dict(tag_dict)
+
+    @staticmethod
+    def from_tag_dict(tag_dict):
+        lex_entries = tag_dict["RtLexEntry"]
+        return Lexicon(lex_entries, tag_dict)
 
     def create_lex_entries(self):
         res = []

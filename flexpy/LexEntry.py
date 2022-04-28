@@ -2,7 +2,7 @@
 
 import xml.etree.ElementTree as ET
 
-from flexpy.FlexPyUtil import get_single_child, get_unique_strs_from_form_as_list
+from flexpy.FlexPyUtil import get_single_child, get_children, get_unique_strs_from_form_as_list
 from flexpy.tags.Form import Form
 
 
@@ -19,6 +19,17 @@ class LexEntry:
         assert type(rt) is ET.Element, self.rt
         self.rt = rt
         self.tag_dict = tag_dict
+
+        # child variables placeholders
+        self.date_created = None
+        self.date_modified = None
+        self.do_not_use_for_parsing = None
+        self.homograph_number = None
+        self.lexeme_form = None
+        self.allomorph_forms = []
+        self.parts_of_speech = []
+        self.glosses = []
+
         self.populate_child_variables()
 
     def populate_child_variables(self):
@@ -27,21 +38,25 @@ class LexEntry:
         self.do_not_use_for_parsing = get_single_child(self.rt, "DoNotUseForParsing").attrib["val"]
         self.homograph_number = get_single_child(self.rt, "HomographNumber").attrib["val"]
 
+        # lexeme form and allomorphs
         lexeme_form_el = get_single_child(self.rt, "LexemeForm")
         objsur = get_single_child(lexeme_form_el, "objsur")
         mo_stem_allomorph_el = self.tag_dict.get_single_element_by_guid(objsur.attrib["guid"])
-        form_el = get_single_child(mo_stem_allomorph_el, "Form")
-        if form_el is not None:
-            form_obj = Form(form_el, self.tag_dict)
-            forms = get_unique_strs_from_form_as_list(form_obj)
-            if len(forms) == 1:
-                self.lexeme_form = forms[0]
-            else:
-                self.lexeme_form = forms
-        else:
-            self.lexeme_form = None
+        allomorph_forms = self.get_forms_from_mo_stem_allomorph_el(mo_stem_allomorph_el)
+        self.lexeme_form = allomorph_forms
+        if allomorph_forms is not None:
+            self.allomorph_forms += allomorph_forms
 
-        self.parts_of_speech = []
+        alternate_forms_el = get_single_child(self.rt, "AlternateForms")
+        if alternate_forms_el is not None:
+            objsurs = get_children(alternate_forms_el, "objsur")
+            for objsur in objsurs:
+                mo_stem_allomorph_el = self.tag_dict.get_single_element_by_guid(objsur.attrib["guid"])
+                allomorph_forms = self.get_forms_from_mo_stem_allomorph_el(mo_stem_allomorph_el)
+                if allomorph_forms is not None:
+                    self.allomorph_forms += allomorph_forms
+
+        # parts of speech
         morpho_syntax_analyses_el = get_single_child(self.rt, "MorphoSyntaxAnalyses")
         if morpho_syntax_analyses_el is not None:
             objsurs = morpho_syntax_analyses_el.findall("objsur")
@@ -57,7 +72,7 @@ class LexEntry:
                         self.parts_of_speech.append(uni.text)
         self.parts_of_speech = list(set(self.parts_of_speech))
 
-        self.glosses = []
+        # glosses
         senses_el = get_single_child(self.rt, "Senses")
         if senses_el is not None:
             objsurs = senses_el.findall("objsur")
@@ -76,6 +91,19 @@ class LexEntry:
             print(f"Warning: {self} has no gloss")
         if len(self.glosses) == 0:
             print(f"Warning: {self} has no gloss")
+
+    def get_forms_from_mo_stem_allomorph_el(self, mo_stem_allomorph_el):
+        form_el = get_single_child(mo_stem_allomorph_el, "Form")
+        if form_el is None:
+            return []
+
+        form_obj = Form(form_el, self.tag_dict)
+        forms = get_unique_strs_from_form_as_list(form_obj)
+        # if len(forms) == 1:
+        #     return forms[0]
+        # else:
+        #     return forms
+        return forms  # bad idea to return multiple types based only on number of items!
 
     def __repr__(self):
         return "<LexEntry \"{form}\" {pos} = {gloss}>".format(

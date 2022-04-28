@@ -1,0 +1,10479 @@
+creating TagDict from roots
+Warning: <LexEntry "["ndyū'ù"]" [] = []> has no gloss
+Warning: <LexEntry "['mèē']" [] = []> has no gloss
+Warning: <LexEntry "['kī']" [] = []> has no gloss
+Warning: <LexEntry "['mānsāná']" [] = []> has no gloss
+Warning: <LexEntry "["kùnē'é"]" [] = []> has no gloss
+Warning: <LexEntry "['nà']" [] = []> has no gloss
+Warning: <LexEntry "['ndzíà']" [] = []> has no gloss
+Warning: <LexEntry "['chīnoan']" [] = []> has no gloss
+Warning: <LexEntry "['ítyī']" [] = []> has no gloss
+Warning: <LexEntry "['dyí']" [] = []> has no gloss
+Warning: <LexEntry "['tyìsí']" [] = []> has no gloss
+Warning: <LexEntry "['vī']" [] = []> has no gloss
+Warning: <LexEntry "['ndáyí']" [] = []> has no gloss
+Warning: <LexEntry "['tútyí']" [] = []> has no gloss
+Warning: <LexEntry "["kwí'í"]" [] = []> has no gloss
+Warning: <LexEntry "['Ñáà']" [] = []> has no gloss
+Warning: <LexEntry "['kánárá']" [] = []> has no gloss
+Warning: <LexEntry "['tūní']" [] = []> has no gloss
+Warning: <LexEntry "['kì']" [] = []> has no gloss
+Warning: <LexEntry "['sītò']" [] = []> has no gloss
+Warning: <LexEntry "['kíā']" [] = []> has no gloss
+Warning: <LexEntry "['tùnī']" [] = []> has no gloss
+Warning: <LexEntry "['nāndòjò']" [] = []> has no gloss
+Warning: <LexEntry "["ñú'ún"]" [] = []> has no gloss
+Warning: <LexEntry "['Jūvēntīnò']" [] = []> has no gloss
+Warning: <LexEntry "['nàkī']" [] = []> has no gloss
+Warning: <LexEntry "['ēēvē']" [] = []> has no gloss
+Warning: <LexEntry "['īīnī']" [] = []> has no gloss
+Warning: <LexEntry "['kúné']" [] = []> has no gloss
+Warning: <LexEntry "['kùjī']" [] = []> has no gloss
+Warning: <LexEntry "['n']" [] = []> has no gloss
+Warning: <LexEntry "['níá']" [] = []> has no gloss
+Warning: <LexEntry "['vídríó']" [] = []> has no gloss
+Warning: <LexEntry "['méé']" [] = []> has no gloss
+Warning: <LexEntry "['núnú']" [] = []> has no gloss
+Warning: <LexEntry "['īīní']" [] = []> has no gloss
+Warning: <LexEntry "['nàkā']" [] = []> has no gloss
+Warning: <LexEntry "["kwā'á"]" [] = []> has no gloss
+Warning: <LexEntry "['vīrī']" [] = []> has no gloss
+Warning: <LexEntry "['tyíná']" [] = []> has no gloss
+Warning: <LexEntry "['jósínó']" [] = []> has no gloss
+Warning: <LexEntry "["kùnē'ē"]" [] = []> has no gloss
+Warning: <LexEntry "['úù']" [] = []> has no gloss
+Warning: <LexEntry "['rā']" [] = []> has no gloss
+Warning: <LexEntry "["'ví"]" [] = []> has no gloss
+Warning: <LexEntry "['kājà']" [] = []> has no gloss
+Warning: <LexEntry "["sìá'á"]" [] = []> has no gloss
+Warning: <LexEntry "['tyīlòndò']" [] = []> has no gloss
+Warning: <LexEntry "['tūnī']" [] = []> has no gloss
+Warning: <LexEntry "['kù']" [] = []> has no gloss
+Warning: <LexEntry "["ndá'vá"]" [] = []> has no gloss
+Warning: <LexEntry "['vālī']" [] = []> has no gloss
+Warning: <LexEntry "["yù'ú"]" [] = []> has no gloss
+Warning: <LexEntry "['ítchīdyì']" [] = []> has no gloss
+Warning: <LexEntry "['kììn']" [] = []> has no gloss
+Warning: <LexEntry "["sìndé'"]" [] = []> has no gloss
+Warning: <LexEntry "['kásá']" [] = []> has no gloss
+Warning: <LexEntry "['mèè']" [] = []> has no gloss
+Warning: <LexEntry "['kuáá']" [] = []> has no gloss
+Warning: <LexEntry "['ra']" [] = []> has no gloss
+Warning: <LexEntry "['vālí']" [] = []> has no gloss
+Warning: <LexEntry "['sā']" [] = []> has no gloss
+Warning: <LexEntry "['Nākàà']" [] = []> has no gloss
+Warning: <LexEntry "['ndyíkà']" [] = []> has no gloss
+Warning: <LexEntry "['kīìtyīí']" [] = []> has no gloss
+Warning: <LexEntry "['kwèì']" [] = []> has no gloss
+Warning: <LexEntry "['kómāànì']" [] = []> has no gloss
+Warning: <LexEntry "['xini']" [] = []> has no gloss
+Warning: <LexEntry "['chì']" [] = []> has no gloss
+Warning: <LexEntry "["kā'vìn"]" [] = []> has no gloss
+Warning: <LexEntry "['i᷇']" [] = []> has no gloss
+Warning: <LexEntry "["sìā'"]" [] = []> has no gloss
+Warning: <LexEntry "['chìì']" [] = []> has no gloss
+Warning: <LexEntry "['tòyīká']" [] = []> has no gloss
+Warning: <LexEntry "['nājá']" [] = []> has no gloss
+Warning: <LexEntry "["tandzi'"]" [] = []> has no gloss
+Warning: <LexEntry "['ñi']" [] = []> has no gloss
+Warning: <LexEntry "['íí']" [] = []> has no gloss
+Warning: <LexEntry "['kītò']" [] = []> has no gloss
+Warning: <LexEntry "['jámá']" [] = []> has no gloss
+Warning: <LexEntry "['ndyíxì']" [] = []> has no gloss
+Warning: <LexEntry "["vā'à"]" [] = []> has no gloss
+Warning: <LexEntry "["kā'àn"]" [] = []> has no gloss
+Warning: <LexEntry "['tyìkwá']" [] = []> has no gloss
+Warning: <LexEntry "['tyíīn']" [] = []> has no gloss
+Warning: <LexEntry "['vísī']" [] = []> has no gloss
+Warning: <LexEntry "["ù'ù"]" [] = []> has no gloss
+Warning: <LexEntry "['ùùn']" [] = []> has no gloss
+Warning: <LexEntry "['yúùkù']" [] = []> has no gloss
+Warning: <LexEntry "['javii']" [] = []> has no gloss
+Warning: <LexEntry "['yīto']" [] = []> has no gloss
+Warning: <LexEntry "['ítchí']" [] = []> has no gloss
+Warning: <LexEntry "['ka']" [] = []> has no gloss
+Warning: <LexEntry "["sívā'à"]" [] = []> has no gloss
+Warning: <LexEntry "["nàkē'"]" [] = []> has no gloss
+Warning: <LexEntry "['ni']" [] = []> has no gloss
+Warning: <LexEntry "["síá'"]" [] = []> has no gloss
+Warning: <LexEntry "['sín']" [] = []> has no gloss
+Warning: <LexEntry "['kánī']" [] = []> has no gloss
+Warning: <LexEntry "['chí']" [] = []> has no gloss
+Warning: <LexEntry "['ñí']" [] = []> has no gloss
+Warning: <LexEntry "['ī']" [] = []> has no gloss
+Warning: <LexEntry "['sīī']" [] = []> has no gloss
+Warning: <LexEntry "['dàjī']" [] = []> has no gloss
+Warning: <LexEntry "['tyūkù']" [] = []> has no gloss
+Warning: <LexEntry "['nánná']" [] = []> has no gloss
+Warning: <LexEntry "['Tyī']" [] = []> has no gloss
+Warning: <LexEntry "['kúnè']" [] = []> has no gloss
+Warning: <LexEntry "['kìshì']" [] = []> has no gloss
+Warning: <LexEntry "["nàkē'ēēn"]" [] = []> has no gloss
+Warning: <LexEntry "['tyùk']" [] = []> has no gloss
+Warning: <LexEntry "["kà'á"]" [] = []> has no gloss
+Warning: <LexEntry "['kù']" [] = []> has no gloss
+Warning: <LexEntry "["síá'ān"]" [] = []> has no gloss
+Warning: <LexEntry "['kūsí']" [] = []> has no gloss
+Warning: <LexEntry "['kìvīn']" [] = []> has no gloss
+Warning: <LexEntry "['nò']" [] = []> has no gloss
+Warning: <LexEntry "['Sí']" [] = []> has no gloss
+Warning: <LexEntry "['tyíū']" [] = []> has no gloss
+Warning: <LexEntry "['jākùú']" [] = []> has no gloss
+Warning: <LexEntry "['vītyí']" [] = []> has no gloss
+Warning: <LexEntry "['Lópés']" [] = []> has no gloss
+Warning: <LexEntry "['lēí']" [] = []> has no gloss
+Warning: <LexEntry "['tāvēlò']" [] = []> has no gloss
+Warning: <LexEntry "['kúnùù']" [] = []> has no gloss
+Warning: <LexEntry "['vìtyí']" [] = []> has no gloss
+Warning: <LexEntry "["chīnoa'"]" [] = []> has no gloss
+Warning: <LexEntry "["ndzù'ú"]" [] = []> has no gloss
+Warning: <LexEntry "["kā'àù"]" [] = []> has no gloss
+Warning: <LexEntry "["'ò"]" [] = []> has no gloss
+Warning: <LexEntry "['ndyīkī']" [] = []> has no gloss
+Warning: <LexEntry "['kēán']" [] = []> has no gloss
+Warning: <LexEntry "['í']" [] = []> has no gloss
+Warning: <LexEntry "['kājā']" [] = []> has no gloss
+Warning: <LexEntry "['ándyīví']" [] = []> has no gloss
+Warning: <LexEntry "["síá'and"]" [] = []> has no gloss
+Warning: <LexEntry "["ñù'ù"]" [] = []> has no gloss
+Warning: <LexEntry "["ndā'yì"]" [] = []> has no gloss
+Warning: <LexEntry "['íítī']" [] = []> has no gloss
+Warning: <LexEntry "['kūādró']" [] = []> has no gloss
+Warning: <LexEntry "['ndòyó']" [] = []> has no gloss
+Warning: <LexEntry "['kò']" [] = []> has no gloss
+Warning: <LexEntry "['sìá']" [] = []> has no gloss
+Warning: <LexEntry "['ndzìì']" [] = []> has no gloss
+Warning: <LexEntry "['kúāā']" [] = []> has no gloss
+Warning: <LexEntry "['kūtò']" [] = []> has no gloss
+Warning: <LexEntry "['tāvaelò']" [] = []> has no gloss
+Warning: <LexEntry "['kàsā']" [] = []> has no gloss
+Warning: <LexEntry "['ndāvá']" [] = []> has no gloss
+Warning: <LexEntry "['jāndàsí']" [] = []> has no gloss
+Warning: <LexEntry "['kān']" [] = []> has no gloss
+Warning: <LexEntry "['tāní']" [] = []> has no gloss
+Warning: <LexEntry "["vá'"]" [] = []> has no gloss
+Warning: <LexEntry "["ñù'ūn"]" [] = []> has no gloss
+Warning: <LexEntry "['ndātyí']" [] = []> has no gloss
+Warning: <LexEntry "['vàlí']" [] = []> has no gloss
+Warning: <LexEntry "["ñì'ì"]" [] = []> has no gloss
+Warning: <LexEntry "['Tyīīn']" [] = []> has no gloss
+Warning: <LexEntry "['válīè']" [] = []> has no gloss
+Warning: <LexEntry "['kīnù']" [] = []> has no gloss
+Warning: <LexEntry "['ēvē']" [] = []> has no gloss
+Warning: <LexEntry "['tyìīn']" [] = []> has no gloss
+Warning: <LexEntry "['nāvālà']" [] = []> has no gloss
+Warning: <LexEntry "["'ó"]" [] = []> has no gloss
+Warning: <LexEntry "["sīá'á"]" [] = []> has no gloss
+Warning: <LexEntry "['síà']" [] = []> has no gloss
+Warning: <LexEntry "['kàchù']" [] = []> has no gloss
+Warning: <LexEntry "['kānà']" [] = []> has no gloss
+Warning: <LexEntry "['kàtà']" [] = []> has no gloss
+Warning: <LexEntry "['núù']" [] = []> has no gloss
+Warning: <LexEntry "['ña']" [] = []> has no gloss
+Warning: <LexEntry "["ñá'á"]" [] = []> has no gloss
+Warning: <LexEntry "['kùchī']" [] = []> has no gloss
+Warning: <LexEntry "['ko']" [] = []> has no gloss
+Warning: <LexEntry "["kē'án"]" [] = []> has no gloss
+Warning: <LexEntry "['vàlì']" [] = []> has no gloss
+Warning: <LexEntry "["kwā'ā"]" [] = []> has no gloss
+Warning: <LexEntry "['tyìsì']" [] = []> has no gloss
+Warning: <LexEntry "["ndzù'"]" [] = []> has no gloss
+Warning: <LexEntry "['àná']" [] = []> has no gloss
+Warning: <LexEntry "["tá'vì"]" [] = []> has no gloss
+Warning: <LexEntry "['kúchì']" [] = []> has no gloss
+Warning: <LexEntry "['kī']" [] = []> has no gloss
+Warning: <LexEntry "['jàvì']" [] = []> has no gloss
+Warning: <LexEntry "['chítò']" [] = []> has no gloss
+Warning: <LexEntry "['ñāní']" [] = []> has no gloss
+Warning: <LexEntry "['ùùn']" [] = []> has no gloss
+Warning: <LexEntry "['víxā']" [] = []> has no gloss
+Warning: <LexEntry "['Kúnē']" [] = []> has no gloss
+Warning: <LexEntry "['kámākí']" [] = []> has no gloss
+Warning: <LexEntry "['kùáá']" [] = []> has no gloss
+Warning: <LexEntry "["kē'ė"]" [] = []> has no gloss
+Warning: <LexEntry "['síi']" [] = []> has no gloss
+Warning: <LexEntry "['kátà']" [] = []> has no gloss
+Warning: <LexEntry "['kúnē']" [] = []> has no gloss
+Warning: <LexEntry "['ndzīví']" [] = []> has no gloss
+Warning: <LexEntry "['mānì']" [] = []> has no gloss
+Warning: <LexEntry "["chìjē'é"]" [] = []> has no gloss
+Warning: <LexEntry "['ùsí']" [] = []> has no gloss
+Warning: <LexEntry "['chīn']" [] = []> has no gloss
+Warning: <LexEntry "['tantyii']" [] = []> has no gloss
+Warning: <LexEntry "['ñì']" [] = []> has no gloss
+Warning: <LexEntry "['ñī']" [] = []> has no gloss
+Warning: <LexEntry "['còmīdá']" [] = []> has no gloss
+Warning: <LexEntry "['í']" [] = []> has no gloss
+Warning: <LexEntry "["yà'ā"]" [] = []> has no gloss
+Warning: <LexEntry "['nàkátyà']" [] = []> has no gloss
+Warning: <LexEntry "['ndyúchī']" [] = []> has no gloss
+Warning: <LexEntry "["kùā'ā"]" [] = []> has no gloss
+Warning: <LexEntry "['kīí']" [] = []> has no gloss
+Warning: <LexEntry "['ìtyí']" [] = []> has no gloss
+Warning: <LexEntry "['níjò']" [] = []> has no gloss
+Warning: <LexEntry "['jánī']" [] = []> has no gloss
+Warning: <LexEntry "['nínánárá']" [] = []> has no gloss
+Warning: <LexEntry "['jáni']" [] = []> has no gloss
+Warning: <LexEntry "['kīxì']" [] = []> has no gloss
+Warning: <LexEntry "['vē']" [] = []> has no gloss
+Warning: <LexEntry "['sāí']" [] = []> has no gloss
+Warning: <LexEntry "['sàkū']" [] = []> has no gloss
+Warning: <LexEntry "['tuni']" [] = []> has no gloss
+Warning: <LexEntry "['nana']" [] = []> has no gloss
+Warning: <LexEntry "["'ì"]" [] = []> has no gloss
+Warning: <LexEntry "['tyí']" [] = []> has no gloss
+Warning: <LexEntry "['tátā']" [] = []> has no gloss
+Warning: <LexEntry "['chí']" [] = []> has no gloss
+Warning: <LexEntry "['jātà']" [] = []> has no gloss
+Warning: <LexEntry "['kāsā']" [] = []> has no gloss
+Warning: <LexEntry "['tyíín']" [] = []> has no gloss
+Warning: <LexEntry "['ēvè']" [] = []> has no gloss
+Warning: <LexEntry "['ēēvè']" [] = []> has no gloss
+Warning: <LexEntry "['ndátō']" [] = []> has no gloss
+Warning: <LexEntry "['íty']" [] = []> has no gloss
+Warning: <LexEntry "['kú']" ['Verb'] = []> has no gloss
+Warning: <LexEntry "['tātù']" [] = []> has no gloss
+Warning: <LexEntry "['yùkù']" [] = []> has no gloss
+Warning: <LexEntry "['jāā']" [] = []> has no gloss
+Warning: <LexEntry "['tòkò']" [] = []> has no gloss
+Warning: <LexEntry "['līmón']" [] = []> has no gloss
+Warning: <LexEntry "['nāvēlà']" [] = []> has no gloss
+Warning: <LexEntry "['ndyí']" [] = []> has no gloss
+Warning: <LexEntry "["ké'è"]" [] = []> has no gloss
+Warning: <LexEntry "['ānávélà']" [] = []> has no gloss
+Warning: <LexEntry "['ṅdzītá']" [] = []> has no gloss
+Warning: <LexEntry "["ñijò'"]" [] = []> has no gloss
+Warning: <LexEntry "['ū']" [] = []> has no gloss
+Warning: <LexEntry "["sívā'ā"]" [] = []> has no gloss
+Warning: <LexEntry "['vī']" [] = []> has no gloss
+Warning: <LexEntry "['íñ']" [] = []> has no gloss
+Warning: <LexEntry "["kùnē'"]" [] = []> has no gloss
+Warning: <LexEntry "['kū']" [] = []> has no gloss
+Warning: <LexEntry "['chītò']" [] = []> has no gloss
+Warning: <LexEntry "['kíù']" [] = []> has no gloss
+Warning: <LexEntry "['tūní']" [] = []> has no gloss
+Warning: <LexEntry "['sātă']" [] = []> has no gloss
+Warning: <LexEntry "["ní'í"]" [] = []> has no gloss
+Warning: <LexEntry "['ndíìxì']" [] = []> has no gloss
+Warning: <LexEntry "["tándzì'í"]" [] = []> has no gloss
+Warning: <LexEntry "['xìní']" [] = []> has no gloss
+Warning: <LexEntry "['jáā']" [] = []> has no gloss
+Warning: <LexEntry "["vālí'"]" [] = []> has no gloss
+Warning: <LexEntry "['xík']" [] = []> has no gloss
+Warning: <LexEntry "["tà'àní"]" [] = []> has no gloss
+Warning: <LexEntry "['Tà']" [] = []> has no gloss
+Warning: <LexEntry "['Kú']" [] = []> has no gloss
+Warning: <LexEntry "['kato']" [] = []> has no gloss
+Warning: <LexEntry "['kìnù']" [] = []> has no gloss
+Warning: <LexEntry "['jàn']" [] = []> has no gloss
+Warning: <LexEntry "['arco']" [] = []> has no gloss
+Forms: 
+' : ' + NoTone
+'ì : 'i + L
+sì' : si' + L
+sì'ì : si'i + L.L
+sìì : sii + L
+sí'ì : si'i + H.L
+sí'ī : si'i + H.M
+sī'ī : si'i + M.M
+Glosses: 
+die
+
+Forms: 
+' : ' + NoTone
+'í : 'i + H
+'ī : 'i + M
+kō' : ko' + M
+kō'ō : ko'o + M.M
+kōˈ : koˈ + M
+Glosses: 
+drink
+
+Forms: 
+'ua : 'ua + NoTone
+a : a + NoTone
+á' : a' + H
+Glosses: 
+ifut?
+
+Forms: 
+'ví : 'vi + H
+Glosses: 
+
+
+Forms: 
+'ì : 'i + L
+Glosses: 
+
+
+Forms: 
+'ì : 'i + L
+'í : 'i + H
+'în : 'in + HL
+i : i + NoTone
+ii : ii + NoTone
+in : in + NoTone
+ián : ian + H
+iñ : iñ + NoTone
+i᷆ : i + ML
+i᷆n : in + ML
+ì : i + L
+ìn : in + L
+ìì : ii + L
+ììn : iin + L
+í : i + H
+íi : ii + H
+ín : in + H
+íì : ii + HL
+íìn : iin + HL
+íín : iin + H
+íñ : iñ + H
+íī : ii + HM
+î : i + HL
+în : in + HL
+ī : i + M
+īn : in + M
+īì : ii + ML
+īìn : iin + ML
+́i : i + H
+Glosses: 
+1s.poss
+1sg
+
+Forms: 
+'ò : 'o + L
+Glosses: 
+
+
+Forms: 
+'ó : 'o + H
+Glosses: 
+
+
+Forms: 
+'ù : 'u + L
+Glosses: 
+?
+
+Forms: 
+'ī : 'i + M
+'īī : 'ii + M
+ìí : ii + LH
+ìī : ii + LM
+í : i + H
+íí : ii + H
+ī : i + M
+īī : ii + M
+ǐ : i + LH
+ǐn : in + LH
+Glosses: 
+exist
+live
+
+Forms: 
+'īn : 'in + M
+Glosses: 
+3indef.fut?
+
+Forms: 
+[...] : [...] + NoTone
+kwí : kwi + H
+kwē : kwe + M
+Glosses: 
+adverbial?
+intensifier?
+less.intense?
+
+Forms: 
+[h] : [h] + NoTone
+[h]\ : [h]\ + NoTone
+Glosses: 
+irr?
+neg
+prs
+
+Forms: 
+[h] : [h] + NoTone
+[m] : [m] + NoTone
+Glosses: 
+poss
+
+Forms: 
+[l] : [l] + NoTone
+Glosses: 
+pst
+
+Forms: 
+[m?] : [m?] + NoTone
+[m] : [m] + NoTone
+Glosses: 
+fut?
+
+Forms: 
+a : a + NoTone
+an : an + NoTone
+a᷇n : an + HM
+n : n + NoTone
+à : a + L
+àn : an + L
+àā : aa + LM
+á : a + H
+án : an + H
+áà : aa + HL
+áā : aa + HM
+ā : a + M
+ān : an + M
+ǎ : a + LH
+Glosses: 
+3sg.inan
+
+Forms: 
+a : a + NoTone
+á : a + H
+Glosses: 
+or
+
+Forms: 
+a : a + NoTone
+án : an + H
+ā : a + M
+ān : an + M
+Glosses: 
+?
+
+Forms: 
+aah : aah + NoTone
+áà : aa + HL
+óō : oo + HM
+Glosses: 
+oh
+
+Forms: 
+ah : ah + NoTone
+eh : eh + NoTone
+oh : oh + NoTone
+uh : uh + NoTone
+um : um + NoTone
+Glosses: 
+uh
+
+Forms: 
+ai : ai + NoTone
+áì : ai + HL
+áí : ai + H
+Glosses: 
+oh
+
+Forms: 
+altar : altar + NoTone
+àltár : altar + L.H
+Glosses: 
+alter
+
+Forms: 
+am : am + NoTone
+Glosses: 
+um
+
+Forms: 
+amigoí : amigoi + H
+āmíkó : amiko + M.H.H
+Glosses: 
+friend
+
+Forms: 
+arco : arco + NoTone
+árco : arco + H
+Glosses: 
+
+
+Forms: 
+arko : arko + NoTone
+árkò : arko + H.L
+Glosses: 
+arc
+
+Forms: 
+ban : ban + NoTone
+Glosses: 
+[?]
+
+Forms: 
+bueno : bueno + NoTone
+Glosses: 
+well
+
+Forms: 
+bàlí : bali + L.H
+vali : vali + NoTone
+vàlī : vali + L.M
+válì : vali + H.L
+válí : vali + H.H
+váálí : vaali + H.H
+βáálí : βaali + H.H
+Glosses: 
+small.pl
+
+Forms: 
+báñó : baño + H.H
+Glosses: 
+bathroom
+
+Forms: 
+bésó : beso + H.H
+Glosses: 
+kiss
+
+Forms: 
+bísíklétā : bisikleta + H.H.H.M
+bīsīklētà : bisikleta + M.M.M.L
+bīsīklēètà : bisikleeta + M.M.ML.L
+Glosses: 
+bicycle
+
+Forms: 
+bóté : bote + H.H
+Glosses: 
+boat
+
+Forms: 
+búrgerking : burgerking + H
+Glosses: 
+Burger.King
+
+Forms: 
+búrò : buro + H.L
+búùrrò : buurro + HL.L
+Glosses: 
+donkey
+
+Forms: 
+bālí : bali + M.H
+bālī : bali + M.M
+Glosses: 
+small
+
+Forms: 
+bāndérá : bandera + M.H.H
+Glosses: 
+flag
+
+Forms: 
+bārrīō : barrio + M.M
+Glosses: 
+neighborhood
+
+Forms: 
+būrbūjà : burbuja + M.M.L
+Glosses: 
+bubble
+
+Forms: 
+chaa : chaa + NoTone
+chàā : chaa + LM
+tyàà : tyaa + L
+tyàā : tyaa + LM
+tyá : tya + H
+tyáá : tyaa + H
+tyǎ : tya + LH
+Glosses: 
+man
+
+Forms: 
+cha᷄gà : chaga + MH.L
+chàgá : chaga + L.H
+chágà : chaga + H.L
+chágā : chaga + H.M
+chāgà : chaga + M.L
+chāgá : chaga + M.H
+chāgā : chaga + M.M
+Glosses: 
+more
+
+Forms: 
+chikuíina : chikuiina + H
+Glosses: 
+thief
+
+Forms: 
+chà : cha + L
+chá : cha + H
+chā : cha + M
+Glosses: 
+emph
+only
+
+Forms: 
+chàndó : chando + L.H
+Glosses: 
+hello.pl
+
+Forms: 
+chàà : chaa + L
+châ : cha + HL
+Glosses: 
+hello.sg
+
+Forms: 
+chàā : chaa + LM
+cháá : chaa + H
+chāā : chaa + M
+Glosses: 
+some
+
+Forms: 
+chándò : chando + H.L
+Glosses: 
+??
+
+Forms: 
+chátá : chata + H.H
+Glosses: 
+?
+
+Forms: 
+cháán : chaan + H
+Glosses: 
+forehead
+
+Forms: 
+cháó : chao + H
+Glosses: 
+??
+
+Forms: 
+cháā : chaa + HM
+tyáā : tyaa + HM
+tyā : tya + M
+tyāā : tyaa + M
+Glosses: 
+make.tortilla
+
+Forms: 
+chè'è : che'e + L.L
+Glosses: 
+plant
+
+Forms: 
+chèè : chee + L
+Glosses: 
+bull
+
+Forms: 
+chì : chi + L
+Glosses: 
+
+
+Forms: 
+chì : chi + L
+tyì : tyi + L
+tyìì : tyii + L
+tyīī : tyii + M
+Glosses: 
+because
+
+Forms: 
+chìjè' : chije' + L.L
+chìjē' : chije' + L.M
+chíjè' : chije' + H.L
+chíjè'ē : chije'e + H.L.M
+chíjèˈé : chijeˈe + H.L.H
+chījè' : chije' + M.L
+Glosses: 
+hide
+
+Forms: 
+chìjíkō : chijiko + L.H.M
+Glosses: 
+??
+
+Forms: 
+chìjó : chijo + L.H
+chíjó : chijo + H.H
+chījó : chijo + M.H
+chījō : chijo + M.M
+Glosses: 
+cook
+
+Forms: 
+chìjē'é : chije'e + L.M.H
+Glosses: 
+
+
+Forms: 
+chìká : chika + L.H
+chìkáà : chikaa + L.HL
+chìkáā : chikaa + L.HM
+chìkāà : chikaa + L.ML
+chíkà : chika + H.L
+chíkàà : chikaa + H.L
+chíkáà : chikaa + H.HL
+chīkàà : chikaa + M.L
+chīkáà : chikaa + M.HL
+chīkáā : chikaa + M.HM
+chīkā : chika + M.M
+Glosses: 
+put
+put.in
+
+Forms: 
+chìlénā : chilena + L.H.M
+Glosses: 
+chilena
+
+Forms: 
+chìnìì : chinii + L.L
+Glosses: 
+butterfly.weed
+
+Forms: 
+chìnóàn : chinoan + L.HL
+Glosses: 
+put.on
+
+Forms: 
+chìsī : chisi + L.M
+tyīsī : tyisi + M.M
+Glosses: 
+under
+
+Forms: 
+chìtó : chito + L.H
+chìtō : chito + L.M
+chìītó : chiito + LM.H
+chító : chito + H.H
+chítō : chito + H.M
+chíító : chiito + H.H
+chītó : chito + M.H
+chītō : chito + M.M
+chīītō : chiito + M.M
+Glosses: 
+cat
+
+Forms: 
+chìì : chii + L
+Glosses: 
+
+
+Forms: 
+chí : chi + H
+Glosses: 
+it??
+
+Forms: 
+chí : chi + H
+Glosses: 
+
+
+Forms: 
+chí : chi + H
+Glosses: 
+
+
+Forms: 
+chí : chi + H
+chī : chi + M
+Glosses: 
+emph?
+
+Forms: 
+chíndyèē : chindyee + H.LM
+chíndzēé : chindzee + H.MH
+chīndyē : chindye + M.M
+chīndzēé : chindzee + M.MH
+Glosses: 
+help
+
+Forms: 
+chíndásí : chindasi + H.H.H
+Glosses: 
+dip
+
+Forms: 
+chítò : chito + H.L
+Glosses: 
+
+
+Forms: 
+chíìvò : chiivo + HL.L
+Glosses: 
+goat
+
+Forms: 
+chíín : chiin + H
+Glosses: 
+nail
+
+Forms: 
+chù' : chu' + L
+chù'ù : chu'u + L.L
+chú' : chu' + H
+chú'ū : chu'u + H.M
+chúù'ù : chuu'u + HL.L
+Glosses: 
+be.cooked
+
+Forms: 
+chùùn : chuun + L
+Glosses: 
+??
+
+Forms: 
+chú : chu + H
+chúùn : chuun + HL
+chúú : chuu + H
+chúún : chuun + H
+chúūn : chuun + HM
+chū : chu + M
+chūn : chun + M
+chūū : chuu + M
+chūūn : chuun + M
+Glosses: 
+chore
+
+Forms: 
+chā'yì : cha'yi + M.L
+Glosses: 
+rotten
+
+Forms: 
+chāā : chaa + M
+Glosses: 
+hello
+
+Forms: 
+chīn : chin + M
+Glosses: 
+
+
+Forms: 
+chīndzà'yà : chindza'ya + M.L.L
+Glosses: 
+peach
+
+Forms: 
+chīndzà'yī : chindza'yi + M.L.M
+Glosses: 
+peach
+
+Forms: 
+chīndzììchí : chindziichi + M.L.H
+Glosses: 
+avocado
+
+Forms: 
+chīndzììkì : chindziiki + M.L.L
+tyìndyìkì : tyindyiki + L.L.L
+tyìndzìkì : tyindziki + L.L.L
+Glosses: 
+cow
+
+Forms: 
+chīndòòkò : chindooko + M.L.L
+Glosses: 
+chicatana
+
+Forms: 
+chīnoa' : chinoa' + M
+Glosses: 
+
+
+Forms: 
+chīnoan : chinoan + M
+Glosses: 
+
+
+Forms: 
+chītò : chito + M.L
+Glosses: 
+
+
+Forms: 
+chōkōlátè : chokolate + M.M.H.L
+Glosses: 
+chocolate
+
+Forms: 
+chūtyá : chutya + M.H
+Glosses: 
+be.full
+
+Forms: 
+clásé : clase + H.H
+Glosses: 
+class
+
+Forms: 
+còmīdá : comida + L.M.H
+Glosses: 
+
+
+Forms: 
+cābáyò : cabayo + M.H.L
+Glosses: 
+horse
+
+Forms: 
+cērvézá : cerveza + M.H.H
+Glosses: 
+beer
+
+Forms: 
+dyí : dyi + H
+Glosses: 
+
+
+Forms: 
+dàjī : daji + L.M
+Glosses: 
+
+
+Forms: 
+dày : day + L
+ndá'yì : nda'yi + H.L
+Glosses: 
+yell
+
+Forms: 
+dáñá : daña + H.H
+Glosses: 
+Daña
+
+Forms: 
+dìbújó : dibujo + L.H.H
+dībújò : dibujo + M.H.L
+dībújó : dibujo + M.H.H
+Glosses: 
+picture
+
+Forms: 
+dìsiémbré : disiembre + L.H.H
+Glosses: 
+December
+
+Forms: 
+dò : do + L
+Glosses: 
+??
+
+Forms: 
+dón : don + H
+dôn : don + HL
+dōn : don + M
+Glosses: 
+Don
+
+Forms: 
+dórìs : doris + H.L
+dórīs : doris + H.M
+Glosses: 
+Doris
+
+Forms: 
+dē gwādālúpé : de gwadalupe + M.M.M.H.H
+Glosses: 
+of.Guadalupe
+
+Forms: 
+dōmíngó : domingo + M.H.H
+Glosses: 
+sunday
+
+Forms: 
+dūbālíìn : dubaliin + M.M.HL
+Glosses: 
+duvalin mexican candy
+
+Forms: 
+e : e + NoTone
+e᷅n : en + LM
+è : e + L
+èn : en + L
+èé : ee + LH
+é : e + H
+én : en + H
+éé : ee + H
+ē : e + M
+ēn : en + M
+ě : e + LH
+ěn : en + LH
+Glosses: 
+1pl.inc
+
+Forms: 
+eve : eve + NoTone
+èvè : eve + L.L
+èèvè : eeve + L.L
+ēèvè : eeve + ML.L
+Glosses: 
+two
+
+Forms: 
+eve mendo : eve mendo + NoTone
+Glosses: 
+2d
+
+Forms: 
+frésnó : fresno + H.H
+Glosses: 
+Fresno
+
+Forms: 
+frésá : fresa + H.H
+Glosses: 
+strawberry
+
+Forms: 
+fókò : foko + H.L
+Glosses: 
+light
+
+Forms: 
+fóndó : fondo + H.H
+Glosses: 
+bottom
+underskirt
+
+Forms: 
+fēvréró : fevrero + M.H.H
+Glosses: 
+February
+
+Forms: 
+fīdéó : fideo + M.H
+Glosses: 
+k.o.pasta
+
+Forms: 
+ga : ga + NoTone
+gá : ga + H
+gâ : ga + HL
+gā : ga + M
+Glosses: 
+foc?
+
+Forms: 
+grís : gris + H
+grîs : gris + HL
+Glosses: 
+gray
+
+Forms: 
+grāvár : gravar + M.H
+grāvâr : gravar + M.HL
+Glosses: 
+record
+
+Forms: 
+gà : ga + L
+Glosses: 
+??
+
+Forms: 
+gà : ga + L
+gá : ga + H
+gā : ga + M
+Glosses: 
+emph?
+more
+
+Forms: 
+gà : ga + L
+gá : ga + H
+ka : ka + NoTone
+kaa : kaa + NoTone
+kàà : kaa + L
+ká : ka + H
+káà : kaa + HL
+káàn : kaan + HL
+káá : kaa + H
+káā : kaa + HM
+kâ : ka + HL
+kùá : kua + LH
+kā : ka + M
+kāà : kaa + ML
+kāá : kaa + MH
+Glosses: 
+that
+there
+
+Forms: 
+gàà : gaa + L
+gá : ga + H
+gáà : gaa + HL
+gāà : gaa + ML
+Glosses: 
+existential
+
+Forms: 
+gìtárá : gitara + L.H.H
+Glosses: 
+guitar
+
+Forms: 
+górró : gorro + H.H
+Glosses: 
+cap
+
+Forms: 
+gāyétá : gayeta + M.H.H
+Glosses: 
+cookie
+
+Forms: 
+hì' : hi' + L
+jì' : ji' + L
+jì'ī : ji'i + L.M
+Glosses: 
+leg
+
+Forms: 
+hííkó : hiiko + H.H
+jiko : jiko + NoTone
+jìkó : jiko + L.H
+jìkō : jiko + L.M
+jììkó : jiiko + L.H
+jíkó : jiko + H.H
+jííkó : jiiko + H.H
+jīkò : jiko + M.L
+Glosses: 
+tall
+
+Forms: 
+i : i + NoTone
+iìn : iin + L
+ìn : in + L
+ììn : iin + L
+ín : in + H
+íìn : iin + HL
+íín : iin + H
+íīn : iin + HM
+ī : i + M
+īn : in + M
+īīn : iin + M
+Glosses: 
+one
+
+Forms: 
+iiñ tú'ú làà : iiñ tu'u laa + H.H.L
+Glosses: 
+lonely person
+
+Forms: 
+ita : ita + NoTone
+ìtà : ita + L.L
+ītà : ita + M.L
+ītā : ita + M.M
+īītā : iita + M.M
+Glosses: 
+flower
+
+Forms: 
+itandzii : itandzii + NoTone
+ītā ndzìí : ita ndzii + M.M.LH
+Glosses: 
+marigold
+
+Forms: 
+iñi : iñi + NoTone
+ììn : iin + L
+ííní : iini + H.H
+íínī : iini + H.M
+īñí : iñi + M.H
+īī : ii + M
+īīn : iin + M
+īīní : iini + M.H
+īīnî : iini + M.HL
+Glosses: 
+inside
+
+Forms: 
+iēló : ielo + M.H
+yéló : yelo + H.H
+yēló : yelo + M.H
+Glosses: 
+ice
+
+Forms: 
+i᷇ : i + HM
+Glosses: 
+
+
+Forms: 
+jaa : jaa + NoTone
+jà : ja + L
+jā : ja + M
+jāá : jaa + MH
+Glosses: 
+?
+then
+
+Forms: 
+jadzi : jadzi + NoTone
+jà'y : ja'y + L
+jà'yí : ja'yi + L.H
+jà'yī : ja'yi + L.M
+Glosses: 
+child
+daughter
+
+Forms: 
+javii : javii + NoTone
+jāvì : javi + M.L
+Glosses: 
+
+
+Forms: 
+ja᷄kwítyí : jakwityi + MH.H.H
+jāá kwīty : jaa kwity + MH.M
+jāá kwītyí : jaa kwityi + MH.M.H
+jāá kwītyī : jaa kwityi + MH.M.M
+Glosses: 
+always
+
+Forms: 
+jo : jo + NoTone
+jò : jo + L
+jòò : joo + L
+jó : jo + H
+jō : jo + M
+jō'ò : jo'o + M.L
+jōō : joo + M
+Glosses: 
+but
+
+Forms: 
+jutyíí : jutyii + H
+Glosses: 
+priest
+
+Forms: 
+jwáná : jwana + H.H
+Glosses: 
+Juana
+
+Forms: 
+jwán̄ : jwan + H.M
+jwân : jwan + HL
+Glosses: 
+Juan
+
+Forms: 
+jwākín̄ : jwakin + M.H.M
+Glosses: 
+Joaquín
+
+Forms: 
+jà : ja + L
+jàà : jaa + L
+já : ja + H
+jā : ja + M
+Glosses: 
+caus?
+
+Forms: 
+jà : ja + L
+já : ja + H
+Glosses: 
+can
+
+Forms: 
+jà : ja + L
+já : ja + H
+jāàn : jaan + ML
+Glosses: 
+yes
+
+Forms: 
+jà'mà : ja'ma + L.L
+jà'má xìtà : ja'ma xita + L.H.L.L
+já'mà : ja'ma + H.L
+jā'mà : ja'ma + M.L
+jā'má : ja'ma + M.H
+Glosses: 
+cloth
+clothes
+
+Forms: 
+jà'ì : ja'i + L.L
+jà'ī : ja'i + L.M
+Glosses: 
+son
+
+Forms: 
+jàkà : jaka + L.L
+jàká : jaka + L.H
+jàkā : jaka + L.M
+jàkǎ : jaka + L.LH
+jààkā : jaaka + L.M
+jáká : jaka + H.H
+jākā : jaka + M.M
+Glosses: 
+just
+
+Forms: 
+jàmā : jama + L.M
+Glosses: 
+change.clothes
+
+Forms: 
+jàn : jan + L
+Glosses: 
+
+
+Forms: 
+jàn : jan + L
+ján : jan + H
+jáná : jana + H.H
+jánā : jana + H.M
+jāniá : jania + M.H
+jāná : jana + M.H
+jāñá : jaña + M.H
+Glosses: 
+fall
+
+Forms: 
+jàndasi : jandasi + L
+Glosses: 
+make.wet
+
+Forms: 
+jànà : jana + L.L
+Glosses: 
+animate.property
+
+Forms: 
+jàní : jani + L.H
+jànī : jani + L.M
+jání : jani + H.H
+jāní : jani + M.H
+Glosses: 
+also
+
+Forms: 
+jàvì : javi + L.L
+jàví : javi + L.H
+jàvī : javi + L.M
+jávì : javi + H.L
+Glosses: 
+?
+rain
+
+Forms: 
+jàvì : javi + L.L
+jāvi : javi + M
+jāví : javi + M.H
+Glosses: 
+
+
+Forms: 
+jàxìtà : jaxita + L.L.L
+Glosses: 
+hot
+
+Forms: 
+jàyíì jàyíí : jayii jayii + L.HL.L.H
+Glosses: 
+great grandkid
+
+Forms: 
+jàyíì jí'ì jàyí yíìn : jayii ji'i jayi yiin + L.HL.H.L.L.H.HL
+Glosses: 
+the daughter of my male son
+
+Forms: 
+jàyíì níáā : jayii niaa + L.HL.HM
+Glosses: 
+female child
+
+Forms: 
+jàyíì yíí jàyí : jayii yii jayi + L.HL.H.L.H
+Glosses: 
+the son of the male child
+
+Forms: 
+jàyíìn tātāì : jayiin tatai + L.HL.M.ML
+Glosses: 
+my stepfather's child
+
+Forms: 
+jàyíìn xíkwáì : jayiin xikwai + L.HL.H.HL
+Glosses: 
+great grandchildren
+
+Forms: 
+jàyíìn ñanì : jayiin ñani + L.HL.L
+Glosses: 
+female grandchild
+
+Forms: 
+jàyā : jaya + L.M
+Glosses: 
+let go
+
+Forms: 
+jàñà : jaña + L.L
+nìjānā : nijana + L.M.M
+nìjāñárá : nijañara + L.M.H.H
+ñíjāñàá : ñijañaa + H.M.LH
+Glosses: 
+fall
+
+Forms: 
+já : ja + H
+Glosses: 
+??
+
+Forms: 
+já : ja + H
+Glosses: 
+then
+
+Forms: 
+já' : ja' + H
+já'á : ja'a + H.H
+Glosses: 
+foreign
+
+Forms: 
+já'ma᷄xītà : ja'maxita + H.MH.M.L
+Glosses: 
+tortilla.cloth
+
+Forms: 
+já'và : ja'va + H.L
+Glosses: 
+frog
+
+Forms: 
+jákwà'à : jakwa'a + H.L.L
+Glosses: 
+study
+
+Forms: 
+jákàkà : jakaka + H.L.L
+jákākā : jakaka + H.M.M
+Glosses: 
+drive
+
+Forms: 
+jákànà : jakana + H.L.L
+jákānā : jakana + H.M.M
+Glosses: 
+throw
+
+Forms: 
+jáká : jaka + H.H
+Glosses: 
+brave
+
+Forms: 
+jákásīō : jakasio + H.H.M
+kásī : kasi + H.M
+Glosses: 
+remove
+
+Forms: 
+jákūsiá'ān : jakusia'an + H.M.H.M
+Glosses: 
+feed
+
+Forms: 
+jámá : jama + H.H
+Glosses: 
+
+
+Forms: 
+jángò : jango + H.L
+ákò : ako + H.L
+Glosses: 
+right?
+
+Forms: 
+jáni : jani + H
+Glosses: 
+
+
+Forms: 
+jánàkākā : janakaka + H.L.M.M
+Glosses: 
+make.thin
+
+Forms: 
+jáná' : jana' + H.H
+Glosses: 
+show
+
+Forms: 
+jánānā : janana + H.M.M
+Glosses: 
+raise
+
+Forms: 
+jánāˈà : janaˈa + H.M.L
+Glosses: 
+point
+
+Forms: 
+jánī : jani + H.M
+Glosses: 
+
+
+Forms: 
+jásì : jasi + H.L
+Glosses: 
+nephew
+
+Forms: 
+jáà : jaa + HL
+Glosses: 
+??
+
+Forms: 
+jáà : jaa + HL
+jāà : jaa + ML
+Glosses: 
+fresh
+hot
+
+Forms: 
+jáímé : jaime + H.H
+Glosses: 
+Jaime
+
+Forms: 
+jáā : jaa + HM
+Glosses: 
+
+
+Forms: 
+jè : je + L
+jè'è : je'e + L.L
+jē : je + M
+jē'ē : je'e + M.M
+Glosses: 
+like.this
+
+Forms: 
+jì'ndyì : ji'ndyi + L.L
+Glosses: 
+butt
+
+Forms: 
+jì'ví : ji'vi + L.H
+Glosses: 
+poop
+
+Forms: 
+jìkì : jiki + L.L
+jíkì : jiki + H.L
+jīkì : jiki + M.L
+Glosses: 
+necklace
+
+Forms: 
+jìkò : jiko + L.L
+jíkò : jiko + H.L
+jíkòñá : jikoña + H.L.H
+Glosses: 
+neck
+
+Forms: 
+jìì : jii + L
+jìī : jii + LM
+jí : ji + H
+jíí : jii + H
+jīì : jii + ML
+Glosses: 
+happy
+
+Forms: 
+jììnī : jiini + L.M
+Glosses: 
+eat.breakfast
+
+Forms: 
+jí : ji + H
+jíìn : jiin + HL
+Glosses: 
+weird
+
+Forms: 
+jí'í : ji'i + H.H
+Glosses: 
+female
+
+Forms: 
+jík : jik + H
+jíkí : jiki + H.H
+kūjík : kujik + M.H
+kūjíky : kujiky + M.H
+kūjíkí : kujiki + M.H.H
+Glosses: 
+play
+
+Forms: 
+jíkî : jiki + H.HL
+Glosses: 
+play
+
+Forms: 
+jítyí : jityi + H.H
+Glosses: 
+cheek
+
+Forms: 
+jò : jo + L
+ìjǒ : ijo + L.LH
+Glosses: 
+chaos
+
+Forms: 
+jò' : jo' + L
+jò'ò : jo'o + L.L
+jò'ō : jo'o + L.M
+jō' : jo' + M
+Glosses: 
+ear
+
+Forms: 
+jòkò : joko + L.L
+Glosses: 
+shoulder
+
+Forms: 
+jó'ó : jo'o + H.H
+Glosses: 
+deaf
+
+Forms: 
+jósínó : josino + H.H.H
+Glosses: 
+
+
+Forms: 
+jù : ju + L
+Glosses: 
+?
+
+Forms: 
+jùú : juu + LH
+Glosses: 
+?
+
+Forms: 
+jā : ja + M
+Glosses: 
+really
+
+Forms: 
+jā : ja + M
+Glosses: 
+future?
+
+Forms: 
+jākùú : jakuu + M.LH
+Glosses: 
+
+
+Forms: 
+jāmón̄ : jamon + M.H.M
+Glosses: 
+ham
+
+Forms: 
+jāndàsí : jandasi + M.L.H
+Glosses: 
+
+
+Forms: 
+jāná : jana + M.H
+Glosses: 
+purposive
+
+Forms: 
+jāráná : jarana + M.H.H
+Glosses: 
+jarana
+
+Forms: 
+jātà : jata + M.L
+Glosses: 
+
+
+Forms: 
+jātākā : jataka + M.M.M
+Glosses: 
+gather
+
+Forms: 
+jāáná : jaana + MH.H
+Glosses: 
+also?
+
+Forms: 
+jāā : jaa + M
+Glosses: 
+
+
+Forms: 
+jī'vínchīkì : ji'vinchiki + M.H.M.L
+Glosses: 
+cow.poop
+
+Forms: 
+jīvī : jivi + M.M
+Glosses: 
+like
+
+Forms: 
+jīvīní : jivini + M.M.H
+jīvīnī : jivini + M.M.M
+Glosses: 
+also
+
+Forms: 
+jōséē : josee + M.HM
+Glosses: 
+José
+
+Forms: 
+jōxīīnī : joxiini + M.M.M
+Glosses: 
+first
+
+Forms: 
+jūkété : jukete + M.H.H
+Glosses: 
+toy
+
+Forms: 
+jūvēntínó : juventino + M.M.H.H
+Glosses: 
+Juventino
+
+Forms: 
+jūvēntīnò : juventino + M.M.M.L
+Glosses: 
+
+
+Forms: 
+k : k + NoTone
+ki : ki + NoTone
+kù : ku + L
+kùù : kuu + L
+kùū : kuu + LM
+kú : ku + H
+kúù : kuu + HL
+kúú : kuu + H
+kúū : kuu + HM
+kāū : kau + M
+kō : ko + M
+kū : ku + M
+kū' : ku' + M
+kūú : kuu + MH
+kūū : kuu + M
+Glosses: 
+be
+become
+happen
+
+Forms: 
+ka : ka + NoTone
+Glosses: 
+
+
+Forms: 
+ka : ka + NoTone
+kà : ka + L
+ká : ka + H
+káā : kaa + HM
+kā : ka + M
+Glosses: 
+be
+
+Forms: 
+kachun : kachun + NoTone
+kachundzu : kachundzu + NoTone
+kachundzu'u : kachundzu'u + NoTone
+kachù : kachu + L
+káchúūn : kachuun + H.HM
+kāchúù : kachuu + M.HL
+kāchúūn : kachuun + M.HM
+Glosses: 
+work
+
+Forms: 
+kaja : kaja + NoTone
+kàjà : kaja + L.L
+kàjā : kaja + L.M
+kája : kaja + H
+kájà : kaja + H.L
+kájá : kaja + H.H
+kájí : kaji + H.H
+kájā : kaja + H.M
+kājá : kaja + M.H
+kājí : kaji + M.H
+kājā : kaja + M.M
+Glosses: 
+do.irr
+make.irr
+
+Forms: 
+kalifornia : kalifornia + NoTone
+kālīfórniá : kalifornia + M.M.H.H
+Glosses: 
+California
+
+Forms: 
+kanùñ : kanuñ + L
+ká'nō : ka'no + H.M
+káˈnò : kaˈno + H.L
+sá'nò : sa'no + H.L
+sá'nō : sa'no + H.M
+Glosses: 
+big.sg
+fat
+
+Forms: 
+kato : kato + NoTone
+Glosses: 
+
+
+Forms: 
+katooundzu'u : katooundzu'u + NoTone
+kāātó : kaato + M.H
+Glosses: 
+tie
+
+Forms: 
+kaàku : kaaku + L
+kààkū : kaaku + L.M
+kákw : kakw + H
+kākū : kaku + M.M
+kāākū : kaaku + M.M
+Glosses: 
+be.born
+
+Forms: 
+kitò : kito + L
+kītō : kito + M.M
+Glosses: 
+bamboo
+
+Forms: 
+kixi : kixi + NoTone
+kìxì : kixi + L.L
+kíx : kix + H
+kíxì : kixi + H.L
+kíxí : kixi + H.H
+kíxī : kixi + H.M
+kííxī : kiixi + H.M
+kīxā : kixa + M.M
+kīxī : kixi + M.M
+kīx̄i : kixi + M.M
+Glosses: 
+do.realis
+make.realis
+
+Forms: 
+kià'à : kia'a + L.L
+kìà'ā : kia'a + L.M
+Glosses: 
+measure
+
+Forms: 
+kià'á : kia'a + L.H
+Glosses: 
+sibling
+
+Forms: 
+kià'ā : kia'a + L.M
+Glosses: 
+brother
+
+Forms: 
+kiàjē'ē : kiaje'e + L.M.M
+kīà : kia + ML
+kīá : kia + MH
+Glosses: 
+like.this
+
+Forms: 
+kiáā : kiaa + HM
+kíà : kia + HL
+kíáà : kiaa + HL
+kīà : kia + ML
+Glosses: 
+why?
+
+Forms: 
+ko : ko + NoTone
+Glosses: 
+
+
+Forms: 
+ko : ko + NoTone
+kò : ko + L
+kòò : koo + L
+kòó : koo + LH
+kòō : koo + LM
+kó : ko + H
+kóò : koo + HL
+kù : ku + L
+kō : ko + M
+kōò : koo + ML
+kōó : koo + MH
+Glosses: 
+neg
+neg.exist
+
+Forms: 
+ko'ò : ko'o + L
+kò'ò : ko'o + L.L
+kò'òō : ko'oo + L.LM
+kō'ò : ko'o + M.L
+Glosses: 
+plate
+
+Forms: 
+ku : ku + NoTone
+Glosses: 
+person
+
+Forms: 
+ku : ku + NoTone
+kw : kw + NoTone
+kwà : kwa + L
+kù : ku + L
+kùú : kuu + LH
+kùū : kuu + LM
+kú : ku + H
+kū : ku + M
+xù : xu + L
+Glosses: 
+fut
+inf
+irr
+
+Forms: 
+kuní : kuni + H
+kùní : kuni + L.H
+kùnī : kuni + L.M
+kùtō : kuto + L.M
+kú : ku + H
+kún : kun + H
+kúni : kuni + H
+kúnì : kuni + H.L
+kúnī : kuni + H.M
+kúùni : kuuni + HL
+kúùnì : kuuni + HL.L
+kúú : kuu + H
+kūn : kun + M
+kūnì : kuni + M.L
+kūní : kuni + M.H
+kūnī : kuni + M.M
+kūñī : kuñi + M.M
+nì : ni + L
+Glosses: 
+?
+des
+like
+want
+
+Forms: 
+kuádró : kuadro + H.H
+Glosses: 
+picture
+
+Forms: 
+kuáá : kuaa + H
+Glosses: 
+
+
+Forms: 
+kwià : kwia + L
+kwiàà : kwiaa + L
+kwìà : kwia + L
+kwìàá : kwiaa + LH
+kwìá : kwia + LH
+kwìā : kwia + LM
+kwīà : kwia + ML
+Glosses: 
+year
+
+Forms: 
+kwà' : kwa' + L
+kwà'à : kwa'a + L.L
+kwà'àn : kwa'an + L.L
+kwàn' : kwan' + L
+kwàˈà : kwaˈa + L.L
+kwàˈàn : kwaˈan + L.L
+kwáˈ : kwaˈ + H
+kwáˈá : kwaˈa + H.H
+kwā' : kwa' + M
+kwā'un : kwa'un + M
+kwā'à : kwa'a + M.L
+kwā'ā : kwa'a + M.M
+à'à : a'a + L.L
+à'àn : a'an + L.L
+Glosses: 
+go.realis
+
+Forms: 
+kwà'à : kwa'a + L.L
+kwà'àn : kwa'an + L.L
+kwà'ā : kwa'a + L.M
+kwà'āá : kwa'aa + L.MH
+kwà'ǎ : kwa'a + L.LH
+kwá'à : kwa'a + H.L
+kwā'à : kwa'a + M.L
+Glosses: 
+many
+much
+
+Forms: 
+kwànānā : kwanana + L.M.M
+Glosses: 
+move.up
+
+Forms: 
+kwàyā'ā : kwaya'a + L.M.M
+yàˈà : yaˈa + L.L
+yáˈà : yaˈa + H.L
+Glosses: 
+pass
+
+Forms: 
+kwààn : kwaan + L
+kwáá : kwaa + H
+kwáán : kwaan + H
+kwāán : kwaan + MH
+Glosses: 
+yellow
+
+Forms: 
+kwàá : kwaa + LH
+kwā : kwa + M
+Glosses: 
+?
+
+Forms: 
+kwàˈà : kwaˈa + L.L
+kwáˈàn : kwaˈan + H.L
+kwāˈá : kwaˈa + M.H
+Glosses: 
+pl
+
+Forms: 
+kwá : kwa + H
+Glosses: 
+buy
+
+Forms: 
+kwá : kwa + H
+kwákú : kwaku + H.H
+sākū : saku + M.M
+ákù : aku + H.L
+ákú : aku + H.H
+ákū : aku + H.M
+ākù : aku + M.L
+Glosses: 
+laugh
+smile
+
+Forms: 
+kwá : kwa + H
+kwákú : kwaku + H.H
+sākū : saku + M.M
+ákù : aku + H.L
+ákú : aku + H.H
+ákū : aku + H.M
+ākū : aku + M.M
+Glosses: 
+cry
+
+Forms: 
+kwá' : kwa' + H
+kwá'á : kwa'a + H.H
+kwá'ā : kwa'a + H.M
+kwáʔá : kwaʔa + H.H
+kwā'ā : kwa'a + M.M
+Glosses: 
+red
+
+Forms: 
+kwá'á : kwa'a + H.H
+Glosses: 
+leave
+
+Forms: 
+kwá'á yúùtyà : kwa'a yuutya + H.H.HL.L
+kwá'áyúùtyà : kwa'ayuutya + H.H.HL.L
+Glosses: 
+pink
+
+Forms: 
+kwáàyì : kwaayi + HL.L
+Glosses: 
+horse
+
+Forms: 
+kwáá : kwaa + H
+Glosses: 
+blind
+
+Forms: 
+kwè' : kwe' + L
+kwē'è : kwe'e + M.L
+Glosses: 
+mad
+
+Forms: 
+kwè'è : kwe'e + L.L
+Glosses: 
+angry
+sickness
+
+Forms: 
+kwèntá : kwenta + L.H
+Glosses: 
+realization
+
+Forms: 
+kwèì : kwei + L
+Glosses: 
+
+
+Forms: 
+kwèē : kwee + LM
+kwé : kwe + H
+kwéé : kwee + H
+kwē : kwe + M
+kwēē : kwee + M
+Glosses: 
+slow
+
+Forms: 
+kwèˈè : kweˈe + L.L
+kwéˈé : kweˈe + H.H
+Glosses: 
+angry
+
+Forms: 
+kwéntá : kwenta + H.H
+Glosses: 
+?
+
+Forms: 
+kwéntó : kwento + H.H
+Glosses: 
+story
+
+Forms: 
+kwéé : kwee + H
+Glosses: 
+??
+
+Forms: 
+kwééní : kweeni + H.H
+kwéénī : kweeni + H.M
+Glosses: 
+little.bit
+
+Forms: 
+kwì'ná : kwi'na + L.H
+kwì'nā : kwi'na + L.M
+kwí'ná : kwi'na + H.H
+Glosses: 
+theft
+thief
+
+Forms: 
+kwìty : kwity + L
+kwìtyîn : kwityin + L.HL
+kwíty : kwity + H
+kwīty : kwity + M
+kwītyí : kwityi + M.H
+kwītyī : kwityi + M.M
+Glosses: 
+always
+just.now?
+
+Forms: 
+kwììkà : kwiika + L.L
+Glosses: 
+comb
+
+Forms: 
+kwí : kwi + H
+kwíì : kwii + HL
+Glosses: 
+green
+
+Forms: 
+kwí'í : kwi'i + H.H
+Glosses: 
+
+
+Forms: 
+kwíka : kwika + H
+Glosses: 
+rich
+
+Forms: 
+kwíí : kwii + H
+Glosses: 
+clear
+
+Forms: 
+kwíí : kwii + H
+kwī'í : kwi'i + M.H
+Glosses: 
+fruit
+
+Forms: 
+kwííkó : kwiiko + H.H
+kwīkò : kwiko + M.L
+Glosses: 
+hungry
+
+Forms: 
+kwā'á : kwa'a + M.H
+Glosses: 
+
+
+Forms: 
+kwā'ā : kwa'a + M.M
+kwā'ān : kwa'an + M.M
+Glosses: 
+
+
+Forms: 
+kwāxì : kwaxi + M.L
+Glosses: 
+squish
+
+Forms: 
+kwāˈān : kwaˈan + M.M
+Glosses: 
+??
+
+Forms: 
+kwēntā : kwenta + M.M
+Glosses: 
+bead
+
+Forms: 
+kwītyí : kwityi + M.H
+Glosses: 
+?
+
+Forms: 
+kà : ka + L
+Glosses: 
+at.the.hour
+
+Forms: 
+kà : ka + L
+ká : ka + H
+kā : ka + M
+Glosses: 
+fut?
+
+Forms: 
+kà : ka + L
+sìkà : sika + L.L
+síkà : sika + H.L
+síká : sika + H.H
+síkā : sika + H.M
+sīká : sika + M.H
+sīkā : sika + M.M
+Glosses: 
+walk
+
+Forms: 
+kà' : ka' + L
+kà'à : ka'a + L.L
+kà'àn : ka'an + L.L
+kàn'à : kan'a + L.L
+kàˈà : kaˈa + L.L
+ká' : ka' + H
+ká'à : ka'a + H.L
+ká'àn : ka'an + H.L
+ká'á : ka'a + H.H
+ká'án : ka'an + H.H
+ká'ā : ka'a + H.M
+ká'ān : ka'an + H.M
+káán : kaan + H
+káˈ : kaˈ + H
+káˈà : kaˈa + H.L
+káˈá : kaˈa + H.H
+káˈā : kaˈa + H.M
+kā' : ka' + M
+kān : kan + M
+kāˈ : kaˈ + M
+kāˈà : kaˈa + M.L
+kǎ'án : ka'an + LH.H
+Glosses: 
+talk
+
+Forms: 
+kà' : ka' + L
+kàn' : kan' + L
+kàn'àn : kan'an + L.L
+kān' : kan' + M
+kānī : kani + M.M
+Glosses: 
+tell
+
+Forms: 
+kà'nò : ka'no + L.L
+sá'nō : sa'no + H.M
+Glosses: 
+break
+
+Forms: 
+kà'á : ka'a + L.H
+Glosses: 
+
+
+Forms: 
+kà'án : ka'an + L.H
+ká'á : ka'a + H.H
+ká'án : ka'an + H.H
+kā'án : ka'an + M.H
+Glosses: 
+believe
+
+Forms: 
+kàch : kach + L
+kàchì : kachi + L.L
+kách : kach + H
+káchì : kachi + H.L
+káchí : kachi + H.H
+kāch : kach + M
+kāchi : kachi + M
+kāchí : kachi + M.H
+kāchī : kachi + M.M
+Glosses: 
+say
+
+Forms: 
+kàchù : kachu + L.L
+Glosses: 
+
+
+Forms: 
+kàfê : kafe + L.HL
+Glosses: 
+coffee
+
+Forms: 
+kàjí : kaji + L.H
+kājī : kaji + M.M
+ndájí : ndaji + H.H
+ndājí : ndaji + M.H
+ndājī : ndaji + M.M
+sāj : saj + M
+sājī : saji + M.M
+Glosses: 
+be.closed
+
+Forms: 
+kàmà : kama + L.L
+kámá : kama + H.H
+kámā : kama + H.M
+kāmà : kama + M.L
+kāmā : kama + M.M
+kāāmā : kaama + M.M
+Glosses: 
+fast
+quickly
+soon
+
+Forms: 
+kàn'ñí : kan'ñi + L.H
+kā'ní : ka'ni + M.H
+sá'n : sa'n + H
+sā'ní : sa'ni + M.H
+sā'nī : sa'ni + M.M
+à'ní : a'ni + L.H
+Glosses: 
+kill
+
+Forms: 
+kàndjá : kandja + L.H
+kàndjā : kandja + L.M
+Glosses: 
+trip
+
+Forms: 
+kàndyá : kandya + L.H
+kàndyā : kandya + L.M
+Glosses: 
+take
+
+Forms: 
+kànàkàá : kanakaa + L.L.LH
+kānākà : kanaka + M.M.L
+kānākàà : kanakaa + M.M.L
+kānākā : kanaka + M.M.M
+Glosses: 
+have?
+sit
+stay
+
+Forms: 
+kànì : kani + L.L
+kánī : kani + H.M
+káán : kaan + H
+káánī : kaani + H.M
+káñ : kañ + H
+káñī : kañi + H.M
+kān : kan + M
+kāni : kani + M
+kānì : kani + M.L
+kāní : kani + M.H
+kānī : kani + M.M
+kāānī : kaani + M.M
+Glosses: 
+hit
+press
+
+Forms: 
+kànî : kani + L.HL
+Glosses: 
+get.to
+
+Forms: 
+kàrō : karo + L.M
+kárró : karro + H.H
+káró : karo + H.H
+kárō : karo + H.M
+kāró : karo + M.H
+kārō : karo + M.M
+Glosses: 
+car
+
+Forms: 
+kàsà : kasa + L.L
+kàsàà : kasaa + L.L
+kàsá : kasa + L.H
+kásà : kasa + H.L
+kásàà : kasaa + H.L
+kásāā : kasaa + H.M
+kāsà : kasa + M.L
+kāsàà : kasaa + M.L
+kāsáá : kasaa + M.H
+kāsáˈ : kasaˈ + M.H
+kāsāà : kasaa + M.ML
+Glosses: 
+arrive
+come
+
+Forms: 
+kàsà'á : kasa'a + L.L.H
+kàsā' : kasa' + L.M
+kā : ka + M
+kāsá' : kasa' + M.H
+kāsá'á : kasa'a + M.H.H
+kāsā'á : kasa'a + M.M.H
+Glosses: 
+start
+
+Forms: 
+kàsí : kasi + L.H
+kùsi : kusi + L
+kùsí : kusi + L.H
+kúsi : kusi + H
+kúsí : kusi + H.H
+kūsi : kusi + M
+kūsiá'ā : kusia'a + M.H.M
+kūūsi : kuusi + M
+kūūsī : kuusi + M.M
+si : si + NoTone
+sì : si + L
+sí : si + H
+sī : si + M
+Glosses: 
+eat
+
+Forms: 
+kàsā : kasa + L.M
+Glosses: 
+
+
+Forms: 
+kàtyí : katyi + L.H
+Glosses: 
+scratch
+
+Forms: 
+kàtà : kata + L.L
+Glosses: 
+
+
+Forms: 
+kàtà : kata + L.L
+kátá : kata + H.H
+kátā : kata + H.M
+kātā : kata + M.M
+tā : ta + M
+Glosses: 
+sing
+
+Forms: 
+kàvá : kava + L.H
+Glosses: 
+canyon, cliff
+cave
+
+Forms: 
+kàxì : kaxi + L.L
+Glosses: 
+crush
+
+Forms: 
+kàyì : kayi + L.L
+kààyi : kaayi + L
+káyì : kayi + H.L
+káyī : kayi + H.M
+káàyi : kaayi + HL
+kāyì : kayi + M.L
+Glosses: 
+burn
+
+Forms: 
+kààxí : kaaxi + L.H
+Glosses: 
+stab
+
+Forms: 
+kàá : kaa + LH
+Glosses: 
+metal
+
+Forms: 
+ká'ndzí : ka'ndzi + H.H
+Glosses: 
+explode
+
+Forms: 
+ká'vì : ka'vi + H.L
+ká'ví : ka'vi + H.H
+ká'vī : ka'vi + H.M
+kā'v : ka'v + M
+kā'ví : ka'vi + M.H
+kā'vī : ka'vi + M.M
+kāv'ì : kav'i + M.L
+kāvī : kavi + M.M
+kāˈvī : kaˈvi + M.M
+Glosses: 
+read
+
+Forms: 
+kájá ñāmànì : kaja ñamani + H.H.M.L.L
+Glosses: 
+implore
+
+Forms: 
+káká : kaka + H.H
+kā : ka + M
+kākà : kaka + M.L
+kākā : kaka + M.M
+kāākā : kaaka + M.M
+Glosses: 
+flow
+walk
+
+Forms: 
+kámá : kama + H.H
+Glosses: 
+come
+
+Forms: 
+kámākí : kamaki + H.M.H
+Glosses: 
+
+
+Forms: 
+kámārā : kamara + H.M.M
+Glosses: 
+camera
+
+Forms: 
+kándzāā : kandzaa + H.M
+Glosses: 
+be.attached
+
+Forms: 
+kándzīà : kandzia + H.ML
+Glosses: 
+base??
+
+Forms: 
+kánà'ān : kana'an + H.L.M
+Glosses: 
+insult
+
+Forms: 
+káná : kana + H.H
+Glosses: 
+rise
+
+Forms: 
+káná : kana + H.H
+Glosses: 
+looking?
+
+Forms: 
+kánárá : kanara + H.H.H
+Glosses: 
+
+
+Forms: 
+kánā : kana + H.M
+Glosses: 
+come.out
+
+Forms: 
+kánā : kana + H.M
+kánāā : kanaa + H.M
+kānā : kana + M.M
+Glosses: 
+call
+
+Forms: 
+kánī : kani + H.M
+Glosses: 
+long
+
+Forms: 
+kánī : kani + H.M
+Glosses: 
+
+
+Forms: 
+kármà : karma + H.L
+Glosses: 
+karma
+
+Forms: 
+kárétà : kareta + H.H.L
+Glosses: 
+cart
+
+Forms: 
+kásá : kasa + H.H
+Glosses: 
+
+
+Forms: 
+kásì : kasi + H.L
+Glosses: 
+eat?
+
+Forms: 
+kásī : kasi + H.M
+Glosses: 
+tell
+
+Forms: 
+kát : kat + H
+Glosses: 
+scatter
+
+Forms: 
+kátà : kata + H.L
+Glosses: 
+
+
+Forms: 
+kátākāā : katakaa + H.M.M
+káátākā : kaataka + H.M.M
+káátākāā : kaatakaa + H.M.M
+kātākā : kataka + M.M.M
+Glosses: 
+hang
+
+Forms: 
+kávà : kava + H.L
+Glosses: 
+roll
+
+Forms: 
+káyē : kaye + H.M
+Glosses: 
+road
+
+Forms: 
+káání : kaani + H.H
+Glosses: 
+slimy
+
+Forms: 
+káává : kaava + H.H
+Glosses: 
+make.hole
+
+Forms: 
+káává yāvì : kaava yavi + H.H.M.L
+Glosses: 
+dig.hole
+
+Forms: 
+kááváyītò : kaavayito + H.H.M.L
+Glosses: 
+carve.wood
+
+Forms: 
+kááyì : kaayi + H.L
+sìkáàyì : sikaayi + L.HL.L
+Glosses: 
+burn
+
+Forms: 
+kááyí : kaayi + H.H
+Glosses: 
+sneeze
+
+Forms: 
+káˈá : kaˈa + H.H
+kā'à : ka'a + M.L
+kā'á : ka'a + M.H
+Glosses: 
+base
+butt
+
+Forms: 
+kè' : ke' + L
+kè'ē : ke'e + L.M
+kè'ēn : ke'en + L.M
+kē' : ke' + M
+kē'é : ke'e + M.H
+kē'én : ke'en + M.H
+kē'ē : ke'e + M.M
+kē'ēn : ke'en + M.M
+Glosses: 
+give
+
+Forms: 
+kè' : ke' + L
+ké' : ke' + H
+kē' : ke' + M
+kē'în : ke'in + M.HL
+kē'ēn : ke'en + M.M
+kēn' : ken' + M
+kēˈ : keˈ + M
+Glosses: 
+take
+
+Forms: 
+kèˈ? : keˈ? + L
+Glosses: 
+pick.up
+
+Forms: 
+ké'è : ke'e + H.L
+Glosses: 
+
+
+Forms: 
+kì : ki + L
+Glosses: 
+
+
+Forms: 
+kì'vì : ki'vi + L.L
+kìʼví : kiʼvi + L.H
+kí'v : ki'v + H
+kívin : kivin + H
+Glosses: 
+sister
+
+Forms: 
+kì'vī : ki'vi + L.M
+kìˈví : kiˈvi + L.H
+kíˈvì : kiˈvi + H.L
+Glosses: 
+enter
+
+Forms: 
+kìjī : kiji + L.M
+kìxī : kixi + L.M
+Glosses: 
+pot
+
+Forms: 
+kìjīló'ò : kijilo'o + L.M.H.L
+Glosses: 
+cup
+
+Forms: 
+kìn : kin + L
+kìnì : kini + L.L
+kìñì : kiñi + L.L
+kìñìō : kiñio + L.LM
+kínì : kini + H.L
+kíní : kini + H.H
+kīn : kin + M
+kīnì : kini + M.L
+kīnī : kini + M.M
+kīñ : kiñ + M
+kīñī : kiñi + M.M
+Glosses: 
+ugly
+
+Forms: 
+kìní : kini + L.H
+kīni̍ : kini̍ + M
+Glosses: 
+old
+
+Forms: 
+kìnù : kinu + L.L
+Glosses: 
+
+
+Forms: 
+kìshì : kishi + L.L
+Glosses: 
+
+
+Forms: 
+kìsì : kisi + L.L
+kísì : kisi + H.L
+kísí : kisi + H.H
+kísī : kisi + H.M
+kīsī : kisi + M.M
+kīsītyíùn : kisityiun + M.M.HL
+kīsīyí : kisiyi + M.M.H
+tyísí : tyisi + H.H
+Glosses: 
+come?
+
+Forms: 
+kìtyì : kityi + L.L
+kìtyí : kityi + L.H
+Glosses: 
+there?
+
+Forms: 
+kìtyí : kityi + L.H
+kītyí : kityi + M.H
+kītyī : kityi + M.M
+Glosses: 
+most?
+
+Forms: 
+kìtó : kito + L.H
+kītó : kito + M.H
+kītō : kito + M.M
+Glosses: 
+??
+rel?
+
+Forms: 
+kìvì : kivi + L.L
+kìví : kivi + L.H
+kììvì : kiivi + L.L
+kívì : kivi + H.L
+kīví : kivi + M.H
+Glosses: 
+day
+
+Forms: 
+kìvì : kivi + L.L
+kīìvì : kiivi + ML.L
+Glosses: 
+name
+
+Forms: 
+kìvì vítyí : kivi vityi + L.L.H.H
+kìvì víītyī : kivi viityi + L.L.HM.M
+Glosses: 
+today
+
+Forms: 
+kìvīn : kivin + L.M
+Glosses: 
+
+
+Forms: 
+kìxì : kixi + L.L
+kíxī : kixi + H.M
+kíìxì : kiixi + HL.L
+Glosses: 
+sleep
+
+Forms: 
+kììn : kiin + L
+Glosses: 
+
+
+Forms: 
+kìí : kii + LH
+Glosses: 
+boil
+
+Forms: 
+kítyì : kityi + H.L
+kítyí : kityi + H.H
+kíìtyì : kiityi + HL.L
+kîtyì : kityi + HL.L
+kītyì : kityi + M.L
+kīītyí : kiityi + M.H
+Glosses: 
+animal
+
+Forms: 
+kív : kiv + H
+kīví : kivi + M.H
+Glosses: 
+pierce?
+
+Forms: 
+kívikwāʧí : kivikwaʧi + H.M.H
+Glosses: 
+female cousin
+
+Forms: 
+kíví : kivi + H.H
+kīvī : kivi + M.M
+Glosses: 
+die
+die.fut
+
+Forms: 
+kíñò : kiño + H.L
+kíñō : kiño + H.M
+kīñō : kiño + M.M
+Glosses: 
+emph
+
+Forms: 
+kíù : kiu + HL
+Glosses: 
+
+
+Forms: 
+kíā : kia + HM
+Glosses: 
+
+
+Forms: 
+kíākwāʧí : kiakwaʧi + HM.M.H
+Glosses: 
+male cousin
+
+Forms: 
+kò : ko + L
+Glosses: 
+
+
+Forms: 
+kò' : ko' + L
+kò'ò : ko'o + L.L
+kóˈ : koˈ + H
+kù' : ku' + L
+kù'ù : ku'u + L.L
+kù'ùn : ku'un + L.L
+kùn' : kun' + L
+kùˈ : kuˈ + L
+kú' : ku' + H
+kú'ù : ku'u + H.L
+kú'ùn : ku'un + H.L
+kúˈùn : kuˈun + H.L
+kōˈ : koˈ + M
+kū' : ku' + M
+kū'ù : ku'u + M.L
+kū'ùn : ku'un + M.L
+kūndò : kundo + M.L
+kūˈ : kuˈ + M
+kūˈū : kuˈu + M.M
+kūˈūn : kuˈun + M.M
+Glosses: 
+go.irr
+
+Forms: 
+kò'ò yìījí : ko'o yiiji + L.L.LM.H
+Glosses: 
+pestle
+
+Forms: 
+kòmì : komi + L.L
+kòmí : komi + L.H
+kòòmì : koomi + L.L
+kóòmì : koomi + HL.L
+kōòmì : koomi + ML.L
+Glosses: 
+four
+
+Forms: 
+kòpál : kopal + L.H
+kōpáàl : kopaal + M.HL
+Glosses: 
+kopal
+
+Forms: 
+kòtò : koto + L.L
+Glosses: 
+avoid
+diaper
+
+Forms: 
+kòvá'á : kova'a + L.H.H
+Glosses: 
+poorly
+
+Forms: 
+kòyì : koyi + L.L
+Glosses: 
+pour
+
+Forms: 
+kòò : koo + L
+Glosses: 
+snake
+
+Forms: 
+kòò : koo + L
+kóo : koo + H
+kóō : koo + HM
+kōō : koo + M
+Glosses: 
+exist.irr
+live.irr
+
+Forms: 
+kòò kàān : koo kaan + L.LM
+Glosses: 
+rattlesnake
+
+Forms: 
+kóchí : kochi + H.H
+Glosses: 
+pork
+
+Forms: 
+kókó : koko + H.H
+Glosses: 
+coconut
+
+Forms: 
+kólò : kolo + H.L
+kóòlò : koolo + HL.L
+Glosses: 
+turkey
+
+Forms: 
+kómàñó : komaño + H.L.H
+Glosses: 
+??
+
+Forms: 
+kómì : komi + H.L
+kómī : komi + H.M
+Glosses: 
+own
+
+Forms: 
+kómāànì : komaani + H.ML.L
+Glosses: 
+
+
+Forms: 
+kónó : kono + H.H
+kùnú : kunu + L.H
+kúnú : kunu + H.H
+kúnúū : kunuu + H.HM
+kúnúūn : kunuun + H.HM
+kōnōˈ : konoˈ + M.M
+Glosses: 
+be.at?
+be.on
+
+Forms: 
+kórá : kora + H.H
+Glosses: 
+fence
+
+Forms: 
+kóóchí : koochi + H.H
+Glosses: 
+pig
+
+Forms: 
+kù : ku + L
+Glosses: 
+
+
+Forms: 
+kù : ku + L
+Glosses: 
+
+
+Forms: 
+kù : ku + L
+kùn : kun + L
+kùū : kuu + LM
+kú : ku + H
+kúù : kuu + HL
+kúú : kuu + H
+kū : ku + M
+kūn : kun + M
+kūū : kuu + M
+Glosses: 
+abil
+
+Forms: 
+kù : ku + L
+kú : ku + H
+Glosses: 
+??
+
+Forms: 
+kù'ún : ku'un + L.H
+kù'ūn : ku'un + L.M
+kú'ūn : ku'un + H.M
+nákùnʔū : nakunʔu + H.L.M
+Glosses: 
+remember
+revolve?
+
+Forms: 
+kùchí : kuchi + L.H
+Glosses: 
+move
+
+Forms: 
+kùchī : kuchi + L.M
+Glosses: 
+
+
+Forms: 
+kùj : kuj + L
+kùjù : kuju + L.L
+kújù : kuju + H.L
+Glosses: 
+sleep
+
+Forms: 
+kùjànà : kujana + L.L.L
+kújáná : kujana + H.H.H
+Glosses: 
+probably
+
+Forms: 
+kùjī : kuji + L.M
+Glosses: 
+
+
+Forms: 
+kùkwè : kukwe + L.L
+kūkwē : kukwe + M.M
+Glosses: 
+slow.down
+
+Forms: 
+kùmplēáñó : kumpleaño + L.MH.H
+Glosses: 
+birthday
+
+Forms: 
+kùndaji : kundaji + L
+kúndàjīn : kundajin + H.L.M
+Glosses: 
+dislike
+
+Forms: 
+kùndyísà : kundyisa + L.H.L
+kùndyísáˈ : kundyisaˈ + L.H.H
+kūndyísā : kundyisa + M.H.M
+kūndyīsā : kundyisa + M.M.M
+Glosses: 
+believe?
+
+Forms: 
+kùndzáá : kundzaa + L.H
+Glosses: 
+slide
+
+Forms: 
+kùndà : kunda + L.L
+kúndà : kunda + H.L
+kūndà : kunda + M.L
+kūndàà : kundaa + M.L
+kūndā : kunda + M.M
+ndàà : ndaa + L
+Glosses: 
+understand
+
+Forms: 
+kùndìch : kundich + L.L
+kúndyìchì : kundyichi + H.L.L
+kūndyí : kundyi + M.H
+kūndzīchī : kundzichi + M.M.M
+Glosses: 
+stand
+
+Forms: 
+kùndē'ē : kunde'e + L.M.M
+kūndèˈè : kundeˈe + M.L.L
+Glosses: 
+meet?
+
+Forms: 
+kùní : kuni + L.H
+kúní : kuni + H.H
+kúnín : kunin + H.H
+kōnì : koni + M.L
+kōnī : koni + M.M
+kūní : kuni + M.H
+kūnī : kuni + M.M
+kūñī : kuñi + M.M
+Glosses: 
+yesterday
+
+Forms: 
+kùnā : kuna + L.M
+kūnā : kuna + M.M
+Glosses: 
+darken
+
+Forms: 
+kùnē' : kune' + L.M
+Glosses: 
+
+
+Forms: 
+kùnē'é : kune'e + L.M.H
+Glosses: 
+
+
+Forms: 
+kùnē'ē : kune'e + L.M.M
+Glosses: 
+
+
+Forms: 
+kùnī : kuni + L.M
+kùùní : kuuni + L.H
+kùùnī : kuuni + L.M
+Glosses: 
+meat
+
+Forms: 
+kùsí : kusi + L.H
+kúsí : kusi + H.H
+kúúsì : kuusi + H.L
+kúúsí : kuusi + H.H
+kūsī : kusi + M.M
+Glosses: 
+white
+
+Forms: 
+kùtyì : kutyi + L.L
+kùtyī : kutyi + L.M
+Glosses: 
+??
+
+Forms: 
+kùtyē : kutye + L.M
+kūtye : kutye + M
+kūūtyē'ē : kuutye'e + M.M.M
+Glosses: 
+learn
+
+Forms: 
+kùtó : kuto + L.H
+kùtú : kutu + L.H
+kùtū : kutu + L.M
+kút : kut + H
+kútu : kutu + H
+kútò : kuto + H.L
+kútó : kuto + H.H
+kútú : kutu + H.H
+kútō : kuto + H.M
+kūtó : kuto + M.H
+kūtóó : kutoo + M.H
+kūtú : kutu + M.H
+kūtō : kuto + M.M
+tù'ù : tu'u + L.L
+Glosses: 
+like
+
+Forms: 
+kùvátyá : kuvatya + L.H.H
+kùvātyá : kuvatya + L.M.H
+kúvātyá : kuvatya + H.M.H
+Glosses: 
+be.happy?
+
+Forms: 
+kùáá : kuaa + LH
+Glosses: 
+
+
+Forms: 
+kùùná : kuuna + L.H
+nùnà : nuna + L.L
+sùnā : suna + L.M
+sūná : suna + M.H
+Glosses: 
+open
+
+Forms: 
+kùā'ā : kua'a + LM.M
+Glosses: 
+
+
+Forms: 
+kú : ku + H
+Glosses: 
+
+
+Forms: 
+kú : ku + H
+Glosses: 
+
+
+Forms: 
+kú : ku + H
+kúù : kuu + HL
+kúú : kuu + H
+kúū : kuu + HM
+kū : ku + M
+kūū : kuu + M
+Glosses: 
+prog?
+
+Forms: 
+kú : ku + H
+kúùn : kuun + HL
+kúūn : kuun + HM
+kūūn : kuun + M
+Glosses: 
+drop
+
+Forms: 
+kúartó : kuarto + H.H
+Glosses: 
+room
+
+Forms: 
+kúbā : kuba + H.M
+Glosses: 
+Cuba
+
+Forms: 
+kúchì : kuchi + H.L
+Glosses: 
+
+
+Forms: 
+kúchí : kuchi + H.H
+kúchî : kuchi + H.HL
+Glosses: 
+clean
+
+Forms: 
+kúkà'à : kuka'a + H.L.L
+Glosses: 
+embarrassed
+
+Forms: 
+kúkòó : kukoo + H.LH
+Glosses: 
+pull
+
+Forms: 
+kúkā' : kuka' + H.M
+kā' : ka' + M
+Glosses: 
+think
+
+Forms: 
+kúmāànì : kumaani + H.ML.L
+Glosses: 
+not.yet
+
+Forms: 
+kún : kun + H
+kūnē'ē : kune'e + M.M.M
+nē'ē : ne'e + M.M
+Glosses: 
+hold
+
+Forms: 
+kúndyáká : kundyaka + H.H.H
+Glosses: 
+guide
+
+Forms: 
+kúndyè'é : kundye'e + H.L.H
+Glosses: 
+proud
+
+Forms: 
+kúndyīchī : kundyichi + H.M.M
+Glosses: 
+be.standing
+
+Forms: 
+kúndyīsī : kundyisi + H.M.M
+ndyísī : ndyisi + H.M
+ndyíísī : ndyiisi + H.M
+ndísī : ndisi + H.M
+Glosses: 
+wear
+
+Forms: 
+kúndyū'ù : kundyu'u + H.M.L
+kúndyū'ùú : kundyu'uu + H.M.LH
+kúndzú'ù : kundzu'u + H.H.L
+kúndzū'ù : kundzu'u + H.M.L
+kúyùˈù : kuyuˈu + H.L.L
+Glosses: 
+lie.down
+
+Forms: 
+kúndīchī : kundichi + H.M.M
+kúndītyī : kundityi + H.M.M
+Glosses: 
+be
+
+Forms: 
+kúnè : kune + H.L
+Glosses: 
+
+
+Forms: 
+kúné : kune + H.H
+Glosses: 
+
+
+Forms: 
+kúnéé : kunee + H.H
+kúnēē : kunee + H.M
+kūnèē : kunee + M.LM
+Glosses: 
+be.attached?
+
+Forms: 
+kúnùù : kunuu + H.L
+Glosses: 
+
+
+Forms: 
+kúnē : kune + H.M
+Glosses: 
+
+
+Forms: 
+kúnē : kune + H.M
+Glosses: 
+
+
+Forms: 
+kúnē'ēn : kune'en + H.M.M
+Glosses: 
+carry
+
+Forms: 
+kútyā : kutya + H.M
+Glosses: 
+only
+
+Forms: 
+kúè : kue + HL
+sèèn : seen + L
+sé : se + H
+sē : se + M
+sēē : see + M
+sēēn : seen + M
+èn : en + L
+é : e + H
+éè : ee + HL
+éé : ee + H
+ē : e + M
+ēē : ee + M
+Glosses: 
+buy
+
+Forms: 
+kúùkì : kuuki + HL.L
+Glosses: 
+cookie
+
+Forms: 
+kúùkù : kuuku + HL.L
+Glosses: 
+gray.bird
+
+Forms: 
+kúā : kua + HM
+Glosses: 
+cry
+
+Forms: 
+kúāā : kuaa + HM
+Glosses: 
+
+
+Forms: 
+kúūn : kuun + HM
+Glosses: 
+behave
+
+Forms: 
+kúˈùnsìíká : kuˈunsiika + H.L.LH.H
+Glosses: 
+travel
+
+Forms: 
+kā : ka + M
+Glosses: 
+?
+
+Forms: 
+kā' : ka' + M
+kā'vī : ka'vi + M.M
+Glosses: 
+count
+
+Forms: 
+kā'ndzā  : ka'ndza  + M.M
+sà'ndzà : sa'ndza + L.L
+sá'ndzá : sa'ndza + H.H
+sā'ndzā : sa'ndza + M.M
+á'ndzá : a'ndza + H.H
+Glosses: 
+cut
+pick
+
+Forms: 
+kā'vìn : ka'vin + M.L
+Glosses: 
+
+
+Forms: 
+kā'àn : ka'an + M.L
+Glosses: 
+
+
+Forms: 
+kā'àù : ka'au + M.L
+Glosses: 
+
+
+Forms: 
+kāféè : kafee + M.HL
+Glosses: 
+brown
+
+Forms: 
+kājà : kaja + M.L
+Glosses: 
+
+
+Forms: 
+kājā : kaja + M.M
+Glosses: 
+
+
+Forms: 
+kājā ká'nūn : kaja ka'nun + M.M.H.M
+Glosses: 
+honor
+
+Forms: 
+kājī : kaji + M.M
+Glosses: 
+block
+
+Forms: 
+kāldō : kaldo + M.M
+Glosses: 
+soup
+
+Forms: 
+kāmì : kami + M.L
+Glosses: 
+burn
+
+Forms: 
+kāmīsétá : kamiseta + M.M.H.H
+Glosses: 
+shirt
+
+Forms: 
+kān : kan + M
+Glosses: 
+
+
+Forms: 
+kānà : kana + M.L
+Glosses: 
+
+
+Forms: 
+kānā : kana + M.M
+Glosses: 
+leave
+
+Forms: 
+kāsìvì : kasivi + M.L.L
+Glosses: 
+noon
+
+Forms: 
+kāsā : kasa + M.M
+Glosses: 
+
+
+Forms: 
+kātyì : katyi + M.L
+Glosses: 
+shadow
+
+Forms: 
+kātyā : katya + M.M
+átyā : atya + H.M
+Glosses: 
+dig
+pick
+
+Forms: 
+kātāsáˈá : katasaˈa + M.M.H.H
+Glosses: 
+dance
+
+Forms: 
+kāváyò : kavayo + M.H.L
+Glosses: 
+horse
+
+Forms: 
+kāñì : kañi + M.L
+Glosses: 
+should
+
+Forms: 
+kāā : kaa + M
+Glosses: 
+calcium powder
+
+Forms: 
+kāˈndzī : kaˈndzi + M.M
+Glosses: 
+pop
+
+Forms: 
+kē'án : ke'an + M.H
+Glosses: 
+
+
+Forms: 
+kē'ė : ke'ė + M
+Glosses: 
+
+
+Forms: 
+kētá : keta + M.H
+kētā : keta + M.M
+Glosses: 
+get.out
+
+Forms: 
+kēán : kean + MH
+Glosses: 
+
+
+Forms: 
+kī : ki + M
+Glosses: 
+
+
+Forms: 
+kī : ki + M
+Glosses: 
+?
+
+Forms: 
+kī : ki + M
+Glosses: 
+
+
+Forms: 
+kī'vì : ki'vi + M.L
+Glosses: 
+sick
+
+Forms: 
+kīnù : kinu + M.L
+Glosses: 
+
+
+Forms: 
+kītyí : kityi + M.H
+kītyī : kityi + M.M
+Glosses: 
+3sg.anim
+
+Forms: 
+kītyī : kityi + M.M
+Glosses: 
+fruit?
+
+Forms: 
+kītò : kito + M.L
+Glosses: 
+
+
+Forms: 
+kīxì : kixi + M.L
+Glosses: 
+
+
+Forms: 
+kīìtyīí : kiityii + ML.MH
+Glosses: 
+
+
+Forms: 
+kīí : kii + MH
+Glosses: 
+
+
+Forms: 
+kīītyī síkwàā : kiityi sikwaa + M.M.H.LM
+Glosses: 
+bat
+
+Forms: 
+kō : ko + M
+Glosses: 
+??
+
+Forms: 
+kōché : koche + M.H
+Glosses: 
+neg?
+
+Forms: 
+kōkākólá : kokakola + M.M.H.H
+Glosses: 
+Coca-Cola
+
+Forms: 
+kōlór : kolor + M.H
+Glosses: 
+color
+
+Forms: 
+kōlō : kolo + M.M
+Glosses: 
+turkey
+
+Forms: 
+kōmpūtādórá : komputadora + M.M.M.H.H
+Glosses: 
+computer
+
+Forms: 
+kōmàní : komani + M.L.H
+Glosses: 
+??
+
+Forms: 
+kōmídá : komida + M.H.H
+Glosses: 
+food
+
+Forms: 
+kōmínó : komino + M.H.H
+Glosses: 
+cumin
+
+Forms: 
+kōsíná : kosina + M.H.H
+Glosses: 
+kitchen
+
+Forms: 
+kōsīmérá : kosimera + M.M.H.H
+Glosses: 
+cook
+
+Forms: 
+kōtó : koto + M.H
+kōtō : koto + M.M
+Glosses: 
+shirt
+
+Forms: 
+kōyòjó : koyojo + M.L.H
+Glosses: 
+ride
+
+Forms: 
+kū : ku + M
+Glosses: 
+
+
+Forms: 
+kū'ūn : ku'un + M.M
+ñú' : ñu' + H
+ñú'ún : ñu'un + H.H
+ñú'ū : ñu'u + H.M
+ñú'ūn : ñu'un + H.M
+ñū'ūn : ñu'un + M.M
+Glosses: 
+be.in
+contain
+wear
+
+Forms: 
+kūchárá : kuchara + M.H.H
+Glosses: 
+spoon
+
+Forms: 
+kūna᷄ : kuna + M.MH
+kūnā : kuna + M.M
+Glosses: 
+tired
+
+Forms: 
+kūndò : kundo + M.L
+Glosses: 
+staying
+
+Forms: 
+kūnó : kuno + M.H
+kūnō : kuno + M.M
+sìnó : sino + L.H
+sínò : sino + H.L
+sínō : sino + H.M
+sīnō : sino + M.M
+Glosses: 
+run
+
+Forms: 
+kūnīvū : kunivu + M.M.M
+Glosses: 
+??
+
+Forms: 
+kūsí : kusi + M.H
+Glosses: 
+
+
+Forms: 
+kūtyá : kutya + M.H
+Glosses: 
+be.full?
+
+Forms: 
+kūtò : kuto + M.L
+Glosses: 
+
+
+Forms: 
+kūvá'à : kuva'a + M.H.L
+Glosses: 
+cook?
+
+Forms: 
+kūvétá : kuveta + M.H.H
+Glosses: 
+bucket
+
+Forms: 
+kūādró : kuadro + M.H
+Glosses: 
+
+
+Forms: 
+kūātyī : kuatyi + M.M
+Glosses: 
+twins
+
+Forms: 
+kūūtyí : kuutyi + M.H
+kūūtyī : kuutyi + M.M
+Glosses: 
+fill
+
+Forms: 
+kūūñā : kuuña + M.M
+Glosses: 
+?
+
+Forms: 
+la᷅'lā : la'la + LM.M
+Glosses: 
+goopy
+
+Forms: 
+leìì : leii + L
+Glosses: 
+baby child
+
+Forms: 
+lo'o : lo'o + NoTone
+lo'ò : lo'o + L
+lò : lo + L
+lò'ó : lo'o + L.H
+ló' : lo' + H
+ló'ò : lo'o + H.L
+ló'ō : lo'o + H.M
+lóʔ : loʔ + H
+lóˈ : loˈ + H
+lóˈò : loˈo + H.L
+lō'ō : lo'o + M.M
+Glosses: 
+small
+young
+
+Forms: 
+là : la + L
+lā : la + M
+Glosses: 
+la
+
+Forms: 
+lámbá : lamba + H.H
+Glosses: 
+stomach
+
+Forms: 
+lánsá : lansa + H.H
+Glosses: 
+projectile
+
+Forms: 
+lápì : lapi + H.L
+láàpì : laapi + HL.L
+Glosses: 
+pen
+
+Forms: 
+lás : las + H
+lásá : lasa + H.H
+Glosses: 
+bone
+
+Forms: 
+láwrá : lawra + H.H
+Glosses: 
+Laura
+
+Forms: 
+láwrèn : lawren + H.L
+Glosses: 
+Lauren
+
+Forms: 
+láá : laa + H
+lāā : laa + M
+Glosses: 
+bird
+
+Forms: 
+lèe : lee + L
+lèè : lee + L
+lèē : lee + LM
+léé : lee + H
+lēé : lee + MH
+lēē : lee + M
+Glosses: 
+baby
+baby animal
+young child
+
+Forms: 
+lèkàxòn : lekaxon + L.L.L
+Glosses: 
+wallet
+
+Forms: 
+lèèkà : leeka + L.L
+lékà : leka + H.L
+léékà : leeka + H.L
+lēkà : leka + M.L
+lēkàā : lekaa + M.LM
+Glosses: 
+bag
+
+Forms: 
+léché : leche + H.H
+Glosses: 
+milk
+
+Forms: 
+léŋgwá : leŋgwa + H.H
+Glosses: 
+language
+
+Forms: 
+lìvì : livi + L.L
+lìví : livi + L.H
+lívì : livi + H.L
+līvì : livi + M.L
+līví : livi + M.H
+līvī : livi + M.M
+Glosses: 
+beautiful
+
+Forms: 
+líbrò : libro + H.L
+lībró : libro + M.H
+Glosses: 
+book
+
+Forms: 
+lístò : listo + H.L
+líístó : liisto + H.H
+Glosses: 
+ready
+
+Forms: 
+lòtyī'ī : lotyi'i + L.M.M
+Glosses: 
+few
+
+Forms: 
+lókò : loko + H.L
+Glosses: 
+crazy
+
+Forms: 
+lómá : loma + H.H
+Glosses: 
+hill
+
+Forms: 
+lópé : lope + H.H
+Glosses: 
+Lopez
+
+Forms: 
+lópés : lopes + H.H
+Glosses: 
+
+
+Forms: 
+lóró : loro + H.H
+Glosses: 
+parrot
+
+Forms: 
+lóóvó : loovo + H.H
+Glosses: 
+wolf
+
+Forms: 
+lûs : lus + HL
+Glosses: 
+light
+
+Forms: 
+lāndyī : landyi + M.M
+Glosses: 
+navel
+
+Forms: 
+lāndzī : landzi + M.M
+Glosses: 
+belly button
+
+Forms: 
+lāndò : lando + M.L
+Glosses: 
+lie
+
+Forms: 
+lās nīévé : las nieve + M.MH.H
+lās nīēvē : las nieve + M.M.M
+lās nīēvēs : las nieves + M.M.M
+Glosses: 
+PN
+
+Forms: 
+lāsà : lasa + M.L
+Glosses: 
+skinny
+
+Forms: 
+lāā ndzáá : laa ndzaa + M.H
+Glosses: 
+bluebird
+
+Forms: 
+lāā sīkwàā : laa sikwaa + M.M.LM
+Glosses: 
+owl
+
+Forms: 
+lēchúúgá : lechuuga + M.H.H
+Glosses: 
+lettuce
+
+Forms: 
+lēí : lei + MH
+Glosses: 
+
+
+Forms: 
+līmón : limon + M.H
+Glosses: 
+
+
+Forms: 
+līmón̄ : limon + M.H.M
+līmôn : limon + M.HL
+Glosses: 
+lemon
+
+Forms: 
+lōōsó : looso + M.H
+lɔ̀sɔ́ : lɔsɔ + L.H
+Glosses: 
+fox
+
+Forms: 
+m'm : m'm + NoTone
+m'm'm : m'm'm + NoTone
+m̄'ḿ : m'ḿ + M
+ú'ù'ún : u'u'un + H.L.H
+ú'ùn : u'un + H.L
+ū'ù'ún : u'u'un + M.L.H
+Glosses: 
+no
+
+Forms: 
+mbáà : mbaa + HL
+Glosses: 
+godfather
+
+Forms: 
+me : me + NoTone
+méé : mee + H
+Glosses: 
+
+
+Forms: 
+me' : me' + NoTone
+mēé : mee + MH
+Glosses: 
+1p
+
+Forms: 
+mei : mei + NoTone
+meiín : meiin + H
+Glosses: 
+1s
+
+Forms: 
+mendo : mendo + NoTone
+Glosses: 
+2p
+
+Forms: 
+mesa : mesa + NoTone
+mèsá : mesa + L.H
+mèsā : mesa + L.M
+mèèsā : meesa + L.M
+mésá : mesa + H.H
+mēsā : mesa + M.M
+Glosses: 
+table
+
+Forms: 
+meun : meun + NoTone
+Glosses: 
+2s
+
+Forms: 
+meá : mea + H
+mè : me + L
+mé : me + H
+mén : men + H
+mē : me + M
+mēé : mee + MH
+mēén : meen + MH
+mēē : mee + M
+Glosses: 
+def
+
+Forms: 
+mà'ní : ma'ni + L.H
+Glosses: 
+?
+
+Forms: 
+màmílá : mamila + L.H.H
+Glosses: 
+baby.bottle
+
+Forms: 
+mànì : mani + L.L
+màní : mani + L.H
+māñì : mañi + M.L
+Glosses: 
+blessing
+spoiled
+
+Forms: 
+màní : mani + L.H
+Glosses: 
+holy
+
+Forms: 
+mànī : mani + L.M
+māní : mani + M.H
+Glosses: 
+favorite?
+
+Forms: 
+mánīò : manio + H.ML
+mānīò : manio + M.ML
+Glosses: 
+yet
+
+Forms: 
+mársó : marso + H.H
+Glosses: 
+march
+
+Forms: 
+márì : mari + H.L
+márī : mari + H.M
+mārì : mari + M.L
+Glosses: 
+Mari
+
+Forms: 
+máàrì : maari + HL.L
+Glosses: 
+Mari
+
+Forms: 
+mááskārā : maaskara + H.M.M
+Glosses: 
+mask
+
+Forms: 
+mèè : mee + L
+Glosses: 
+
+
+Forms: 
+mèē : mee + LM
+Glosses: 
+
+
+Forms: 
+mé : me + H
+mēé : mee + MH
+Glosses: 
+1p
+
+Forms: 
+mé'ènà : me'ena + H.L.L
+Glosses: 
+themselves
+
+Forms: 
+mé'èrà : me'era + H.L.L
+Glosses: 
+himself
+
+Forms: 
+mé'èñà : me'eña + H.L.L
+Glosses: 
+herself
+
+Forms: 
+mésklá : meskla + H.H
+Glosses: 
+mix
+
+Forms: 
+méñūkà : meñuka + H.M.L
+Glosses: 
+??
+
+Forms: 
+méˈé : meˈe + H.H
+Glosses: 
+??
+
+Forms: 
+mìgêl : migel + L.HL
+Glosses: 
+Miguel
+
+Forms: 
+mììnó : miino + L.H
+Glosses: 
+epazote
+
+Forms: 
+míérkòlès : mierkoles + H.L.L
+Glosses: 
+wednesday
+
+Forms: 
+míísá : miisa + H.H
+Glosses: 
+mass
+
+Forms: 
+mólé : mole + H.H
+Glosses: 
+mole
+
+Forms: 
+músíkà : musika + H.H.L
+Glosses: 
+music
+
+Forms: 
+músīkō : musiko + H.M.M
+āmúsīkō : amusiko + M.H.M.M
+Glosses: 
+musician
+
+Forms: 
+mākdónál : makdonal + M.H.H
+Glosses: 
+McDonalds
+
+Forms: 
+māndîl : mandil + M.HL
+Glosses: 
+apron
+
+Forms: 
+mānsáná : mansana + M.H.H
+mēnsáná : mensana + M.H.H
+Glosses: 
+apple
+
+Forms: 
+mānsāná : mansana + M.M.H
+Glosses: 
+
+
+Forms: 
+māntiádó : mantiado + M.H.H
+Glosses: 
+tarp
+
+Forms: 
+mānì : mani + M.L
+Glosses: 
+
+
+Forms: 
+mārtííyó : martiiyo + M.H.H
+Glosses: 
+hammer
+
+Forms: 
+mēskâl : meskal + M.HL
+Glosses: 
+mezcal
+
+Forms: 
+mēé : mee + MH
+Glosses: 
+?
+
+Forms: 
+mēín : mein + MH
+Glosses: 
+myself
+
+Forms: 
+mēñāsītà sá'á : meñasita sa'a + M.M.M.L.H.H
+Glosses: 
+dancer
+
+Forms: 
+mēún : meun + MH
+Glosses: 
+2s
+
+Forms: 
+mēēnrá : meenra + M.H
+Glosses: 
+3sm
+
+Forms: 
+mēēñá : meeña + M.H
+Glosses: 
+3sf
+
+Forms: 
+mīnútó : minuto + M.H.H
+Glosses: 
+minute
+
+Forms: 
+mōñéká : moñeka + M.H.H
+Glosses: 
+doll
+
+Forms: 
+n : n + NoTone
+Glosses: 
+
+
+Forms: 
+n : n + NoTone
+ndò'ó : ndo'o + L.H
+ndó'ó : ndo'o + H.H
+ndō : ndo + M
+Glosses: 
+2pl
+
+Forms: 
+n : n + NoTone
+u᷄n : un + MH
+ó : o + H
+ù : u + L
+ùn : un + L
+ùún : uun + LH
+ú : u + H
+ún : un + H
+úún : uun + H
+ûn : un + HL
+ū : u + M
+ūn : un + M
+ǔn : un + LH
+Glosses: 
+2sg
+
+Forms: 
+na : na + NoTone
+nàà : naa + L
+ná : na + H
+nò : no + L
+ñá : ña + H
+Glosses: 
+person
+
+Forms: 
+na kosini : na kosini + NoTone
+Glosses: 
+unknown person
+
+Forms: 
+na vàsí sì'ǐi : na vasi si'ii + L.H.L.LH
+Glosses: 
+person who accompanies
+
+Forms: 
+naka : naka + NoTone
+nak̀a : naka + L
+nàká : naka + L.H
+nákà : naka + H.L
+náká : naka + H.H
+nákā : naka + H.M
+nāk : nak + M
+nāká : naka + M.H
+nākā : naka + M.M
+Glosses: 
+be.located
+
+Forms: 
+nakía' : nakia' + H
+nākiàjā : nakiaja + M.L.M
+nākìàjā : nakiaja + M.L.M
+Glosses: 
+how.many
+
+Forms: 
+naló'ò : nalo'o + H.L
+nalóˈò : naloˈo + H.L
+ñaló'ò : ñalo'o + H.L
+ñalóˈò : ñaloˈo + H.L
+ñáló'ò : ñalo'o + H.H.L
+Glosses: 
+girl
+
+Forms: 
+nana : nana + NoTone
+Glosses: 
+
+
+Forms: 
+navéla : navela + H
+návēlá : navela + H.M.H
+nānávēlā : nanavela + M.H.M.M
+Glosses: 
+grandmother
+
+Forms: 
+nayíko : nayiko + H
+Glosses: 
+seller
+
+Forms: 
+na᷄ : na + MH
+nà : na + L
+ná : na + H
+nā : na + M
+Glosses: 
+3pl
+
+Forms: 
+ndjito : ndjito + NoTone
+ndá'à yìtò : nda'a yito + H.L.L.L
+Glosses: 
+branch
+
+Forms: 
+ndju'u : ndju'u + NoTone
+ndzu : ndzu + NoTone
+ndzu'u : ndzu'u + NoTone
+ndzu'ù : ndzu'u + L
+ndzuu : ndzuu + NoTone
+ndzù : ndzu + L
+ndzùu : ndzuu + L
+ndzú : ndzu + H
+ndzū : ndzu + M
+Glosses: 
+become
+
+Forms: 
+ndoyi : ndoyi + NoTone
+ndóyí : ndoyi + H.H
+ndóyī : ndoyi + H.M
+Glosses: 
+be.at.pl??
+exist.pl
+
+Forms: 
+ndo᷅ : ndo + LM
+ndò : ndo + L
+ndòō : ndoo + LM
+ndó : ndo + H
+ndō : ndo + M
+Glosses: 
+2pl
+
+Forms: 
+ndyaká : ndyaka + H
+ndyàká : ndyaka + L.H
+ndyàkā : ndyaka + L.M
+ndyāká : ndyaka + M.H
+Glosses: 
+there
+
+Forms: 
+ndyishii : ndyishii + NoTone
+ndyixi : ndyixi + NoTone
+ndyīxí : ndyixi + M.H
+ndzīshī : ndzishi + M.M
+ndīxí : ndixi + M.H
+Glosses: 
+blue
+
+Forms: 
+ndyàà : ndyaa + L
+ndyá : ndya + H
+ndyá' : ndya' + H
+ndzá : ndza + H
+Glosses: 
+I.think
+maybe
+
+Forms: 
+ndyá : ndya + H
+ndyânkú : ndyanku + HL.H
+Glosses: 
+what
+
+Forms: 
+ndyá : ndya + H
+ndyāā : ndyaa + M
+ndzā : ndza + M
+Glosses: 
+take.care
+
+Forms: 
+ndyá : ndya + H
+ndzáá : ndzaa + H
+ndzā : ndza + M
+ndzāà : ndzaa + ML
+Glosses: 
+which.one
+
+Forms: 
+ndyáchí : ndyachi + H.H
+ndyátyí : ndyatyi + H.H
+ndzátyí : ndzatyi + H.H
+Glosses: 
+where
+
+Forms: 
+ndyátyī : ndyatyi + H.M
+ndyātyí : ndyatyi + M.H
+ndzátyī : ndzatyi + H.M
+Glosses: 
+wait
+
+Forms: 
+ndyávà' : ndyava' + H.L
+ndzávà'ā : ndzava'a + H.L.M
+Glosses: 
+maybe
+
+Forms: 
+ndyéé : ndyee + H
+Glosses: 
+thick
+
+Forms: 
+ndyì : ndyi + L
+Glosses: 
+even?
+from?
+
+Forms: 
+ndyì : ndyi + L
+ndyìí : ndyii + LH
+ndyí : ndyi + H
+ndyíǐ : ndyii + HLH
+ndyīí : ndyii + MH
+ndzi : ndzi + NoTone
+ndzī : ndzi + M
+Glosses: 
+dead
+
+Forms: 
+ndyì : ndyi + L
+ndyìˈì : ndyiˈi + L.L
+ndyī : ndyi + M
+ndzì : ndzi + L
+ndzī'ī : ndzi'i + M.M
+ndzīī : ndzii + M
+Glosses: 
+all
+
+Forms: 
+ndyìjávì : ndyijavi + L.H.L
+ndyìjáví : ndyijavi + L.H.H
+ndyìjávī : ndyijavi + L.H.M
+ndyìjā : ndyija + L.M
+Glosses: 
+??
+next?
+
+Forms: 
+ndyìkìndyǐ : ndyikindyi + L.L.LH
+ndyìtyìndyìí : ndyityindyii + L.L.LH
+Glosses: 
+sun
+
+Forms: 
+ndyìsà : ndyisa + L.L
+Glosses: 
+dead.arrive
+
+Forms: 
+ndyìtyīsí : ndyityisi + L.M.H
+Glosses: 
+at.bottom
+
+Forms: 
+ndyìtá' : ndyita' + L.H
+ndyìtá'à : ndyita'a + L.H.L
+ndyītá' : ndyita' + M.H
+ndyītá'à : ndyita'a + M.H.L
+ndyītá'ā : ndyita'a + M.H.M
+Glosses: 
+all
+
+Forms: 
+ndyìvì : ndyivi + L.L
+ndyìví : ndyivi + L.H
+ndyìvǐ : ndyivi + L.LH
+ndīvī : ndivi + M.M
+Glosses: 
+egg
+genitals
+
+Forms: 
+ndyìˈā : ndyiˈa + L.M
+ndyìˈā  : ndyiˈa  + L.M
+Glosses: 
+ravine
+
+Forms: 
+ndyí : ndyi + H
+Glosses: 
+
+
+Forms: 
+ndyíjō : ndyijo + H.M
+ndzíjō : ndzijo + H.M
+ndzījō : ndzijo + M.M
+Glosses: 
+carry.on.back
+
+Forms: 
+ndyíkà : ndyika + H.L
+Glosses: 
+
+
+Forms: 
+ndyíkì : ndyiki + H.L
+Glosses: 
+small.seed
+
+Forms: 
+ndyíkì : ndyiki + H.L
+Glosses: 
+horn
+
+Forms: 
+ndyísí : ndyisi + H.H
+Glosses: 
+dress??
+
+Forms: 
+ndyísā : ndyisa + H.M
+Glosses: 
+believe
+
+Forms: 
+ndyívá : ndyiva + H.H
+Glosses: 
+guaje
+
+Forms: 
+ndyívì : ndyivi + H.L
+Glosses: 
+sky
+
+Forms: 
+ndyíví : ndyivi + H.H
+ndzííví : ndziivi + H.H
+ndívì : ndivi + H.L
+Glosses: 
+both
+
+Forms: 
+ndyíxì : ndyixi + H.L
+Glosses: 
+
+
+Forms: 
+ndyíxí : ndyixi + H.H
+ndyīxīn : ndyixin + M.M
+Glosses: 
+??
+
+Forms: 
+ndyíì : ndyii + HL
+Glosses: 
+surprised
+
+Forms: 
+ndyíìkà : ndyiika + HL.L
+Glosses: 
+banana
+
+Forms: 
+ndyííxí : ndyiixi + H.H
+ndyīxí : ndyixi + M.H
+ndyīxī : ndyixi + M.M
+ndyīxīn : ndyixin + M.M
+ndyīīxī : ndyiixi + M.M
+ndzíxí : ndzixi + H.H
+ndzíxín : ndzixin + H.H
+ndzííxí : ndziixi + H.H
+ndzīxī : ndzixi + M.M
+ndíxì : ndixi + H.L
+Glosses: 
+how
+
+Forms: 
+ndyíīkō : ndyiiko + HM.M
+ndyīīkō : ndyiiko + M.M
+Glosses: 
+tortilla.process
+
+Forms: 
+ndyù : ndyu + L
+ndyùù : ndyuu + L
+ndyúú : ndyuu + H
+ndyū : ndyu + M
+Glosses: 
+1pl.ex
+
+Forms: 
+ndyù : ndyu + L
+ndyū : ndyu + M
+Glosses: 
+inch
+
+Forms: 
+ndyù'ù : ndyu'u + L.L
+ndù'ù : ndu'u + L.L
+Glosses: 
+1pl.ex
+
+Forms: 
+ndyùkàs : ndyukas + L.L
+ndyùkàsi : ndyukasi + L.L
+ndyúkásí : ndyukasi + H.H.H
+ndyūkās : ndyukas + M.M
+ndzukás : ndzukas + H
+ndzūkásí : ndzukasi + M.H.H
+Glosses: 
+wake
+
+Forms: 
+ndyùsà : ndyusa + L.L
+ndyùùsà : ndyuusa + L.L
+Glosses: 
+shoe
+
+Forms: 
+ndyùùsí : ndyuusi + L.H
+ndyūūsí : ndyuusi + M.H
+Glosses: 
+chicken
+
+Forms: 
+ndyùˈù : ndyuˈu + L.L
+ndyúˈú : ndyuˈu + H.H
+Glosses: 
+??
+
+Forms: 
+ndyúchì : ndyuchi + H.L
+Glosses: 
+bean
+
+Forms: 
+ndyúchī : ndyuchi + H.M
+Glosses: 
+
+
+Forms: 
+ndyúsá : ndyusa + H.H
+Glosses: 
+vomit
+
+Forms: 
+ndyútyí : ndyutyi + H.H
+Glosses: 
+bottle
+
+Forms: 
+ndyúùchì : ndyuuchi + HL.L
+ndyūūchì : ndyuuchi + M.L
+Glosses: 
+bean
+
+Forms: 
+ndyī : ndyi + M
+ndí : ndi + H
+ndī : ndi + M
+Glosses: 
+??
+
+Forms: 
+ndyī'ī : ndyi'i + M.M
+Glosses: 
+finish
+
+Forms: 
+ndyīkī : ndyiki + M.M
+Glosses: 
+
+
+Forms: 
+ndyīsā : ndyisa + M.M
+Glosses: 
+??
+
+Forms: 
+ndyītyìndyīví : ndyityindyivi + M.L.M.H
+Glosses: 
+sky
+
+Forms: 
+ndyīvà : ndyiva + M.L
+Glosses: 
+low??
+
+Forms: 
+ndyīví : ndyivi + M.H
+Glosses: 
+daylight
+
+Forms: 
+ndyīvā : ndyiva + M.M
+ndzìīvā : ndziiva + LM.M
+ndzīvā : ndziva + M.M
+Glosses: 
+guaje
+
+Forms: 
+ndyīxī : ndyixi + M.M
+Glosses: 
+pulque
+
+Forms: 
+ndyū'ù : ndyu'u + M.L
+Glosses: 
+
+
+Forms: 
+ndyū'ū : ndyu'u + M.M
+Glosses: 
+stump
+
+Forms: 
+ndyūjū : ndyuju + M.M
+Glosses: 
+echo
+sound
+
+Forms: 
+ndyɪ̀ñākà : ndyɪñaka + L.M.L
+Glosses: 
+there
+
+Forms: 
+ndzak : ndzak + NoTone
+ndzákā : ndzaka + H.M
+ntzak : ntzak + NoTone
+Glosses: 
+bring
+
+Forms: 
+ndzinxi : ndzinxi + NoTone
+Glosses: 
+corn
+
+Forms: 
+ndzive'emei : ndzive'emei + NoTone
+Glosses: 
+thanks to me
+
+Forms: 
+ndzive'en : ndzive'en + NoTone
+Glosses: 
+thanks to us
+
+Forms: 
+ndzive'endo : ndzive'endo + NoTone
+Glosses: 
+thank.2p
+
+Forms: 
+ndzive'enin : ndzive'enin + NoTone
+Glosses: 
+thank you (honorific)
+
+Forms: 
+ndzive'eña : ndzive'eña + NoTone
+Glosses: 
+thank you (to her, indirect)
+
+Forms: 
+ndzive'un : ndzive'un + NoTone
+Glosses: 
+thank you
+
+Forms: 
+ndzive'ì : ndzive'i + L
+Glosses: 
+thank to me
+
+Forms: 
+ndzuu : ndzuu + NoTone
+ndzù : ndzu + L
+Glosses: 
+1pe
+
+Forms: 
+ndzà : ndza + L
+ndzàká : ndzaka + L.H
+ndzàkā : ndzaka + L.M
+ndzāká : ndzaka + M.H
+Glosses: 
+be.located.in
+over.there
+
+Forms: 
+ndzàā : ndzaa + LM
+Glosses: 
+there
+
+Forms: 
+ndzáyì : ndzayi + H.L
+Glosses: 
+sauce
+
+Forms: 
+ndzìì : ndzii + L
+Glosses: 
+
+
+Forms: 
+ndzììvà : ndziiva + L.L
+Glosses: 
+skin.cracking
+
+Forms: 
+ndzí : ndzi + H
+Glosses: 
+holy
+
+Forms: 
+ndzíà : ndzia + HL
+Glosses: 
+
+
+Forms: 
+ndzíìxì : ndziixi + HL.L
+Glosses: 
+corn
+
+Forms: 
+ndzù' : ndzu' + L
+Glosses: 
+
+
+Forms: 
+ndzù'ú : ndzu'u + L.H
+Glosses: 
+
+
+Forms: 
+ndzùtyí : ndzutyi + L.H
+ndzútyì : ndzutyi + H.L
+Glosses: 
+??
+
+Forms: 
+ndzùvá'vān : ndzuva'van + L.H.M
+Glosses: 
+heal
+
+Forms: 
+ndzùùyī : ndzuuyi + L.M
+Glosses: 
+nail
+
+Forms: 
+ndzēé : ndzee + MH
+Glosses: 
+brave
+
+Forms: 
+ndzēē : ndzee + M
+Glosses: 
+stretch
+
+Forms: 
+ndzē’ē : ndze’e + M.M
+Glosses: 
+arrogant
+
+Forms: 
+ndzī : ndzi + M
+ndzīnī : ndzini + M.M
+Glosses: 
+every
+
+Forms: 
+ndzī'īvā : ndzi'iva + M.M.M
+Glosses: 
+everything
+
+Forms: 
+ndzīchī : ndzichi + M.M
+ndìch : ndich + L
+ndìchì : ndichi + L.L
+ndīch : ndich + M
+Glosses: 
+stand
+
+Forms: 
+ndzījàā : ndzijaa + M.LM
+Glosses: 
+even
+
+Forms: 
+ndzītá'àn : ndzita'an + M.H.L
+ndzǐťá'à : ndziťa'a + LH.H.L
+Glosses: 
+every
+
+Forms: 
+ndzīví : ndzivi + M.H
+Glosses: 
+
+
+Forms: 
+ndà : nda + L
+ndà' : nda' + L
+ndà'à : nda'a + L.L
+ndà'á : nda'a + L.H
+ndá'à : nda'a + H.L
+ndá'àá : nda'aa + H.LH
+ndá'á : nda'a + H.H
+ndā' : nda' + M
+ndā'à : nda'a + M.L
+ndā'á : nda'a + M.H
+ndā'ǎ : nda'a + M.LH
+Glosses: 
+arm
+arm, branch
+
+Forms: 
+ndà'và : nda'va + L.L
+Glosses: 
+sound
+
+Forms: 
+ndà'ví : nda'vi + L.H
+ndàvī : ndavi + L.M
+ndá'ví : nda'vi + H.H
+ndáʼví : ndaʼvi + H.H
+ndāʔví : ndaʔvi + M.H
+Glosses: 
+poor
+
+Forms: 
+ndà'á vā'á : nda'a va'a + L.H.M.H
+Glosses: 
+right
+
+Forms: 
+ndàkà : ndaka + L.L
+ndákā : ndaka + H.M
+Glosses: 
+ask
+
+Forms: 
+ndàkàtùún : ndakatuun + L.L.LH
+Glosses: 
+request
+
+Forms: 
+ndàkú : ndaku + L.H
+Glosses: 
+hominy.soup
+
+Forms: 
+ndànèˈé : ndaneˈe + L.L.H
+ndánē : ndane + H.M
+ndánē'ē : ndane'e + H.M.M
+ndānē : ndane + M.M
+ndānēˈ : ndaneˈ + M.M
+Glosses: 
+harvest
+lift
+
+Forms: 
+ndàné'é : ndane'e + L.H.H
+ndánē'ē : ndane'e + H.M.M
+Glosses: 
+awake
+
+Forms: 
+ndàtò : ndato + L.L
+ndātó : ndato + M.H
+Glosses: 
+fresh
+
+Forms: 
+ndàvà : ndava + L.L
+Glosses: 
+jump
+
+Forms: 
+ndàà : ndaa + L
+ndáà : ndaa + HL
+nándàà : nandaa + H.L
+ándàà : andaa + H.L
+Glosses: 
+straight
+true
+
+Forms: 
+ndàñū' : ndañu' + L.M
+ndàñū'ún : ndañu'un + L.M.H
+ndāñú'ú : ndañu'u + M.H.H
+Glosses: 
+lose
+
+Forms: 
+ndá : nda + H
+Glosses: 
+??
+
+Forms: 
+ndá'vá : nda'va + H.H
+Glosses: 
+
+
+Forms: 
+ndá'yí : nda'yi + H.H
+Glosses: 
+whine
+
+Forms: 
+ndá'à : nda'a + H.L
+Glosses: 
+pencas
+
+Forms: 
+ndá'à vālī yìtò : nda'a vali yito + H.L.M.M.L.L
+Glosses: 
+leaf
+
+Forms: 
+ndá'àā yóòjō : nda'aa yoojo + H.LM.HL.M
+Glosses: 
+rolling.pin
+
+Forms: 
+ndájá : ndaja + H.H
+ndájā : ndaja + H.M
+ndājā : ndaja + M.M
+Glosses: 
+fix
+
+Forms: 
+ndákòó : ndakoo + H.LH
+ndākò : ndako + M.L
+ndākòō : ndakoo + M.LM
+Glosses: 
+get.up
+
+Forms: 
+ndásí : ndasi + H.H
+ndāsì : ndasi + M.L
+ndāsī : ndasi + M.M
+Glosses: 
+wet
+
+Forms: 
+ndátō : ndato + H.M
+Glosses: 
+
+
+Forms: 
+ndávà : ndava + H.L
+ndávā : ndava + H.M
+Glosses: 
+fly
+jump
+
+Forms: 
+ndáví : ndavi + H.H
+Glosses: 
+sad
+
+Forms: 
+ndáyí : ndayi + H.H
+Glosses: 
+
+
+Forms: 
+ndáā : ndaa + HM
+Glosses: 
+those
+
+Forms: 
+ndè' : nde' + L
+sìndè' : sinde' + L.L
+sìndé' : sinde' + L.H
+síndè' : sinde' + H.L
+síndè'è : sinde'e + H.L.L
+síndè'ě : sinde'e + H.L.LH
+síndē : sinde + H.M
+sīndè' : sinde' + M.L
+sīndé' : sinde' + M.H
+sīndé'è : sinde'e + M.H.L
+sīndē' : sinde' + M.M
+Glosses: 
+look
+
+Forms: 
+ndè'è : nde'e + L.L
+ndè'é : nde'e + L.H
+ndèˈē : ndeˈe + L.M
+ndé' : nde' + H
+ndē' : nde' + M
+Glosses: 
+look
+
+Forms: 
+ndìsīká : ndisika + L.M.H
+Glosses: 
+far.away
+
+Forms: 
+ndìī : ndii + LM
+Glosses: 
+corpse
+
+Forms: 
+ndíìxì : ndiixi + HL.L
+ndííxí : ndiixi + H.H
+Glosses: 
+
+
+Forms: 
+ndò : ndo + L
+ndó : ndo + H
+ndō : ndo + M
+Glosses: 
+2pl
+
+Forms: 
+ndò'ò : ndo'o + L.L
+ndò'ō : ndo'o + L.M
+Glosses: 
+brick
+container
+
+Forms: 
+ndòkāó : ndokao + L.MH
+Glosses: 
+waist
+
+Forms: 
+ndòyó : ndoyo + L.H
+Glosses: 
+
+
+Forms: 
+ndójò : ndojo + H.L
+Glosses: 
+breast
+
+Forms: 
+ndókò : ndoko + H.L
+Glosses: 
+chirimoya
+
+Forms: 
+ndóy : ndoy + H
+ndóyē : ndoye + H.M
+Glosses: 
+be.here.pl
+
+Forms: 
+ndóò : ndoo + HL
+ndô : ndo + HL
+Glosses: 
+sugarcane
+
+Forms: 
+ndā : nda + M
+Glosses: 
+[?]
+
+Forms: 
+ndā'vā : nda'va + M.M
+Glosses: 
+extinguish
+
+Forms: 
+ndā'yì : nda'yi + M.L
+Glosses: 
+clay
+
+Forms: 
+ndā'yì : nda'yi + M.L
+Glosses: 
+
+
+Forms: 
+ndā'íī : nda'ii + M.HM
+Glosses: 
+stuck
+
+Forms: 
+ndākā : ndaka + M.M
+Glosses: 
+come.up?
+
+Forms: 
+ndākū : ndaku + M.M
+Glosses: 
+fix
+
+Forms: 
+ndātyí : ndatyi + M.H
+Glosses: 
+
+
+Forms: 
+ndāvá : ndava + M.H
+Glosses: 
+
+
+Forms: 
+ndē'é : nde'e + M.H
+Glosses: 
+handsome
+
+Forms: 
+ngó'ó : ngo'o + H.H
+ngō : ngo + M
+Glosses: 
+bad.word?
+
+Forms: 
+ni : ni + NoTone
+Glosses: 
+
+
+Forms: 
+ni : ni + NoTone
+nì : ni + L
+ní : ni + H
+nī : ni + M
+sìní : sini + L.H
+sìñ : siñ + L
+sín : sin + H
+síndē'í : sinde'i + H.M.H
+síndē'íī : sinde'ii + H.M.HM
+sínì : sini + H.L
+síní : sini + H.H
+sínī : sini + H.M
+sííní : siini + H.H
+síñí : siñi + H.H
+síīnī : siini + HM.M
+sīn : sin + M
+sīndēˈ : sindeˈ + M.M
+sīni : sini + M
+sīní : sini + M.H
+sīnī : sini + M.M
+sīñ : siñ + M
+sīñi : siñi + M
+sīñí : siñi + M.H
+sīñī : siñi + M.M
+sīīni : siini + M
+sīīnī : siini + M.M
+Glosses: 
+see
+
+Forms: 
+nijijí jàyíì : nijiji jayii + H.L.HL
+Glosses: 
+the wife of the male child
+
+Forms: 
+nijíì tātāì : nijii tatai + HL.M.ML
+Glosses: 
+my father's wife
+
+Forms: 
+nijíì xítoì : nijii xitoi + HL.H.L
+Glosses: 
+uncle's wife
+
+Forms: 
+nikunikixi : nikunikixi + NoTone
+Glosses: 
+thanks to her
+
+Forms: 
+niá  kùtò yò'ó : nia  kuto yo'o + H.L.L.L.H
+Glosses: 
+woman that likes you
+
+Forms: 
+niévè : nieve + H.L
+niévē : nieve + H.M
+Glosses: 
+snow
+
+Forms: 
+ntyi : ntyi + NoTone
+tándzī'ī : tandzi'i + H.M.M
+tándí'ì : tandi'i + H.H.L
+Glosses: 
+and.then
+
+Forms: 
+nu : nu + NoTone
+nú : nu + H
+nū : nu + M
+nūū : nuu + M
+Glosses: 
+have/own?
+
+Forms: 
+nuu : nuu + NoTone
+nù : nu + L
+nù' : nu' + L
+nùn : nun + L
+nùù : nuu + L
+nùùn : nuun + L
+nùún : nuun + LH
+nún : nun + H
+núùn : nuun + HL
+núˈùn : nuˈun + H.L
+nū : nu + M
+nūù : nuu + ML
+nūùn : nuun + ML
+nūún : nuun + MH
+nūū : nuu + M
+nūūn : nuun + M
+ñúˈùn : ñuˈun + H.L
+Glosses: 
+face
+from
+loc
+top.of
+
+Forms: 
+nyìjì : nyiji + L.L
+Glosses: 
+??
+
+Forms: 
+nà : na + L
+Glosses: 
+
+
+Forms: 
+nà : na + L
+Glosses: 
+3pl.rel
+
+Forms: 
+nà : na + L
+Glosses: 
+pl
+
+Forms: 
+nà : na + L
+ná : na + H
+náà : naa + HL
+nā : na + M
+Glosses: 
+3pl.f
+
+Forms: 
+nà : na + L
+ná : na + H
+nā : na + M
+Glosses: 
+prog?
+
+Forms: 
+nà : na + L
+ná : na + H
+nā : na + M
+Glosses: 
+rep
+
+Forms: 
+nà : na + L
+nā : na + M
+ñà : ña + L
+ñá : ña + H
+Glosses: 
+person
+
+Forms: 
+nà : na + L
+ñà : ña + L
+ñâ : ña + HL
+ñā : ña + M
+Glosses: 
+comp
+
+Forms: 
+nà ká'vī : na ka'vi + L.H.M
+Glosses: 
+fortune teller
+
+Forms: 
+nà nìkùndǒ : na nikundo + L.L.L.LH
+Glosses: 
+those left
+
+Forms: 
+nà ñūū : na ñuu + L.M
+Glosses: 
+townspeople
+
+Forms: 
+nà'à : na'a + L.L
+ná'á : na'a + H.H
+ná'án : na'an + H.H
+nā' : na' + M
+nā'ā : na'a + M.M
+nā'ān : na'an + M.M
+Glosses: 
+early
+morning
+
+Forms: 
+nàjàmā : najama + L.L.M
+nājàmá : najama + M.L.H
+nājàmā : najama + M.L.M
+Glosses: 
+change
+
+Forms: 
+nàkàvá : nakava + L.L.H
+nākàvá : nakava + M.L.H
+Glosses: 
+twist
+
+Forms: 
+nàkátyà : nakatya + L.H.L
+Glosses: 
+
+
+Forms: 
+nàkáà : nakaa + L.HL
+nákāá : nakaa + H.MH
+nākáà : nakaa + M.HL
+Glosses: 
+??
+
+Forms: 
+nàkèˈēn : nakeˈen + L.L.M
+nàké'én : nake'en + L.H.H
+nàkē'ē : nake'e + L.M.M
+nāké : nake + M.H
+nāké'ēn : nake'en + M.H.M
+nākéˈ : nakeˈ + M.H
+nākē'ēn : nake'en + M.M.M
+Glosses: 
+catch
+pick.up
+
+Forms: 
+nàkíxìvā'ā ñàkūsíá'én : nakixiva'a ñakusia'en + L.H.L.M.M.L.M.H.H
+ñákūsìā : ñakusia + H.M.LM
+Glosses: 
+??
+chef
+
+Forms: 
+nàkā : naka + L.M
+Glosses: 
+
+
+Forms: 
+nàkā'yī : naka'yi + L.M.M
+nākā'yī : naka'yi + M.M.M
+Glosses: 
+draw
+
+Forms: 
+nàkānī : nakani + L.M.M
+nákànì : nakani + H.L.L
+nákāní : nakani + H.M.H
+nákānī : nakani + H.M.M
+nākānī : nakani + M.M.M
+Glosses: 
+untangle
+
+Forms: 
+nàkānī : nakani + L.M.M
+náká'ì : naka'i + H.H.L
+nákānī : nakani + H.M.M
+nākāní : nakani + M.M.H
+ñàkání : ñakani + L.H.H
+Glosses: 
+tell
+
+Forms: 
+nàkātyā : nakatya + L.M.M
+nákátyá : nakatya + H.H.H
+nákātyā : nakatya + H.M.M
+nākātyā : nakatya + M.M.M
+Glosses: 
+wash
+
+Forms: 
+nàkāvā : nakava + L.M.M
+nákávà : nakava + H.H.L
+nākāvá : nakava + M.M.H
+nākāvā : nakava + M.M.M
+Glosses: 
+turn
+
+Forms: 
+nàkē' : nake' + L.M
+Glosses: 
+
+
+Forms: 
+nàkē'ēēn : nake'een + L.M.M
+Glosses: 
+
+
+Forms: 
+nàkī : naki + L.M
+Glosses: 
+
+
+Forms: 
+nàmà : nama + L.L
+Glosses: 
+soap
+
+Forms: 
+nàndzàtá : nandzata + L.L.H
+nàyáátá : nayaata + L.H.H
+Glosses: 
+elders
+
+Forms: 
+nàndzūsá : nandzusa + L.M.H
+Glosses: 
+melt
+
+Forms: 
+nàndòhó : nandoho + L.L.H
+nàndòj : nandoj + L.L
+nàndòjó : nandojo + L.L.H
+nàndójó : nandojo + L.H.H
+nàndōjó : nandojo + L.M.H
+nándójó : nandojo + H.H.H
+nāndòjō : nandojo + M.L.M
+Glosses: 
+forget
+
+Forms: 
+nànà : nana + L.L
+nàná : nana + L.H
+náná : nana + H.H
+nááná : naana + H.H
+nāná : nana + M.H
+nānā : nana + M.M
+nāānā : naana + M.M
+nǎná : nana + LH.H
+Glosses: 
+mother
+
+Forms: 
+nàní : nani + L.H
+nànī : nani + L.M
+nàñá : naña + L.H
+nāni : nani + M
+nāni᷄í : nanii + M.MH
+nāní : nani + M.H
+nāñí : nañi + M.H
+nāñā : naña + M.M
+Glosses: 
+name
+
+Forms: 
+nànā : nana + L.M
+náná : nana + H.H
+nánā : nana + H.M
+nāná : nana + M.H
+nānā : nana + M.M
+Glosses: 
+climb
+go.up
+
+Forms: 
+nànī' : nani' + L.M
+nánì' : nani' + H.L
+nānì' : nani' + M.L
+nānīˈī  : naniˈi  + M.M.M
+Glosses: 
+find
+
+Forms: 
+nàsítā : nasita + L.H.M
+Glosses: 
+musician
+
+Forms: 
+nàtyā : natya + L.M
+nàtyāā : natyaa + L.M
+nátyā : natya + H.M
+nātyà : natya + M.L
+nātyā : natya + M.M
+nātyāā : natyaa + M.M
+Glosses: 
+write
+
+Forms: 
+nàtyīīn : natyiin + L.M
+nātyīīn : natyiin + M.M
+Glosses: 
+sew
+
+Forms: 
+nàyàkwá : nayakwa + L.L.H
+nāyàkw : nayakw + M.L
+nāyàkwá : nayakwa + M.L.H
+nāyàkwā : nayakwa + M.L.M
+Glosses: 
+wipe.off
+
+Forms: 
+nàyá : naya + L.H
+nàyā : naya + L.M
+Glosses: 
+dry
+
+Forms: 
+nàyīví : nayivi + L.M.H
+Glosses: 
+people
+
+Forms: 
+nàà : naa + L
+Glosses: 
+hi
+
+Forms: 
+ná : na + H
+Glosses: 
+3sg.hon
+
+Forms: 
+ná : na + H
+Glosses: 
+inf
+
+Forms: 
+ná : na + H
+Glosses: 
+??
+
+Forms: 
+ná : na + H
+náá : naa + H
+nā : na + M
+nāá : naa + MH
+Glosses: 
+hort
+
+Forms: 
+ná'nō : na'no + H.M
+Glosses: 
+big.pl
+
+Forms: 
+nájà'ā : naja'a + H.L.M
+Glosses: 
+outsider
+
+Forms: 
+nákià'ā : nakia'a + H.L.M
+Glosses: 
+how.many?
+
+Forms: 
+nákàjá : nakaja + H.L.H
+Glosses: 
+build??
+
+Forms: 
+nákàà : nakaa + H.L
+nákáà : nakaa + H.HL
+nákáā : nakaa + H.HM
+nákāā : nakaa + H.M
+nākà : naka + M.L
+nākā : naka + M.M
+nākāà : nakaa + M.ML
+Glosses: 
+be.in
+be.on
+sit
+
+Forms: 
+nákátá'ā : nakata'a + H.H.H.M
+nākātá'ā : nakata'a + M.M.H.M
+Glosses: 
+meet
+
+Forms: 
+nákává : nakava + H.H.H
+Glosses: 
+fall
+
+Forms: 
+nákáání : nakaani + H.H.H
+Glosses: 
+unbuild
+
+Forms: 
+nákù'ún : naku'un + H.L.H
+Glosses: 
+inside
+
+Forms: 
+nákā'yī : naka'yi + H.M.M
+Glosses: 
+painting
+
+Forms: 
+nákā'án : naka'an + H.M.H
+Glosses: 
+miss
+
+Forms: 
+nákāvà : nakava + H.M.L
+Glosses: 
+roll
+
+Forms: 
+námá : nama + H.H
+nāāmā : naama + M.M
+Glosses: 
+when
+
+Forms: 
+námánì : namani + H.H.L
+Glosses: 
+mother.in.law
+
+Forms: 
+nándyì'ì : nandyi'i + H.L.L
+Glosses: 
+later
+
+Forms: 
+nándyùkú : nandyuku + H.L.H
+nándyūk : nandyuk + H.M
+nándyūkú : nandyuku + H.M.H
+nāndyūkú : nandyuku + M.M.H
+Glosses: 
+search
+
+Forms: 
+nánná : nanna + H.H
+Glosses: 
+
+
+Forms: 
+náná : nana + H.H
+nānā kēēn : nana keen + M.M.M
+Glosses: 
+stepmother
+
+Forms: 
+nánīà : nania + H.ML
+Glosses: 
+long
+
+Forms: 
+násano : nasano + H
+Glosses: 
+older.lady
+
+Forms: 
+nátyìvì : natyivi + H.L.L
+Glosses: 
+appear
+
+Forms: 
+návà'à : nava'a + H.L.L
+návà'á : nava'a + H.L.H
+nává'á : nava'a + H.H.H
+nāvà'à : nava'a + M.L.L
+nāvà'á : nava'a + M.L.H
+nāvà'ā : nava'a + M.L.M
+Glosses: 
+why
+
+Forms: 
+návēlā  yātáí : navela  yatai + H.M.M.M.H
+Glosses: 
+great grandmother
+
+Forms: 
+náànì : naani + HL.L
+Glosses: 
+chayote
+
+Forms: 
+náájáá : naajaa + H.H
+Glosses: 
+how many
+
+Forms: 
+né'ē : ne'e + H.M
+Glosses: 
+bring?
+
+Forms: 
+nì : ni + L
+Glosses: 
+??
+
+Forms: 
+nì : ni + L
+Glosses: 
+salt
+
+Forms: 
+nì : ni + L
+nìì : nii + L
+ní : ni + H
+nī : ni + M
+Glosses: 
+pst
+
+Forms: 
+nì : ni + L
+ní : ni + H
+nī : ni + M
+Glosses: 
+2s.hon
+
+Forms: 
+nì : ni + L
+ní : ni + H
+nī : ni + M
+Glosses: 
+?
+
+Forms: 
+nì : ni + L
+sín : sin + H
+sínì : sini + H.L
+síìnì : siini + HL.L
+síñ : siñ + H
+síñì : siñi + H.L
+síñī : siñi + H.M
+sīnī : sini + M.M
+Glosses: 
+know
+
+Forms: 
+nì'ndyàá : ni'ndyaa + L.LH
+Glosses: 
+bruise
+
+Forms: 
+nì'ì : ni'i + L.L
+nì'ī : ni'i + L.M
+nī'í : ni'i + M.H
+Glosses: 
+loud
+
+Forms: 
+nì'īn : ni'in + L.M
+Glosses: 
+fast
+intensely
+
+Forms: 
+nìkì : niki + L.L
+nìkí : niki + L.H
+nìkī : niki + L.M
+nīkí : niki + M.H
+nīkī : niki + M.M
+Glosses: 
+what
+
+Forms: 
+nìnō : nino + L.M
+nínò : nino + H.L
+nīnò : nino + M.L
+Glosses: 
+above
+
+Forms: 
+nìtyà : nitya + L.L
+Glosses: 
+cook.tortilla?
+
+Forms: 
+nìì : nii + L
+Glosses: 
+blood
+salt
+
+Forms: 
+nìínó : niino + LH.H
+Glosses: 
+up
+
+Forms: 
+ní : ni + H
+Glosses: 
+??
+
+Forms: 
+ní'mà : ni'ma + H.L
+Glosses: 
+smoke
+
+Forms: 
+ní'í : ni'i + H.H
+Glosses: 
+
+
+Forms: 
+níayìví : niayivi + H.L.H
+nīá : nia + MH
+Glosses: 
+person
+
+Forms: 
+níjò : nijo + H.L
+Glosses: 
+
+
+Forms: 
+nínánárá : ninanara + H.H.H.H
+Glosses: 
+
+
+Forms: 
+níní : nini + H.H
+Glosses: 
+hail
+
+Forms: 
+níá : nia + H
+Glosses: 
+
+
+Forms: 
+níìn : niin + HL
+Glosses: 
+cob
+
+Forms: 
+níìn : niin + HL
+níǐ : nii + HLH
+Glosses: 
+leather
+skin
+
+Forms: 
+níñú'ú : niñu'u + H.H.H
+Glosses: 
+need?
+
+Forms: 
+nî : ni + HL
+Glosses: 
+masorca
+
+Forms: 
+nò : no + L
+Glosses: 
+
+
+Forms: 
+nòóvísí : noovisi + LH.H.H
+Glosses: 
+cold place
+
+Forms: 
+nù'ù : nu'u + L.L
+nùn : nun + L
+nùú : nuu + LH
+nùūn : nuun + LM
+nūn : nun + M
+Glosses: 
+loc
+place
+
+Forms: 
+nù'ún : nu'un + L.H
+nù'ūn : nu'un + L.M
+nùnʔūn : nunʔun + L.M
+Glosses: 
+tooth
+
+Forms: 
+nùn tó'ó : nun to'o + L.H.H
+Glosses: 
+altar
+
+Forms: 
+nùndyìvá : nundyiva + L.L.H
+ñūndīvá : ñundiva + M.M.H
+Glosses: 
+Oaxaca
+
+Forms: 
+nùñù : nuñu + L.L
+nú : nu + H
+núún : nuun + H
+ñù : ñu + L
+ñùùn : ñuun + L
+ñú : ñu + H
+ñū : ñu + M
+ñū'ūn : ñu'un + M.M
+ñūū : ñuu + M
+ñūūn : ñuun + M
+Glosses: 
+town
+
+Forms: 
+nùù : nuu + L
+núú : nuu + H
+Glosses: 
+?LOC
+forward
+
+Forms: 
+nún vàá : nun vaa + H.LH
+Glosses: 
+down.there
+
+Forms: 
+núnú : nunu + H.H
+Glosses: 
+
+
+Forms: 
+núù : nuu + HL
+Glosses: 
+
+
+Forms: 
+nā : na + M
+Glosses: 
+??
+
+Forms: 
+nā : na + M
+Glosses: 
+neut
+
+Forms: 
+nā : na + M
+Glosses: 
+again
+up?
+
+Forms: 
+nā ndzātáí : na ndzatai + M.M.H
+Glosses: 
+my old folks
+
+Forms: 
+nā sītā : na sita + M.M.M
+Glosses: 
+person who sings
+
+Forms: 
+nā'ā : na'a + M.M
+Glosses: 
+own
+
+Forms: 
+nāchúūn : nachuun + M.HM
+Glosses: 
+useable.things
+
+Forms: 
+nājàkà : najaka + M.L.L
+nājákà : najaka + M.H.L
+Glosses: 
+knead
+mix
+
+Forms: 
+nājá : naja + M.H
+Glosses: 
+
+
+Forms: 
+nājā : naja + M.M
+Glosses: 
+how many
+
+Forms: 
+nākà : naka + M.L
+Glosses: 
+3p
+
+Forms: 
+nākàà : nakaa + M.L
+Glosses: 
+
+
+Forms: 
+nāndzūk : nandzuk + M.M
+Glosses: 
+look.for?
+
+Forms: 
+nāndòjò : nandojo + M.L.L
+Glosses: 
+
+
+Forms: 
+nānàí : nanai + M.LH
+nānāìn : nanain + M.ML
+Glosses: 
+climb
+
+Forms: 
+nātyīndyì : natyindyi + M.M.L
+Glosses: 
+receiving.dead
+
+Forms: 
+nātá'à : nata'a + M.H.L
+Glosses: 
+meet
+
+Forms: 
+nāvàlí : navali + M.L.H
+Glosses: 
+children
+girls
+
+Forms: 
+nāvālà : navala + M.M.L
+Glosses: 
+
+
+Forms: 
+nāvēlà : navela + M.M.L
+Glosses: 
+
+
+Forms: 
+nē' : ne' + M
+nēˈē : neˈe + M.M
+Glosses: 
+take??
+
+Forms: 
+nī : ni + M
+Glosses: 
+3pl
+
+Forms: 
+nī' : ni' + M
+Glosses: 
+?
+
+Forms: 
+nīchìchì : nichichi + M.L.L
+Glosses: 
+ripe
+
+Forms: 
+nījò : nijo + M.L
+nījò' : nijo' + M.L
+nījò'ò : nijo'o + M.L.L
+Glosses: 
+listen
+
+Forms: 
+nīkà : nika + M.L
+Glosses: 
+??
+
+Forms: 
+nīmà : nima + M.L
+Glosses: 
+silly
+stupid
+
+Forms: 
+nō : no + M
+Glosses: 
+?
+
+Forms: 
+nōònì : nooni + ML.L
+Glosses: 
+maize
+
+Forms: 
+nōòní : nooni + ML.H
+Glosses: 
+zucara
+
+Forms: 
+nū : nu + M
+Glosses: 
+run
+
+Forms: 
+nūn : nun + M
+Glosses: 
+where
+
+Forms: 
+nūū : nuu + M
+nūūn : nuun + M
+Glosses: 
+come.down
+
+Forms: 
+nūˈù : nuˈu + M.L
+ñú'ù : ñu'u + H.L
+Glosses: 
+fire
+wear
+
+Forms: 
+nʤáʤì : nʤaʤi + H.L
+Glosses: 
+mole
+
+Forms: 
+pàlómà : paloma + L.H.L
+pàlómā : paloma + L.H.M
+Glosses: 
+Paloma
+
+Forms: 
+pàñō : paño + L.M
+Glosses: 
+bandana
+
+Forms: 
+pán̄ : pan + H.M
+pân : pan + HL
+Glosses: 
+bread
+
+Forms: 
+páání : paani + H.H
+Glosses: 
+rebozo
+
+Forms: 
+páñó : paño + H.H
+pāní : pani + M.H
+Glosses: 
+bandana
+
+Forms: 
+pèrá : pera + L.H
+pèrā : pera + L.M
+pérá : pera + H.H
+péérá : peera + H.H
+pērā : pera + M.M
+pēērā : peera + M.M
+Glosses: 
+pear
+
+Forms: 
+pìsāróòn : pisaroon + L.M.HL
+Glosses: 
+white.board
+
+Forms: 
+píínó : piino + H.H
+Glosses: 
+pine
+
+Forms: 
+pósò : poso + H.L
+Glosses: 
+well
+
+Forms: 
+púntá : punta + H.H
+Glosses: 
+peak
+point
+
+Forms: 
+pāréd : pared + M.H
+pāréèd : pareed + M.HL
+Glosses: 
+wall
+
+Forms: 
+pāís : pais + MH
+Glosses: 
+country
+
+Forms: 
+pēlótá : pelota + M.H.H
+Glosses: 
+ball
+
+Forms: 
+pītááyá : pitaaya + M.H.H
+Glosses: 
+pitahaya
+
+Forms: 
+pīñáátá : piñaata + M.H.H
+Glosses: 
+piñata
+
+Forms: 
+pōntá : ponta + M.H
+Glosses: 
+top??
+
+Forms: 
+pūlsérá : pulsera + M.H.H
+Glosses: 
+bracelet
+
+Forms: 
+pūùmà : puuma + ML.L
+Glosses: 
+puma
+
+Forms: 
+ra : ra + NoTone
+Glosses: 
+
+
+Forms: 
+raamo : raamo + NoTone
+Glosses: 
+bouqet
+
+Forms: 
+ruédá : rueda + H.H
+Glosses: 
+wheel
+
+Forms: 
+rà : ra + L
+rá : ra + H
+râ : ra + HL
+rā : ra + M
+Glosses: 
+3.m
+
+Forms: 
+rá : ra + H
+rāá : raa + MH
+Glosses: 
+3sg.liquid
+
+Forms: 
+rì : ri + L
+rí : ri + H
+rī : ri + M
+rǐ : ri + LH
+tyì : tyi + L
+tyí : tyi + H
+tyī : tyi + M
+tyǐ : tyi + LH
+Glosses: 
+3sg.anim
+
+Forms: 
+rā : ra + M
+Glosses: 
+
+
+Forms: 
+rānchō álégré : rancho alegre + M.M.H.H.H
+Glosses: 
+rancho.alegre
+
+Forms: 
+rēpóòyò : repooyo + M.HL.L
+Glosses: 
+repollo
+
+Forms: 
+rī : ri + M
+tyī : tyi + M
+Glosses: 
+?
+
+Forms: 
+rǐ : ri + LH
+tyi : tyi + NoTone
+tyí : tyi + H
+tyī : tyi + M
+Glosses: 
+3sg.m?
+animal?
+
+Forms: 
+s : s + NoTone
+si : si + NoTone
+sì : si + L
+sí : si + H
+sī : si + M
+zì : zi + L
+Glosses: 
+impf
+prog
+
+Forms: 
+sa'a : sa'a + NoTone
+Glosses: 
+how cobb is prepared (nixtamalization)
+
+Forms: 
+sandiego : sandiego + NoTone
+Glosses: 
+San.Diego
+
+Forms: 
+sata : sata + NoTone
+sàt : sat + L
+sàta᷅ : sata + L.LM
+sàtà : sata + L.L
+sàtàá : sataa + L.LH
+sàtá : sata + L.H
+sàtǎ : sata + L.LH
+sátā : sata + H.M
+Glosses: 
+back
+on
+
+Forms: 
+sa᷅á : saa + LMH
+Glosses: 
+new
+
+Forms: 
+seè níanì : see niani + L.H.L
+Glosses: 
+male grandchild
+
+Forms: 
+sikando'o : sikando'o + NoTone
+Glosses: 
+swim
+
+Forms: 
+sini : sini + NoTone
+sinu : sinu + NoTone
+sííní : siini + H.H
+sīnī : sini + M.M
+Glosses: 
+go?
+
+Forms: 
+siá' : sia' + H
+siá'àn : sia'an + H.L
+siá'ā : sia'a + H.M
+siá'ān : sia'an + H.M
+syá' : sya' + H
+sìsyá' : sisya' + L.H
+síàˈà : siaˈa + HL.L
+síá'ā : sia'a + H.M
+síā : sia + HM
+sīá' : sia' + MH
+sīáˈá : siaˈa + MH.H
+sīáˈā : siaˈa + MH.M
+Glosses: 
+eat
+
+Forms: 
+soldádo : soldado + H
+Glosses: 
+soldier
+
+Forms: 
+sà : sa + L
+sàà : saa + L
+sā : sa + M
+sāà : saa + ML
+Glosses: 
+arrive?
+
+Forms: 
+sà' : sa' + L
+sà'à : sa'a + L.L
+sà'àā : sa'aa + L.LM
+sà'á : sa'a + L.H
+sà'ā : sa'a + L.M
+sàˈ : saˈ + L
+sàˈá : saˈa + L.H
+sá'à : sa'a + H.L
+sá'á : sa'a + H.H
+sáˈà : saˈa + H.L
+sā'à : sa'a + M.L
+Glosses: 
+about
+foot
+
+Forms: 
+sà' : sa' + L
+sà'ān : sa'an + L.M
+sá' : sa' + H
+sā' : sa' + M
+Glosses: 
+give
+
+Forms: 
+sà'n : sa'n + L
+sā'n : sa'n + M
+Glosses: 
+kil
+
+Forms: 
+sà'ndyā : sa'ndya + L.M
+Glosses: 
+tear
+
+Forms: 
+sà'á vē'ē : sa'a ve'e + L.H.M.M
+Glosses: 
+wall
+
+Forms: 
+sà'áyā : sa'aya + L.H.M
+Glosses: 
+theme
+
+Forms: 
+sàkū : saku + L.M
+Glosses: 
+
+
+Forms: 
+sàn jwàn : san jwan + L.L
+Glosses: 
+san.juan
+
+Forms: 
+sànì : sani + L.L
+Glosses: 
+step
+
+Forms: 
+sànì : sani + L.L
+Glosses: 
+fall
+
+Forms: 
+sànī : sani + L.M
+sání : sani + H.H
+Glosses: 
+dream
+
+Forms: 
+sàtyì : satyi + L.L
+sàtyí : satyi + L.H
+Glosses: 
+spicy
+
+Forms: 
+sàtà : sata + L.L
+Glosses: 
+backward
+
+Forms: 
+sààˈ : saaˈ + L
+Glosses: 
+??
+
+Forms: 
+sàˈà : saˈa + L.L
+Glosses: 
+speak??
+
+Forms: 
+sá : sa + H
+sá' : sa' + H
+sá'à : sa'a + H.L
+Glosses: 
+go?
+
+Forms: 
+sá : sa + H
+sí : si + H
+sī : si + M
+Glosses: 
+3sg.hon
+?
+
+Forms: 
+sá'm : sa'm + H
+sá'mīn : sa'min + H.M
+Glosses: 
+smoke
+
+Forms: 
+sá'nō : sa'no + H.M
+Glosses: 
+leader
+
+Forms: 
+sá'à : sa'a + H.L
+sá'àn : sa'an + H.L
+sā'à : sa'a + M.L
+Glosses: 
+taste
+
+Forms: 
+sá'á : sa'a + H.H
+Glosses: 
+nixtamal
+
+Forms: 
+sá'ān : sa'an + H.M
+Glosses: 
+let
+
+Forms: 
+sápò : sapo + H.L
+Glosses: 
+frog
+
+Forms: 
+sátyī : satyi + H.M
+Glosses: 
+beg
+
+Forms: 
+sáˈ : saˈ + H
+Glosses: 
+??
+
+Forms: 
+sáˈnò : saˈno + H.L
+á'nò : a'no + H.L
+á'nō : a'no + H.M
+Glosses: 
+grow?
+
+Forms: 
+sè'è : se'e + L.L
+Glosses: 
+garbage
+violent, immoral
+
+Forms: 
+sè'ē : se'e + L.M
+Glosses: 
+son
+
+Forms: 
+sì : si + L
+sì' : si' + L
+sì'ì : si'i + L.L
+sì'ī : si'i + L.M
+sí : si + H
+sí'í : si'i + H.H
+sí'ín : si'in + H.H
+sín : sin + H
+sín'ún : sin'un + H.H
+síˈí : siˈi + H.H
+sī : si + M
+sī' : si' + M
+sī'ī : si'i + M.M
+sī'īn : si'in + M.M
+sīn : sin + M
+Glosses: 
+and
+rel
+to
+with
+
+Forms: 
+sì : si + L
+sìì : sii + L
+síí : sii + H
+Glosses: 
+already
+emph
+eventually
+
+Forms: 
+sì'ì : si'i + L.L
+Glosses: 
+mushroom
+
+Forms: 
+sìkwì : sikwi + L.L
+Glosses: 
+stop
+
+Forms: 
+sìkà : sika + L.L
+Glosses: 
+order?
+
+Forms: 
+sìká : sika + L.H
+Glosses: 
+be?
+
+Forms: 
+sìkā : sika + L.M
+sîká : sika + HL.H
+sīká : sika + M.H
+sīkā : sika + M.M
+Glosses: 
+far
+
+Forms: 
+sìndé' : sinde' + L.H
+Glosses: 
+
+
+Forms: 
+sìnà : sina + L.L
+Glosses: 
+??
+
+Forms: 
+sìtyà : sitya + L.L
+Glosses: 
+spill
+
+Forms: 
+sìtō : sito + L.M
+síìtō : siito + HL.M
+sītó : sito + M.H
+Glosses: 
+bed
+
+Forms: 
+sìvà : siva + L.L
+sìvà'à : siva'a + L.L.L
+sìvà'ā : siva'a + L.L.M
+sìvā'á : siva'a + L.M.H
+sívà'ā : siva'a + H.L.M
+sīvà : siva + M.L
+sīvà'à : siva'a + M.L.L
+sīvà'ā : siva'a + M.L.M
+sīvā : siva + M.M
+Glosses: 
+only
+
+Forms: 
+sìyā : siya + L.M
+síyá : siya + H.H
+Glosses: 
+chair
+
+Forms: 
+sìá : sia + LH
+Glosses: 
+
+
+Forms: 
+sìá'á : sia'a + LH.H
+Glosses: 
+
+
+Forms: 
+sìò : sio + L
+síò : sio + HL
+Glosses: 
+comal
+
+Forms: 
+sìā' : sia' + LM
+Glosses: 
+
+
+Forms: 
+sìˈì : siˈi + L.L
+Glosses: 
+??
+
+Forms: 
+sìˈí : siˈi + L.H
+sí' : si' + H
+sī' : si' + M
+sī'ì : si'i + M.L
+Glosses: 
+drink
+
+Forms: 
+sí : si + H
+Glosses: 
+
+
+Forms: 
+sí'în : si'in + H.HL
+Glosses: 
+about
+
+Forms: 
+síi : sii + H
+Glosses: 
+
+
+Forms: 
+síjò : sijo + H.L
+ìjò : ijo + L.L
+Glosses: 
+chaos
+
+Forms: 
+síkwǎvìtyì : sikwavityi + H.LH.L.L
+Glosses: 
+tonight
+
+Forms: 
+síkí : siki + H.H
+Glosses: 
+far
+
+Forms: 
+sín : sin + H
+Glosses: 
+
+
+Forms: 
+sísì : sisi + H.L
+Glosses: 
+rude
+
+Forms: 
+sítyí : sityi + H.H
+Glosses: 
+guts
+
+Forms: 
+sítà : sita + H.L
+sítā : sita + H.M
+sītā : sita + M.M
+Glosses: 
+sing
+
+Forms: 
+sívā'à : siva'a + H.M.L
+Glosses: 
+
+
+Forms: 
+sívā'ā : siva'a + H.M.M
+Glosses: 
+
+
+Forms: 
+síà : sia + HL
+Glosses: 
+
+
+Forms: 
+síá' : sia' + H
+Glosses: 
+
+
+Forms: 
+síá'and : sia'and + H
+Glosses: 
+
+
+Forms: 
+síá'ān : sia'an + H.M
+Glosses: 
+
+
+Forms: 
+sòyō : soyo + L.M
+Glosses: 
+Sollo
+
+Forms: 
+sā : sa + M
+Glosses: 
+
+
+Forms: 
+sā'òn : sa'on + M.L
+Glosses: 
+fifteen
+
+Forms: 
+sājī : saji + M.M
+Glosses: 
+clo
+
+Forms: 
+sāntā crúz : santa cruz + M.M.H
+Glosses: 
+SantaCruz
+
+Forms: 
+sātyī : satyi + M.M
+Glosses: 
+pants
+
+Forms: 
+sātă : sată + M
+Glosses: 
+
+
+Forms: 
+sāí : sai + MH
+Glosses: 
+
+
+Forms: 
+sēgúró : seguro + M.H.H
+Glosses: 
+sure
+
+Forms: 
+sēmáná : semana + M.H.H
+sēmānā : semana + M.M.M
+Glosses: 
+week
+
+Forms: 
+sēsíná : sesina + M.H.H
+Glosses: 
+beef.cooking
+
+Forms: 
+sēvóóyá : sevooya + M.H.H
+Glosses: 
+onion
+
+Forms: 
+sī'íní : si'ini + M.H.H
+Glosses: 
+afternoon
+
+Forms: 
+sītò : sito + M.L
+Glosses: 
+
+
+Forms: 
+sītūróòn : situroon + M.M.HL
+Glosses: 
+belt
+
+Forms: 
+sīvà' : siva' + M.L
+sīvà'ā : siva'a + M.L.M
+Glosses: 
+old.anim
+
+Forms: 
+sīá'á : sia'a + MH.H
+Glosses: 
+
+
+Forms: 
+sīī : sii + M
+Glosses: 
+
+
+Forms: 
+sīō : sio + M
+Glosses: 
+side
+
+Forms: 
+ta : ta + NoTone
+tà : ta + L
+tá : ta + H
+Glosses: 
+rel
+
+Forms: 
+ta ká'nō : ta ka'no + H.M
+Glosses: 
+messenger
+
+Forms: 
+tachíí : tachii + H
+tàchì : tachi + L.L
+tāchì : tachi + M.L
+Glosses: 
+voice
+wind
+
+Forms: 
+tandzi' : tandzi' + NoTone
+Glosses: 
+
+
+Forms: 
+tantyii : tantyii + NoTone
+Glosses: 
+
+
+Forms: 
+tata : tata + NoTone
+tát : tat + H
+tátá : tata + H.H
+tātā : tata + M.M
+Glosses: 
+father
+
+Forms: 
+tatu'u : tatu'u + NoTone
+tatu'ùñ : tatu'uñ + L
+tàtùn : tatun + L.L
+tàtúˈú : tatuˈu + L.H.H
+tátù'ù : tatu'u + H.L.L
+tátù'ùn : tatu'un + H.L.L
+tátù'ūn : tatu'un + H.L.M
+tátùˈùn : tatuˈun + H.L.L
+tátū'ún : tatu'un + H.M.H
+tátū'ūn : tatu'un + H.M.M
+tù'ù : tu'u + L.L
+tātú'ùn : tatu'un + M.H.L
+tātū'ùn : tatu'un + M.M.L
+tātū'ū : tatu'u + M.M.M
+tātū'ūn : tatu'un + M.M.M
+Glosses: 
+after
+like
+since?
+
+Forms: 
+tavélo : tavelo + H
+tātávēlo : tatavelo + M.H.M
+Glosses: 
+grandfather
+
+Forms: 
+tiempo ichí : tiempo ichi + H
+Glosses: 
+dry.season
+
+Forms: 
+tiempo jàvì : tiempo javi + L.L
+Glosses: 
+rainy.season
+
+Forms: 
+tiempo vīsī : tiempo visi + M.M
+Glosses: 
+cold season
+
+Forms: 
+tiémpó : tiempo + H.H
+Glosses: 
+time
+
+Forms: 
+tiémpó sàtà : tiempo sata + H.H.L.L
+Glosses: 
+behind
+
+Forms: 
+tiémpó yàtà : tiempo yata + H.H.L.L
+Glosses: 
+olden.time
+
+Forms: 
+tuni : tuni + NoTone
+Glosses: 
+
+
+Forms: 
+tyi : tyi + NoTone
+tyì : tyi + L
+Glosses: 
+?
+
+Forms: 
+tyi : tyi + NoTone
+tyì : tyi + L
+tyí : tyi + H
+tyī : tyi + M
+tyīn : tyin + M
+tzi : tzi + NoTone
+Glosses: 
+and
+
+Forms: 
+tyi'in : tyi'in + NoTone
+tyí'ìn : tyi'in + H.L
+tyí'ín : tyi'in + H.H
+Glosses: 
+very?
+
+Forms: 
+tyikoo : tyikoo + NoTone
+tyīkō : tyiko + M.M
+Glosses: 
+tamale
+
+Forms: 
+tyikwii : tyikwii + NoTone
+tyìkwìí : tyikwii + L.LH
+tyìkwìī : tyikwii + L.LM
+tyìkwí : tyikwi + L.H
+tyìkwǐ : tyikwi + L.LH
+tyíkwìí : tyikwii + H.LH
+tyíkwíí : tyikwii + H.H
+tyīkwìí : tyikwii + M.LH
+tyīkwìī : tyikwii + M.LM
+tyīkwí : tyikwi + M.H
+tyīkwíì : tyikwii + M.HL
+tyīkwīì : tyikwii + M.ML
+tyīkwīí : tyikwii + M.MH
+tīkwìī : tikwii + M.LM
+tīkwí : tikwi + M.H
+Glosses: 
+water
+
+Forms: 
+tyina le : tyina le + NoTone
+Glosses: 
+baby dog
+
+Forms: 
+tyina yii : tyina yii + NoTone
+Glosses: 
+male dog
+
+Forms: 
+tyà : tya + L
+tyâ : tya + HL
+Glosses: 
+m
+
+Forms: 
+tyàñò : tyaño + L.L
+Glosses: 
+boyfriend
+
+Forms: 
+tyákú : tyaku + H.H
+Glosses: 
+alive
+
+Forms: 
+tyáplō : tyaplo + H.M
+Glosses: 
+devil
+
+Forms: 
+tyè : tye + L
+tyè' : tye' + L
+Glosses: 
+learn
+
+Forms: 
+tyè' : tye' + L
+tyē'ē : tye'e + M.M
+Glosses: 
+know
+
+Forms: 
+tyì : tyi + L
+tyí : tyi + H
+Glosses: 
+rel.m
+
+Forms: 
+tyì : tyi + L
+tyí : tyi + H
+Glosses: 
+male
+rel.m
+
+Forms: 
+tyì kùtò yò'ó : tyi kuto yo'o + L.L.L.L.H
+Glosses: 
+man that likes you
+
+Forms: 
+tyì'ìì : tyi'ii + L.L
+Glosses: 
+holy.man
+
+Forms: 
+tyìjá : tyija + L.H
+tyījǎ : tyija + M.LH
+Glosses: 
+so
+
+Forms: 
+tyìkwàá : tyikwaa + L.LH
+tyīkwàā : tyikwaa + M.LM
+Glosses: 
+orange
+
+Forms: 
+tyìkwá : tyikwa + L.H
+Glosses: 
+
+
+Forms: 
+tyìkà : tyika + L.L
+Glosses: 
+put.on
+
+Forms: 
+tyìkàchí : tyikachi + L.L.H
+tyīkàchí : tyikachi + M.L.H
+Glosses: 
+blanket
+
+Forms: 
+tyìkáà : tyikaa + L.HL
+tyìkáā : tyikaa + L.HM
+Glosses: 
+3sm
+
+Forms: 
+tyìkìvā : tyikiva + L.L.M
+Glosses: 
+butterfly
+
+Forms: 
+tyìkā'ūn : tyika'un + L.M.M
+Glosses: 
+tortilla.chip
+
+Forms: 
+tyìkāāmā : tyikaama + L.M.M
+Glosses: 
+jicama
+
+Forms: 
+tyìlō'ò : tyilo'o + L.M.L
+tyīló'ò : tyilo'o + M.H.L
+Glosses: 
+boy
+
+Forms: 
+tyìmīí : tyimii + L.MH
+Glosses: 
+bumblebee
+
+Forms: 
+tyìnain : tyinain + L
+Glosses: 
+my.dog
+
+Forms: 
+tyìndzīīkí : tyindziiki + L.M.H
+Glosses: 
+nogal
+
+Forms: 
+tyìndóò : tyindoo + L.HL
+tyīndòò : tyindoo + M.L
+Glosses: 
+spider.sp
+
+Forms: 
+tyìnà jí'í : tyina ji'i + L.L.H.H
+Glosses: 
+female dog
+
+Forms: 
+tyìnànà : tyinana + L.L.L
+tyìnááná : tyinaana + L.H.H
+Glosses: 
+tomatillo
+
+Forms: 
+tyìná : tyina + L.H
+tyìnā : tyina + L.M
+tyínà : tyina + H.L
+tìná : tina + L.H
+tīná : tina + M.H
+Glosses: 
+dog
+
+Forms: 
+tyìsì : tyisi + L.L
+Glosses: 
+
+
+Forms: 
+tyìsìˈí : tyisiˈi + L.L.H
+tyìsí'ī : tyisi'i + L.H.M
+Glosses: 
+drunkard.m
+
+Forms: 
+tyìsí : tyisi + L.H
+Glosses: 
+
+
+Forms: 
+tyìsī : tyisi + L.M
+Glosses: 
+stomach
+
+Forms: 
+tyìtò : tyito + L.L
+Glosses: 
+firewood
+
+Forms: 
+tyìvi : tyivi + L
+tyìvī : tyivi + L.M
+Glosses: 
+dawn
+
+Forms: 
+tyìxú'ū : tyixu'u + L.H.M
+Glosses: 
+goat
+
+Forms: 
+tyìyàká : tyiyaka + L.L.H
+tyìyāāká : tyiyaaka + L.M.H
+tyīyàākā : tyiyaaka + M.LM.M
+Glosses: 
+fish
+
+Forms: 
+tyìyòò : tyiyoo + L.L
+Glosses: 
+moon
+
+Forms: 
+tyìyīīkí : tyiyiiki + L.M.H
+Glosses: 
+seed
+
+Forms: 
+tyìín : tyiin + LH
+Glosses: 
+mouse
+
+Forms: 
+tyìñììn : tyiñiin + L.L
+Glosses: 
+k.o.food
+
+Forms: 
+tyìñùùn : tyiñuun + L.L
+tyìñùùn  : tyiñuun  + L.L
+tīñùn : tiñun + M.L
+Glosses: 
+star
+
+Forms: 
+tyìīn : tyiin + LM
+Glosses: 
+
+
+Forms: 
+tyí : tyi + H
+Glosses: 
+q
+
+Forms: 
+tyí : tyi + H
+Glosses: 
+
+
+Forms: 
+tyí : tyi + H
+tyíì : tyii + HL
+tyíī : tyii + HM
+tyīn : tyin + M
+Glosses: 
+grab
+
+Forms: 
+tyílàlā : tyilala + H.L.M
+Glosses: 
+urine
+
+Forms: 
+tyíná : tyina + H.H
+Glosses: 
+
+
+Forms: 
+tyítò lè : tyito le + H.L.L
+Glosses: 
+baby calf
+
+Forms: 
+tyívì : tyivi + H.L
+Glosses: 
+visible
+
+Forms: 
+tyíyāˈā : tyiyaˈa + H.M.M
+Glosses: 
+salsa
+
+Forms: 
+tyíìn : tyiin + HL
+Glosses: 
+grab
+
+Forms: 
+tyíìn : tyiin + HL
+tyī : tyi + M
+Glosses: 
+touch
+
+Forms: 
+tyíín : tyiin + H
+Glosses: 
+
+
+Forms: 
+tyíīn : tyiin + HM
+Glosses: 
+
+
+Forms: 
+tyíū : tyiu + HM
+Glosses: 
+
+
+Forms: 
+tyùk : tyuk + L
+Glosses: 
+
+
+Forms: 
+tyùkù : tyuku + L.L
+tyùkū : tyuku + L.M
+tyúkū : tyuku + H.M
+tyúkūˈ : tyukuˈ + H.M
+tyūki : tyuki + M
+tyūkw : tyukw + M
+tyūkū : tyuku + M.M
+tùkù : tuku + L.L
+Glosses: 
+again
+
+Forms: 
+tyùn : tyun + L
+Glosses: 
+class?
+
+Forms: 
+tyùtyí : tyutyi + L.H
+tyùtyī : tyutyi + L.M
+tyútyì : tyutyi + H.L
+tyútyí : tyutyi + H.H
+tyútyī : tyutyi + H.M
+tyūtyī : tyutyi + M.M
+tyūtì : tyuti + M.L
+tyūtī : tyuti + M.M
+tyūūtyī : tyuutyi + M.M
+tùùtì : tuuti + L.L
+tùùtī : tuuti + L.M
+túútyí : tuutyi + H.H
+túútí : tuuti + H.H
+tūūtī : tuuti + M.M
+Glosses: 
+paper
+
+Forms: 
+tyī : tyi + M
+Glosses: 
+
+
+Forms: 
+tyī : tyi + M
+Glosses: 
+incredulous?
+
+Forms: 
+tyī : tyi + M
+tzi : tzi + NoTone
+Glosses: 
+??
+
+Forms: 
+tyīkwá : tyikwa + M.H
+Glosses: 
+night
+
+Forms: 
+tyīkwìtyī : tyikwityi + M.L.M
+Glosses: 
+potatoes
+
+Forms: 
+tyīkwìī nūùn : tyikwii nuun + M.LM.ML
+Glosses: 
+tears
+
+Forms: 
+tyīkwī jà : tyikwi ja + M.M.L
+Glosses: 
+hot water
+
+Forms: 
+tyīkwī vīsī : tyikwi visi + M.M.M.M
+Glosses: 
+cold water
+
+Forms: 
+tyīkàn : tyikan + M.L
+Glosses: 
+3sm
+
+Forms: 
+tyīkòndò : tyikondo + M.L.L
+Glosses: 
+joint
+
+Forms: 
+tyīlòndò : tyilondo + M.L.L
+Glosses: 
+
+
+Forms: 
+tyīmiàˈá : tyimiaˈa + M.L.H
+Glosses: 
+demon
+
+Forms: 
+tyīndzà'yí : tyindza'yi + M.L.H
+Glosses: 
+peach
+
+Forms: 
+tyīnì : tyini + M.L
+Glosses: 
+and?
+
+Forms: 
+tyīnūˈú : tyinuˈu + M.M.H
+tyīnūˈú  : tyinuˈu  + M.M.H
+tīñùˈún : tiñuˈun + M.L.H
+Glosses: 
+ocean
+sea
+
+Forms: 
+tyītátùˈù : tyitatuˈu + M.H.L.L
+Glosses: 
+??
+
+Forms: 
+tyīvàlí : tyivali + M.L.H
+Glosses: 
+boys
+
+Forms: 
+tyīvììtyí : tyiviityi + M.L.H
+Glosses: 
+prickly.pear
+
+Forms: 
+tyīyā'á : tyiya'a + M.M.H
+Glosses: 
+eagle
+
+Forms: 
+tyīīn : tyiin + M
+Glosses: 
+take.from.hand
+
+Forms: 
+tyīīn : tyiin + M
+Glosses: 
+
+
+Forms: 
+tyīīsī : tyiisi + M.M
+Glosses: 
+be.there?
+
+Forms: 
+tyīīvī : tyiivi + M.M
+Glosses: 
+bite
+
+Forms: 
+tyūkù : tyuku + M.L
+Glosses: 
+
+
+Forms: 
+tyūyùùsí : tyuyuusi + M.L.H
+túyùùsí : tuyuusi + H.L.H
+tʰúʑùùsí : tʰuʑuusi + H.L.H
+Glosses: 
+plant.sp
+
+Forms: 
+tyūūntyā : tyuuntya + M.M
+tʲūūtʲā : tʲuutʲa + M.M
+Glosses: 
+atole
+
+Forms: 
+tà : ta + L
+Glosses: 
+
+
+Forms: 
+tà : ta + L
+tàà : taa + L
+Glosses: 
+then?
+
+Forms: 
+tà : ta + L
+tá : ta + H
+tā : ta + M
+tāá : taa + MH
+Glosses: 
+if
+when
+
+Forms: 
+tà : ta + L
+tá : ta + H
+tā : ta + M
+à : a + L
+Glosses: 
+endearing.focus?
+
+Forms: 
+tà'v : ta'v + L
+tà'vì : ta'vi + L.L
+tā'v : ta'v + M
+tā'ví : ta'vi + M.H
+Glosses: 
+break
+
+Forms: 
+tà'à : ta'a + L.L
+tá' : ta' + H
+tá'à : ta'a + H.L
+tá'ā : ta'a + H.M
+táˈ : taˈ + H
+tā'à : ta'a + M.L
+tā'ā : ta'a + M.M
+Glosses: 
+recip
+
+Forms: 
+tà'à : ta'a + L.L
+táˈà : taˈa + H.L
+táˈá : taˈa + H.H
+Glosses: 
+??
+
+Forms: 
+tà'àní : ta'ani + L.L.H
+Glosses: 
+
+
+Forms: 
+tàndà' : tanda' + L.L
+tāndá : tanda + M.H
+tāndā' : tanda' + M.M
+Glosses: 
+send
+
+Forms: 
+tàtà : tata + L.L
+tàtá : tata + L.H
+tátá : tata + H.H
+táàtà : taata + HL.L
+Glosses: 
+medicine
+
+Forms: 
+tàà : taa + L
+Glosses: 
+hi
+
+Forms: 
+tàˈàví : taˈavi + L.L.H
+tā'āvì : ta'avi + M.M.L
+Glosses: 
+??
+
+Forms: 
+tá : ta + H
+tā : ta + M
+Glosses: 
+3sg.hon
+elder
+
+Forms: 
+tá'nò : ta'no + H.L
+tá'nō : ta'no + H.M
+Glosses: 
+break
+
+Forms: 
+tá'vì : ta'vi + H.L
+Glosses: 
+
+
+Forms: 
+tá'à : ta'a + H.L
+táà : taa + HL
+Glosses: 
+all??
+
+Forms: 
+táchī : tachi + H.M
+Glosses: 
+air, wind
+
+Forms: 
+tákwè'è : takwe'e + H.L.L
+Glosses: 
+injury
+
+Forms: 
+tákàn : takan + H.L
+tákáá : takaa + H.H
+tákā : taka + H.M
+tákāā : takaa + H.M
+tākā : taka + M.M
+tākāā : takaa + M.M
+Glosses: 
+hang
+
+Forms: 
+támánī : tamani + H.H.M
+Glosses: 
+father.in.law
+
+Forms: 
+tándyìˈì : tandyiˈi + H.L.L
+Glosses: 
+??
+
+Forms: 
+tándzì'í : tandzi'i + H.L.H
+Glosses: 
+
+
+Forms: 
+tásano : tasano + H
+tásàˈnò : tasaˈno + H.L.L
+tāsá'nòn : tasa'non + M.H.L
+tāsá'nō : tasa'no + M.H.M
+tāsá'nōn : tasa'non + M.H.M
+Glosses: 
+older.male
+
+Forms: 
+tásá : tasa + H.H
+Glosses: 
+lightning
+
+Forms: 
+tásá : tasa + H.H
+Glosses: 
+cup
+
+Forms: 
+tátā : tata + H.M
+Glosses: 
+
+
+Forms: 
+távēlo yātáí : tavelo yatai + H.M.M.H
+Glosses: 
+great grandfather
+
+Forms: 
+táàn : taan + HL
+Glosses: 
+earthquake
+
+Forms: 
+tì : ti + L
+tí : ti + H
+Glosses: 
+?
+
+Forms: 
+tìló'ò : tilo'o + L.H.L
+tīló'ò : tilo'o + M.H.L
+Glosses: 
+boy
+
+Forms: 
+tò : to + L
+tó : to + H
+tō : to + M
+Glosses: 
+3sg.wooden
+
+Forms: 
+tò'ìīní : to'iini + L.LM.H
+Glosses: 
+espinozo
+
+Forms: 
+tòkò : toko + L.L
+Glosses: 
+
+
+Forms: 
+tònó : tono + L.H
+tónó : tono + H.H
+Glosses: 
+tone
+
+Forms: 
+tòyìká : toyika + L.L.H
+tòyìkā : toyika + L.L.M
+tóyììkā : toyiika + H.L.M
+tōyìkā : toyika + M.L.M
+tōyììkā : toyiika + M.L.M
+tōyìīkā : toyiika + M.LM.M
+Glosses: 
+basket
+
+Forms: 
+tòyīká : toyika + L.M.H
+Glosses: 
+
+
+Forms: 
+tòˈó : toˈo + L.H
+tō'ó : to'o + M.H
+Glosses: 
+god
+
+Forms: 
+tó : to + H
+tō : to + M
+Glosses: 
+like
+
+Forms: 
+tójò'ō : tojo'o + H.L.M
+tóxòʔō : toxoʔo + H.L.M
+Glosses: 
+earring
+
+Forms: 
+tónì : toni + H.L
+tùnì : tuni + L.L
+tùní : tuni + L.H
+tùū : tuu + LM
+túnì : tuni + H.L
+túní : tuni + H.H
+túnī : tuni + H.M
+túnīn : tunin + H.M
+tūnì : tuni + M.L
+Glosses: 
+really
+
+Forms: 
+tóyòo : toyoo + H.L
+tóyòō : toyoo + H.LM
+Glosses: 
+carrizo
+
+Forms: 
+tù : tu + L
+Glosses: 
+?
+
+Forms: 
+tù' : tu' + L
+tù'ùn : tu'un + L.L
+tù'ún : tu'un + L.H
+tù'ū : tu'u + L.M
+tù'ūn : tu'un + L.M
+tùn' : tun' + L
+tú' : tu' + H
+tú'ún : tu'un + H.H
+túˈūn : tuˈun + H.M
+tū'ún : tu'un + M.H
+Glosses: 
+language
+word
+
+Forms: 
+tù'un : tu'un + L
+tú'ún : tu'un + H.H
+tú'ūn : tu'un + H.M
+Glosses: 
+only?
+
+Forms: 
+tù'ūn : tu'un + L.M
+Glosses: 
+black
+
+Forms: 
+tùnī : tuni + L.M
+Glosses: 
+
+
+Forms: 
+tùún : tuun + LH
+tū'ùn : tu'un + M.L
+tūún : tuun + MH
+Glosses: 
+black
+
+Forms: 
+tùˈ : tuˈ + L
+Glosses: 
+know??
+
+Forms: 
+tùˈùnjávì : tuˈunjavi + L.L.H.L
+tū'ún jàvì : tu'un javi + M.H.L.L
+Glosses: 
+Mixtec
+
+Forms: 
+tú : tu + H
+Glosses: 
+like
+
+Forms: 
+tú'ún : tu'un + H.H
+tún' : tun' + H
+túnʔ : tunʔ + H
+Glosses: 
+pull.weeds
+
+Forms: 
+túnì jà : tuni ja + H.L.L
+Glosses: 
+extra.hot
+
+Forms: 
+túnì ì'ní xìtà : tuni i'ni xita + H.L.L.H.L.L
+Glosses: 
+boiling.hot
+
+Forms: 
+tútyí : tutyi + H.H
+Glosses: 
+
+
+Forms: 
+túñì : tuñi + H.L
+tūñì : tuñi + M.L
+Glosses: 
+very
+
+Forms: 
+tā kīxī : ta kixi + M.M.M
+Glosses: 
+person who makes
+
+Forms: 
+tā'nīì : ta'nii + M.ML
+Glosses: 
+smell
+
+Forms: 
+tāndóˈó : tandoˈo + M.H.H
+Glosses: 
+easy
+
+Forms: 
+tāndā'á : tanda'a + M.M.H
+Glosses: 
+push
+
+Forms: 
+tānjān : tanjan + M.M
+Glosses: 
+then
+
+Forms: 
+tāntā'á : tanta'a + M.M.H
+Glosses: 
+marry
+
+Forms: 
+tāní : tani + M.H
+Glosses: 
+
+
+Forms: 
+tātân : tatan + M.HL
+Glosses: 
+doctor
+
+Forms: 
+tātù : tatu + M.L
+Glosses: 
+
+
+Forms: 
+tātā kēēn : tata keen + M.M.M
+Glosses: 
+stepfather
+
+Forms: 
+tātō : tato + M.M
+Glosses: 
+??
+
+Forms: 
+tāvaelò : tavaelo + M.L
+Glosses: 
+
+
+Forms: 
+tāvēlò : tavelo + M.M.L
+Glosses: 
+
+
+Forms: 
+tāxì : taxi + M.L
+Glosses: 
+quiet
+
+Forms: 
+tāá : taa + MH
+tāán : taan + MH
+Glosses: 
+put
+
+Forms: 
+tēnēdór : tenedor + M.M.H
+Glosses: 
+fork
+
+Forms: 
+tīja᷄ : tija + M.MH
+Glosses: 
+because
+
+Forms: 
+tīkâ : tika + M.HL
+Glosses: 
+man
+
+Forms: 
+tō : to + M
+Glosses: 
+?
+
+Forms: 
+tō'ò : to'o + M.L
+Glosses: 
+waist
+
+Forms: 
+tōkò : toko + M.L
+tōkó : toko + M.H
+Glosses: 
+waist
+
+Forms: 
+tōyùūsā : toyuusa + M.LM.M
+Glosses: 
+pine.sp
+
+Forms: 
+tūní : tuni + M.H
+Glosses: 
+
+
+Forms: 
+tūní : tuni + M.H
+Glosses: 
+
+
+Forms: 
+tūnī : tuni + M.M
+Glosses: 
+
+
+Forms: 
+tūūnà : tuuna + M.L
+Glosses: 
+prickly.pear
+
+Forms: 
+uju : uju + NoTone
+Glosses: 
+deer
+
+Forms: 
+una : una + NoTone
+Glosses: 
+eight
+
+Forms: 
+uu : uu + NoTone
+Glosses: 
+umm
+
+Forms: 
+v : v + NoTone
+va : va + NoTone
+và : va + L
+và' : va' + L
+và'à : va'a + L.L
+và'ā : va'a + L.M
+vàà : vaa + L
+vá : va + H
+váá : vaa + H
+vâ : va + HL
+vā : va + M
+vāà : vaa + ML
+vāā : vaa + M
+Glosses: 
+but
+endearing
+focus
+only
+
+Forms: 
+va'a : va'a + NoTone
+và : va + L
+và' : va' + L
+và'à : va'a + L.L
+và'á : va'a + L.H
+và'ā : va'a + L.M
+vá'à : va'a + H.L
+vá'á : va'a + H.H
+vá'ā : va'a + H.M
+váʔá : vaʔa + H.H
+váˈ : vaˈ + H
+váˈà : vaˈa + H.L
+váˈā : vaˈa + H.M
+vā' : va' + M
+vā'á : va'a + M.H
+vāé : vae + MH
+vāˈá : vaˈa + M.H
+vāˈā : vaˈa + M.M
+Glosses: 
+correct
+good
+nice
+well
+yes
+
+Forms: 
+vii : vii + NoTone
+vīì : vii + ML
+vīí : vii + MH
+Glosses: 
+tidy
+
+Forms: 
+vyōlíìn : vyoliin + M.HL
+Glosses: 
+violin
+
+Forms: 
+và : va + L
+vàá : vaa + LH
+Glosses: 
+low
+
+Forms: 
+vàlì : vali + L.L
+Glosses: 
+
+
+Forms: 
+vàlí : vali + L.H
+Glosses: 
+
+
+Forms: 
+vàsí : vasi + L.H
+vàsī : vasi + L.M
+vààsī : vaasi + L.M
+vāàsì : vaasi + ML.L
+vāàsī : vaasi + ML.M
+Glosses: 
+come
+
+Forms: 
+vàsò : vaso + L.L
+vàsó : vaso + L.H
+Glosses: 
+cup
+
+Forms: 
+vàtyí : vatyi + L.H
+Glosses: 
+even
+
+Forms: 
+vàtyí : vatyi + L.H
+vàtyī : vatyi + L.M
+Glosses: 
+even
+
+Forms: 
+vàá : vaa + LH
+vàā : vaa + LM
+Glosses: 
+down
+
+Forms: 
+vá' : va' + H
+Glosses: 
+
+
+Forms: 
+válīè : valie + H.ML
+Glosses: 
+
+
+Forms: 
+vááká : vaaka + H.H
+Glosses: 
+cow
+
+Forms: 
+vè'è : ve'e + L.L
+vèˈ : veˈ + L
+vèˈé : veˈe + L.H
+vé' : ve' + H
+vé'é : ve'e + H.H
+vé'ē : ve'e + H.M
+véˈé : veˈe + H.H
+vē' : ve' + M
+vē'è : ve'e + M.L
+vē'ē : ve'e + M.M
+vēˈē : veˈe + M.M
+βēʔē : βeʔe + M.M
+Glosses: 
+house
+
+Forms: 
+véntá : venta + H.H
+Glosses: 
+sell
+
+Forms: 
+véñù'ū : veñu'u + H.L.M
+vēñùˈù : veñuˈu + M.L.L
+Glosses: 
+church
+
+Forms: 
+vì : vi + L
+ví : vi + H
+vī : vi + M
+Glosses: 
+??
+
+Forms: 
+vì : vi + L
+ví : vi + H
+vī : vi + M
+Glosses: 
+clean
+
+Forms: 
+vìdéó : video + L.H
+Glosses: 
+video
+
+Forms: 
+vìkò : viko + L.L
+víkò : viko + H.L
+víkō : viko + H.M
+vīkō : viko + M.M
+Glosses: 
+cloud
+
+Forms: 
+vìló : vilo + L.H
+vīlā : vila + M.M
+vīlō : vilo + M.M
+Glosses: 
+soft
+
+Forms: 
+vìsí : visi + L.H
+vìsī : visi + L.M
+vísí : visi + H.H
+vīsì : visi + M.L
+vīsí : visi + M.H
+vīsī : visi + M.M
+Glosses: 
+cold
+
+Forms: 
+vìtrìò : vitrio + L.L
+vìtrīó : vitrio + L.MH
+vìtrīō : vitrio + L.M
+vídrió : vidrio + H.H
+vítríó : vitrio + H.H
+Glosses: 
+glass
+
+Forms: 
+vìtyì : vityi + L.L
+vìtyī : vityi + L.M
+víntyín : vintyin + H.H
+vítyí : vityi + H.H
+vítyī : vityi + H.M
+víītyī : viityi + HM.M
+vīntyìn : vintyin + M.L
+vīsī : visi + M.M
+vītyī : vityi + M.M
+Glosses: 
+now
+today
+
+Forms: 
+vìtyí : vityi + L.H
+Glosses: 
+
+
+Forms: 
+vìtā : vita + L.M
+vītá : vita + M.H
+Glosses: 
+bend
+bendy
+soft
+
+Forms: 
+vìxì : vixi + L.L
+Glosses: 
+sweet
+
+Forms: 
+vììtyá : viitya + L.H
+víítyà : viitya + H.L
+vīītyà : viitya + M.L
+βììtʲà : βiitʲa + L.L
+βīītʲà : βiitʲa + M.L
+Glosses: 
+cactus
+
+Forms: 
+vídríó : vidrio + H.H
+Glosses: 
+
+
+Forms: 
+víkō : viko + H.M
+vīkò : viko + M.L
+vīkó : viko + M.H
+vīkō : viko + M.M
+Glosses: 
+party
+wedding
+
+Forms: 
+vísī : visi + H.M
+Glosses: 
+
+
+Forms: 
+víxā : vixa + H.M
+Glosses: 
+
+
+Forms: 
+víìlò : viilo + HL.L
+Glosses: 
+cat
+
+Forms: 
+víìsì : viisi + HL.L
+Glosses: 
+pineapple
+
+Forms: 
+vótà : vota + H.L
+Glosses: 
+boot
+
+Forms: 
+vā'à : va'a + M.L
+Glosses: 
+
+
+Forms: 
+vā'á ní : va'a ni + M.H.H
+Glosses: 
+yes
+
+Forms: 
+vālí : vali + M.H
+Glosses: 
+
+
+Forms: 
+vālí' : vali' + M.H
+Glosses: 
+
+
+Forms: 
+vālóòn : valoon + M.HL
+Glosses: 
+ball
+
+Forms: 
+vālī : vali + M.M
+Glosses: 
+
+
+Forms: 
+vē : ve + M
+Glosses: 
+
+
+Forms: 
+vēntáná : ventana + M.H.H
+Glosses: 
+window
+
+Forms: 
+vēràkrūs : verakrus + M.L.M
+Glosses: 
+Veracruz
+
+Forms: 
+vēén : veen + MH
+Glosses: 
+heavy
+
+Forms: 
+vī : vi + M
+Glosses: 
+
+
+Forms: 
+vī : vi + M
+Glosses: 
+
+
+Forms: 
+vīrī : viri + M.M
+Glosses: 
+
+
+Forms: 
+vītyí : vityi + M.H
+Glosses: 
+
+
+Forms: 
+vītyí ítyàn : vityi ityan + M.H.H.L
+Glosses: 
+right now
+
+Forms: 
+vītyī : vityi + M.M
+Glosses: 
+??
+
+Forms: 
+vīxá : vixa + M.H
+Glosses: 
+wet
+
+Forms: 
+vīì : vii + ML
+Glosses: 
+unknown.elder.particle
+
+Forms: 
+vōlà : vola + M.L
+Glosses: 
+ball
+
+Forms: 
+vōlà : vola + M.L
+Glosses: 
+bowl
+
+Forms: 
+wértá : werta + H.H
+Glosses: 
+orchard
+
+Forms: 
+wéslì : wesli + H.L
+wéslī : wesli + H.M
+wéèslì : weesli + HL.L
+wééslí : weesli + H.H
+Glosses: 
+Wesley
+
+Forms: 
+xini : xini + NoTone
+Glosses: 
+
+
+Forms: 
+xita : xita + NoTone
+xìtà : xita + L.L
+xìtá : xita + L.H
+xìtǎ : xita + L.LH
+xììtà : xiita + L.L
+xíìtà : xiita + HL.L
+xītā : xita + M.M
+xītǎ : xita + M.LH
+Glosses: 
+tortilla
+
+Forms: 
+xixí : xixi + H
+xíxí : xixi + H.H
+Glosses: 
+aunt
+
+Forms: 
+xuku : xuku + NoTone
+xùkù : xuku + L.L
+Glosses: 
+niece
+
+Forms: 
+xusa : xusa + NoTone
+Glosses: 
+lazy
+
+Forms: 
+xáánún : xaanun + H.H
+Glosses: 
+cigar
+
+Forms: 
+xèèn : xeen + L
+xēèn : xeen + ML
+Glosses: 
+heavy.rain
+sharp
+
+Forms: 
+xìkó : xiko + L.H
+xíkò : xiko + H.L
+Glosses: 
+sell
+
+Forms: 
+xìkó : xiko + L.H
+xíkò : xiko + H.L
+xīkò : xiko + M.L
+Glosses: 
+smell
+
+Forms: 
+xìn : xin + L
+xìnì : xini + L.L
+xìnìí : xinii + L.LH
+xììnìīn : xiiniin + L.LM
+xīní : xini + M.H
+xīnī : xini + M.M
+xīìnì : xiini + ML.L
+Glosses: 
+head
+
+Forms: 
+xìnì grúpò : xini grupo + L.L.H.L
+Glosses: 
+leader
+
+Forms: 
+xìnìvé'é : xinive'e + L.L.H.H
+Glosses: 
+roof
+
+Forms: 
+xìní : xini + L.H
+Glosses: 
+
+
+Forms: 
+xìnò : xino + L.L
+xīnō : xino + M.M
+Glosses: 
+??
+first?
+
+Forms: 
+xìt : xit + L
+xìty : xity + L
+xìtyì : xityi + L.L
+xít : xit + H
+xítyì : xityi + H.L
+Glosses: 
+nose
+
+Forms: 
+xìtò : xito + L.L
+xíto : xito + H
+xītō : xito + M.M
+Glosses: 
+uncle
+
+Forms: 
+xík : xik + H
+Glosses: 
+
+
+Forms: 
+xù'ùn : xu'un + L.L
+xù'ún : xu'un + L.H
+xù'ūn : xu'un + L.M
+Glosses: 
+money
+
+Forms: 
+xā'ndzā : xa'ndza + M.M
+Glosses: 
+wide
+
+Forms: 
+xātō : xato + M.M
+Glosses: 
+sweet.tortilla
+
+Forms: 
+xīì : xii + ML
+xīìn : xiin + ML
+Glosses: 
+side
+
+Forms: 
+yiki : yiki + NoTone
+yìkí : yiki + L.H
+yíkì : yiki + H.L
+yíìkì : yiiki + HL.L
+Glosses: 
+squash
+
+Forms: 
+yiī  nanáì : yii  nanai + M.HL
+Glosses: 
+my mother's husband
+
+Forms: 
+yiī jàyíì : yii jayii + M.L.HL
+Glosses: 
+husband of female daughter
+
+Forms: 
+yiī xixí : yii xixi + M.H
+Glosses: 
+aunt's husband
+
+Forms: 
+yo'o : yo'o + NoTone
+yò : yo + L
+yò'ò : yo'o + L.L
+yò'ó : yo'o + L.H
+yò'ō : yo'o + L.M
+yó'ò : yo'o + H.L
+yó'ó : yo'o + H.H
+yóˈó : yoˈo + H.H
+yō'ò : yo'o + M.L
+yō'ō : yo'o + M.M
+Glosses: 
+2s
+2sg
+
+Forms: 
+yusa : yusa + NoTone
+Glosses: 
+corn meal
+
+Forms: 
+yà'vì : ya'vi + L.L
+Glosses: 
+expensive
+
+Forms: 
+yà'à : ya'a + L.L
+yà'á : ya'a + L.H
+Glosses: 
+happen
+
+Forms: 
+yà'ā : ya'a + L.M
+Glosses: 
+
+
+Forms: 
+yà'ā ló'ò : ya'a lo'o + L.M.H.L
+Glosses: 
+little.chili
+
+Forms: 
+yà'ā sàtyì : ya'a satyi + L.M.L.L
+Glosses: 
+spicy.chili
+
+Forms: 
+yà'ā vìxì : ya'a vixi + L.M.L.L
+Glosses: 
+sweet.chili
+
+Forms: 
+yà'ā xá'ndyá : ya'a xa'ndya + L.M.H.H
+Glosses: 
+white.chili
+
+Forms: 
+yàchì : yachi + L.L
+Glosses: 
+before
+earlier
+
+Forms: 
+yàtá : yata + L.H
+yáátá : yaata + H.H
+yātá : yata + M.H
+Glosses: 
+old
+
+Forms: 
+yàtá : yata + L.H
+ʒàtʲʰá : ʒatʲʰa + L.H
+Glosses: 
+exciting
+
+Forms: 
+yàà : yaa + L
+Glosses: 
+white
+
+Forms: 
+yàà : yaa + L
+Glosses: 
+music
+
+Forms: 
+yààvì : yaavi + L.L
+Glosses: 
+maguey
+
+Forms: 
+yàā : yaa + LM
+Glosses: 
+quiet?
+
+Forms: 
+yàˈví : yaˈvi + L.H
+Glosses: 
+market
+
+Forms: 
+yá : ya + H
+yá'ā : ya'a + H.M
+Glosses: 
+pass.by
+
+Forms: 
+yá'à : ya'a + H.L
+yáˈá : yaˈa + H.H
+Glosses: 
+chile.pepper
+
+Forms: 
+yá'á : ya'a + H.H
+Glosses: 
+brown
+
+Forms: 
+yákà : yaka + H.L
+Glosses: 
+armadillo
+
+Forms: 
+yákà'à : yaka'a + H.L.L
+Glosses: 
+play (music)
+
+Forms: 
+yáká : yaka + H.H
+Glosses: 
+silo
+
+Forms: 
+yásì : yasi + H.L
+Glosses: 
+squash bowl
+
+Forms: 
+yáà : yaa + HL
+Glosses: 
+ash
+
+Forms: 
+yáá : yaa + H
+Glosses: 
+tongue
+
+Forms: 
+yè'è : ye'e + L.L
+yé'è : ye'e + H.L
+yē'è : ye'e + M.L
+yēˈē : yeˈe + M.M
+Glosses: 
+be.bright
+
+Forms: 
+yè'é : ye'e + L.H
+yé'é : ye'e + H.H
+yē'é : ye'e + M.H
+Glosses: 
+door
+
+Forms: 
+yì'ví : yi'vi + L.H
+Glosses: 
+scare
+
+Forms: 
+yìtò : yito + L.L
+yítò : yito + H.L
+yítō : yito + H.M
+yíìtò : yiito + HL.L
+yíítò : yiito + H.L
+yītò : yito + M.L
+yītó : yito + M.H
+yīītó : yiito + M.H
+yīītō : yiito + M.M
+Glosses: 
+tree
+tree.trunk
+wood
+
+Forms: 
+yìtō sítā : yito sita + L.M.H.M
+Glosses: 
+instrument
+
+Forms: 
+yìvì : yivi + L.L
+Glosses: 
+edible.greens
+
+Forms: 
+yìvì : yivi + L.L
+yìví : yivi + L.H
+Glosses: 
+??
+people?
+
+Forms: 
+yíkí : yiki + H.H
+Glosses: 
+barbacoa
+
+Forms: 
+yítò : yito + H.L
+yītó : yito + M.H
+Glosses: 
+bus?
+
+Forms: 
+yívì : yivi + H.L
+Glosses: 
+woven.rug
+
+Forms: 
+yííjí : yiiji + H.H
+Glosses: 
+?
+
+Forms: 
+yííkì : yiiki + H.L
+Glosses: 
+squash
+
+Forms: 
+yíítò ndókò : yiito ndoko + H.L.H.L
+Glosses: 
+chirimoya
+
+Forms: 
+yò : yo + L
+yòò : yoo + L
+yòò  : yoo  + L
+yòó : yoo + LH
+Glosses: 
+month
+moon
+period
+
+Forms: 
+yò'ō : yo'o + L.M
+yòˈò : yoˈo + L.L
+yó : yo + H
+yó'ò : yo'o + H.L
+yó'ō : yo'o + H.M
+yóˈò : yoˈo + H.L
+yóˈō : yoˈo + H.M
+yō : yo + M
+yō'ò : yo'o + M.L
+yōˈó : yoˈo + M.H
+Glosses: 
+here
+this
+
+Forms: 
+yòjò : yojo + L.L
+yòjò  : yojo  + L.L
+Glosses: 
+field
+
+Forms: 
+yòò : yoo + L
+yó : yo + H
+yóó : yoo + H
+yōō : yoo + M
+Glosses: 
+who
+whose
+
+Forms: 
+yòò : yoo + L
+yōō : yoo + M
+Glosses: 
+pail
+
+Forms: 
+yòòjō : yoojo + L.M
+yòōjō : yoojo + LM.M
+Glosses: 
+metate
+
+Forms: 
+yó'ò : yo'o + H.L
+Glosses: 
+rope
+
+Forms: 
+yó'ō : yo'o + H.M
+yù : yu + L
+yù' : yu' + L
+yù'ù : yu'u + L.L
+yùù : yuu + L
+yùˈù : yuˈu + L.L
+yú : yu + H
+yū'ū : yu'u + M.M
+Glosses: 
+1sg
+
+Forms: 
+yókò : yoko + H.L
+Glosses: 
+steam
+
+Forms: 
+yóòkò : yooko + HL.L
+Glosses: 
+beehive
+
+Forms: 
+yù'ú : yu'u + L.H
+Glosses: 
+
+
+Forms: 
+yùkù : yuku + L.L
+Glosses: 
+herb
+
+Forms: 
+yùkù : yuku + L.L
+Glosses: 
+vegetable??
+
+Forms: 
+yùkù : yuku + L.L
+Glosses: 
+
+
+Forms: 
+yùkù : yuku + L.L
+yùkú : yuku + L.H
+yúkù : yuku + H.L
+yū'ū : yu'u + M.M
+yūkù : yuku + M.L
+yūūkú : yuuku + M.H
+yūūkū : yuuku + M.M
+ʑūūkú : ʑuuku + M.H
+ʑūūkū : ʑuuku + M.M
+Glosses: 
+forest
+mountain
+
+Forms: 
+yùtyá : yutya + L.H
+yùtyá  : yutya  + L.H
+Glosses: 
+river
+
+Forms: 
+yùtǎtá : yutata + L.LH.H
+Glosses: 
+mirror
+
+Forms: 
+yùù : yuu + L
+yúù : yuu + HL
+yūū : yuu + M
+Glosses: 
+stone
+
+Forms: 
+yùˈù : yuˈu + L.L
+Glosses: 
+??
+
+Forms: 
+yú : yu + H
+yúùsà : yuusa + HL.L
+yūsà : yusa + M.L
+yūùsà : yuusa + ML.L
+yūūsà : yuusa + M.L
+yūūsá : yuusa + M.H
+Glosses: 
+flour
+
+Forms: 
+yú'ù : yu'u + H.L
+Glosses: 
+edge
+
+Forms: 
+yú'ù : yu'u + H.L
+yúˈù : yuˈu + H.L
+yū'ù : yu'u + M.L
+yū'ùn : yu'un + M.L
+Glosses: 
+mouth
+
+Forms: 
+yúchì : yuchi + H.L
+yúùchì : yuuchi + HL.L
+yūchì : yuchi + M.L
+Glosses: 
+knife
+
+Forms: 
+yúkùyíˈá : yukuyiˈa + H.L.H.H
+yúkùyīˈā : yukuyiˈa + H.L.M.M
+yūkūyíˈá : yukuyiˈa + M.M.H.H
+Glosses: 
+volcano
+
+Forms: 
+yúntá : yunta + H.H
+Glosses: 
+yoke
+
+Forms: 
+yúùkù : yuuku + HL.L
+Glosses: 
+
+
+Forms: 
+yúùtyà : yuutya + HL.L
+Glosses: 
+tender
+
+Forms: 
+yúú : yuu + H
+Glosses: 
+dew
+
+Forms: 
+yúūlī : yuuli + HM.M
+Glosses: 
+bird.sp
+
+Forms: 
+yā'à : ya'a + M.L
+Glosses: 
+pepper
+
+Forms: 
+yābì : yabi + M.L
+Glosses: 
+agave (plant family)
+
+Forms: 
+yākwà : yakwa + M.L
+Glosses: 
+dirty
+
+Forms: 
+yātyì : yatyi + M.L
+Glosses: 
+near
+
+Forms: 
+yātyí : yatyi + M.H
+Glosses: 
+close
+
+Forms: 
+yāvì : yavi + M.L
+Glosses: 
+hole
+
+Forms: 
+yāxì : yaxi + M.L
+Glosses: 
+thin
+
+Forms: 
+yāā : yaa + M
+Glosses: 
+chin
+
+Forms: 
+yāā : yaa + M
+Glosses: 
+music
+song
+
+Forms: 
+yāākà : yaaka + M.L
+Glosses: 
+cob.silo
+
+Forms: 
+yāātà : yaata + M.L
+Glosses: 
+plow
+
+Forms: 
+yāātá : yaata + M.H
+Glosses: 
+old.inan
+
+Forms: 
+yī'à : yi'a + M.L
+Glosses: 
+thread
+
+Forms: 
+yīto : yito + M
+Glosses: 
+
+
+Forms: 
+yīvì : yivi + M.L
+Glosses: 
+woven.rug
+
+Forms: 
+yīī : yii + M
+Glosses: 
+husband
+
+Forms: 
+yīītó xèèn : yiito xeen + M.H.L
+Glosses: 
+gun
+
+Forms: 
+yīīvì : yiivi + M.L
+Glosses: 
+petate
+
+Forms: 
+yīīvā : yiiva + M.M
+ʒìvà : ʒiva + L.L
+Glosses: 
+herb
+
+Forms: 
+yīīvā yééná : yiiva yeena + M.M.H.H
+Glosses: 
+herb.sp
+
+Forms: 
+yō'ò : yo'o + M.L
+Glosses: 
+line
+
+Forms: 
+yōjōkwíá : yojokwia + M.M.H
+Glosses: 
+PN
+
+Forms: 
+yōòjò : yoojo + ML.L
+Glosses: 
+plain
+
+Forms: 
+yūkù : yuku + M.L
+yūùkù : yuuku + ML.L
+yūùkú : yuuku + ML.H
+ʑūùkű : ʑuukű + ML
+Glosses: 
+plant
+
+Forms: 
+yūkūtátá : yukutata + M.M.H.H
+Glosses: 
+medicinal.herb
+
+Forms: 
+yūū ló'ò : yuu lo'o + M.H.L
+Glosses: 
+pebble
+
+Forms: 
+à : a + L
+á : a + H
+Glosses: 
+??
+
+Forms: 
+à : a + L
+á : a + H
+Glosses: 
+imp.polite?
+
+Forms: 
+à : a + L
+ña : ña + NoTone
+ña᷄ : ña + MH
+ñà : ña + L
+ñá : ña + H
+ñā : ña + M
+Glosses: 
+3sg.f?
+
+Forms: 
+àlármá : alarma + L.H.H
+ālármá : alarma + M.H.H
+Glosses: 
+alarm
+
+Forms: 
+ànjìn : anjin + L.L
+Glosses: 
+delicious
+
+Forms: 
+àná : ana + L.H
+Glosses: 
+
+
+Forms: 
+àríná : arina + L.H.H
+āríná : arina + M.H.H
+Glosses: 
+flour
+
+Forms: 
+á : a + H
+â : a + HL
+Glosses: 
+??
+
+Forms: 
+á : a + H
+ā : a + M
+Glosses: 
+q
+
+Forms: 
+á'í : a'i + H.H
+á'ī : a'i + H.M
+Glosses: 
+if
+
+Forms: 
+ájà : aja + H.L
+Glosses: 
+wow
+
+Forms: 
+ándyīví : andyivi + H.M.H
+Glosses: 
+
+
+Forms: 
+ándá : anda + H.H
+Glosses: 
+??
+
+Forms: 
+ánímà : anima + H.H.L
+ánīmā : anima + H.M.M
+ānímà : anima + M.H.L
+Glosses: 
+heart
+
+Forms: 
+ástráunáutá : astraunauta + H.H.H.H
+Glosses: 
+astronaut
+
+Forms: 
+áxìnì : axini + H.L.L
+áxììnì : axiini + H.L.L
+áxíìnīí : axiinii + H.HL.MH
+āxììnì : axiini + M.L.L
+Glosses: 
+hat
+
+Forms: 
+áájó : aajo + H.H
+Glosses: 
+garlic
+
+Forms: 
+é : e + H
+Glosses: 
+??
+
+Forms: 
+éɾífísíó : eɾifisio + H.H.H.H
+Glosses: 
+building
+
+Forms: 
+ì : i + L
+Glosses: 
+?
+
+Forms: 
+ì'īní : i'ini + L.M.H
+ī'ní : i'ni + M.H
+Glosses: 
+hot
+
+Forms: 
+ìchìká'nò : ichika'no + L.L.H.L
+Glosses: 
+road
+
+Forms: 
+ìchí : ichi + L.H
+Glosses: 
+dry.season
+
+Forms: 
+ìchí : ichi + L.H
+Glosses: 
+dry
+
+Forms: 
+ìiōó : iioo + LMH
+Glosses: 
+still
+
+Forms: 
+ìjā : ija + L.M
+Glosses: 
+day.after.tomorrow
+
+Forms: 
+ìn : in + L
+ìnì : ini + L.L
+ín : in + H
+íní : ini + H.H
+íníì : inii + H.HL
+ínî : ini + H.HL
+ínī : ini + H.M
+íñí : iñi + H.H
+îní : ini + HL.H
+īn : in + M
+īni : ini + M
+īnì : ini + M.L
+īní : ini + M.H
+īnī : ini + M.M
+īñī : iñi + M.M
+īīni : iini + M
+Glosses: 
+inside
+
+Forms: 
+ìnglés : ingles + L.H
+īnglés : ingles + M.H
+Glosses: 
+English
+
+Forms: 
+ìngà : inga + L.L
+íngá : inga + H.H
+īngā : inga + M.M
+Glosses: 
+different
+next
+other
+
+Forms: 
+ìstóriá : istoria + L.H.H
+ìstóríā : istoria + L.H.HM
+īstóríá : istoria + M.H.H
+Glosses: 
+story
+
+Forms: 
+ìtyà : itya + L.L
+ítya : itya + H
+ítyàn : ityan + H.L
+īntàn : intan + M.L
+ītyàn : ityan + M.L
+ītyààn : ityaan + M.L
+Glosses: 
+tomorrow
+
+Forms: 
+ìtyí : ityi + L.H
+Glosses: 
+
+
+Forms: 
+ìtyīò : ityio + L.ML
+Glosses: 
+?
+
+Forms: 
+ìxī : ixi + L.M
+íxì : ixi + H.L
+īxí : ixi + M.H
+īxī : ixi + M.M
+Glosses: 
+hair
+
+Forms: 
+ìyó : iyo + L.H
+Glosses: 
+fear
+
+Forms: 
+ìì : ii + L
+Glosses: 
+holy
+
+Forms: 
+ììvì : iivi + L.L
+Glosses: 
+shrine
+
+Forms: 
+ììyá : iiya + L.H
+īīyá : iiya + M.H
+īīʑá : iiʑa + M.H
+Glosses: 
+sour
+
+Forms: 
+ìñò : iño + L.L
+íìñò : iiño + HL.L
+ʔíìɲò : ʔiiɲo + HL.L
+Glosses: 
+thorn
+
+Forms: 
+ìī : ii + LM
+Glosses: 
+still
+
+Forms: 
+í : i + H
+Glosses: 
+
+
+Forms: 
+í : i + H
+Glosses: 
+
+
+Forms: 
+íchì : ichi + H.L
+Glosses: 
+path
+road
+
+Forms: 
+íló : ilo + H.H
+ííló : iilo + H.H
+īīlō : iilo + M.M
+Glosses: 
+knot
+rabbit
+
+Forms: 
+ímpōrtántè : importante + H.M.H.L
+īmpōrtánté : importante + M.M.H.H
+Glosses: 
+important
+
+Forms: 
+ínūún : inuun + H.MH
+Glosses: 
+same
+
+Forms: 
+ítchí : itchi + H.H
+Glosses: 
+
+
+Forms: 
+ítchīdyì : itchidyi + H.M.L
+Glosses: 
+
+
+Forms: 
+íty : ity + H
+Glosses: 
+
+
+Forms: 
+ítyì : ityi + H.L
+íītyī : iityi + HM.M
+Glosses: 
+candle
+
+Forms: 
+ítyí : ityi + H.H
+Glosses: 
+left
+
+Forms: 
+ítyī : ityi + H.M
+Glosses: 
+
+
+Forms: 
+ívà : iva + H.L
+Glosses: 
+bitter
+
+Forms: 
+íìdòlò : iidolo + HL.L.L
+Glosses: 
+idol
+
+Forms: 
+íí : ii + H
+Glosses: 
+
+
+Forms: 
+íí : ii + H
+Glosses: 
+and
+
+Forms: 
+íítá sì'ííní : iita si'iini + H.H.L.H.H
+Glosses: 
+afternoon.flower
+
+Forms: 
+íítī : iiti + H.M
+Glosses: 
+
+
+Forms: 
+íñ : iñ + H
+Glosses: 
+
+
+Forms: 
+íītyī : iityi + HM.M
+Glosses: 
+cornfield
+
+Forms: 
+ña : ña + NoTone
+Glosses: 
+
+
+Forms: 
+ñaji'i : ñaji'i + NoTone
+Glosses: 
+wife
+
+Forms: 
+ñi : ñi + NoTone
+Glosses: 
+
+
+Forms: 
+ñia : ñia + NoTone
+ñà : ña + L
+ñàà : ñaa + L
+ñá : ña + H
+ñáá : ñaa + H
+ñáā : ñaa + HM
+ñāà : ñaa + ML
+Glosses: 
+thing
+what
+
+Forms: 
+ñijò' : ñijo' + L
+Glosses: 
+
+
+Forms: 
+ñà : ña + L
+ñàká : ñaka + L.H
+ñàkáā : ñakaa + L.HM
+ñàkā : ñaka + L.M
+ñākā : ñaka + M.M
+Glosses: 
+thing
+
+Forms: 
+ñà : ña + L
+ñàà : ñaa + L
+ñá : ña + H
+ñáá : ñaa + H
+ñā : ña + M
+ñāˈā : ñaˈa + M.M
+ñǎ : ña + LH
+Glosses: 
+3sg.f
+3sg.inan
+
+Forms: 
+ñà : ña + L
+ñā : ña + M
+Glosses: 
+?
+
+Forms: 
+ñà' : ña' + L
+ñà'à : ña'a + L.L
+ñà'ā : ña'a + L.M
+Glosses: 
+belongings
+
+Forms: 
+ñà'á : ña'a + L.H
+Glosses: 
+property
+
+Forms: 
+ñàchǐví : ñachivi + L.LH.H
+Glosses: 
+fire.fan
+
+Forms: 
+ñàkīīnīn : ñakiinin + L.M.M
+Glosses: 
+drug
+
+Forms: 
+ñàmànì : ñamani + L.L.L
+Glosses: 
+favor?
+
+Forms: 
+ñàndyívà : ñandyiva + L.H.L
+Glosses: 
+Oaxaca
+
+Forms: 
+ñàndyīví : ñandyivi + L.M.H
+ñándíví : ñandivi + H.H.H
+Glosses: 
+Earth
+
+Forms: 
+ñànī : ñani + L.M
+Glosses: 
+half
+
+Forms: 
+ñá : ña + H
+Glosses: 
+rel.female
+
+Forms: 
+ñá'à : ña'a + H.L
+ñá'ā : ña'a + H.M
+Glosses: 
+be.there?
+
+Forms: 
+ñá'à : ña'a + H.L
+ñá'ā : ña'a + H.M
+ñáˈá : ñaˈa + H.H
+ñā'à : ña'a + M.L
+Glosses: 
+woman
+
+Forms: 
+ñá'àn : ña'an + H.L
+Glosses: 
+something?
+
+Forms: 
+ñá'á : ña'a + H.H
+Glosses: 
+
+
+Forms: 
+ñá'ìì : ña'ii + H.L
+Glosses: 
+holy.woman
+
+Forms: 
+ñá'ñó : ña'ño + H.H
+Glosses: 
+half
+
+Forms: 
+ñákūsìā : ñakusia + H.M.LM
+Glosses: 
+?
+
+Forms: 
+ñásí'ī : ñasi'i + H.H.M
+Glosses: 
+drunkard.f
+
+Forms: 
+ñáà : ñaa + HL
+Glosses: 
+
+
+Forms: 
+ñì : ñi + L
+Glosses: 
+
+
+Forms: 
+ñì'ì : ñi'i + L.L
+Glosses: 
+
+
+Forms: 
+ñìná : ñina + L.H
+Glosses: 
+ghost
+
+Forms: 
+ñìáká : ñiaka + LH.H
+Glosses: 
+why
+
+Forms: 
+ñí : ñi + H
+Glosses: 
+
+
+Forms: 
+ñò : ño + L
+Glosses: 
+?
+
+Forms: 
+ñù : ñu + L
+ñùú : ñuu + LH
+Glosses: 
+on
+
+Forms: 
+ñù'ù : ñu'u + L.L
+Glosses: 
+
+
+Forms: 
+ñù'ū : ñu'u + L.M
+ñú'ún : ñu'un + H.H
+Glosses: 
+
+
+Forms: 
+ñù'ūn : ñu'un + L.M
+Glosses: 
+
+
+Forms: 
+ñùchí : ñuchi + L.H
+ñùchī : ñuchi + L.M
+ñúchí : ñuchi + H.H
+ñūchī : ñuchi + M.M
+Glosses: 
+beautiful
+
+Forms: 
+ñùntyí : ñuntyi + L.H
+Glosses: 
+sand, gravel
+
+Forms: 
+ñùù : ñuu + L
+ñùùn : ñuun + L
+ɲùùn : ɲuun + L
+Glosses: 
+palm.tree
+
+Forms: 
+ñú'ùn : ñu'un + H.L
+ñú'ún : ñu'un + H.H
+ñúù'ùn : ñuu'un + HL.L
+ñū'ùn : ñu'un + M.L
+ɲúùnʔùn : ɲuunʔun + HL.L
+Glosses: 
+dirt
+fire
+
+Forms: 
+ñú'ú : ñu'u + H.H
+ñú'ún : ñu'un + H.H
+ñū'ù : ñu'u + M.L
+ñū'ùn : ñu'un + M.L
+Glosses: 
+very?
+
+Forms: 
+ñú'ūn jà'yī : ñu'un ja'yi + H.M.L.M
+Glosses: 
+be.pregnant
+
+Forms: 
+ñú'ūún : ñu'uun + H.MH
+Glosses: 
+ground
+
+Forms: 
+ñúúchí : ñuuchi + H.H
+Glosses: 
+honeybee
+
+Forms: 
+ñû ñū'ù : ñu ñu'u + HL.M.L
+Glosses: 
+fire.pit
+
+Forms: 
+ñā'mī : ña'mi + M.M
+Glosses: 
+sweet.potato
+
+Forms: 
+ñākòyó : ñakoyo + M.L.H
+ñākòˈyó : ñakoˈyo + M.L.H
+Glosses: 
+mexico
+mexico.city
+
+Forms: 
+ñānkàn : ñankan + M.L
+Glosses: 
+3s
+
+Forms: 
+ñāní : ñani + M.H
+Glosses: 
+
+
+Forms: 
+ñānī : ñani + M.M
+Glosses: 
+??
+
+Forms: 
+ñānīmànì : ñanimani + M.M.L.L
+Glosses: 
+friend
+
+Forms: 
+ñāvìxì : ñavixi + M.L.L
+Glosses: 
+sweet
+
+Forms: 
+ñāñī : ñañi + M.M
+Glosses: 
+brother
+
+Forms: 
+ñāātátá : ñaatata + M.H.H
+Glosses: 
+medicine
+
+Forms: 
+ñāāxēē : ñaaxee + M.M
+ɲāɕèèn : ɲaɕeen + M.L
+Glosses: 
+sharp.tool
+
+Forms: 
+ñī : ñi + M
+Glosses: 
+
+
+Forms: 
+ñōō : ñoo + M
+Glosses: 
+village
+
+Forms: 
+ñū'ú vē'ē : ñu'u ve'e + M.H.M.M
+Glosses: 
+kitchen
+
+Forms: 
+ñūyív : ñuyiv + M.H
+ñūyíví : ñuyivi + M.H.H
+Glosses: 
+world
+
+Forms: 
+ò : o + L
+òkò íín : oko iin + L.L.H
+Glosses: 
+twenty one
+
+Forms: 
+ò : o + L
+òn : on + L
+ó : o + H
+ón : on + H
+ō : o + M
+Glosses: 
+contra.focus
+just
+really
+
+Forms: 
+ò : o + L
+òn : on + L
+ón : on + H
+ō : o + M
+Glosses: 
+3s?
+
+Forms: 
+òkò : oko + L.L
+óòkò : ooko + HL.L
+ōkò : oko + M.L
+ōòkò : ooko + ML.L
+Glosses: 
+twenty
+
+Forms: 
+ónī : oni + H.M
+ùnì : uni + L.L
+ùní : uni + L.H
+ùùnì : uuni + L.L
+únì : uni + H.L
+úùnì : uuni + HL.L
+ūnī : uni + M.M
+ūùnì : uuni + ML.L
+Glosses: 
+three
+
+Forms: 
+órá : ora + H.H
+Glosses: 
+time
+
+Forms: 
+ù : u + L
+ùn : un + L
+ú : u + H
+ǔn : un + LH
+Glosses: 
+neg?
+
+Forms: 
+ù'ù : u'u + L.L
+Glosses: 
+
+
+Forms: 
+ùn : un + L
+Glosses: 
+?
+
+Forms: 
+ùn : un + L
+ún : un + H
+ūn : un + M
+Glosses: 
+neg
+
+Forms: 
+ùnjù : unju + L.L
+ùnjú : unju + L.H
+ūnjǔ : unju + M.LH
+Glosses: 
+negative
+
+Forms: 
+ùsì : usi + L.L
+Glosses: 
+ten
+
+Forms: 
+ùsì'în : usi'in + L.L.HL
+Glosses: 
+eleven
+
+Forms: 
+ùsí : usi + L.H
+Glosses: 
+
+
+Forms: 
+ùùn : uun + L
+Glosses: 
+
+
+Forms: 
+ùùn : uun + L
+Glosses: 
+
+
+Forms: 
+ùˈùn : uˈun + L.L
+ú'úùn : u'uun + H.HL
+Glosses: 
+five
+
+Forms: 
+úù : uu + HL
+Glosses: 
+
+
+Forms: 
+úújú : uuju + H.H
+Glosses: 
+deer
+
+Forms: 
+ā và'ā : a va'a + M.L.M
+Glosses: 
+please
+
+Forms: 
+ājó : ajo + M.H
+Glosses: 
+garlic
+
+Forms: 
+āliēníjènàs : alienijenas + M.M.H.L.L
+Glosses: 
+aliens
+
+Forms: 
+āndyīvi : andyivi + M.M
+Glosses: 
+sky
+
+Forms: 
+ānávélà : anavela + M.H.H.L
+Glosses: 
+
+
+Forms: 
+ārdīìyà : ardiiya + M.ML.L
+Glosses: 
+squirrel
+
+Forms: 
+āspīrādórá : aspiradora + M.M.M.H.H
+Glosses: 
+vacuum
+
+Forms: 
+āsāfátá : asafata + M.M.H.H
+Glosses: 
+flight.attendant.fem
+
+Forms: 
+āsāváchè : asavache + M.M.H.L
+Glosses: 
+Asavache
+
+Forms: 
+āvāltíísó : avaltiiso + M.M.H.H
+Glosses: 
+baptism
+
+Forms: 
+ē'vè : e've + M.L
+Glosses: 
+hurt
+
+Forms: 
+ēlēfánté : elefante + M.M.H.H
+Glosses: 
+elephant
+
+Forms: 
+ēmá : ema + M.H
+Glosses: 
+Emma
+
+Forms: 
+ēskwélá : eskwela + M.H.H
+Glosses: 
+school
+
+Forms: 
+ēskóvá : eskova + M.H.H
+Glosses: 
+broom
+
+Forms: 
+ēskālérá : eskalera + M.M.H.H
+ēskāléérá : eskaleera + M.M.H.H
+Glosses: 
+ladder
+
+Forms: 
+ēspéjó : espejo + M.H.H
+Glosses: 
+glass
+mirror
+
+Forms: 
+ēspāñôl : español + M.M.HL
+Glosses: 
+Spanish
+
+Forms: 
+ēstāsión : estasion + M.M.H
+Glosses: 
+season
+
+Forms: 
+ēvè : eve + M.L
+Glosses: 
+
+
+Forms: 
+ēvē : eve + M.M
+Glosses: 
+
+
+Forms: 
+ēēvè : eeve + M.L
+Glosses: 
+
+
+Forms: 
+ēēvē : eeve + M.M
+Glosses: 
+
+
+Forms: 
+ī : i + M
+Glosses: 
+
+
+Forms: 
+ī'à : i'a + M.L
+Glosses: 
+salty
+
+Forms: 
+īchì : ichi + M.L
+Glosses: 
+thirsty
+
+Forms: 
+īchì : ichi + M.L
+Glosses: 
+road
+way
+
+Forms: 
+īchìn : ichin + M.L
+Glosses: 
+thirsty
+
+Forms: 
+īntú'ún : intu'un + M.H.H
+Glosses: 
+only
+
+Forms: 
+īní : ini + M.H
+Glosses: 
+whole
+
+Forms: 
+ītyí : ityi + M.H
+Glosses: 
+?
+
+Forms: 
+ītyā : itya + M.M
+īītyā : iitya + M.M
+Glosses: 
+grass
+
+Forms: 
+īxí nùn : ixi nun + M.H.L
+īxí nùùn : ixi nuun + M.H.L
+Glosses: 
+eyelash
+
+Forms: 
+īxí yū'ùn : ixi yu'un + M.H.M.L
+Glosses: 
+facial.hair
+
+Forms: 
+īìn : iin + ML
+Glosses: 
+nine
+
+Forms: 
+īìñò : iiño + ML.L
+Glosses: 
+six
+
+Forms: 
+īīní : iini + M.H
+Glosses: 
+
+
+Forms: 
+īīnī : iini + M.M
+Glosses: 
+
+
+Forms: 
+īītā víìlò : iita viilo + M.M.HL.L
+Glosses: 
+geranium
+
+Forms: 
+īˈní : iˈni + M.H
+Glosses: 
+warm?
+
+Forms: 
+ōktubrén : oktubren + M.H
+Glosses: 
+October
+
+Forms: 
+ū : u + M
+Glosses: 
+
+
+Forms: 
+ūnīvērsīdád : universidad + M.M.M.M.H
+Glosses: 
+University
+
+Forms: 
+ūùsà : uusa + ML.L
+Glosses: 
+seven
+
+Forms: 
+ṅdzītá : ṅdzita + M.H
+Glosses: 
+
+
