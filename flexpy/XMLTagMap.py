@@ -90,7 +90,9 @@ def create_tag_class_definition(el, dependency_dict):
         text_ignores = ["\n"]  # most or all of the rts seem to have text of "\n", which can just be ignored
         text_warnings = []  # if see text in this list, warn the user
         if el.text is not None:
-            warn_str = "element {} with guid={} has text {}".format(el, el.attrib.get("guid"), repr(el.text))
+            guid = el.attrib.get("guid")
+            el_text_repr = repr(el.text)
+            warn_str = f"element {el} with guid={guid} has text {el_text_repr}"
             if el.text in text_ignores:
                 pass
             elif el.text in text_warnings:
@@ -104,13 +106,15 @@ def create_tag_class_definition(el, dependency_dict):
     import_header = ""
     if el.tag == "rt":
         import_header += "from flexpy.Rt import Rt\n"
+    else:
+        import_header += "from flexpy.NonRtTag import NonRtTag\n"
     import_header += "from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects\n"
     import_header += "\n"
 
     if el.tag == "rt":
-        class_header = "class {}(Rt):\n".format(long_class_name)
+        class_header = f"class {long_class_name}(Rt):\n"
     else:
-        class_header = "class {}:\n".format(long_class_name)
+        class_header = f"class {long_class_name}(NonRtTag):\n"
 
     # need params to be separated from preceding description by a blank line
     docstring_header = \
@@ -119,10 +123,10 @@ def create_tag_class_definition(el, dependency_dict):
         " "*4 + ":param tag_dict: the `TagDict` object organizing the Elements in the FLEx project\n" +\
         " "*4 + "\"\"\"\n"
 
-    init_header = "    def __init__(self, el, tag_dict):\n"
-    if el.tag == "rt":
-        init_header += " "*8 + "super().__init__(el, tag_dict)\n"
+    init_header = "    def __init__(self, el, parent_el, tag_dict):\n"
+    init_header += " "*8 + "super().__init__(el, parent_el, tag_dict)\n"
     init_header += " "*8 + "self.el = el\n"
+    init_header += " "*8 + "self.parent_el = parent_el\n"
     init_header += " "*8 + "self.tag_dict = tag_dict\n"
     init_header += " "*8 + "self.text = self.el.text\n"
 
@@ -132,9 +136,10 @@ def create_tag_class_definition(el, dependency_dict):
         pass
     else:
         for attrib_key in dependency_dict[long_class_name]["attributes"]:
-            init_vars_str += " "*8 + "self.{0} = self.el.attrib.get(\"{0}\")\n".format(attrib_key)
+            init_vars_str += " "*8 + f"self.{attrib_key} = self.el.attrib.get(\"{attrib_key}\")\n"
+    init_str = init_header + init_vars_str + "\n"
 
-    getter_strs = [""]  # want blank lines between init and other methods
+    getter_strs = []
     ordered_child_getter_str = " "*4 + "def get_ordered_child_objects(self):\n"
     ordered_child_getter_str += " "*8 + "\"\"\"Gets the child objects of this element, in their order of appearance in the FLEx XML\"\"\"\n"
     ordered_child_getter_str += " "*8 + "return get_ordered_child_objects(self.el, self.tag_dict)\n"
@@ -142,18 +147,18 @@ def create_tag_class_definition(el, dependency_dict):
 
     for child_tag_short, child_tag_long, child_class_name in dependency_dict[long_class_name]["children"]:
         # init_var_line = " "*8 + "self.{0} = get_child_object(self.el, \"{1}\", self.tag_dict".format(child_tag_long, child_tag_short)
-        getter_str = " "*4 + "def {0}(self):\n".format(child_tag_long)
+        getter_str = " "*4 + f"def {child_tag_long}(self):\n"
         getter_str += " "*8 + f"\"\"\"Gets the child objects which have short tag of `{child_tag_short}`, long tag of `{child_tag_long}`"
         if child_class_name is not None:
             getter_str += f", class name of `{child_class_name}`"
         getter_str += "\"\"\"\n"
-        getter_str += " "*8 + "return get_child_object(self.el, \"{0}\", self.tag_dict".format(child_tag_short)
+        getter_str += " "*8 + f"return get_child_object(self.el, \"{child_tag_short}\", self.tag_dict"
         if child_class_name is not None:
-            getter_str += ", class_name=\"{0}\"".format(child_class_name)
+            getter_str += f", class_name=\"{child_class_name}\""
         getter_str += ")\n"
         getter_strs.append(getter_str)
 
-    full_str = import_header + class_header + docstring_header + init_header + init_vars_str + "\n".join(getter_strs)
+    full_str = import_header + class_header + docstring_header + init_str + "\n".join(getter_strs)
     return full_str
 
 

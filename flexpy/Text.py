@@ -41,16 +41,16 @@ class Text:
         return self.validity
 
     def create_name(self):
-        abbreviation = get_single_child(self.rt, "Abbreviation")
-        if abbreviation is None:
+        name_el = get_single_child(self.rt, "Name")
+        if name_el is None:
             self.validity = False
             if self.rt.find("Contents") is not None:
                 pass #raise Exception("Text found with contents but no name, in rt element: {}, guid {}".format(self.rt, self.rt.attrib["guid"]))
             return None
         else:
-            aunis = get_children(abbreviation, "AUni")
+            aunis = get_children(name_el, "AUni")
             non_none_aunis = [x for x in aunis if x.text is not None]
-            return ";".join(auni.text for auni in non_none_aunis)
+            return "; ".join(auni.text for auni in non_none_aunis)
 
     def create_st_texts(self):
         contents = self.rt_text.Contents()

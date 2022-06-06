@@ -469,6 +469,25 @@ def get_strs_from_form(form):
     return {"AStr": astr_text, "AUni": auni_text, "Str": strtag_text}
 
 
+def get_strs_from_Runs(runs):
+    res = []
+    for run in runs:
+        assert run.__class__.__name__ == "Run", type(run)
+        text = run.text
+        if text is None:
+            continue
+        elif type(text) is str:
+            res.append(text)
+        else:
+            print(f"expected string from run in AStr, got {text.type}")
+    return res
+
+
+def get_str_from_Runs(runs):
+    strs = get_strs_from_Runs(runs)
+    return "".join(strs)
+
+
 def get_str_from_AStr(astr):
     strs = get_strs_from_AStr(astr)
     return "".join(strs)
@@ -476,7 +495,8 @@ def get_str_from_AStr(astr):
 
 def get_strs_from_AStr(astr):
     assert astr.__class__.__name__ == "AStr", type(astr)
-    return [run.text for run in astr.Run()]
+    runs = astr.Run()
+    return get_strs_from_Runs(runs)
 
 
 def get_str_from_AStrs(astrs):

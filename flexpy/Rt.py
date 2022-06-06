@@ -7,9 +7,10 @@ class Rt:
     """A FlexPy-specific class mean to hold information about XML elements with the tag `rt`,
     which have various class names assigned by FLEx.
     """
-    def __init__(self, el, tag_dict):
+    def __init__(self, el, tag_dict, parent_el=None):
         assert type(el) is ET.Element, "invalid element: {}".format(el)
         assert el.tag == "rt", "invalid element tag: {}".format(el.tag)
+        assert parent_el is None, f"rt element can't have immediate parent, but got {parent_el}"
         assert type(tag_dict) is TagDict
         self.rt = el
         self.tag_dict = tag_dict
@@ -27,4 +28,4 @@ class Rt:
         return self.tag_dict.get_python_object_from_element(self.owner_el)
 
     def __repr__(self):
-        return "<rt class={} guid={}>".format(self.class_name, self.guid)
+        return f"<rt class={self.class_name} guid={self.guid}>"

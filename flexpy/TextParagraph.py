@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from flexpy.FlexPyUtil import get_single_child, get_str_from_AStrs
+from flexpy.FlexPyUtil import get_str_from_AStrs, get_str_from_Runs
 from flexpy.PunctuationForm import PunctuationForm
 from flexpy.TagDict import TagDict
 from flexpy.WordForm import WordForm
@@ -45,10 +45,11 @@ class TextParagraph:
             str_obj = contents.Str()
             # there may be multiple run elements (because of Flex's writing system thing), just concat them
             run = str_obj.Run()
-            if type(run) is list:
-                run_text = "".join(x.text for x in run)
-            else:
-                run_text = run.text
+            run_text = get_str_from_Runs(run)
+            # if type(run) is list:
+            #     run_text = "".join(x.text for x in run)
+            # else:
+            #     run_text = run.text
             run_texts.append(run_text)
         return run_texts
     

@@ -4,6 +4,8 @@ import xml.etree.ElementTree as ET
 
 from flexpy.FlexPyUtil import get_single_child, get_children, get_unique_strs_from_form_as_list
 from flexpy.tags.Form import Form
+from flexpy.tags.RtLexEntry import RtLexEntry
+from flexpy.tags.RtLexEntryRef import RtLexEntryRef
 
 
 class LexEntry:
@@ -30,9 +32,14 @@ class LexEntry:
         self.parts_of_speech = []
         self.glosses = []
 
+        self.is_variant = None
+        self.parent_lexeme_guid = None
+
         self.populate_child_variables()
 
     def populate_child_variables(self):
+        lex_entry_obj = RtLexEntry(self.rt, self.tag_dict)
+        
         self.date_created = get_single_child(self.rt, "DateCreated").attrib["val"]
         self.date_modified = get_single_child(self.rt, "DateModified").attrib["val"]
         self.do_not_use_for_parsing = get_single_child(self.rt, "DoNotUseForParsing").attrib["val"]
@@ -78,13 +85,72 @@ class LexEntry:
             objsurs = senses_el.findall("objsur")
             for objsur in objsurs:
                 lex_sense_guid = objsur.attrib["guid"]
-                lex_sense = self.tag_dict.get_single_element_by_guid(lex_sense_guid)
-                gloss_el = get_single_child(lex_sense, "Gloss")
+                lex_sense_rt = self.tag_dict.get_single_element_by_guid(lex_sense_guid)
+                gloss_el = get_single_child(lex_sense_rt, "Gloss")
                 if gloss_el is None:
                     continue
                 auni = get_single_child(gloss_el, "AUni")
                 gloss = auni.text
                 self.glosses.append(gloss)
+        
+        # figure out if it's a variant of another LexEntry
+        # if it is, it will have tag for LexEntryRef, whose ComponentLexemes points to the parent
+
+        # # this stuff is without using flexpy.tags:
+        # entry_refs_el = get_single_child(self.rt, "EntryRefs")
+        # self.is_variant = entry_refs_el is not None
+        # if self.is_variant:
+        #     objsurs = entry_refs_el.findall("objsur")
+        #     for objsur in objsurs:
+        #         lex_entry_ref_guid = objsur.attrib["guid"]
+        #         lex_entry_ref_rt = self.tag_dict.get_single_element_by_guid(lex_entry_ref_guid)
+        #         lex_entry_ref_obj = RtLexEntryRef(lex_entry_ref_rt)
+        #         component_lexemes_el = lex_entry_ref_rt.ComponentLexemes()
+        #         print(self)
+        #         print(component_lexemes_el)
+        #         input("check")
+
+        # this is equivalent using flexpy.tags objects for ease of reading/writing
+        # essentially flexpy.tags is an API within the flexpy API
+        entry_refs = lex_entry_obj.EntryRefs()
+        print(f"for lex entry {self} got entry_refs {entry_refs}")
+        # self.is_variant = entry_refs is not None  # not true, compounds can also have this
+        if entry_refs is None:
+            self.is_variant = False
+        else:
+            self.is_variant = False  # unless proven otherwise in the ensuing search for VariantEntryTypes tag
+            parent_lexeme_rts = []
+            rt_lex_entry_ref = entry_refs.RtLexEntryRef()
+            for rt_lex_entry_ref_obj in rt_lex_entry_ref:
+                has_variant_entry_types = rt_lex_entry_ref_obj.VariantEntryTypes() is not None
+                if has_variant_entry_types:
+                    self.is_variant = True
+                else:
+                    continue  # not a variant
+                component_lexemes = rt_lex_entry_ref_obj.ComponentLexemes()
+                print(f"component lexemes is: {component_lexemes}")
+                rt_lex_entry = component_lexemes.RtLexEntry()
+                print(f"rt lex entry is: {rt_lex_entry}")
+                for rt_lex_entry_obj in rt_lex_entry:
+                    parent_lexeme_rts.append(rt_lex_entry_obj)
+            if len(parent_lexeme_rts) > 1:
+                # for sake of printing the objects for me to go fix them in FLEx,
+                # make some temporary LexEntry objects (this same class)
+                parent_lexeme_strs = []
+                for parent_lexeme_rt in parent_lexeme_rts:
+                    temp_lex_entry = LexEntry(parent_lexeme_rt, self.tag_dict)
+                    parent_lexeme_strs.append(repr(temp_lex_entry))
+                print("Error: got multiple parent lexemes")
+                print("current lexeme:", self)
+                for parent_lexeme_str in parent_lexeme_strs:
+                    print("parent lexeme:", parent_lexeme_str)
+                raise ValueError("multiple parent lexemes")
+            elif self.is_variant:
+                self.parent_lexeme_guid = parent_lexeme_rts[0].guid
+            else:
+                self.parent_lexeme_guid = None  # it should already be None, but just for reader
+
+        assert self.is_variant is not None  # don't want to leave it with falsey value of None
 
         # after processing all of this, NOW you do the warning about bad words
         if self.lexeme_form is None:
