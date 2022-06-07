@@ -654,6 +654,8 @@ def get_string_without_tone_diacritics(s):
 
 
 def get_tone_letters_from_string(s, vowel_chars=None):
+    if s is None:
+        return None
     if vowel_chars is None:
         vowel_chars = list("aoeui")
     new_s = ""

@@ -75,7 +75,8 @@ class Text:
             rt_st_txt_paras = paragraphs_el.RtStTxtPara()
             for rt_st_txt_para_i, rt_st_txt_para in enumerate(rt_st_txt_paras):
                 # print("RtStTxtPara {}/{}".format(rt_st_txt_para_i, len(rt_st_txt_paras)))
-                text_paragraph = TextParagraph(rt_st_txt_para, self.tag_dict, include_punctuation)
+                pg_num = rt_st_txt_para_i + 1
+                text_paragraph = TextParagraph(rt_st_txt_para, pg_num, self.tag_dict, include_punctuation)
                 text_paragraphs.append(text_paragraph)
                 # print("done with RtStTxtPara {}".format(rt_st_txt_para_i))
         # print("- done creating paragraphs for text {}".format(self))

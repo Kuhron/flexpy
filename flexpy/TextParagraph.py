@@ -23,11 +23,12 @@ class TextParagraph:
     :param include_punctuation:
     :type include_punctuation: bool
     """
-    def __init__(self, rt_st_txt_para, tag_dict, include_punctuation):
+    def __init__(self, rt_st_txt_para, paragraph_number, tag_dict, include_punctuation):
         assert type(rt_st_txt_para) is RtStTxtPara, type(rt_st_txt_para)
         assert type(tag_dict) is TagDict
         assert type(include_punctuation) is bool
         self.rt_st_txt_para = rt_st_txt_para
+        self.paragraph_number = paragraph_number
         self.tag_dict = tag_dict
         self.include_punctuation = include_punctuation
         self.run_texts = self.create_run_texts()
