@@ -2,7 +2,8 @@
 
 import xml.etree.ElementTree as ET
 
-from flexpy.FlexPyUtil import get_single_child, get_children, get_unique_strs_from_form_as_list
+from flexpy.FlexPyUtil import (get_single_child, get_children, 
+    get_unique_strs_from_form_as_list, elstr)
 from flexpy.tags.Form import Form
 from flexpy.tags.RtLexEntry import RtLexEntry
 from flexpy.tags.RtLexEntryRef import RtLexEntryRef
@@ -113,7 +114,7 @@ class LexEntry:
         # this is equivalent using flexpy.tags objects for ease of reading/writing
         # essentially flexpy.tags is an API within the flexpy API
         entry_refs = lex_entry_obj.EntryRefs()
-        print(f"for lex entry {self} got entry_refs {entry_refs}")
+        # print(f"for lex entry {self} got entry_refs {entry_refs}")
         # self.is_variant = entry_refs is not None  # not true, compounds can also have this
         if entry_refs is None:
             self.is_variant = False
@@ -128,21 +129,21 @@ class LexEntry:
                 else:
                     continue  # not a variant
                 component_lexemes = rt_lex_entry_ref_obj.ComponentLexemes()
-                print(f"component lexemes is: {component_lexemes}")
+                # print(f"component lexemes is: {component_lexemes}")
 
                 # the lexeme can be a variant of a lex entry or of a specific sense
                 # if it's a lex entry variant then great
                 rt_lex_entry = component_lexemes.RtLexEntry()
-                print(f"rt lex entry is: {rt_lex_entry}")
+                # print(f"rt lex entry is: {rt_lex_entry}")
                 for rt_lex_entry_obj in rt_lex_entry:
-                    parent_lexeme_rts.append(rt_lex_entry_obj)
+                    parent_lexeme_rts.append(rt_lex_entry_obj.el)
                 
                 # if it's a sense variant, then the parent lexeme needs to be gotten from that
                 rt_lex_sense = component_lexemes.RtLexSense()
-                print(f"rt lex sense is: {rt_lex_sense}")
+                # print(f"rt lex sense is: {rt_lex_sense}")
                 for rt_lex_sense_obj in rt_lex_sense:
-                    parent_lexeme_guid = rt_lex_sense_obj.owner_guid
-                    parent_lexeme_rt = self.tag_dict.get_single_element_by_guid(parent_lexeme_guid)
+                    parent_lexeme_rt = rt_lex_sense_obj.owner_el
+                    # not obj.parent_el, since that will just be the ComponentLexemes tag that led here
                     parent_lexeme_rts.append(parent_lexeme_rt)
 
             if len(parent_lexeme_rts) > 1:
@@ -158,7 +159,9 @@ class LexEntry:
                     print("parent lexeme:", parent_lexeme_str)
                 raise ValueError("multiple parent lexemes")
             elif self.is_variant:
-                self.parent_lexeme_guid = parent_lexeme_rts[0].guid
+                parent_lexeme_rt = parent_lexeme_rts[0]
+                # print(f"parent lexeme rt is {elstr(parent_lexeme_rt)}")
+                self.parent_lexeme_guid = parent_lexeme_rt.attrib["guid"]
             else:
                 self.parent_lexeme_guid = None  # it should already be None, but just for reader
         
@@ -187,8 +190,8 @@ class LexEntry:
     def __repr__(self):
         if self.is_variant:
             parent_lex_entry_el = self.tag_dict.get_single_element_by_guid(self.parent_lexeme_guid)
-            parent_lex_entry_obj = LexEntry(parent_lex_entry_el, self.tag_dict)
-            parent_str = repr(parent_lex_entry_obj)
+            parent_lex_entry_obj = LexEntry(parent_lex_entry_el, self.tag_dict) if parent_lex_entry_el is not None else None
+            parent_str = repr(parent_lex_entry_obj) if parent_lex_entry_obj is not None else "None (perhaps uninitialized due to error)"
             variant_str = f"(variant of {parent_str})"
             s = f"<LexEntry \"{self.lexeme_form}\" {variant_str}>"
         else:
