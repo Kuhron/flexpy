@@ -78,6 +78,10 @@ class RtScripture(Rt):
         """Gets the child objects which have short tag of `FootnoteMarkerType`, long tag of `FootnoteMarkerType`"""
         return get_child_object(self.el, "FootnoteMarkerType", self.tag_dict)
 
+    def NoteCategories(self):
+        """Gets the child objects which have short tag of `NoteCategories`, long tag of `NoteCategories`"""
+        return get_child_object(self.el, "NoteCategories", self.tag_dict)
+
     def RefSepr(self):
         """Gets the child objects which have short tag of `RefSepr`, long tag of `RefSepr`"""
         return get_child_object(self.el, "RefSepr", self.tag_dict)
@@ -97,6 +101,10 @@ class RtScripture(Rt):
     def ScriptDigitZero(self):
         """Gets the child objects which have short tag of `ScriptDigitZero`, long tag of `ScriptDigitZero`"""
         return get_child_object(self.el, "ScriptDigitZero", self.tag_dict)
+
+    def Styles(self):
+        """Gets the child objects which have short tag of `Styles`, long tag of `Styles`"""
+        return get_child_object(self.el, "Styles", self.tag_dict)
 
     def UseScriptDigits(self):
         """Gets the child objects which have short tag of `UseScriptDigits`, long tag of `UseScriptDigits`"""

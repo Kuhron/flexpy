@@ -18,6 +18,10 @@ class RtMoStemMsa(Rt):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def InflectionClass(self):
+        """Gets the child objects which have short tag of `InflectionClass`, long tag of `InflectionClass`"""
+        return get_child_object(self.el, "InflectionClass", self.tag_dict)
+
     def PartOfSpeech(self):
         """Gets the child objects which have short tag of `PartOfSpeech`, long tag of `PartOfSpeech`"""
         return get_child_object(self.el, "PartOfSpeech", self.tag_dict)

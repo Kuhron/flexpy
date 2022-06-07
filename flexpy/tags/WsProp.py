@@ -13,10 +13,14 @@ class WsProp(NonRtTag):
         self.parent_el = parent_el
         self.tag_dict = tag_dict
         self.text = self.el.text
+        self.bold = self.el.attrib.get("bold")
         self.fontFamily = self.el.attrib.get("fontFamily")
         self.fontsize = self.el.attrib.get("fontsize")
         self.fontsizeUnit = self.el.attrib.get("fontsizeUnit")
+        self.forecolor = self.el.attrib.get("forecolor")
         self.fp = self.el.attrib.get("fp")
+        self.italic = self.el.attrib.get("italic")
+        self.superscript = self.el.attrib.get("superscript")
         self.ws = self.el.attrib.get("ws")
 
     def get_ordered_child_objects(self):

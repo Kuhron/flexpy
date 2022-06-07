@@ -34,6 +34,14 @@ class RtText(Rt):
         """Gets the child objects which have short tag of `DateModified`, long tag of `DateModified`"""
         return get_child_object(self.el, "DateModified", self.tag_dict)
 
+    def Description(self):
+        """Gets the child objects which have short tag of `Description`, long tag of `Description`"""
+        return get_child_object(self.el, "Description", self.tag_dict)
+
+    def Genres(self):
+        """Gets the child objects which have short tag of `Genres`, long tag of `Genres`"""
+        return get_child_object(self.el, "Genres", self.tag_dict)
+
     def IsTranslated(self):
         """Gets the child objects which have short tag of `IsTranslated`, long tag of `IsTranslated`"""
         return get_child_object(self.el, "IsTranslated", self.tag_dict)

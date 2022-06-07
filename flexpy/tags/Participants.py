@@ -19,6 +19,10 @@ class Participants(NonRtTag):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def RtCmPerson(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtCmPerson`, class name of `CmPerson`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmPerson")
+
     def RtRnRoledPartic(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtRnRoledPartic`, class name of `RnRoledPartic`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="RnRoledPartic")

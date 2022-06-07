@@ -17,3 +17,7 @@ class RtRnRoledPartic(Rt):
     def get_ordered_child_objects(self):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def Participants(self):
+        """Gets the child objects which have short tag of `Participants`, long tag of `Participants`"""
+        return get_child_object(self.el, "Participants", self.tag_dict)

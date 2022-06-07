@@ -33,3 +33,7 @@ class RtRnResearchNbk(Rt):
     def RecTypes(self):
         """Gets the child objects which have short tag of `RecTypes`, long tag of `RecTypes`"""
         return get_child_object(self.el, "RecTypes", self.tag_dict)
+
+    def Records(self):
+        """Gets the child objects which have short tag of `Records`, long tag of `Records`"""
+        return get_child_object(self.el, "Records", self.tag_dict)

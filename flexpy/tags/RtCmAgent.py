@@ -34,6 +34,10 @@ class RtCmAgent(Rt):
         """Gets the child objects which have short tag of `Name`, long tag of `Name`"""
         return get_child_object(self.el, "Name", self.tag_dict)
 
+    def Notes(self):
+        """Gets the child objects which have short tag of `Notes`, long tag of `Notes`"""
+        return get_child_object(self.el, "Notes", self.tag_dict)
+
     def Version(self):
         """Gets the child objects which have short tag of `Version`, long tag of `Version`"""
         return get_child_object(self.el, "Version", self.tag_dict)

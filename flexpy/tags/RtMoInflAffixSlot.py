@@ -18,6 +18,10 @@ class RtMoInflAffixSlot(Rt):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def Description(self):
+        """Gets the child objects which have short tag of `Description`, long tag of `Description`"""
+        return get_child_object(self.el, "Description", self.tag_dict)
+
     def Name(self):
         """Gets the child objects which have short tag of `Name`, long tag of `Name`"""
         return get_child_object(self.el, "Name", self.tag_dict)

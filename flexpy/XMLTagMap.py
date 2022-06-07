@@ -10,27 +10,25 @@ from xml.etree import ElementTree as ET
 
 
 def create_dependency_dict_from_single_root(root, by_guid):
-    # special types are <rt> and <objsur> (object surrogate), else just refer to it as its tag
+    return create_dependency_dict_from_multiple_roots([root], by_guid)
 
+
+def create_dependency_dict_from_multiple_roots(roots, by_guid):
+    # special types are <rt> and <objsur> (object surrogate), else just refer to it as its tag
+    # what is the chance of guid collision among different projects? hopefully low
+    
     dependency_dict = {}
 
-    all_elements = get_all_children_recursive(root)
-    for el in all_elements:
-        dependency_dict = add_element_to_dependency_dict(el, dependency_dict, by_guid)
-
+    for root in roots:
+        all_elements = get_all_children_recursive(root)
+        for el in all_elements:
+            dependency_dict = add_element_to_dependency_dict(el, dependency_dict, by_guid)
+    
     # sort the value sets into lists
     for k, parent_child_dict in dependency_dict.items():
         for parent_child, v in parent_child_dict.items():
             dependency_dict[k][parent_child] = sorted(v)
     return dependency_dict
-
-
-def create_dependency_dict_from_multiple_roots(roots, by_guid):
-    d = {}
-    for root in roots:
-        d.update(create_dependency_dict_from_single_root(root, by_guid))
-        # what is the chance of guid collision among different projects? hopefully low
-    return d
 
 
 def print_dependency_dict(d):
@@ -226,7 +224,7 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
         child_tags.add(tup)
 
     dependency_dict[tag_key]["children"] |= child_tags
-    print(f"dependency_dict[{tag_key}][\"children\"] is now {dependency_dict[tag_key]['children']}")
+    # print(f"dependency_dict[{tag_key}][\"children\"] is now {dependency_dict[tag_key]['children']}")
 
     # attribute names may have been expanded by ET.parse if they contained namespaces
     # if we attempt to create self.{attrib_key} like this, we will get a SyntaxError

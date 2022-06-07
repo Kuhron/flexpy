@@ -21,3 +21,7 @@ class RtMoInflAffMsa(Rt):
     def PartOfSpeech(self):
         """Gets the child objects which have short tag of `PartOfSpeech`, long tag of `PartOfSpeech`"""
         return get_child_object(self.el, "PartOfSpeech", self.tag_dict)
+
+    def Slots(self):
+        """Gets the child objects which have short tag of `Slots`, long tag of `Slots`"""
+        return get_child_object(self.el, "Slots", self.tag_dict)

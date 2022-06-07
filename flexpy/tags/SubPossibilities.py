@@ -27,6 +27,10 @@ class SubPossibilities(NonRtTag):
         """Gets the child objects which have short tag of `rt`, long tag of `RtCmAnthroItem`, class name of `CmAnthroItem`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="CmAnthroItem")
 
+    def RtCmLocation(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtCmLocation`, class name of `CmLocation`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmLocation")
+
     def RtCmPossibility(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtCmPossibility`, class name of `CmPossibility`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="CmPossibility")

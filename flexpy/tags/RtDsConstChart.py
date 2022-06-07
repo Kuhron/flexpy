@@ -30,6 +30,10 @@ class RtDsConstChart(Rt):
         """Gets the child objects which have short tag of `DateModified`, long tag of `DateModified`"""
         return get_child_object(self.el, "DateModified", self.tag_dict)
 
+    def Rows(self):
+        """Gets the child objects which have short tag of `Rows`, long tag of `Rows`"""
+        return get_child_object(self.el, "Rows", self.tag_dict)
+
     def Template(self):
         """Gets the child objects which have short tag of `Template`, long tag of `Template`"""
         return get_child_object(self.el, "Template", self.tag_dict)

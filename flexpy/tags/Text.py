@@ -19,6 +19,10 @@ class Text(NonRtTag):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def RtStText(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtStText`, class name of `StText`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="StText")
+
     def RtText(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtText`, class name of `Text`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="Text")

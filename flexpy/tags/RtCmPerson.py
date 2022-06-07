@@ -18,6 +18,14 @@ class RtCmPerson(Rt):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def Abbreviation(self):
+        """Gets the child objects which have short tag of `Abbreviation`, long tag of `Abbreviation`"""
+        return get_child_object(self.el, "Abbreviation", self.tag_dict)
+
+    def Alias(self):
+        """Gets the child objects which have short tag of `Alias`, long tag of `Alias`"""
+        return get_child_object(self.el, "Alias", self.tag_dict)
+
     def BackColor(self):
         """Gets the child objects which have short tag of `BackColor`, long tag of `BackColor`"""
         return get_child_object(self.el, "BackColor", self.tag_dict)
@@ -37,6 +45,14 @@ class RtCmPerson(Rt):
     def DateOfDeath(self):
         """Gets the child objects which have short tag of `DateOfDeath`, long tag of `DateOfDeath`"""
         return get_child_object(self.el, "DateOfDeath", self.tag_dict)
+
+    def Discussion(self):
+        """Gets the child objects which have short tag of `Discussion`, long tag of `Discussion`"""
+        return get_child_object(self.el, "Discussion", self.tag_dict)
+
+    def Education(self):
+        """Gets the child objects which have short tag of `Education`, long tag of `Education`"""
+        return get_child_object(self.el, "Education", self.tag_dict)
 
     def ForeColor(self):
         """Gets the child objects which have short tag of `ForeColor`, long tag of `ForeColor`"""
@@ -61,6 +77,14 @@ class RtCmPerson(Rt):
     def Name(self):
         """Gets the child objects which have short tag of `Name`, long tag of `Name`"""
         return get_child_object(self.el, "Name", self.tag_dict)
+
+    def PlacesOfResidence(self):
+        """Gets the child objects which have short tag of `PlacesOfResidence`, long tag of `PlacesOfResidence`"""
+        return get_child_object(self.el, "PlacesOfResidence", self.tag_dict)
+
+    def Researchers(self):
+        """Gets the child objects which have short tag of `Researchers`, long tag of `Researchers`"""
+        return get_child_object(self.el, "Researchers", self.tag_dict)
 
     def SortSpec(self):
         """Gets the child objects which have short tag of `SortSpec`, long tag of `SortSpec`"""

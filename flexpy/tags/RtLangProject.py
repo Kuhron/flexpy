@@ -34,6 +34,10 @@ class RtLangProject(Rt):
         """Gets the child objects which have short tag of `AnnotationDefs`, long tag of `AnnotationDefs`"""
         return get_child_object(self.el, "AnnotationDefs", self.tag_dict)
 
+    def Annotations(self):
+        """Gets the child objects which have short tag of `Annotations`, long tag of `Annotations`"""
+        return get_child_object(self.el, "Annotations", self.tag_dict)
+
     def AnthroList(self):
         """Gets the child objects which have short tag of `AnthroList`, long tag of `AnthroList`"""
         return get_child_object(self.el, "AnthroList", self.tag_dict)
@@ -61,6 +65,10 @@ class RtLangProject(Rt):
     def DateModified(self):
         """Gets the child objects which have short tag of `DateModified`, long tag of `DateModified`"""
         return get_child_object(self.el, "DateModified", self.tag_dict)
+
+    def Description(self):
+        """Gets the child objects which have short tag of `Description`, long tag of `Description`"""
+        return get_child_object(self.el, "Description", self.tag_dict)
 
     def DiscourseData(self):
         """Gets the child objects which have short tag of `DiscourseData`, long tag of `DiscourseData`"""

@@ -20,6 +20,8 @@ class Run(NonRtTag):
         self.namedStyle = self.el.attrib.get("namedStyle")
         self.space = self.el.attrib.get("space")
         self.spellcheck = self.el.attrib.get("spellcheck")
+        self.undercolor = self.el.attrib.get("undercolor")
+        self.underline = self.el.attrib.get("underline")
         self.ws = self.el.attrib.get("ws")
 
     def get_ordered_child_objects(self):

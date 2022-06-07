@@ -18,6 +18,18 @@ class RtLexPronunciation(Rt):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def CVPattern(self):
+        """Gets the child objects which have short tag of `CVPattern`, long tag of `CVPattern`"""
+        return get_child_object(self.el, "CVPattern", self.tag_dict)
+
     def Form(self):
         """Gets the child objects which have short tag of `Form`, long tag of `Form`"""
         return get_child_object(self.el, "Form", self.tag_dict)
+
+    def Location(self):
+        """Gets the child objects which have short tag of `Location`, long tag of `Location`"""
+        return get_child_object(self.el, "Location", self.tag_dict)
+
+    def Tone(self):
+        """Gets the child objects which have short tag of `Tone`, long tag of `Tone`"""
+        return get_child_object(self.el, "Tone", self.tag_dict)

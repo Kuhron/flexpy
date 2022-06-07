@@ -18,6 +18,10 @@ class RtMoMorphData(Rt):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def CompoundRules(self):
+        """Gets the child objects which have short tag of `CompoundRules`, long tag of `CompoundRules`"""
+        return get_child_object(self.el, "CompoundRules", self.tag_dict)
+
     def ParserParameters(self):
         """Gets the child objects which have short tag of `ParserParameters`, long tag of `ParserParameters`"""
         return get_child_object(self.el, "ParserParameters", self.tag_dict)

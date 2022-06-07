@@ -22,3 +22,7 @@ class Cells(NonRtTag):
     def RtCmCell(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtCmCell`, class name of `CmCell`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="CmCell")
+
+    def RtConstChartWordGroup(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtConstChartWordGroup`, class name of `ConstChartWordGroup`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="ConstChartWordGroup")

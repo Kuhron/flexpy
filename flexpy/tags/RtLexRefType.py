@@ -38,6 +38,10 @@ class RtLexRefType(Rt):
         """Gets the child objects which have short tag of `Description`, long tag of `Description`"""
         return get_child_object(self.el, "Description", self.tag_dict)
 
+    def Discussion(self):
+        """Gets the child objects which have short tag of `Discussion`, long tag of `Discussion`"""
+        return get_child_object(self.el, "Discussion", self.tag_dict)
+
     def ForeColor(self):
         """Gets the child objects which have short tag of `ForeColor`, long tag of `ForeColor`"""
         return get_child_object(self.el, "ForeColor", self.tag_dict)

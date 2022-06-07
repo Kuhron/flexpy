@@ -22,3 +22,7 @@ class Rows(NonRtTag):
     def RtCmRow(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtCmRow`, class name of `CmRow`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="CmRow")
+
+    def RtConstChartRow(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtConstChartRow`, class name of `ConstChartRow`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="ConstChartRow")

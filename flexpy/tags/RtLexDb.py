@@ -42,6 +42,10 @@ class RtLexDb(Rt):
         """Gets the child objects which have short tag of `ExtendedNoteTypes`, long tag of `ExtendedNoteTypes`"""
         return get_child_object(self.el, "ExtendedNoteTypes", self.tag_dict)
 
+    def Introduction(self):
+        """Gets the child objects which have short tag of `Introduction`, long tag of `Introduction`"""
+        return get_child_object(self.el, "Introduction", self.tag_dict)
+
     def IsBodyInSeparateSubentry(self):
         """Gets the child objects which have short tag of `IsBodyInSeparateSubentry`, long tag of `IsBodyInSeparateSubentry`"""
         return get_child_object(self.el, "IsBodyInSeparateSubentry", self.tag_dict)

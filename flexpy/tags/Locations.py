@@ -19,6 +19,10 @@ class Locations(NonRtTag):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def RtCmLocation(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtCmLocation`, class name of `CmLocation`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmLocation")
+
     def RtCmPossibilityList(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtCmPossibilityList`, class name of `CmPossibilityList`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="CmPossibilityList")

@@ -22,6 +22,14 @@ class RtPartOfSpeech(Rt):
         """Gets the child objects which have short tag of `Abbreviation`, long tag of `Abbreviation`"""
         return get_child_object(self.el, "Abbreviation", self.tag_dict)
 
+    def AffixSlots(self):
+        """Gets the child objects which have short tag of `AffixSlots`, long tag of `AffixSlots`"""
+        return get_child_object(self.el, "AffixSlots", self.tag_dict)
+
+    def AffixTemplates(self):
+        """Gets the child objects which have short tag of `AffixTemplates`, long tag of `AffixTemplates`"""
+        return get_child_object(self.el, "AffixTemplates", self.tag_dict)
+
     def BackColor(self):
         """Gets the child objects which have short tag of `BackColor`, long tag of `BackColor`"""
         return get_child_object(self.el, "BackColor", self.tag_dict)
@@ -38,9 +46,17 @@ class RtPartOfSpeech(Rt):
         """Gets the child objects which have short tag of `DateModified`, long tag of `DateModified`"""
         return get_child_object(self.el, "DateModified", self.tag_dict)
 
+    def DefaultInflectionClass(self):
+        """Gets the child objects which have short tag of `DefaultInflectionClass`, long tag of `DefaultInflectionClass`"""
+        return get_child_object(self.el, "DefaultInflectionClass", self.tag_dict)
+
     def Description(self):
         """Gets the child objects which have short tag of `Description`, long tag of `Description`"""
         return get_child_object(self.el, "Description", self.tag_dict)
+
+    def Discussion(self):
+        """Gets the child objects which have short tag of `Discussion`, long tag of `Discussion`"""
+        return get_child_object(self.el, "Discussion", self.tag_dict)
 
     def ForeColor(self):
         """Gets the child objects which have short tag of `ForeColor`, long tag of `ForeColor`"""
@@ -49,6 +65,10 @@ class RtPartOfSpeech(Rt):
     def Hidden(self):
         """Gets the child objects which have short tag of `Hidden`, long tag of `Hidden`"""
         return get_child_object(self.el, "Hidden", self.tag_dict)
+
+    def InflectionClasses(self):
+        """Gets the child objects which have short tag of `InflectionClasses`, long tag of `InflectionClasses`"""
+        return get_child_object(self.el, "InflectionClasses", self.tag_dict)
 
     def IsProtected(self):
         """Gets the child objects which have short tag of `IsProtected`, long tag of `IsProtected`"""

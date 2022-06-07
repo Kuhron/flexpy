@@ -23,6 +23,10 @@ class VariantEntryTypes(NonRtTag):
         """Gets the child objects which have short tag of `rt`, long tag of `RtCmPossibilityList`, class name of `CmPossibilityList`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="CmPossibilityList")
 
+    def RtLexEntryInflType(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtLexEntryInflType`, class name of `LexEntryInflType`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntryInflType")
+
     def RtLexEntryType(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtLexEntryType`, class name of `LexEntryType`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntryType")

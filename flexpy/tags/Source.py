@@ -26,3 +26,11 @@ class Source(NonRtTag):
     def Str(self):
         """Gets the child objects which have short tag of `Str`, long tag of `Str`"""
         return get_child_object(self.el, "Str", self.tag_dict)
+
+    def Uni(self):
+        """Gets the child objects which have short tag of `Uni`, long tag of `Uni`"""
+        return get_child_object(self.el, "Uni", self.tag_dict)
+
+    def RtCmAgent(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtCmAgent`, class name of `CmAgent`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="CmAgent")

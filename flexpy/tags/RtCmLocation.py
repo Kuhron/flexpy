@@ -38,6 +38,10 @@ class RtCmLocation(Rt):
         """Gets the child objects which have short tag of `Description`, long tag of `Description`"""
         return get_child_object(self.el, "Description", self.tag_dict)
 
+    def Discussion(self):
+        """Gets the child objects which have short tag of `Discussion`, long tag of `Discussion`"""
+        return get_child_object(self.el, "Discussion", self.tag_dict)
+
     def ForeColor(self):
         """Gets the child objects which have short tag of `ForeColor`, long tag of `ForeColor`"""
         return get_child_object(self.el, "ForeColor", self.tag_dict)
@@ -54,9 +58,17 @@ class RtCmLocation(Rt):
         """Gets the child objects which have short tag of `Name`, long tag of `Name`"""
         return get_child_object(self.el, "Name", self.tag_dict)
 
+    def Researchers(self):
+        """Gets the child objects which have short tag of `Researchers`, long tag of `Researchers`"""
+        return get_child_object(self.el, "Researchers", self.tag_dict)
+
     def SortSpec(self):
         """Gets the child objects which have short tag of `SortSpec`, long tag of `SortSpec`"""
         return get_child_object(self.el, "SortSpec", self.tag_dict)
+
+    def SubPossibilities(self):
+        """Gets the child objects which have short tag of `SubPossibilities`, long tag of `SubPossibilities`"""
+        return get_child_object(self.el, "SubPossibilities", self.tag_dict)
 
     def UnderColor(self):
         """Gets the child objects which have short tag of `UnderColor`, long tag of `UnderColor`"""

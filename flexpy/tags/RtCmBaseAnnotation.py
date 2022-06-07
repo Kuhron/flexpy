@@ -62,6 +62,14 @@ class RtCmBaseAnnotation(Rt):
         """Gets the child objects which have short tag of `Flid`, long tag of `Flid`"""
         return get_child_object(self.el, "Flid", self.tag_dict)
 
+    def Source(self):
+        """Gets the child objects which have short tag of `Source`, long tag of `Source`"""
+        return get_child_object(self.el, "Source", self.tag_dict)
+
+    def Text(self):
+        """Gets the child objects which have short tag of `Text`, long tag of `Text`"""
+        return get_child_object(self.el, "Text", self.tag_dict)
+
     def WsSelector(self):
         """Gets the child objects which have short tag of `WsSelector`, long tag of `WsSelector`"""
         return get_child_object(self.el, "WsSelector", self.tag_dict)

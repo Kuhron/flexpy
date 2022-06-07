@@ -22,6 +22,10 @@ class RtMoAffixAllomorph(Rt):
         """Gets the child objects which have short tag of `Form`, long tag of `Form`"""
         return get_child_object(self.el, "Form", self.tag_dict)
 
+    def InflectionClasses(self):
+        """Gets the child objects which have short tag of `InflectionClasses`, long tag of `InflectionClasses`"""
+        return get_child_object(self.el, "InflectionClasses", self.tag_dict)
+
     def IsAbstract(self):
         """Gets the child objects which have short tag of `IsAbstract`, long tag of `IsAbstract`"""
         return get_child_object(self.el, "IsAbstract", self.tag_dict)
@@ -29,3 +33,7 @@ class RtMoAffixAllomorph(Rt):
     def MorphType(self):
         """Gets the child objects which have short tag of `MorphType`, long tag of `MorphType`"""
         return get_child_object(self.el, "MorphType", self.tag_dict)
+
+    def PhoneEnv(self):
+        """Gets the child objects which have short tag of `PhoneEnv`, long tag of `PhoneEnv`"""
+        return get_child_object(self.el, "PhoneEnv", self.tag_dict)

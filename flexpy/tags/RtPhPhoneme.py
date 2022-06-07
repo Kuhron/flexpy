@@ -18,6 +18,10 @@ class RtPhPhoneme(Rt):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def BasicIPASymbol(self):
+        """Gets the child objects which have short tag of `BasicIPASymbol`, long tag of `BasicIPASymbol`"""
+        return get_child_object(self.el, "BasicIPASymbol", self.tag_dict)
+
     def Codes(self):
         """Gets the child objects which have short tag of `Codes`, long tag of `Codes`"""
         return get_child_object(self.el, "Codes", self.tag_dict)

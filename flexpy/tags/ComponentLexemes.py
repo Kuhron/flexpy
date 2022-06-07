@@ -22,3 +22,7 @@ class ComponentLexemes(NonRtTag):
     def RtLexEntry(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtLexEntry`, class name of `LexEntry`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="LexEntry")
+
+    def RtLexSense(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtLexSense`, class name of `LexSense`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="LexSense")

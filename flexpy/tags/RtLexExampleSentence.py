@@ -17,3 +17,15 @@ class RtLexExampleSentence(Rt):
     def get_ordered_child_objects(self):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
+
+    def Example(self):
+        """Gets the child objects which have short tag of `Example`, long tag of `Example`"""
+        return get_child_object(self.el, "Example", self.tag_dict)
+
+    def Reference(self):
+        """Gets the child objects which have short tag of `Reference`, long tag of `Reference`"""
+        return get_child_object(self.el, "Reference", self.tag_dict)
+
+    def Translations(self):
+        """Gets the child objects which have short tag of `Translations`, long tag of `Translations`"""
+        return get_child_object(self.el, "Translations", self.tag_dict)

@@ -18,6 +18,10 @@ class RtPhPhonData(Rt):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def Environments(self):
+        """Gets the child objects which have short tag of `Environments`, long tag of `Environments`"""
+        return get_child_object(self.el, "Environments", self.tag_dict)
+
     def NaturalClasses(self):
         """Gets the child objects which have short tag of `NaturalClasses`, long tag of `NaturalClasses`"""
         return get_child_object(self.el, "NaturalClasses", self.tag_dict)

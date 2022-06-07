@@ -19,6 +19,10 @@ class BeginObject(NonRtTag):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
         return get_ordered_child_objects(self.el, self.tag_dict)
 
+    def RtPhEnvironment(self):
+        """Gets the child objects which have short tag of `rt`, long tag of `RtPhEnvironment`, class name of `PhEnvironment`"""
+        return get_child_object(self.el, "rt", self.tag_dict, class_name="PhEnvironment")
+
     def RtStTxtPara(self):
         """Gets the child objects which have short tag of `rt`, long tag of `RtStTxtPara`, class name of `StTxtPara`"""
         return get_child_object(self.el, "rt", self.tag_dict, class_name="StTxtPara")

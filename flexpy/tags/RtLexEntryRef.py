@@ -42,6 +42,10 @@ class RtLexEntryRef(Rt):
         """Gets the child objects which have short tag of `ShowComplexFormsIn`, long tag of `ShowComplexFormsIn`"""
         return get_child_object(self.el, "ShowComplexFormsIn", self.tag_dict)
 
+    def Summary(self):
+        """Gets the child objects which have short tag of `Summary`, long tag of `Summary`"""
+        return get_child_object(self.el, "Summary", self.tag_dict)
+
     def VariantEntryTypes(self):
         """Gets the child objects which have short tag of `VariantEntryTypes`, long tag of `VariantEntryTypes`"""
         return get_child_object(self.el, "VariantEntryTypes", self.tag_dict)

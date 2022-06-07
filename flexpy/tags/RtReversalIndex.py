@@ -26,6 +26,10 @@ class RtReversalIndex(Rt):
         """Gets the child objects which have short tag of `DateModified`, long tag of `DateModified`"""
         return get_child_object(self.el, "DateModified", self.tag_dict)
 
+    def Entries(self):
+        """Gets the child objects which have short tag of `Entries`, long tag of `Entries`"""
+        return get_child_object(self.el, "Entries", self.tag_dict)
+
     def Name(self):
         """Gets the child objects which have short tag of `Name`, long tag of `Name`"""
         return get_child_object(self.el, "Name", self.tag_dict)

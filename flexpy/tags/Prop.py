@@ -15,6 +15,8 @@ class Prop(NonRtTag):
         self.text = self.el.text
         self.align = self.el.attrib.get("align")
         self.bold = self.el.attrib.get("bold")
+        self.borderBottom = self.el.attrib.get("borderBottom")
+        self.borderTop = self.el.attrib.get("borderTop")
         self.bulNumScheme = self.el.attrib.get("bulNumScheme")
         self.bulNumStartAt = self.el.attrib.get("bulNumStartAt")
         self.firstIndent = self.el.attrib.get("firstIndent")
@@ -37,6 +39,7 @@ class Prop(NonRtTag):
         self.trailingIndent = self.el.attrib.get("trailingIndent")
         self.undercolor = self.el.attrib.get("undercolor")
         self.underline = self.el.attrib.get("underline")
+        self.widowOrphan = self.el.attrib.get("widowOrphan")
 
     def get_ordered_child_objects(self):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""
