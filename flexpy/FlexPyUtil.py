@@ -49,7 +49,7 @@ def get_ordered_child_objects(el, tag_dict):
     child_objects = []
     for child_el in el:
         if child_el.tag == "objsur":
-            child_object = tag_dict.get_python_object_from_element(child_el)
+            child_object = tag_dict.get_python_object_from_element(child_el, parent_el=el)
             child_objects.append(child_object)
     return child_objects
 
@@ -83,20 +83,20 @@ def get_child_object(el, child_tag, tag_dict, class_name=None):
                 else:
                     matches = False
                 if matches:
-                    referent_object = tag_dict.get_python_object_from_element(referent)
+                    referent_object = tag_dict.get_python_object_from_element(referent, parent_el=el)
                     matching_referent_els.append(referent_object)
         return matching_referent_els
     elif child_tag in ["AUni", "AStr", "Run"]:
         # there can be many of these for different writing systems
         # create a dict from writing system to AUni tag
         children_els = el.findall(child_tag)
-        return [tag_dict.get_python_object_from_element(child_el) for child_el in children_els]
+        return [tag_dict.get_python_object_from_element(child_el, parent_el=el) for child_el in children_els]
     else:
         # there should only be one of each child type
         child_el = get_single_child(el, child_tag)
         if child_el is None:
             return None
-        return tag_dict.get_python_object_from_element(child_el)
+        return tag_dict.get_python_object_from_element(child_el, parent_el=el)
 
 
 def get_tag_class_name(el):
@@ -130,21 +130,34 @@ def get_tag_class(el):
     return class_object
 
 
-def get_element_info_str(element):
+def get_element_info_str(el):
     """Gets a readable string containing information about an XML element,
     including attributes and guid.
     """
-    s = ""
+    if el is None:
+        return None
 
-    begin_tag_info = "<{} ".format(element.tag)
-    guid_info = "guid={}> ".format(element.attrib.get("guid"))
+    s = ""
+    begin_tag_info = f"<{el.tag} "
+    guid_info = "guid={}> ".format(el.attrib.get("guid"))
     s += begin_tag_info + guid_info
 
-    attributes_info = "element with attributes:\n  {}\n".format(element.attrib)
-    text_info = "and text:\n  {}\n".format(repr(element.text))  # repr so we can still see if it's an empty string or what
-    end_tag_info = "</{}>\n".format(element.tag)
+    attributes_info = "element with attributes:\n  {}\n".format(el.attrib)
+    text_info = "and text:\n  {}\n".format(repr(el.text))  # repr so we can still see if it's an empty string or what
+    end_tag_info = f"</{el.tag}>\n"
     s += attributes_info + text_info + end_tag_info
     return s
+
+elstr = get_element_info_str  # alias
+
+
+def get_short_element_info_str(el):
+    class_str = el.attrib.get("class")
+    guid = el.attrib.get("guid")
+    s = f"<{el.tag} class={class_str} guid={guid}>"
+    return s
+
+selstr = get_short_element_info_str  # alias
 
 
 def get_top_n_dict_items(dct, n):

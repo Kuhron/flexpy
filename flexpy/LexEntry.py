@@ -18,7 +18,7 @@ class LexEntry:
     :type tag_dict: TagDict
     """
     def __init__(self, rt, tag_dict):
-        assert type(rt) is ET.Element, self.rt
+        assert type(rt) is ET.Element, rt
         self.rt = rt
         self.tag_dict = tag_dict
 
@@ -38,7 +38,7 @@ class LexEntry:
         self.populate_child_variables()
 
     def populate_child_variables(self):
-        lex_entry_obj = RtLexEntry(self.rt, self.tag_dict)
+        lex_entry_obj = RtLexEntry(self.rt, tag_dict=self.tag_dict)
         
         self.date_created = get_single_child(self.rt, "DateCreated").attrib["val"]
         self.date_modified = get_single_child(self.rt, "DateModified").attrib["val"]
@@ -129,10 +129,22 @@ class LexEntry:
                     continue  # not a variant
                 component_lexemes = rt_lex_entry_ref_obj.ComponentLexemes()
                 print(f"component lexemes is: {component_lexemes}")
+
+                # the lexeme can be a variant of a lex entry or of a specific sense
+                # if it's a lex entry variant then great
                 rt_lex_entry = component_lexemes.RtLexEntry()
                 print(f"rt lex entry is: {rt_lex_entry}")
                 for rt_lex_entry_obj in rt_lex_entry:
                     parent_lexeme_rts.append(rt_lex_entry_obj)
+                
+                # if it's a sense variant, then the parent lexeme needs to be gotten from that
+                rt_lex_sense = component_lexemes.RtLexSense()
+                print(f"rt lex sense is: {rt_lex_sense}")
+                for rt_lex_sense_obj in rt_lex_sense:
+                    parent_lexeme_guid = rt_lex_sense_obj.owner_guid
+                    parent_lexeme_rt = self.tag_dict.get_single_element_by_guid(parent_lexeme_guid)
+                    parent_lexeme_rts.append(parent_lexeme_rt)
+
             if len(parent_lexeme_rts) > 1:
                 # for sake of printing the objects for me to go fix them in FLEx,
                 # make some temporary LexEntry objects (this same class)
@@ -149,13 +161,14 @@ class LexEntry:
                 self.parent_lexeme_guid = parent_lexeme_rts[0].guid
             else:
                 self.parent_lexeme_guid = None  # it should already be None, but just for reader
-
+        
         assert self.is_variant is not None  # don't want to leave it with falsey value of None
 
         # after processing all of this, NOW you do the warning about bad words
         if self.lexeme_form is None:
-            print(f"Warning: {self} has no gloss")
-        if len(self.glosses) == 0:
+            print(f"Warning: {self} has no form")
+        if not self.is_variant and len(self.glosses) == 0:
+            # if it's a variant, get this and other info from the parent lexeme
             print(f"Warning: {self} has no gloss")
 
     def get_forms_from_mo_stem_allomorph_el(self, mo_stem_allomorph_el):
@@ -163,7 +176,7 @@ class LexEntry:
         if form_el is None:
             return []
 
-        form_obj = Form(form_el, self.tag_dict)
+        form_obj = Form(form_el, tag_dict=self.tag_dict, parent_el=mo_stem_allomorph_el)
         forms = get_unique_strs_from_form_as_list(form_obj)
         # if len(forms) == 1:
         #     return forms[0]
@@ -172,18 +185,21 @@ class LexEntry:
         return forms  # bad idea to return multiple types based only on number of items!
 
     def __repr__(self):
-        return "<LexEntry \"{form}\" {pos} = {gloss}>".format(
-            form=self.lexeme_form,
-            pos=self.parts_of_speech,
-            gloss=self.glosses,
-        )
+        if self.is_variant:
+            parent_lex_entry_el = self.tag_dict.get_single_element_by_guid(self.parent_lexeme_guid)
+            parent_lex_entry_obj = LexEntry(parent_lex_entry_el, self.tag_dict)
+            parent_str = repr(parent_lex_entry_obj)
+            variant_str = f"(variant of {parent_str})"
+            s = f"<LexEntry \"{self.lexeme_form}\" {variant_str}>"
+        else:
+            s = f"<LexEntry \"{self.lexeme_form}\" {self.parts_of_speech} = {self.glosses}>"
+        
+        return s
 
     def tsv_repr(self):
         form = self.lexeme_form
         if type(form) is str:
             forms = [form]
-            if "awna" in form:
-                raise Exception(form)
         else:
             assert type(form) is list
             forms = form

@@ -123,8 +123,8 @@ def create_tag_class_definition(el, dependency_dict):
         " "*4 + ":param tag_dict: the `TagDict` object organizing the Elements in the FLEx project\n" +\
         " "*4 + "\"\"\"\n"
 
-    init_header = "    def __init__(self, el, parent_el, tag_dict):\n"
-    init_header += " "*8 + "super().__init__(el, parent_el, tag_dict)\n"
+    init_header = "    def __init__(self, el, parent_el=None, tag_dict=None):\n"
+    init_header += " "*8 + "super().__init__(el, parent_el=parent_el, tag_dict=tag_dict)\n"
     init_header += " "*8 + "self.el = el\n"
     init_header += " "*8 + "self.parent_el = parent_el\n"
     init_header += " "*8 + "self.tag_dict = tag_dict\n"
@@ -226,6 +226,7 @@ def add_element_to_dependency_dict(el, dependency_dict, by_guid):
         child_tags.add(tup)
 
     dependency_dict[tag_key]["children"] |= child_tags
+    print(f"dependency_dict[{tag_key}][\"children\"] is now {dependency_dict[tag_key]['children']}")
 
     # attribute names may have been expanded by ET.parse if they contained namespaces
     # if we attempt to create self.{attrib_key} like this, we will get a SyntaxError
@@ -282,7 +283,9 @@ def get_tag_key_from_element(el, by_guid):
         # else:
         #     raise ValueError("unknown objsur reference type: {} in element {}".format(ref_letter, el))
 
-        elements_referred_to = by_guid[el.attrib["guid"]]
+        elements_referred_to = by_guid.get(el.attrib["guid"])
+        if elements_referred_to is None:
+            return None
         obj_tag = None
         for element_referred_to in elements_referred_to:
             this_obj_tag = get_tag_key_from_element(element_referred_to, by_guid)

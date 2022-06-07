@@ -28,7 +28,7 @@ class Text:
         assert type(rt) is ET.Element, type(rt)
         assert rt.tag == "rt" and rt.attrib["class"] == "Text"
         self.rt = rt
-        self.rt_text = RtText(rt, tag_dict)
+        self.rt_text = RtText(rt, tag_dict=tag_dict)
         self.tag_dict = tag_dict
         self.include_punctuation = include_punctuation
         self.name = self.create_name()
