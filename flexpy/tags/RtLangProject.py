@@ -4,12 +4,13 @@ from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 class RtLangProject(Rt):
     """A class for FLEx XML elements with the tag rt
 
-    :param el: the `xml.etree.ElementTree.Element object`
+    :param el: the `xml.etree.ElementTree.Element` object
     :param tag_dict: the `TagDict` object organizing the Elements in the FLEx project
     """
-    def __init__(self, el, tag_dict):
-        super().__init__(el, tag_dict)
+    def __init__(self, el, parent_el=None, tag_dict=None):
+        super().__init__(el, parent_el=parent_el, tag_dict=tag_dict)
         self.el = el
+        self.parent_el = parent_el
         self.tag_dict = tag_dict
         self.text = self.el.text
 
@@ -32,6 +33,10 @@ class RtLangProject(Rt):
     def AnnotationDefs(self):
         """Gets the child objects which have short tag of `AnnotationDefs`, long tag of `AnnotationDefs`"""
         return get_child_object(self.el, "AnnotationDefs", self.tag_dict)
+
+    def Annotations(self):
+        """Gets the child objects which have short tag of `Annotations`, long tag of `Annotations`"""
+        return get_child_object(self.el, "Annotations", self.tag_dict)
 
     def AnthroList(self):
         """Gets the child objects which have short tag of `AnthroList`, long tag of `AnthroList`"""
@@ -60,6 +65,10 @@ class RtLangProject(Rt):
     def DateModified(self):
         """Gets the child objects which have short tag of `DateModified`, long tag of `DateModified`"""
         return get_child_object(self.el, "DateModified", self.tag_dict)
+
+    def Description(self):
+        """Gets the child objects which have short tag of `Description`, long tag of `Description`"""
+        return get_child_object(self.el, "Description", self.tag_dict)
 
     def DiscourseData(self):
         """Gets the child objects which have short tag of `DiscourseData`, long tag of `DiscourseData`"""

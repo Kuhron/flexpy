@@ -5,6 +5,8 @@ import re
 from io import StringIO
 import xml.etree.ElementTree as ET
 
+from flexpy.ToneCharDict import TONE_CHAR_TO_TONE_LETTER, COMBINED_CHAR_TO_SEGMENT_ONLY, COMBINED_CHAR_TO_TONE_LETTER
+
 
 # global constants used in multiple places
 PUNCTUATION_CHARS = [".", "?", "!", ",", "'", "\"", ";", ":", "-"]
@@ -47,7 +49,7 @@ def get_ordered_child_objects(el, tag_dict):
     child_objects = []
     for child_el in el:
         if child_el.tag == "objsur":
-            child_object = tag_dict.get_python_object_from_element(child_el)
+            child_object = tag_dict.get_python_object_from_element(child_el, parent_el=el)
             child_objects.append(child_object)
     return child_objects
 
@@ -81,20 +83,20 @@ def get_child_object(el, child_tag, tag_dict, class_name=None):
                 else:
                     matches = False
                 if matches:
-                    referent_object = tag_dict.get_python_object_from_element(referent)
+                    referent_object = tag_dict.get_python_object_from_element(referent, parent_el=el)
                     matching_referent_els.append(referent_object)
         return matching_referent_els
     elif child_tag in ["AUni", "AStr", "Run"]:
         # there can be many of these for different writing systems
         # create a dict from writing system to AUni tag
         children_els = el.findall(child_tag)
-        return [tag_dict.get_python_object_from_element(child_el) for child_el in children_els]
+        return [tag_dict.get_python_object_from_element(child_el, parent_el=el) for child_el in children_els]
     else:
         # there should only be one of each child type
         child_el = get_single_child(el, child_tag)
         if child_el is None:
             return None
-        return tag_dict.get_python_object_from_element(child_el)
+        return tag_dict.get_python_object_from_element(child_el, parent_el=el)
 
 
 def get_tag_class_name(el):
@@ -128,21 +130,34 @@ def get_tag_class(el):
     return class_object
 
 
-def get_element_info_str(element):
+def get_element_info_str(el):
     """Gets a readable string containing information about an XML element,
     including attributes and guid.
     """
-    s = ""
+    if el is None:
+        return None
 
-    begin_tag_info = "<{} ".format(element.tag)
-    guid_info = "guid={}> ".format(element.attrib.get("guid"))
+    s = ""
+    begin_tag_info = f"<{el.tag} "
+    guid_info = "guid={}> ".format(el.attrib.get("guid"))
     s += begin_tag_info + guid_info
 
-    attributes_info = "element with attributes:\n  {}\n".format(element.attrib)
-    text_info = "and text:\n  {}\n".format(repr(element.text))  # repr so we can still see if it's an empty string or what
-    end_tag_info = "</{}>\n".format(element.tag)
+    attributes_info = "element with attributes:\n  {}\n".format(el.attrib)
+    text_info = "and text:\n  {}\n".format(repr(el.text))  # repr so we can still see if it's an empty string or what
+    end_tag_info = f"</{el.tag}>\n"
     s += attributes_info + text_info + end_tag_info
     return s
+
+elstr = get_element_info_str  # alias
+
+
+def get_short_element_info_str(el):
+    class_str = el.attrib.get("class")
+    guid = el.attrib.get("guid")
+    s = f"<{el.tag} class={class_str} guid={guid}>"
+    return s
+
+selstr = get_short_element_info_str  # alias
 
 
 def get_top_n_dict_items(dct, n):
@@ -467,6 +482,25 @@ def get_strs_from_form(form):
     return {"AStr": astr_text, "AUni": auni_text, "Str": strtag_text}
 
 
+def get_strs_from_Runs(runs):
+    res = []
+    for run in runs:
+        assert run.__class__.__name__ == "Run", type(run)
+        text = run.text
+        if text is None:
+            continue
+        elif type(text) is str:
+            res.append(text)
+        else:
+            print(f"expected string from run in AStr, got {text.type}")
+    return res
+
+
+def get_str_from_Runs(runs):
+    strs = get_strs_from_Runs(runs)
+    return "".join(strs)
+
+
 def get_str_from_AStr(astr):
     strs = get_strs_from_AStr(astr)
     strs = [(s if s is not None else "") for s in strs]
@@ -475,7 +509,8 @@ def get_str_from_AStr(astr):
 
 def get_strs_from_AStr(astr):
     assert astr.__class__.__name__ == "AStr", type(astr)
-    return [run.text for run in astr.Run()]
+    runs = astr.Run()
+    return get_strs_from_Runs(runs)
 
 
 def get_str_from_AStrs(astrs):
@@ -605,3 +640,56 @@ def parse_xml_without_namespaces(fp):
         el.attrib = new_attrib
     root = it.root
     return root
+
+
+def get_string_without_tone_diacritics(s):
+    new_s = ""
+    for c in s:
+        if c in TONE_CHAR_TO_TONE_LETTER:
+            pass
+        elif c in COMBINED_CHAR_TO_SEGMENT_ONLY:
+            new_s += COMBINED_CHAR_TO_SEGMENT_ONLY[c]
+        else:
+            new_s += c
+    return new_s
+
+
+def get_tone_letters_from_string(s, vowel_chars=None):
+    if s is None:
+        return None
+    if vowel_chars is None:
+        vowel_chars = list("aoeui")
+    new_s = ""
+    previous_char_had_tone = False
+    for c in s:
+        char_has_tone = c in TONE_CHAR_TO_TONE_LETTER or c in COMBINED_CHAR_TO_TONE_LETTER
+        if char_has_tone:
+            if len(new_s) > 0 and not previous_char_had_tone:
+                new_s += "."  # syllable boundary
+
+            if c in TONE_CHAR_TO_TONE_LETTER:
+                tone_letter = TONE_CHAR_TO_TONE_LETTER[c]
+            elif c in COMBINED_CHAR_TO_TONE_LETTER:
+                tone_letter = COMBINED_CHAR_TO_TONE_LETTER[c]
+            else:
+                raise Exception(f"no tone letter found for char {c}")
+            new_s += tone_letter
+        else:
+            pass  # no tone letter to add
+
+        # now set previous_char_has_tone for next round
+        # but if this is a vowel between two combining tone marks, we don't want to think it was a syllable boundary
+        # so if last char had tone and this is a vowel, persist True
+        if previous_char_had_tone and c in vowel_chars:
+            pass  # don't reset it
+        else:
+            previous_char_had_tone = char_has_tone
+
+    # this is simpler than checking for long vowel during the conversion
+    for seq in ["LL", "MM", "HH"]:
+        while seq in new_s:
+            new_s = new_s.replace(seq, seq[0])
+
+    return new_s if len(new_s) > 0 else "NoTone"
+
+

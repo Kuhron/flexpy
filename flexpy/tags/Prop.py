@@ -1,17 +1,22 @@
+from flexpy.NonRtTag import NonRtTag
 from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 
-class Prop:
+class Prop(NonRtTag):
     """A class for FLEx XML elements with the tag Prop
 
-    :param el: the `xml.etree.ElementTree.Element object`
+    :param el: the `xml.etree.ElementTree.Element` object
     :param tag_dict: the `TagDict` object organizing the Elements in the FLEx project
     """
-    def __init__(self, el, tag_dict):
+    def __init__(self, el, parent_el=None, tag_dict=None):
+        super().__init__(el, parent_el=parent_el, tag_dict=tag_dict)
         self.el = el
+        self.parent_el = parent_el
         self.tag_dict = tag_dict
         self.text = self.el.text
         self.align = self.el.attrib.get("align")
         self.bold = self.el.attrib.get("bold")
+        self.borderBottom = self.el.attrib.get("borderBottom")
+        self.borderTop = self.el.attrib.get("borderTop")
         self.bulNumScheme = self.el.attrib.get("bulNumScheme")
         self.bulNumStartAt = self.el.attrib.get("bulNumStartAt")
         self.firstIndent = self.el.attrib.get("firstIndent")
@@ -34,6 +39,7 @@ class Prop:
         self.trailingIndent = self.el.attrib.get("trailingIndent")
         self.undercolor = self.el.attrib.get("undercolor")
         self.underline = self.el.attrib.get("underline")
+        self.widowOrphan = self.el.attrib.get("widowOrphan")
 
     def get_ordered_child_objects(self):
         """Gets the child objects of this element, in their order of appearance in the FLEx XML"""

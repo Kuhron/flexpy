@@ -155,8 +155,7 @@ class Corpus:
     def get_lexicon(self):
         """Returns a :class:`flexpy.Lexicon.Lexicon` object containing the lexeme entries in this corpus
         """
-        lex_entries = self.tag_dict["RtLexEntry"]
-        return Lexicon(lex_entries, self.tag_dict)
+        return Lexicon.from_tag_dict(self.tag_dict)
 
     def search_lexicon_glosses(self, regex):
         """Searches the glosses of the corpus's lexicon by regex

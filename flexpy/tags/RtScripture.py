@@ -4,12 +4,13 @@ from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 class RtScripture(Rt):
     """A class for FLEx XML elements with the tag rt
 
-    :param el: the `xml.etree.ElementTree.Element object`
+    :param el: the `xml.etree.ElementTree.Element` object
     :param tag_dict: the `TagDict` object organizing the Elements in the FLEx project
     """
-    def __init__(self, el, tag_dict):
-        super().__init__(el, tag_dict)
+    def __init__(self, el, parent_el=None, tag_dict=None):
+        super().__init__(el, parent_el=parent_el, tag_dict=tag_dict)
         self.el = el
+        self.parent_el = parent_el
         self.tag_dict = tag_dict
         self.text = self.el.text
 
@@ -77,6 +78,10 @@ class RtScripture(Rt):
         """Gets the child objects which have short tag of `FootnoteMarkerType`, long tag of `FootnoteMarkerType`"""
         return get_child_object(self.el, "FootnoteMarkerType", self.tag_dict)
 
+    def NoteCategories(self):
+        """Gets the child objects which have short tag of `NoteCategories`, long tag of `NoteCategories`"""
+        return get_child_object(self.el, "NoteCategories", self.tag_dict)
+
     def RefSepr(self):
         """Gets the child objects which have short tag of `RefSepr`, long tag of `RefSepr`"""
         return get_child_object(self.el, "RefSepr", self.tag_dict)
@@ -96,6 +101,10 @@ class RtScripture(Rt):
     def ScriptDigitZero(self):
         """Gets the child objects which have short tag of `ScriptDigitZero`, long tag of `ScriptDigitZero`"""
         return get_child_object(self.el, "ScriptDigitZero", self.tag_dict)
+
+    def Styles(self):
+        """Gets the child objects which have short tag of `Styles`, long tag of `Styles`"""
+        return get_child_object(self.el, "Styles", self.tag_dict)
 
     def UseScriptDigits(self):
         """Gets the child objects which have short tag of `UseScriptDigits`, long tag of `UseScriptDigits`"""

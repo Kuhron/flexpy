@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from flexpy.FlexPyUtil import get_single_child, get_str_from_AStrs
+from flexpy.FlexPyUtil import get_str_from_AStrs, get_str_from_Runs
 from flexpy.PunctuationForm import PunctuationForm
 from flexpy.TagDict import TagDict
 from flexpy.WordForm import WordForm
@@ -23,11 +23,12 @@ class TextParagraph:
     :param include_punctuation:
     :type include_punctuation: bool
     """
-    def __init__(self, rt_st_txt_para, tag_dict, include_punctuation):
+    def __init__(self, rt_st_txt_para, paragraph_number, tag_dict, include_punctuation):
         assert type(rt_st_txt_para) is RtStTxtPara, type(rt_st_txt_para)
         assert type(tag_dict) is TagDict
         assert type(include_punctuation) is bool
         self.rt_st_txt_para = rt_st_txt_para
+        self.paragraph_number = paragraph_number
         self.tag_dict = tag_dict
         self.include_punctuation = include_punctuation
         self.run_texts = self.create_run_texts()
@@ -45,10 +46,11 @@ class TextParagraph:
             str_obj = contents.Str()
             # there may be multiple run elements (because of Flex's writing system thing), just concat them
             run = str_obj.Run()
-            if type(run) is list:
-                run_text = "".join(x.text if x.text is not None else "" for x in run)
-            else:
-                run_text = run.text
+            run_text = get_str_from_Runs(run)
+            # if type(run) is list:
+            #     run_text = "".join(x.text for x in run)
+            # else:
+            #     run_text = run.text
             run_texts.append(run_text)
         return run_texts
     

@@ -2,7 +2,8 @@ import os
 
 from xml.etree import ElementTree as ET
 
-from flexpy.FlexPyUtil import get_tag_class, get_element_info_str, parse_xml_without_namespaces
+from flexpy.FlexPyUtil import (get_tag_class, get_element_info_str, 
+    parse_xml_without_namespaces, elstr)
 import flexpy.XMLTagMap as xml_tag_map
 
 
@@ -111,7 +112,9 @@ class TagDict:
         for el in all_elements:
             assert type(el) is ET.Element, el
             tag_key = xml_tag_map.get_tag_key_from_element(el, by_guid)
-            if el.tag == "rt":
+            if tag_key is None:
+                print(f"Warning: got no tag key for element {elstr(el)}; ignoring it")
+            elif el.tag == "rt":
                 all_rt_attrib_keys |= set(el.attrib.keys())
                 guid = el.attrib["guid"]  # rts should all have a guid
                 guid_collision_allowed = False
@@ -249,8 +252,12 @@ class TagDict:
         d = self.create_dependency_dict()
         xml_tag_map.print_dependency_dict(d)
 
-    def get_python_object_from_element(self, el):
+    def get_python_object_from_element(self, el, parent_el=None):
+        # print(f"getting python object from element {elstr(el)} and parent_el {elstr(parent_el)}")
         assert type(el) is ET.Element, "invalid element: {}".format(el)
+        if parent_el is not None:
+            assert type(parent_el) is ET.Element, "invalid parent element: {}".format(parent_el)
+
         el_info = get_element_info_str(el)
         if el.tag == "objsur":
             # resolve to the referent
@@ -263,7 +270,7 @@ class TagDict:
             else:
                 referent, = referents
                 assert referent.tag != "objsur", "objsur {} refers to another objsur {}".format(el, referent)
-                return self.get_python_object_from_element(referent)
+                return self.get_python_object_from_element(referent, parent_el=parent_el)
         try:
             # fetch already-created object
             return self.object_by_element[el]
@@ -272,12 +279,12 @@ class TagDict:
             # print("creating new python object for {}".format(el))
             class_object = get_tag_class(el)
             # initialize it
-            return class_object(el, tag_dict=self)
+            return class_object(el, parent_el=parent_el, tag_dict=self)
 
-    def fill_out_objects(self):
-        # this will try to do all of them, and can encounter recursion errors
-        for el in self.get_all_elements():
-            python_object = self.get_python_object_from_element(el)
-            self.object_by_element[el] = python_object
-            print("successfully filled out object for element {}".format(el))
-        print("done filling out elements")
+    # def fill_out_objects(self):
+    #     # this will try to do all of them, and can encounter recursion errors
+    #     for el in self.get_all_elements():
+    #         python_object = self.get_python_object_from_element(el)
+    #         self.object_by_element[el] = python_object
+    #         print("successfully filled out object for element {}".format(el))
+    #     print("done filling out elements")

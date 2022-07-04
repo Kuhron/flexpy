@@ -31,7 +31,7 @@ class WordForm:
     :param tag_dict:
     :type tag_dict: TagDict
     """
-    def __init__(self, forms, citation_forms, morph_types, glosses, poses, tag_dict):
+    def __init__(self, forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict):
         assert type(tag_dict) is TagDict, type(tag_dict)
         self.tag_dict = tag_dict
         self.forms = forms
@@ -39,11 +39,12 @@ class WordForm:
         self.morph_types = morph_types
         self.glosses = glosses
         self.poses = poses
+        self.lex_entry_guids = lex_entry_guids
         self.text = self.get_text()
         self.morphemes = self.get_morphemes()
 
     def __repr__(self):
-        return "<WordForm \"{}\" ({}) = ({}) \"{}\">".format(self.forms, self.morph_types, self.poses, self.glosses)
+        return "<WordForm {} ({}) = ({}) {}>".format(self.forms, self.morph_types, self.poses, self.glosses)
 
     @staticmethod
     def from_rt_wfi_analysis(rt_wfi_analysis, tag_dict):
@@ -54,7 +55,8 @@ class WordForm:
         morph_types = WordForm.create_morph_types(morph_bundles)
         glosses = WordForm.create_glosses(morph_bundles)
         poses = WordForm.create_poses(morph_bundles)
-        return WordForm(forms, citation_forms, morph_types, glosses, poses, tag_dict)
+        lex_entry_guids = WordForm.create_lex_entry_guids(morph_bundles)
+        return WordForm(forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
 
     @staticmethod
     def from_rt_wfi_gloss(rt_wfi_gloss, tag_dict):
@@ -76,7 +78,8 @@ class WordForm:
             morph_types = [morph_type]
             pos = WordForm.get_pos_name_from_morph_bundle(rt_wfi_morph_bundle)
             poses = [pos]
-            return WordForm(forms, citation_forms, morph_types, glosses, poses, tag_dict)
+            lex_entry_guids = WordForm.get_lex_entry_guid_from_morph_bundle(rt_wfi_morph_bundle)
+            return WordForm(forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
         elif type(gloss_owner) is RtWfiAnalysis:
             wordform_from_wfi_analysis = WordForm.from_rt_wfi_analysis(gloss_owner, tag_dict)
 
@@ -140,6 +143,14 @@ class WordForm:
         return poses
 
     @staticmethod
+    def create_lex_entry_guids(morph_bundles):
+        guids = []
+        for morph_bundle in morph_bundles:
+            guid = WordForm.get_lex_entry_guid_from_morph_bundle(morph_bundle)
+            guids.append(guid)
+        return guids
+
+    @staticmethod
     def get_form_from_morph_bundle(morph_bundle):
         form = morph_bundle.Form()
         if form is None:
@@ -147,17 +158,7 @@ class WordForm:
         return get_single_str_from_form(form)
 
     @staticmethod
-    def get_citation_form_from_morph_bundle(morph_bundle):
-        # affix allomorphy organization in FLEx XML
-        # RtMoAffixAllomorph (e.g. -yesen, allomorph of -esen) has ownerguid for RtLexEntry
-        # RtLexEntry has LexemeForm, objsur to RtMoAffixAllomorph
-        # e.g. RtMoAffixAllomorph -esen (citation form) ea365d7a-a0bc-450e-b9e5-e6c61804bcd9
-        # - owned by RtLexEntry a89632fa-140c-409d-9b33-26dddcc8a4db
-        # RtLexEntry also has AlternateForms, objsur to RtMoAffixAllomorph
-        # e.g. the LexEntry for -esen has AlternateForms 4e896046-03f7-4e6f-9ba3-c1dc96f0d5b2
-        # - this is the RtMoAffixAllomorph for -yesen
-        # RtWfiMorphBundle has child Morph, objsur to RtMoStemAllomorph, owned by RtLexEntry
-
+    def get_allomorph_form_from_morph_bundle(morph_bundle):
         morph = morph_bundle.Morph()
         if morph is None:
             return None
@@ -173,7 +174,23 @@ class WordForm:
             allomorph = affix_allomorph[0]
         else:
             raise Exception("morph has neither stem nor affix allomorphs: {}".format(morph))
+        return allomorph
 
+    @staticmethod
+    def get_citation_form_from_morph_bundle(morph_bundle):
+        # affix allomorphy organization in FLEx XML
+        # RtMoAffixAllomorph (e.g. -yesen, allomorph of -esen) has ownerguid for RtLexEntry
+        # RtLexEntry has LexemeForm, objsur to RtMoAffixAllomorph
+        # e.g. RtMoAffixAllomorph -esen (citation form) ea365d7a-a0bc-450e-b9e5-e6c61804bcd9
+        # - owned by RtLexEntry a89632fa-140c-409d-9b33-26dddcc8a4db
+        # RtLexEntry also has AlternateForms, objsur to RtMoAffixAllomorph
+        # e.g. the LexEntry for -esen has AlternateForms 4e896046-03f7-4e6f-9ba3-c1dc96f0d5b2
+        # - this is the RtMoAffixAllomorph for -yesen
+        # RtWfiMorphBundle has child Morph, objsur to RtMoStemAllomorph, owned by RtLexEntry
+
+        allomorph = WordForm.get_allomorph_form_from_morph_bundle(morph_bundle)
+        if allomorph is None:
+            return None
         owner = allomorph.get_owner()
         assert type(owner) is RtLexEntry, owner
         lex_entry = owner
@@ -270,6 +287,15 @@ class WordForm:
         return pos_names[0]
     
     @staticmethod
+    def get_lex_entry_guid_from_morph_bundle(morph_bundle):
+        allomorph = WordForm.get_allomorph_form_from_morph_bundle(morph_bundle)
+        if allomorph is None:
+            return None
+        lex_entry = allomorph.get_owner()
+        assert type(lex_entry) is RtLexEntry, lex_entry
+        return lex_entry.guid
+
+    @staticmethod
     def get_gloss_from_morph_bundle(morph_bundle):
         glosses = []
         sense = morph_bundle.Sense()
@@ -307,10 +333,10 @@ class WordForm:
 
     def get_morphemes(self):
         res = []
-        for form, citation_form, morph_type, gloss, pos in zip(
-            self.forms, self.citation_forms, self.morph_types, self.glosses, self.poses,
+        for form, citation_form, morph_type, gloss, pos, lex_entry_guid in zip(
+            self.forms, self.citation_forms, self.morph_types, self.glosses, self.poses, self.lex_entry_guids,
         ):
-            morph = WordFormMorpheme(form, citation_form, morph_type, gloss, pos, self.tag_dict)
+            morph = WordFormMorpheme(form, citation_form, morph_type, gloss, pos, lex_entry_guid, self.tag_dict)
             res.append(morph)
         return res
     
@@ -356,7 +382,7 @@ class WordFormMorpheme:
     :param tag_dict:
     :type tag_dict: TagDict
     """
-    def __init__(self, form, citation_form, morph_type, gloss, pos, tag_dict):
+    def __init__(self, form, citation_form, morph_type, gloss, pos, lex_entry_guid, tag_dict):
         assert type(tag_dict) is TagDict, type(tag_dict)
         self.tag_dict = tag_dict
         self.form = form
@@ -364,6 +390,7 @@ class WordFormMorpheme:
         self.morph_type = morph_type
         self.gloss = gloss
         self.pos = pos
+        self.lex_entry_guid = lex_entry_guid
 
     def __repr__(self):
         # since __eq__ and __hash__ depend on __repr__, use citation form so allomorphs are treated as equal

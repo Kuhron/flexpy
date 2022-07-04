@@ -28,7 +28,7 @@ class Text:
         assert type(rt) is ET.Element, type(rt)
         assert rt.tag == "rt" and rt.attrib["class"] == "Text"
         self.rt = rt
-        self.rt_text = RtText(rt, tag_dict)
+        self.rt_text = RtText(rt, tag_dict=tag_dict)
         self.tag_dict = tag_dict
         self.include_punctuation = include_punctuation
         self.name = self.create_name()
@@ -41,16 +41,16 @@ class Text:
         return self.validity
 
     def create_name(self):
-        abbreviation = get_single_child(self.rt, "Abbreviation")
-        if abbreviation is None:
+        name_el = get_single_child(self.rt, "Name")
+        if name_el is None:
             self.validity = False
             if self.rt.find("Contents") is not None:
                 pass #raise Exception("Text found with contents but no name, in rt element: {}, guid {}".format(self.rt, self.rt.attrib["guid"]))
             return None
         else:
-            aunis = get_children(abbreviation, "AUni")
+            aunis = get_children(name_el, "AUni")
             non_none_aunis = [x for x in aunis if x.text is not None]
-            return ";".join(auni.text for auni in non_none_aunis)
+            return "; ".join(auni.text for auni in non_none_aunis)
 
     def create_st_texts(self):
         contents = self.rt_text.Contents()
@@ -75,7 +75,8 @@ class Text:
             rt_st_txt_paras = paragraphs_el.RtStTxtPara()
             for rt_st_txt_para_i, rt_st_txt_para in enumerate(rt_st_txt_paras):
                 # print("RtStTxtPara {}/{}".format(rt_st_txt_para_i, len(rt_st_txt_paras)))
-                text_paragraph = TextParagraph(rt_st_txt_para, self.tag_dict, include_punctuation)
+                pg_num = rt_st_txt_para_i + 1
+                text_paragraph = TextParagraph(rt_st_txt_para, pg_num, self.tag_dict, include_punctuation)
                 text_paragraphs.append(text_paragraph)
                 # print("done with RtStTxtPara {}".format(rt_st_txt_para_i))
         # print("- done creating paragraphs for text {}".format(self))

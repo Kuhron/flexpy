@@ -4,12 +4,13 @@ from flexpy.FlexPyUtil import get_child_object, get_ordered_child_objects
 class RtPartOfSpeech(Rt):
     """A class for FLEx XML elements with the tag rt
 
-    :param el: the `xml.etree.ElementTree.Element object`
+    :param el: the `xml.etree.ElementTree.Element` object
     :param tag_dict: the `TagDict` object organizing the Elements in the FLEx project
     """
-    def __init__(self, el, tag_dict):
-        super().__init__(el, tag_dict)
+    def __init__(self, el, parent_el=None, tag_dict=None):
+        super().__init__(el, parent_el=parent_el, tag_dict=tag_dict)
         self.el = el
+        self.parent_el = parent_el
         self.tag_dict = tag_dict
         self.text = self.el.text
 
@@ -20,6 +21,14 @@ class RtPartOfSpeech(Rt):
     def Abbreviation(self):
         """Gets the child objects which have short tag of `Abbreviation`, long tag of `Abbreviation`"""
         return get_child_object(self.el, "Abbreviation", self.tag_dict)
+
+    def AffixSlots(self):
+        """Gets the child objects which have short tag of `AffixSlots`, long tag of `AffixSlots`"""
+        return get_child_object(self.el, "AffixSlots", self.tag_dict)
+
+    def AffixTemplates(self):
+        """Gets the child objects which have short tag of `AffixTemplates`, long tag of `AffixTemplates`"""
+        return get_child_object(self.el, "AffixTemplates", self.tag_dict)
 
     def BackColor(self):
         """Gets the child objects which have short tag of `BackColor`, long tag of `BackColor`"""
@@ -37,9 +46,17 @@ class RtPartOfSpeech(Rt):
         """Gets the child objects which have short tag of `DateModified`, long tag of `DateModified`"""
         return get_child_object(self.el, "DateModified", self.tag_dict)
 
+    def DefaultInflectionClass(self):
+        """Gets the child objects which have short tag of `DefaultInflectionClass`, long tag of `DefaultInflectionClass`"""
+        return get_child_object(self.el, "DefaultInflectionClass", self.tag_dict)
+
     def Description(self):
         """Gets the child objects which have short tag of `Description`, long tag of `Description`"""
         return get_child_object(self.el, "Description", self.tag_dict)
+
+    def Discussion(self):
+        """Gets the child objects which have short tag of `Discussion`, long tag of `Discussion`"""
+        return get_child_object(self.el, "Discussion", self.tag_dict)
 
     def ForeColor(self):
         """Gets the child objects which have short tag of `ForeColor`, long tag of `ForeColor`"""
@@ -48,6 +65,10 @@ class RtPartOfSpeech(Rt):
     def Hidden(self):
         """Gets the child objects which have short tag of `Hidden`, long tag of `Hidden`"""
         return get_child_object(self.el, "Hidden", self.tag_dict)
+
+    def InflectionClasses(self):
+        """Gets the child objects which have short tag of `InflectionClasses`, long tag of `InflectionClasses`"""
+        return get_child_object(self.el, "InflectionClasses", self.tag_dict)
 
     def IsProtected(self):
         """Gets the child objects which have short tag of `IsProtected`, long tag of `IsProtected`"""
