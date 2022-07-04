@@ -39,8 +39,10 @@ def ask_paragraph(paragraphs):
 
 
 # project_dir = "/home/wesley/uoworkinthefield/FieldMethods/FlexProjectsDir"  # it doesn't seem to work with following symlink
-project_dir = "/mnt/c/ProgramData/SIL/FieldWorks/Projects"
-project_name = "Ixpantepec Mixtec"
+# project_dir = "/mnt/c/ProgramData/SIL/FieldWorks/Projects"  # Windows FLEx dir on Windows laptop
+# project_name = "Ixpantepec Mixtec"
+project_dir = "/home/kuhron/Horokoi/FLEx"  # WSL FLEx dir in Horokoi repo on Windows laptop
+project_name = "Horokoi"
 corpus = Corpus(project_dir, project_name, include_punctuation=False)
 # contents = corpus.get_tokenized_contents()
 
