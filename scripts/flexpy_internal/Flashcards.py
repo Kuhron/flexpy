@@ -49,7 +49,8 @@ lex_entries = lexicon.lex_entries
 texts = corpus.texts
 paragraphs = []
 for text in texts:
-    paragraphs += text.paragraphs
+    if text.paragraphs is not None:
+        paragraphs += text.paragraphs
 n_lex = len(lex_entries)
 n_para = len(paragraphs)
 print(f"There are {n_lex} LexEntry objects and {n_para} TextParagraph objects.")

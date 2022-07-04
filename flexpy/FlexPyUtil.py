@@ -503,6 +503,7 @@ def get_str_from_Runs(runs):
 
 def get_str_from_AStr(astr):
     strs = get_strs_from_AStr(astr)
+    strs = [(s if s is not None else "") for s in strs]
     return "".join(strs)
 
 
