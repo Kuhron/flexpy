@@ -46,7 +46,7 @@ class TextParagraph:
             # there may be multiple run elements (because of Flex's writing system thing), just concat them
             run = str_obj.Run()
             if type(run) is list:
-                run_text = "".join(x.text for x in run)
+                run_text = "".join(x.text if x.text is not None else "" for x in run)
             else:
                 run_text = run.text
             run_texts.append(run_text)
