@@ -32,6 +32,7 @@ class Text:
         self.tag_dict = tag_dict
         self.include_punctuation = include_punctuation
         self.name = self.create_name()
+        self.abbreviation = self.create_abbreviation()
         self.st_texts = self.create_st_texts()
         self.paragraphs = self.create_paragraphs(self.include_punctuation)
         self.contents = self.create_contents()
@@ -51,6 +52,12 @@ class Text:
             aunis = get_children(name_el, "AUni")
             non_none_aunis = [x for x in aunis if x.text is not None]
             return "; ".join(auni.text for auni in non_none_aunis)
+
+    def create_abbreviation(self):
+        abbr_el = get_single_child(self.rt, "Abbreviation")
+        aunis = get_children(abbr_el, "AUni")
+        non_none_aunis = [x for x in aunis if x.text is not None]
+        return "; ".join(auni.text for auni in non_none_aunis)
 
     def create_st_texts(self):
         contents = self.rt_text.Contents()
