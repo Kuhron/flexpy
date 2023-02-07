@@ -1,8 +1,9 @@
 from flexpy.Corpus import Corpus
 from flexpy.Lexicon import Lexicon
 
-project_dir = "/mnt/c/ProgramData/SIL/FieldWorks/Projects"
-project_name = "Ixpantepec Mixtec"
+# project_dir = "/mnt/c/ProgramData/SIL/FieldWorks/Projects"
+project_dir = "/home/wesley/Horokoi/FLEx/"
+project_name = "Horokoi"
 corpus = Corpus(project_dir, project_name, include_punctuation=False)
 lexicon = corpus.lexicon
 lex_entries = lexicon.lex_entries
