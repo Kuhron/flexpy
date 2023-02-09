@@ -36,10 +36,15 @@ class TagDict:
         :param project_name: the FLEx project's name (there should be a folder in `project_dir`
             which is named this)
         """
-        flex_dir = os.path.join(project_dir, f"{project_name}")
-        fp = os.path.join(flex_dir, f"{project_name}.fwdata")
+        fp = TagDict.get_project_fp_from_project_dir_and_name(project_dir, project_name)
         # print("getting TagDict from FLEx project {} at {}".format(project_name, fp))
         return TagDict.from_fwdata_file(fp)
+    
+    @staticmethod
+    def get_project_fp_from_project_dir_and_name(project_dir, project_name):
+        flex_dir = os.path.join(project_dir, f"{project_name}")
+        fp = os.path.join(flex_dir, f"{project_name}.fwdata")
+        return fp
 
     @staticmethod
     def from_all_projects_in_dir(project_dir):

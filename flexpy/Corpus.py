@@ -1,5 +1,6 @@
 import os
 import random
+import re
 
 from flexpy.Lexicon import Lexicon
 from flexpy.TagDict import TagDict
@@ -22,19 +23,25 @@ class Corpus:
     :param include_punctuation: whether punctuation tokens should be included
     :type include_punctuation: bool
     """
-    def __init__(self, project_dir, project_name, include_punctuation):
+    def __init__(self, fp, include_punctuation):
         assert type(include_punctuation) is bool
-        self.project_dir = project_dir
-        self.project_name = project_name
+        # self.project_dir = project_dir
+        # self.project_name = project_name
+        self.fp = fp
         self.include_punctuation = include_punctuation
         self.tag_dict = self.get_tag_dict()
         self.texts = self.get_texts(self.include_punctuation)
         self.lexicon = self.get_lexicon()
+    
+    @staticmethod
+    def from_project_dir_and_name(self, project_dir, project_name, include_punctuation):
+        fp = TagDict.get_project_fp_from_project_dir_and_name(project_dir, project_name)
+        return Corpus(fp, include_punctuation)
 
     def get_tag_dict(self):
         """Gets a :class:`flexpy.TagDict.TagDict` object for this project
         """
-        return TagDict.from_project_dir_and_name(self.project_dir, self.project_name)
+        return TagDict.from_fwdata_file(self.fp)
 
     def get_texts(self, include_punctuation=None):
         """Gets the texts for this project as a list of :class:`flexpy.Text.Text` objects
@@ -191,3 +198,24 @@ class Corpus:
         if sorting_indices is not None:
             conc_list = sort_concordance_list(conc_list, sorting_indices)
         print_concordance_pretty(conc_list, max_words_left=5, max_words_right=5)
+
+    def write_paragraphs_matching_regex(self, pattern, output_fp):
+        texts = self.texts
+        matching_paragraphs = []
+        for text in texts:
+            for pg in text.paragraphs:
+                s = pg.raw_text
+                matches = re.search(pattern, s, flags=re.IGNORECASE)
+                if matches is not None:
+                    baseline = pg.raw_text
+                    translation = pg.free_translation
+                    text_abbr = text.abbreviation
+                    line_number = pg.paragraph_number
+                    location = f"{text_abbr} {line_number}"
+                    tup = (location, baseline, translation)
+                    matching_paragraphs.append(tup)
+
+        with open(output_fp, "w") as f:
+            for tup in matching_paragraphs:
+                f.write("\t".join(tup) + "\n")
+        print(f"written to {output_fp}")

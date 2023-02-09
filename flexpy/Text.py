@@ -54,10 +54,14 @@ class Text:
             return "; ".join(auni.text for auni in non_none_aunis)
 
     def create_abbreviation(self):
-        abbr_el = get_single_child(self.rt, "Abbreviation")
-        aunis = get_children(abbr_el, "AUni")
-        non_none_aunis = [x for x in aunis if x.text is not None]
-        return "; ".join(auni.text for auni in non_none_aunis)
+        try:
+            abbr_el = get_single_child(self.rt, "Abbreviation")
+            aunis = get_children(abbr_el, "AUni")
+            non_none_aunis = [x for x in aunis if x.text is not None]
+            return "; ".join(auni.text for auni in non_none_aunis)
+        except:
+            # FIXME make this better than just try/except
+            return self.name
 
     def create_st_texts(self):
         contents = self.rt_text.Contents()
