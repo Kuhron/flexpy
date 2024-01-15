@@ -11,7 +11,7 @@ corpus = Corpus(fp, include_punctuation=False)
 fpst = r"nd[ua]"
 ds = r"nd(e|na|ne)"
 lnk = r"e"
-prs = r"s[a]|na"
+prs = r"s[ua]|na"
 hab = r"m(a|e|blu|u)"
 fut = r"ŋsan|san|ŋgu|ŋsunu|ŋsnu|sunu"
 bare = "\b"
