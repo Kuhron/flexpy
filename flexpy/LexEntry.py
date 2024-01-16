@@ -51,8 +51,8 @@ class LexEntry:
         objsur = get_single_child(lexeme_form_el, "objsur")
         mo_stem_allomorph_el = self.tag_dict.get_single_element_by_guid(objsur.attrib["guid"])
         allomorph_forms = self.get_forms_from_mo_stem_allomorph_el(mo_stem_allomorph_el)
-        self.lexeme_form = allomorph_forms
         if allomorph_forms is not None:
+            self.lexeme_form = allomorph_forms[0]
             self.allomorph_forms += allomorph_forms
 
         alternate_forms_el = get_single_child(self.rt, "AlternateForms")
@@ -200,18 +200,14 @@ class LexEntry:
         return s
 
     def tsv_repr(self):
-        form = self.lexeme_form
-        if type(form) is str:
-            forms = [form]
-        else:
-            assert type(form) is list
-            forms = form
-            print("forms = {}".format(forms))
+        forms = self.allomorph_forms
+        assert type(forms) is list
+        print("forms = {}".format(forms))
         for form in forms:
             assert "\t" not in form and "\n" not in form, repr(form)
-        form = ",".join(forms)
-        pos = ",".join(str(x) for x in self.parts_of_speech)
-        assert "\t" not in pos and "\n" not in pos
-        gloss = ",".join(str(x) for x in self.glosses)
-        assert "\t" not in gloss and "\n" not in gloss
-        return "{}\t{}\t{}".format(form,pos,gloss)
+        form_str = ",".join(forms)
+        pos_str = ",".join(str(x) for x in self.parts_of_speech)
+        assert "\t" not in pos_str and "\n" not in pos_str
+        gloss_str = ",".join(str(x) for x in self.glosses)
+        assert "\t" not in gloss_str and "\n" not in gloss_str
+        return "{}\t{}\t{}".format(form_str,pos_str,gloss_str)

@@ -16,17 +16,13 @@ from flexpy.FlexPyUtil import (
 class Corpus:
     """A class that contains the lexicon and texts from the FLEx database.
 
-    :param project_dir: the directory where the FLEx project's directory is found
-    :type project_dir: str
-    :param project_name: the project name (a folder with this name should be inside project_dir)
-    :type project_name: str
+    :param fp: the path to the .fwdata file
+    :type fp: str
     :param include_punctuation: whether punctuation tokens should be included
     :type include_punctuation: bool
     """
     def __init__(self, fp, include_punctuation):
         assert type(include_punctuation) is bool
-        # self.project_dir = project_dir
-        # self.project_name = project_name
         self.fp = fp
         self.include_punctuation = include_punctuation
         self.tag_dict = self.get_tag_dict()

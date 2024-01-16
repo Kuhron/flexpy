@@ -47,7 +47,7 @@ def get_form_group_last_morpheme(wordform):
 
 def get_form_group_last_morpheme_form(wordform):
     assert type(wordform) is WordForm, wordform
-    return wordform.forms[-1]
+    return wordform.morpheme_forms[-1]
 
 
 def get_form_group_last_morpheme_gloss(wordform):

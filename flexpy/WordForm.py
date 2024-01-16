@@ -34,7 +34,7 @@ class WordForm:
     def __init__(self, forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict):
         assert type(tag_dict) is TagDict, type(tag_dict)
         self.tag_dict = tag_dict
-        self.forms = forms
+        self.morpheme_forms = forms
         self.citation_forms = citation_forms
         self.morph_types = morph_types
         self.glosses = glosses
@@ -44,7 +44,7 @@ class WordForm:
         self.morphemes = self.get_morphemes()
 
     def __repr__(self):
-        return "<WordForm {} ({}) = ({}) {}>".format(self.forms, self.morph_types, self.poses, self.glosses)
+        return f"<WordForm {self.morpheme_forms} ({self.morph_types}) = ({self.poses}) {self.glosses}>"
 
     @staticmethod
     def from_rt_wfi_analysis(rt_wfi_analysis, tag_dict):
@@ -61,8 +61,7 @@ class WordForm:
     @staticmethod
     def from_rt_wfi_gloss(rt_wfi_gloss, tag_dict):
         form_obj = rt_wfi_gloss.Form()
-        if form_obj is None:
-            return None
+        # print(f"{form_obj = }")
         gloss = get_single_str_from_form(form_obj)
         glosses = [gloss]
 
@@ -87,7 +86,21 @@ class WordForm:
             # wordform_from_wfi_analysis.glosses = glosses  # overwrite with the more accurate gloss we already know
             return wordform_from_wfi_analysis
         else:
-            raise TypeError("can't handle gloss owner: {}".format(rt_wfi_morph_bundle))        
+            raise TypeError("can't handle gloss owner: {}".format(rt_wfi_morph_bundle))
+    
+    @staticmethod
+    def from_rt_wfi_wordform(rt_wfi_wordform, tag_dict):
+        # if we're here, it's because we just need the form and can't get anything else
+        # the WfiWordform may indeed have some Analyses (if it is a wordform known in the Word Analyses tab)
+        # - but here we don't know which analysis it should have, so don't get any parse data
+        form = get_single_str_from_form(rt_wfi_wordform.Form())
+        forms = [form]
+        citation_forms = [None]
+        morph_types = [None]
+        glosses = [None]
+        poses = [None]
+        lex_entry_guids = [None]
+        return WordForm(forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
 
     # def create_analyses(self):
     #     # one WordAnalysis object for each separate analysis of the word (i.e. different glosses of the morphemes)
@@ -100,13 +113,16 @@ class WordForm:
     #         word_analyses.append(word_analysis)
     #     # print("got word analyses:", word_analyses)
     #     return word_analyses
-
+    
     @staticmethod
     def create_forms(morph_bundles):
         # don't create too many python objects where they're not needed
         forms = []
         for morph_bundle in morph_bundles:
             form = WordForm.get_form_from_morph_bundle(morph_bundle)
+            if form is None:
+                # print(f"got form None from {morph_bundle = }")
+                form = ""
             forms.append(form)
         return forms
     
@@ -316,10 +332,9 @@ class WordForm:
         return glosses[0]
 
     def get_text(self):
-        # just join all the forms
-        if self.forms is None:
-            return ""
-        return "".join(x if x is not None else "" for x in self.forms)
+        # don't just join all the forms, e.g. some things might remain unparsed, or the morpheme form is zero, or some other such thing
+        # need to get the actual baseline string
+        return "TODO baseline string"
 
     def get_root_pos(self):
         root_indices = [i for i, x in enumerate(self.morph_types) if x == "root"]
@@ -334,7 +349,7 @@ class WordForm:
     def get_morphemes(self):
         res = []
         for form, citation_form, morph_type, gloss, pos, lex_entry_guid in zip(
-            self.forms, self.citation_forms, self.morph_types, self.glosses, self.poses, self.lex_entry_guids,
+            self.morpheme_forms, self.citation_forms, self.morph_types, self.glosses, self.poses, self.lex_entry_guids,
         ):
             morph = WordFormMorpheme(form, citation_form, morph_type, gloss, pos, lex_entry_guid, self.tag_dict)
             res.append(morph)

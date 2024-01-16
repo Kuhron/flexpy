@@ -27,3 +27,7 @@ class PunctuationForm:
     
     def __repr__(self):
         return "<PunctuationForm \"{}\">".format(self.text)
+    
+    def get_text(self):
+        return self.text
+    

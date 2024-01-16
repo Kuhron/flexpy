@@ -81,15 +81,17 @@ class Text:
             # print("- no paragraphs found")
             return None
         for st_text_i, st_text in enumerate(self.st_texts):
-            # print("StText {}/{}".format(st_text_i, len(self.st_texts)))
+            # print("StText {}/{}".format(st_text_i+1, len(self.st_texts)))
             paragraphs_el = st_text.Paragraphs()
             rt_st_txt_paras = paragraphs_el.RtStTxtPara()
             for rt_st_txt_para_i, rt_st_txt_para in enumerate(rt_st_txt_paras):
-                # print("RtStTxtPara {}/{}".format(rt_st_txt_para_i, len(rt_st_txt_paras)))
+                print(f"creating paragraph {self.abbreviation} {rt_st_txt_para_i+1}")
+                # print("RtStTxtPara {}/{}".format(rt_st_txt_para_i+1, len(rt_st_txt_paras)))
                 pg_num = rt_st_txt_para_i + 1
                 text_paragraph = TextParagraph(rt_st_txt_para, pg_num, self.tag_dict, include_punctuation)
                 text_paragraphs.append(text_paragraph)
                 # print("done with RtStTxtPara {}".format(rt_st_txt_para_i))
+                # input("\npress enter to continue\n")
         # print("- done creating paragraphs for text {}".format(self))
         return text_paragraphs
     

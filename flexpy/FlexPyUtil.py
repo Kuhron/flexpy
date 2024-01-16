@@ -596,6 +596,10 @@ def get_single_str_from_form(form, allow_repeat=True):
         in the `Form` element, the function will raise an error.
     :type allow_repeat: bool
     """
+
+    if form is None:
+        return "[None]"
+    
     # allow_repeat: if multiple strs are there but they're all the same, allow it
     all_forms = get_strs_from_form_as_list(form)
 

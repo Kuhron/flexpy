@@ -9,6 +9,7 @@ from flexpy.tags.RtSegment import RtSegment
 from flexpy.tags.RtStTxtPara import RtStTxtPara
 from flexpy.tags.RtWfiAnalysis import RtWfiAnalysis
 from flexpy.tags.RtWfiGloss import RtWfiGloss
+from flexpy.tags.RtWfiWordform import RtWfiWordform
 
 
 
@@ -59,40 +60,56 @@ class TextParagraph:
     
     def create_wordforms(self, include_punctuation):
         # print("creating wordforms for {}".format(self))
-        result = []
         segments = self.rt_st_txt_para.Segments()
         if segments is None:
             return []
         rt_segments = segments.RtSegment()  # should be list because of objsurs
         wordforms = []
         for rt_segment_i, rt_segment in enumerate(rt_segments):
-            # print("segment {}/{}".format(rt_segment_i, len(rt_segments)))
+            # print("segment {}/{}".format(rt_segment_i+1, len(rt_segments)))
             assert type(rt_segment) is RtSegment, type(rt_segment)
             analyses = rt_segment.Analyses()
             if analyses is None:
                 # print("analyses is None")
                 continue
-            # print("Analyses has these child objects: {}".format(analyses.get_ordered_child_objects()))
-            for child_obj in analyses.get_ordered_child_objects():
+            analyses_child_objects = analyses.get_ordered_child_objects()
+
+            # print(f"Analyses has these child objects:")
+            # for child_obj in analyses_child_objects:
+            #     print(f"\t{child_obj}")
+
+            for child_obj in analyses_child_objects:
+                # print(f"{child_obj = }")
                 if type(child_obj) is RtWfiAnalysis:
                     wordform = WordForm.from_rt_wfi_analysis(child_obj, self.tag_dict)
                 elif type(child_obj) is RtWfiGloss:
                     wordform = WordForm.from_rt_wfi_gloss(child_obj, self.tag_dict)
+                elif type(child_obj) is RtWfiWordform:
+                    wordform = WordForm.from_rt_wfi_wordform(child_obj, self.tag_dict)
                 elif include_punctuation and type(child_obj) is RtPunctuationForm:
                     wordform = PunctuationForm.from_rt_punctuation_form(child_obj, self.tag_dict)
                     # varname "wordform" misleading in this case, but keeping just so it is appended like usual
                 else:
-                    # print("not making wordform from child {}".format(child_obj))
+                    print("not making wordform from child {}".format(child_obj))
+                    input("check")
                     continue  # don't append the wordform var from previous loop iteration
 
                 if wordform is not None:
                     wordforms.append(wordform)
+                else:
+                    # print("wordform is None")
+                    pass
+                # TODO do some sanity check like assert the wordform and morpheme strings match the raw paragraph string 
+                # - (minus delimiters or whatever you put in there) so we can check that this process hasn't missed a word somewhere
+                
+        # if len(rt_segments) > 1:
+        #     input("\nmultiple segments; check\n")
 
             # OLD stuff by might help showing how to get owner object for accessing other info
             # gloss_owners = [x.get_owner() for x in analyses.RtWfiGloss]
             # # print("gloss owners:", gloss_owners)
             # analysis_owners = [wfi_analysis.get_owner() for wfi_analysis in gloss_owners]
-        # print("wordforms:\n- {}".format("\n- ".join(repr(x) for x in wordforms)))
+        # print(f"{wordforms = }")
         # input("check")
         # print("- done creating wordforms for {}".format(self))
         return wordforms
@@ -102,11 +119,11 @@ class TextParagraph:
         if segments is None:
             return None
         rt_segments = segments.RtSegment()
-        s = ""
+        segment_translations = []
         for rt_segment in rt_segments:
             free_translation = rt_segment.FreeTranslation()
             if free_translation is not None:
                 astrs = free_translation.AStr()
                 this_s = get_str_from_AStrs(astrs)
-                s += this_s
-        return s
+                segment_translations.append(this_s)
+        return " ".join(segment_translations)
