@@ -39,7 +39,7 @@ for text in corpus.texts:
         for wordform in paragraph.wordforms:
             # print(f"{wordform = }")
 
-            word = wordform.get_text()
+            word = wordform.baseline
             # print(f"{word = }")
             word_str_items.append(word)
 
@@ -59,7 +59,7 @@ for text in corpus.texts:
                 lex_entry_forms = []
                 for g in lex_entry_guids:
                     if g is None:
-                        lex_entry_forms.append("***")
+                        lex_entry_forms.append("?")
                     else:
                         rt, = corpus.tag_dict[g]
                         lex_entry = LexEntry(rt, corpus.tag_dict)
@@ -73,13 +73,13 @@ for text in corpus.texts:
                 lex_gloss = []
             else:
                 lex_gloss = wordform.glosses
-            lex_gloss_str_items.append(morpheme_delimiter.join("***" if x is None else x for x in lex_gloss))
+            lex_gloss_str_items.append(morpheme_delimiter.join("?" if x is None else x for x in lex_gloss))
 
             if type(wordform) is PunctuationForm:
                 lex_gram_info = []
             else:
                 lex_gram_info = wordform.poses
-            lex_gram_info_str_items.append(morpheme_delimiter.join("<Not Sure>" if x is None else x for x in lex_gram_info))
+            lex_gram_info_str_items.append(morpheme_delimiter.join("?" if x is None else x for x in lex_gram_info))
 
             # I don't care about these right now
             # word_gloss = ?

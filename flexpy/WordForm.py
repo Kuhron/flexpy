@@ -10,8 +10,7 @@ from flexpy.FlexPyUtil import (
 from flexpy.tags.RtLexEntry import RtLexEntry
 from flexpy.tags.RtWfiAnalysis import RtWfiAnalysis
 from flexpy.tags.RtWfiMorphBundle import RtWfiMorphBundle
-
-
+from flexpy.tags.RtWfiWordform import RtWfiWordform
 
 
 class WordForm:
@@ -31,24 +30,40 @@ class WordForm:
     :param tag_dict:
     :type tag_dict: TagDict
     """
-    def __init__(self, forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict):
+    def __init__(self, baseline, forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict):
         assert type(tag_dict) is TagDict, type(tag_dict)
         self.tag_dict = tag_dict
+        self.baseline = baseline
         self.morpheme_forms = forms
         self.citation_forms = citation_forms
         self.morph_types = morph_types
         self.glosses = glosses
         self.poses = poses
         self.lex_entry_guids = lex_entry_guids
-        self.text = self.get_text()
         self.morphemes = self.get_morphemes()
 
     def __repr__(self):
-        return f"<WordForm {self.morpheme_forms} ({self.morph_types}) = ({self.poses}) {self.glosses}>"
+        return f"<WordForm \"{self.baseline}\" {self.morpheme_forms} ({self.morph_types}) = ({self.poses}) {self.glosses}>"
+
+    # for baseline, don't just join all the morpheme forms, e.g. some things might remain unparsed, or the morpheme form is zero, or some other such thing
+    # - need to get the actual baseline string that exists regardless of the word analysis
+    # TP1 22, first word is "hameme" (after beginning parenthesis)
+    # - rt StTxtPara > Segments > only one objsur > rt Segment > Analyses > second objsur (9ee17149-0f0e-4f05-a0e1-d24f61adb0ba)
+    # - rt WfiAnalysis with this ownerguid (this is not what we want, we want the rt with this guid itself)
+    # - rt WfiWordform with this guid > Form > AUni = "hameme"
+    # - but that could be the morpheme string rather than the word string
+    # another: TP1 2, "ahe" after "mbuma", in baseline it has no acute, in morpheme it does, so we want to get "ahe" with no acute here
+    # - rt StTxtPara > Segments > only one objsur > rt Segment > Analyses > seventh objsur (89e7660d-9a9b-4b51-8b13-a810805b415c)
+    # - rt WfiWordform with this guid > Form > AUni = "ahe", so this is the correct path to find baseline string
+    # - so rt WfiAnalysis has the MorphBundles and Meanings and other stuff associated with assigning an analysis to the wordform string itself
+    # - and the owner of the rt WfiAnalysis is the rt WfiWordform that contains the actual baseline wordform string
 
     @staticmethod
     def from_rt_wfi_analysis(rt_wfi_analysis, tag_dict):
         assert type(rt_wfi_analysis) is RtWfiAnalysis, type(rt_wfi_analysis)
+        owner = rt_wfi_analysis.get_owner()
+        assert type(owner) is RtWfiWordform, type(owner)
+        baseline = get_single_str_from_form(owner.Form())
         morph_bundles = rt_wfi_analysis.MorphBundles().RtWfiMorphBundle()
         forms = WordForm.create_forms(morph_bundles)
         citation_forms = WordForm.create_citation_forms(morph_bundles)
@@ -56,7 +71,7 @@ class WordForm:
         glosses = WordForm.create_glosses(morph_bundles)
         poses = WordForm.create_poses(morph_bundles)
         lex_entry_guids = WordForm.create_lex_entry_guids(morph_bundles)
-        return WordForm(forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
+        return WordForm(baseline, forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
 
     @staticmethod
     def from_rt_wfi_gloss(rt_wfi_gloss, tag_dict):
@@ -67,6 +82,7 @@ class WordForm:
 
         gloss_owner = rt_wfi_gloss.get_owner()
         if type(gloss_owner) is RtWfiMorphBundle:
+            raise Exception("owner is a morph bundle")
             # unknown stuff from WfiGloss, get it from owner object
             rt_wfi_morph_bundle = gloss_owner
             form = WordForm.get_form_from_morph_bundle(rt_wfi_morph_bundle)
@@ -78,7 +94,7 @@ class WordForm:
             pos = WordForm.get_pos_name_from_morph_bundle(rt_wfi_morph_bundle)
             poses = [pos]
             lex_entry_guids = WordForm.get_lex_entry_guid_from_morph_bundle(rt_wfi_morph_bundle)
-            return WordForm(forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
+            return WordForm(baseline, forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
         elif type(gloss_owner) is RtWfiAnalysis:
             wordform_from_wfi_analysis = WordForm.from_rt_wfi_analysis(gloss_owner, tag_dict)
 
@@ -86,21 +102,21 @@ class WordForm:
             # wordform_from_wfi_analysis.glosses = glosses  # overwrite with the more accurate gloss we already know
             return wordform_from_wfi_analysis
         else:
-            raise TypeError("can't handle gloss owner: {}".format(rt_wfi_morph_bundle))
+            raise TypeError("can't handle gloss owner: {}".format(gloss_owner))
     
     @staticmethod
     def from_rt_wfi_wordform(rt_wfi_wordform, tag_dict):
         # if we're here, it's because we just need the form and can't get anything else
         # the WfiWordform may indeed have some Analyses (if it is a wordform known in the Word Analyses tab)
         # - but here we don't know which analysis it should have, so don't get any parse data
-        form = get_single_str_from_form(rt_wfi_wordform.Form())
-        forms = [form]
+        baseline = get_single_str_from_form(rt_wfi_wordform.Form())
+        forms = [baseline]
         citation_forms = [None]
         morph_types = [None]
         glosses = [None]
         poses = [None]
         lex_entry_guids = [None]
-        return WordForm(forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
+        return WordForm(baseline, forms, citation_forms, morph_types, glosses, poses, lex_entry_guids, tag_dict)
 
     # def create_analyses(self):
     #     # one WordAnalysis object for each separate analysis of the word (i.e. different glosses of the morphemes)
@@ -330,11 +346,6 @@ class WordForm:
             return None
         assert len(glosses) == 1, glosses
         return glosses[0]
-
-    def get_text(self):
-        # don't just join all the forms, e.g. some things might remain unparsed, or the morpheme form is zero, or some other such thing
-        # need to get the actual baseline string
-        return "TODO baseline string"
 
     def get_root_pos(self):
         root_indices = [i for i, x in enumerate(self.morph_types) if x == "root"]

@@ -8,7 +8,7 @@ class PunctuationForm:
     :type text: str
     """
     def __init__(self, text):
-        self.text = text
+        self.baseline = text
 
     @staticmethod
     def from_rt_punctuation_form(rt_punctuation_form, tag_dict):
@@ -23,11 +23,8 @@ class PunctuationForm:
         return PunctuationForm(text)
     
     def is_end_of_sentence(self):
-        return self.text in [".", "?", "!", "..."]
+        return self.baseline in [".", "?", "!", "..."]
     
     def __repr__(self):
-        return "<PunctuationForm \"{}\">".format(self.text)
-    
-    def get_text(self):
-        return self.text
+        return "<PunctuationForm \"{}\">".format(self.baseline)
     
