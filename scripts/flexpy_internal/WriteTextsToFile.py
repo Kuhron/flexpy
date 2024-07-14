@@ -91,13 +91,13 @@ for text in corpus.texts:
         free_translation_str = "" if free_translation_str is None else free_translation_str
 
         paragraph_lines = [
-            f"Location: {text.abbreviation} {paragraph_number}", 
-            "Word:" + word_delimiter + word_delimiter.join(word_str_items),
-            "Morphemes:" + word_delimiter + word_delimiter.join(morpheme_str_items),
-            "LexEntries:" + word_delimiter + word_delimiter.join(lex_entry_str_items),
-            "LexGloss:" + word_delimiter + word_delimiter.join(lex_gloss_str_items),
-            "LexGramInfo:" + word_delimiter + word_delimiter.join(lex_gram_info_str_items),
-            "Free:" + word_delimiter + free_translation_str,
+            f"Ln:\t{text.abbreviation} {paragraph_number}", #  Location
+            "Bl:" + word_delimiter + word_delimiter.join(word_str_items),  # Word / baseline
+            "Mp:" + word_delimiter + word_delimiter.join(morpheme_str_items),  # Morphemes
+            "Lx:" + word_delimiter + word_delimiter.join(lex_entry_str_items),  # LexEntries
+            "Gl:" + word_delimiter + word_delimiter.join(lex_gloss_str_items),  # Lex Gloss
+            "Wc:" + word_delimiter + word_delimiter.join(lex_gram_info_str_items),  # Lex Gram Info / word class
+            "Fr:" + word_delimiter + free_translation_str,  # Free
         ]
         lines_to_write += paragraph_lines + [""]
     with open(output_fp, "w") as f:
