@@ -91,7 +91,7 @@ class TextParagraph:
                     # varname "wordform" misleading in this case, but keeping just so it is appended like usual
                 else:
                     print("not making wordform from child {}".format(child_obj))
-                    input("check")
+                    # input("check")
                     continue  # don't append the wordform var from previous loop iteration
 
                 if wordform is not None:
