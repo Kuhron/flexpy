@@ -75,7 +75,7 @@ class Text:
 
     def create_paragraphs(self, include_punctuation):
         assert type(include_punctuation) is bool
-        # print("creating paragraphs for text {}".format(self))
+        print("creating paragraphs for text {}".format(self))
         text_paragraphs = []
         if self.st_texts is None:
             # print("- no paragraphs found")
@@ -85,7 +85,7 @@ class Text:
             paragraphs_el = st_text.Paragraphs()
             rt_st_txt_paras = paragraphs_el.RtStTxtPara()
             for rt_st_txt_para_i, rt_st_txt_para in enumerate(rt_st_txt_paras):
-                print(f"creating paragraph {self.abbreviation} {rt_st_txt_para_i+1}")
+                # print(f"creating paragraph {self.abbreviation} {rt_st_txt_para_i+1}")
                 # print("RtStTxtPara {}/{}".format(rt_st_txt_para_i+1, len(rt_st_txt_paras)))
                 pg_num = rt_st_txt_para_i + 1
                 text_paragraph = TextParagraph(rt_st_txt_para, pg_num, self.tag_dict, include_punctuation)
